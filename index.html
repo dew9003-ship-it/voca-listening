@@ -94,7 +94,8 @@
         const STORAGE_KEY = 'vocaListenProgress';
         const ADMIN_PASSWORD = '569020';
         const urlParams = new URLSearchParams(window.location.search);
-        const FORCE_UNLOCK_INDEX = Number(urlParams.get('unlock') || db.length);
+        const unlockParam = urlParams.get('unlock');
+        const FORCE_UNLOCK_INDEX = unlockParam === null ? null : Number(unlockParam);
 
         let maxUnlockedIndex = Number(localStorage.getItem(STORAGE_KEY) || 0);
         if (!Number.isFinite(maxUnlockedIndex) || maxUnlockedIndex < 0) maxUnlockedIndex = 0;
@@ -220,9 +221,15 @@
 
         function renderMenu() {
             stageGrid.innerHTML = '';
-            const effectiveUnlockedIndex = Number.isFinite(FORCE_UNLOCK_INDEX)
-                ? Math.max(maxUnlockedIndex, Math.min(FORCE_UNLOCK_INDEX - 1, db.length - 1))
-                : maxUnlockedIndex;
+
+            let effectiveUnlockedIndex = maxUnlockedIndex;
+            if (FORCE_UNLOCK_INDEX !== null && Number.isFinite(FORCE_UNLOCK_INDEX)) {
+                effectiveUnlockedIndex = Math.max(
+                    maxUnlockedIndex,
+                    Math.min(FORCE_UNLOCK_INDEX - 1, db.length - 1)
+                );
+            }
+
             for (let i = 0; i < db.length; i++) {
                 const btn = document.createElement('button');
                 const isUnlocked = i <= effectiveUnlockedIndex;
