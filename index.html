@@ -94,7 +94,7 @@
         const STORAGE_KEY = 'vocaListenProgress';
         const ADMIN_PASSWORD = '569020';
         const urlParams = new URLSearchParams(window.location.search);
-        const FORCE_UNLOCK_INDEX = Number(urlParams.get('unlock') || NaN);
+        const FORCE_UNLOCK_INDEX = Number(urlParams.get('unlock') || db.length);
 
         let maxUnlockedIndex = Number(localStorage.getItem(STORAGE_KEY) || 0);
         if (!Number.isFinite(maxUnlockedIndex) || maxUnlockedIndex < 0) maxUnlockedIndex = 0;
