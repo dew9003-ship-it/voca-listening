@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>관리자 페이지</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #222;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    .btns {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .refresh-btn { background: #2196f3; color: white; }
+    .logout-btn { background: #607d8b; color: white; }
+    .home-btn { background: #4caf50; color: white; }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      margin-bottom: 16px;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .summary .item {
+      background: white;
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+    .summary .label {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+    .summary .value {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .status {
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+      background: white;
+    }
+    th, td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+      font-size: 14px;
+      vertical-align: middle;
+    }
+    th {
+      background: #f8fafc;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .badge-admin {
+      background: #fff3cd;
+      color: #8a6d3b;
+    }
+    .badge-student {
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+    .muted {
+      color: #888;
+    }
+    .progress-box {
+      min-width: 140px;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+    .progress-fill {
+      height: 100%;
+      background: #4caf50;
+      width: 0%;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <h1>관리자 페이지</h1>
+      <div class="btns">
+        <button class="refresh-btn" id="refreshBtn">새로고침</button>
+        <button class="home-btn" id="homeBtn">학습 페이지</button>
+        <button class="logout-btn" id="logoutBtn">로그아웃</button>
+      </div>
+    </div>
+
+    <div class="summary">
+      <div class="item">
+        <div class="label">전체 사용자 수</div>
+        <div class="value" id="totalUsers">-</div>
+      </div>
+      <div class="item">
+        <div class="label">학생 수</div>
+        <div class="value" id="totalStudents">-</div>
+      </div>
+      <div class="item">
+        <div class="label">관리자 수</div>
+        <div class="value" id="totalAdmins">-</div>
+      </div>
+      <div class="item">
+        <div class="label">진도 데이터 있는 사용자</div>
+        <div class="value" id="totalProgressUsers">-</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="status" id="status">불러오는 중...</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>이름</th>
+              <th>이메일</th>
+              <th>권한</th>
+              <th>반</th>
+              <th>user_id</th>
+              <th>max_index</th>
+              <th>진도율</th>
+              <th>가입일</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody">
+            <tr>
+              <td colspan="8">데이터를 불러오는 중입니다...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    const supabase = createClient(
+      'https://uuzhdxangctewuklvmlv.supabase.co',
+      'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
+    );
+
+    const TOTAL_SENTENCES = 177;
+
+    const statusEl = document.getElementById('status');
+    const tbody = document.getElementById('studentTableBody');
+
+    const totalUsersEl = document.getElementById('totalUsers');
+    const totalStudentsEl = document.getElementById('totalStudents');
+    const totalAdminsEl = document.getElementById('totalAdmins');
+    const totalProgressUsersEl = document.getElementById('totalProgressUsers');
+
+    document.getElementById('refreshBtn').addEventListener('click', loadAdminPage);
+    document.getElementById('homeBtn').addEventListener('click', () => {
+      location.href = 'index.html';
+    });
+    document.getElementById('logoutBtn').addEventListener('click', async () => {
+      await supabase.auth.signOut();
+      location.href = 'login.html';
+    });
+
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    function formatDate(value) {
+      if (!value) return '-';
+      const d = new Date(value);
+      if (Number.isNaN(d.getTime())) return value;
+      return d.toLocaleString('ko-KR');
+    }
+
+    function getRoleBadge(role) {
+      if (role === 'admin') {
+        return '<span class="badge badge-admin">admin</span>';
+      }
+      return '<span class="badge badge-student">student</span>';
+    }
+
+    function calcProgress(maxIndex) {
+      const safe = Number(maxIndex);
+      if (!Number.isFinite(safe) || safe < 0) {
+        return { percent: 0, text: '0 / 177' };
+      }
+
+      const completed = Math.min(safe, TOTAL_SENTENCES);
+      const percent = Math.min((completed / TOTAL_SENTENCES) * 100, 100);
+
+      return {
+        percent,
+        text: `${completed} / ${TOTAL_SENTENCES}`
+      };
+    }
+
+    async function requireAdmin() {
+      const { data: authData, error: authError } = await supabase.auth.getUser();
+
+      if (authError || !authData.user) {
+        alert('로그인이 필요합니다.');
+        location.href = 'login.html';
+        return null;
+      }
+
+      const user = authData.user;
+
+      const { data: me, error: meError } = await supabase
+        .from('profiles')
+        .select('user_id, email, name, role')
+        .eq('user_id', user.id)
+        .single();
+
+      if (meError) {
+        alert('내 프로필을 확인할 수 없습니다: ' + meError.message);
+        location.href = 'index.html';
+        return null;
+      }
+
+      if (!me || me.role !== 'admin') {
+        alert('관리자만 접근할 수 있습니다.');
+        location.href = 'index.html';
+        return null;
+      }
+
+      return user;
+    }
+
+    async function loadAdminPage() {
+      statusEl.textContent = '불러오는 중...';
+      tbody.innerHTML = '<tr><td colspan="8">데이터를 불러오는 중입니다...</td></tr>';
+
+      const user = await requireAdmin();
+      if (!user) return;
+
+      const { data: profiles, error: profilesError } = await supabase
+        .from('profiles')
+        .select('id, user_id, email, name, role, class_name, created_at')
+        .order('created_at', { ascending: false });
+
+      if (profilesError) {
+        console.error(profilesError);
+        statusEl.textContent = 'profiles 조회 실패';
+        tbody.innerHTML = `<tr><td colspan="8">profiles 조회 실패: ${escapeHtml(profilesError.message)}</td></tr>`;
+        return;
+      }
+
+      const { data: progressRows, error: progressError } = await supabase
+        .from('listening_progress')
+        .select('id, user_id, max_index, created_at')
+        .order('created_at', { ascending: false });
+
+      if (progressError) {
+        console.error(progressError);
+        statusEl.textContent = 'listening_progress 조회 실패';
+        tbody.innerHTML = `<tr><td colspan="8">progress 조회 실패: ${escapeHtml(progressError.message)}</td></tr>`;
+        return;
+      }
+
+      const progressMap = new Map();
+      for (const row of progressRows || []) {
+        if (!progressMap.has(row.user_id)) {
+          progressMap.set(row.user_id, row);
+        }
+      }
+
+      const totalUsers = (profiles || []).length;
+      const totalStudents = (profiles || []).filter(x => x.role === 'student').length;
+      const totalAdmins = (profiles || []).filter(x => x.role === 'admin').length;
+      const totalProgressUsers = progressMap.size;
+
+      totalUsersEl.textContent = totalUsers;
+      totalStudentsEl.textContent = totalStudents;
+      totalAdminsEl.textContent = totalAdmins;
+      totalProgressUsersEl.textContent = totalProgressUsers;
+
+      if (!profiles || profiles.length === 0) {
+        statusEl.textContent = '사용자 데이터가 없습니다.';
+        tbody.innerHTML = '<tr><td colspan="8">등록된 사용자가 없습니다.</td></tr>';
+        return;
+      }
+
+      const rowsHtml = profiles.map(profile => {
+        const progress = progressMap.get(profile.user_id);
+        const maxIndex = progress?.max_index ?? null;
+        const progressInfo = calcProgress(maxIndex);
+
+        return `
+          <tr>
+            <td>${escapeHtml(profile.name || '-')}</td>
+            <td>${escapeHtml(profile.email || '-')}</td>
+            <td>${getRoleBadge(profile.role)}</td>
+            <td>${escapeHtml(profile.class_name || '-')}</td>
+            <td style="font-size:12px;">${escapeHtml(profile.user_id || '-')}</td>
+            <td>${maxIndex ?? '<span class="muted">없음</span>'}</td>
+            <td class="progress-box">
+              <div>${escapeHtml(progressInfo.text)}</div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width:${progressInfo.percent}%"></div>
+              </div>
+            </td>
+            <td>${escapeHtml(formatDate(profile.created_at))}</td>
+          </tr>
+        `;
+      }).join('');
+
+      tbody.innerHTML = rowsHtml;
+      statusEl.textContent = `총 ${totalUsers}명의 사용자 데이터를 불러왔습니다.`;
+    }
+
+    loadAdminPage();
+  </script>
+</body>
+</html>
