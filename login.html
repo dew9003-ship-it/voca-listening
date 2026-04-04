@@ -253,7 +253,12 @@ if (!existingProfile) {
 }
 
 setMessage('로그인 성공!', false);
-location.href = 'index.html';
+
+if (existingProfile?.role === 'admin') {
+  location.href = 'admin.html';
+} else {
+  location.href = 'index.html';
+}
     });
 
     document.getElementById('password').addEventListener('keydown', (e) => {
