@@ -353,15 +353,18 @@ for (const row of progressRows || []) {
   progressMap.set(row.user_id, row);
 }
 
-      const merged = (classmates || []).map(profile => {
-        const progress = calcProgress(progressMap.get(profile.user_id));
-        return {
-          ...profile,
-          progressCompleted: progress.completed,
-          progressPercent: progress.percent,
-          progressText: progress.text
-        };
-      });
+     const merged = (classmates || []).map(profile => {
+  const progressRow = progressMap.get(profile.user_id);
+  const progress = calcProgress(progressRow?.max_index);
+
+  return {
+    ...profile,
+    progressCompleted: progress.completed,
+    progressPercent: progress.percent,
+    progressText: progress.text,
+    lastStudiedAt: progressRow?.last_studied_at || null
+  };
+});
 
       merged.sort((a, b) => {
         if (b.progressCompleted !== a.progressCompleted) {
