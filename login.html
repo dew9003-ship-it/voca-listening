@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>로그인</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </head>
 <body>
+  <h2>로그인</h2>
 
-<h2>로그인</h2>
+  <input type="email" id="email" placeholder="이메일" /><br /><br />
+  <input type="password" id="password" placeholder="비밀번호" /><br /><br />
 
-<input type="email" id="email" placeholder="이메일"><br><br>
-<input type="password" id="password" placeholder="비밀번호"><br><br>
+  <button id="loginBtn" type="button">로그인</button>
 
-<button onclick="login()">로그인</button>
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
-<script>
-const supabase = window.supabase.createClient(
-  "https://uuzhdxangctewuklvmlv.supabase.co",
-  "sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F"
-);
+    const supabase = createClient(
+      'https://uuzhdxangctewuklvmlv.supabase.co',
+      'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
+    );
 
-async function login() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+    const btn = document.getElementById('loginBtn');
 
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email,
-    password
-  });
+    btn.addEventListener('click', async () => {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
 
-  if (error) {
-  alert("로그인 실패: " + error.message);
-} else {
-  alert("로그인 성공");
-  window.location.href = "index.html";
-}
-}
-</script>
+      alert('버튼 클릭됨');
 
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
+
+      if (error) {
+        alert('로그인 실패: ' + error.message);
+        return;
+      }
+
+      alert('로그인 성공');
+      location.href = 'index.html';
+    });
+  </script>
 </body>
 </html>
