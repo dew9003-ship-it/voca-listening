@@ -160,17 +160,54 @@ async function requireAuth() {
             '축하합니다! 이 문장을 완전히 마스터하셨습니다!'
         ];
 
-        async function saveProgress(value) {
+       async function saveProgress(value) {
     maxUnlockedIndex = Math.min(value, db.length - 1);
     localStorage.setItem(STORAGE_KEY, String(maxUnlockedIndex));
 
     const { data, error } = await supabase.auth.getUser();
     if (error || !data.user) return;
 
-    await supabase.from('listening_progress').upsert({
-        user_id: data.user.id,
-        max_index: maxUnlockedIndex
-    });
+    const userId = data.user.id;
+
+    const { data: existingRow, error: fetchError } = await supabase
+        .from('listening_progress')
+        .select('user_id, max_index, reached_at, last_studied_at')
+        .eq('user_id', userId)
+        .maybeSingle();
+
+    if (fetchError) {
+        console.error('기존 진도 조회 실패:', fetchError);
+        alert('기존 진도 조회 실패: ' + fetchError.message);
+        return;
+    }
+
+    const now = new Date().toISOString();
+
+    const payload = {
+        user_id: userId,
+        max_index: maxUnlockedIndex,
+        last_studied_at: now
+    };
+
+    if (!existingRow) {
+        payload.reached_at = now;
+    } else if ((existingRow.max_index ?? -1) < maxUnlockedIndex) {
+        payload.reached_at = now;
+    } else {
+        payload.max_index = existingRow.max_index;
+        payload.reached_at = existingRow.reached_at;
+    }
+
+    const { error: progressError } = await supabase
+        .from('listening_progress')
+        .upsert(payload, {
+            onConflict: 'user_id'
+        });
+
+    if (progressError) {
+        console.error('listening_progress 저장 실패:', progressError);
+        alert('진도 저장 실패: ' + progressError.message);
+    }
 }
 
         function shuffleWords(words) {
