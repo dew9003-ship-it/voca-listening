@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>로그인</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<h2>로그인</h2>
+
+<input type="email" id="email" placeholder="이메일"><br><br>
+<input type="password" id="password" placeholder="비밀번호"><br><br>
+
+<button onclick="login()">로그인</button>
+
+<script>
+const supabase = window.supabase.createClient(
+  "https://uuzhdxangctewuklvmlv.supabase.co",
+  "sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F"
+);
+
+async function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    alert("로그인 실패");
+  } else {
+    alert("로그인 성공");
+    window.location.href = "index.html";
+  }
+}
+</script>
+
+</body>
+</html>
