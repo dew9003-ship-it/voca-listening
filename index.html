@@ -160,10 +160,18 @@ async function requireAuth() {
             '축하합니다! 이 문장을 완전히 마스터하셨습니다!'
         ];
 
-        function saveProgress(value) {
-            maxUnlockedIndex = Math.min(value, db.length - 1);
-            localStorage.setItem(STORAGE_KEY, String(maxUnlockedIndex));
-        }
+        async function saveProgress(value) {
+    maxUnlockedIndex = Math.min(value, db.length - 1);
+    localStorage.setItem(STORAGE_KEY, String(maxUnlockedIndex));
+
+    const { data, error } = await supabase.auth.getUser();
+    if (error || !data.user) return;
+
+    await supabase.from('listening_progress').upsert({
+        user_id: data.user.id,
+        max_index: maxUnlockedIndex
+    });
+}
 
         function shuffleWords(words) {
             const arr = [...words];
