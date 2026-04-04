@@ -463,19 +463,4 @@ So the next time you have an argument with them, try one of these.
             await Navigation.PopAsync(); 
         }
     }
-function showMenu() {
-            stopAudio(true);
-            modalOverlay.style.display = 'none';
-            gameView.style.display = 'none';
-            menuView.style.display = 'flex';
-            async function init() {
-            const user = await requireAuth();
-            if (!user) return;
-
-            renderMenu();
-        }
-
-        init();
-        }
-
-        }
+}
