@@ -339,8 +339,8 @@
       }
 
       const { data: progressRows, error: progressError } = await supabase
-        .from('listening_progress')
-        .select('user_id, max_index');
+  .from('listening_progress')
+  .select('user_id, max_index, last_studied_at');
 
       if (progressError) {
         statusEl.textContent = '진도 조회 실패';
