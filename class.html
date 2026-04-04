@@ -349,9 +349,9 @@
       }
 
       const progressMap = new Map();
-      for (const row of progressRows || []) {
-        progressMap.set(row.user_id, row.max_index);
-      }
+for (const row of progressRows || []) {
+  progressMap.set(row.user_id, row);
+}
 
       const merged = (classmates || []).map(profile => {
         const progress = calcProgress(progressMap.get(profile.user_id));
