@@ -1,422 +1,481 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Listening Academy</title>
-    <style>
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f0f4f8; user-select: none; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
-        .top-ctrl-bar { display: flex; align-items: center; gap: 5px; padding: 5px; background: #fff; border-bottom: 1px solid #ddd; height: 50px; flex-shrink: 0; }
-        #progressText { font-size: 14px; font-weight: bold; color: #007bff; min-width: 58px; text-align: center; }
-        .btn { border: none; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; height: 38px; }
-        #playBtn { flex: 1.2; background: #ff9800; color: white; font-size: 14px; }
-        #speedControl { flex: 1; height: 38px; border-radius: 6px; border: 1px solid #ccc; font-size: 13px; }
-        #checkBtn { flex: 1.5; background: #4caf50; color: white; font-size: 14px; }
-        .back-btn { background: #607d8b; color: white; width: 35px; font-size: 16px; }
+using Microsoft.Maui.Controls;
+using System;
+using System.Collections.Generic;
+using System.Text.Json;
 
-        #meaningBox { padding: 8px; background: #e3f2fd; border-bottom: 1px solid #bbdefb; text-align: center; font-weight: bold; font-size: 15px; color: #1565c0; display: none; line-height: 1.4; }
-        #stepLabel { font-size: 12px; color: #ff5722; text-align: center; margin-top: 3px; font-weight: bold; }
+namespace VocaEnding.App;
 
-        #contentArea { flex: 1; display: flex; flex-direction: column; padding: 10px; overflow-y: auto; }
-        #step1Area { display: flex; flex-direction: column; min-height: 100%; gap: 10px; }
-        .drop-zone { min-height: 100px; border: 2px dashed #007bff; border-radius: 10px; background: #fff; display: flex; flex-wrap: wrap; gap: 8px; padding: 10px; align-content: flex-start; justify-content: center; }
-        .word-bank { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-content: flex-start; padding-bottom: 20px; }
-        .word-btn { padding: 8px 12px; font-size: 14px; border-radius: 8px; background: #2196f3; color: white; border: none; font-weight: bold; box-shadow: 0 3px #0b7dda; cursor: pointer; }
+public partial class ListeningPage : ContentPage
+{
+    public ListeningPage()
+    {
+        InitializeComponent();
+        LoadListeningContent();
 
-        #step2Area { display: none; padding-top: 5px; }
-        .type-input { width: 100%; height: 60px; padding: 10px; font-size: 18px; border: 2px solid #007bff; border-radius: 10px; outline: none; }
-
-        #menuView { flex: 1; display: flex; flex-direction: column; padding: 10px; overflow-y: auto; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: 10px; }
-        .stage-btn { aspect-ratio: 1; font-size: 18px; border-radius: 12px; border: none; font-weight: bold; cursor: pointer; }
-        .stage-unlocked { background: #4caf50; color: white; }
-        .stage-locked { background: #e0e0e0; color: #9e9e9e; }
-
-        #modalOverlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 2000; }
-        .modal-content { background: #fff; border-radius: 15px; padding: 20px; width: 85%; max-width: 320px; text-align: center; }
-        .m-btn { width: 100%; padding: 15px; margin-top: 10px; border-radius: 10px; border:none; font-weight: bold; font-size: 16px; cursor: pointer; }
-
-        .reset-btn { margin-top:10px; width:100%; padding:8px; font-size:12px; color: #ff6666; background:none; border:none; text-decoration:underline; cursor:pointer; }
-        .guide-box { margin-top: 10px; padding: 10px; background: #fff; border-radius: 10px; font-size: 13px; color: #555; line-height: 1.5; }
-    </style>
-</head>
-<body>
-    <div id="menuView">
-        <h3 style="text-align:center; margin: 10px 0;">🎧 Listening Academy (177 문장)</h3>
-        <div id="stageGrid" class="grid-container"></div>
-        <button id="resetProgressBtn" class="reset-btn">학습 기록 초기화 (관리자 전용)</button>
-        <button id="exitBtn" style="margin-top:10px; min-height:55px; background:#607d8b; color:white; border:none; border-radius:10px; font-weight:bold; font-size:16px;">🚪 나가기</button>
-        <div class="guide-box">
-            진행 저장: 이 기기 브라우저에 자동 저장됩니다.<br>
-            오디오는 audio/1.mp3 ~ audio/179.mp3 중 64, 65를 건너뛰도록 연결되어 있습니다.
-        </div>
-    </div>
-
-    <div id="gameView" style="display:none; height:100%; flex-direction:column;">
-        <div class="top-ctrl-bar">
-            <button class="btn back-btn" id="backBtn">◀</button>
-            <div id="progressText">1/177</div>
-            <button id="playBtn" class="btn">🔊 듣기</button>
-            <select id="speedControl">
-                <option value="0.8">0.8x</option>
-                <option value="1.0" selected>1.0x</option>
-                <option value="1.2">1.2x</option>
-            </select>
-            <button id="checkBtn" class="btn">제출</button>
-        </div>
-
-        <div id="meaningBox">한글 뜻 표시 영역</div>
-        <div id="stepLabel">Step 1</div>
-
-        <div id="contentArea">
-            <div id="step1Area">
-                <div id="answerArea" class="drop-zone"></div>
-                <div id="wordBank" class="word-bank"></div>
-            </div>
-            <div id="step2Area">
-                <input type="text" id="typeInput" class="type-input" placeholder="문장을 입력하세요..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-            </div>
-        </div>
-    </div>
-
-    <div id="modalOverlay">
-        <div class="modal-content">
-            <h3 id="mTitle" style="margin:0 0 10px 0;">결과</h3>
-            <p id="mMsg" style="margin:0 0 20px 0; line-height:1.4;"></p>
-            <button class="m-btn" id="mYes" style="background:#4caf50; color:white;">확인 (Enter)</button>
-            <button class="m-btn" id="mNo" style="background:#eee; color:#333;">목록으로</button>
-        </div>
-    </div>
-
-    <script type="module">
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
-
-const supabase = createClient(
-  'https://uuzhdxangctewuklvmlv.supabase.co',
-  'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
-);
-        const db = [{"en": "Emily, what are you doing this weekend?", "ko": "Emily, 이번 주말에 무엇을 할 거니?", "audioUrl": "audio/1.mp3"}, {"en": "I’m going out for dinner to celebrate my friend Jenny’s birthday.", "ko": "내 친구 Jenny의 생일을 축하하기 위해 저녁을 먹으러 나갈 거야.", "audioUrl": "audio/2.mp3"}, {"en": "Sounds fun. Did you get something for her?", "ko": "재미있게 들린다. 그녀에게 줄 것을 뭔가 샀니?", "audioUrl": "audio/3.mp3"}, {"en": "Mr. Lee, do you have time to talk about our winter team-building workshop?", "ko": "Mr. Lee, 우리의 동계 팀웍 다지기 워크숍에 대해 이야기할 시간이 있습니까?", "audioUrl": "audio/4.mp3"}, {"en": "Sure. Actually, I was wondering if you had found any good locations yet.", "ko": "물론이죠. 사실 저는 당신이 어떤 좋은 장소를 벌써 찾았는지 궁금해 하고 있었어요.", "audioUrl": "audio/5.mp3"}, {"en": "Yes, I have, and we have some options. Here, I picked up some brochures from the travel agency.", "ko": "네, 이미 찾았고 우리는 몇 개의 선택이 있어요. 내가 여행사에서 안내 책자 몇 권을 집어왔는데, 여기 있어요.", "audioUrl": "audio/6.mp3"}, {"en": "May I have your attention please?", "ko": "여러분, 주목해 주세요.", "audioUrl": "audio/7.mp3"}, {"en": "This is principal Wilson.", "ko": "저는 교장 Wilson입니다.", "audioUrl": "audio/8.mp3"}, {"en": "As you know, this Friday is the last day of our month-long item donation event.", "ko": "아시다시피 이번 금요일은 우리의 한 달 동안의 물품 기부 행사의 마지막 날입니다.", "audioUrl": "audio/9.mp3"}, {"en": "Thank you to those who have already participated.", "ko": "이미 참석한 사람들에게 감사드립니다.", "audioUrl": "audio/10.mp3"}, {"en": "However, our involvement in the event has not met expectations yet, so we need to do more.", "ko": "그러나 그 행사에 대한 우리의 참여가 아직 기대에 미치지 못해서 우리는 더 많은 것을 할 필요가 있습니다.", "audioUrl": "audio/11.mp3"}, {"en": "The items we are still looking for are children’s clothes, toys, school supplies, and books.", "ko": "우리가 아직도 찾고 있는 물품은 어린이옷, 장난감, 학용품 그리고 책입니다.", "audioUrl": "audio/12.mp3"}, {"en": "If you have any of these items, please drop them off in the school cafeteria by Friday.", "ko": "이 물품들을 어느 것이라도 갖고 있으면 금요일까지 학교 식당으로 가져다 놓으세요.", "audioUrl": "audio/13.mp3"}, {"en": "Any donation, even just a single pencil, will be a great help.", "ko": "어떤 기부도, 심지어 단 하나의 연필도 큰 도움이 될 것입니다.", "audioUrl": "audio/14.mp3"}, {"en": "Don’ forget that your small actions can make a big difference.", "ko": "여러분의 작은 행동이 큰 영향을 미칠 수 있다는 것을 잊지 마세요.", "audioUrl": "audio/15.mp3"}, {"en": "I really encourage you to participate in this event.", "ko": "여러분이 이 행사에 참여하기를 정말로 권장합니다.", "audioUrl": "audio/16.mp3"}, {"en": "Thank you for listening.", "ko": "들어주어서 감사합니다.", "audioUrl": "audio/17.mp3"}, {"en": "Brian, you look really tired.", "ko": "Brian, 너 정말로 피곤해 보인다.", "audioUrl": "audio/18.mp3"}, {"en": "Yeah, I’ve been having difficulty sleeping recently.", "ko": "그래, 나는 요즘 잠을 자는데 애를 먹고 있어.", "audioUrl": "audio/19.mp3"}, {"en": "Why? Is something troubling you?", "ko": "왜? 뭔가가 너를 괴롭히고 있니?", "audioUrl": "audio/20.mp3"}, {"en": "Not really, but I don’t know how to get over this problem.", "ko": "그렇지는 않지만 이 문제를 어떻게 극복해야 할지 모르겠어.", "audioUrl": "audio/21.mp3"}, {"en": "Well, keeping a regular sleep pattern can help.", "ko": "음, 규칙적인 수면 패턴을 지키는 것이 도움이 될 수 있어.", "audioUrl": "audio/22.mp3"}, {"en": "I usually go to bed and wake up at the same time every day, but it doesn’t work.", "ko": "나는 보통 매일 똑같은 시간에 잠을 자고 잠에서 깨지만 그것이 효과가 없어.", "audioUrl": "audio/23.mp3"}, {"en": "Hmm, do you do anything particular before bed?", "ko": "음, 잠자기 전에 특별한 것이라도 하니?", "audioUrl": "audio/24.mp3"}, {"en": "Well, I use my phone to play games or text with friends for a little while.", "ko": "음, 나는 전화를 사용해서 잠깐 동안 게임을 하거나 친구와 문자 메시지를 주고받아.", "audioUrl": "audio/25.mp3"}, {"en": "Oh, that’s not good. It’s important not to use media devices for at least an hour before sleep.", "ko": "아, 그것은 좋지 않아. 잠자기 전에 적어도 한 시간 동안 미디어 기기를 사용하지 않는 것이 중요해.", "audioUrl": "audio/26.mp3"}, {"en": "Really? I thought it would help relieve my stress.", "ko": "정말? 나는 그것이 내 스트레스를 없애는데 도움이 될 거라고 생각했는데.", "audioUrl": "audio/27.mp3"}, {"en": "It can overexcite your senses and cause trouble sleeping.", "ko": "그것이 네 감각을 너무 자극시키고 수면 장애를 일으킬 수 있어.", "audioUrl": "audio/28.mp3"}, {"en": "I see.", "ko": "알겠어.", "audioUrl": "audio/29.mp3"}, {"en": "One other tip for sound sleep is to drink some warm milk before bed.", "ko": "깊은 수면을 위한 다른 하나의 조언은 자기 전에 따뜻한 우유를 좀 마시는 거야.", "audioUrl": "audio/30.mp3"}, {"en": "Okay, I’ll try those things and see if they work. Thanks.", "ko": "좋았어, 내가 그것들을 시도해보고 효과가 있는지 알아볼게. 고마워.", "audioUrl": "audio/31.mp3"}, {"en": "Good evening, Ms. Jackson. Thank you for joining us.", "ko": "안녕하세요, Jackson 씨. 저희와 함께 해 주셔서 감사합니다.", "audioUrl": "audio/32.mp3"}, {"en": "I’m happy to be here.", "ko": "함께 해서 저도 기쁩니다.", "audioUrl": "audio/33.mp3"}, {"en": "Well, before the main part of the show, can you give the audience any simple tips for the kitchen?", "ko": "본격적인 프로그램에 들어가기 전에 시청자들에게 부엌을 위한 간단한 조언을 해주실 수 있나요?", "audioUrl": "audio/34.mp3"}, {"en": "Sure. Sometimes we have to cook without enough time to go grocery shopping, like when we have unexpected guests, right?", "ko": "물론이죠. 가끔 우리는 예기치 않은 손님이 찾아 올 때와 같이, 장을 볼 충분한 시간이 없이 요리를 해야 하죠, 그렇죠?", "audioUrl": "audio/35.mp3"}, {"en": "Yeah, that happens. As a professional, what would you do in such a case? Our audience may want to know.", "ko": "네. 그런 일이 생기지요. 전문가로서 그런 경우에 당신은 어떻게 합니까? 저희 시청자들이 알고 싶어 할 것 같아서요.", "audioUrl": "audio/36.mp3"}, {"en": "Well, throwing a quick meal together is easy if you have some basic ingredients.", "ko": "여러분이 기본적인 재료를 가지고 있으면 음식을 빨리 차려 내는 것이 쉽지요.", "audioUrl": "audio/37.mp3"}, {"en": "Please, tell us what those are.", "ko": "그것들이 무엇인지 저희에게 말씀해 주시겠어요.", "audioUrl": "audio/38.mp3"}, {"en": "First, 300 to 400 grams of frozen pork or beef is useful.", "ko": "먼저, 300에서 400 그램의 냉동 돼지고기나 소고기가 있으면 유용하지요.", "audioUrl": "audio/39.mp3"}, {"en": "I see. What else?", "ko": "알겠습니다. 다른 것은요?", "audioUrl": "audio/40.mp3"}, {"en": "I also recommend potatoes and onions. With these ingredients, you can make so many different dishes.", "ko": "감자와 양파도 또한 추천해 드립니다. 이러한 재료들을 가지고, 여러분은 너무나 많은 다양한 요리를 만들 수 있습니다.", "audioUrl": "audio/41.mp3"}, {"en": "Thanks for the tip. Now, let’s move on to your special recipe.", "ko": "조언을 해 주셔서 감사드립니다. 이제, 당신의 특별 요리법으로 넘어가 보지요.", "audioUrl": "audio/42.mp3"}, {"en": "Honey, how’s the preparation going for Amy’s birthday party?", "ko": "여보, Amy의 생일 파티를 위한 준비는 어떻게 돼가고 있어요?", "audioUrl": "audio/43.mp3"}, {"en": "Almost done. We just need to find some places to hide the candy for the kids’ treasure hunt.", "ko": "거의 다 됐어요. 아이들의 보물찾기를 위해 사탕을 숨길 장소를 찾기만 하면 돼요.", "audioUrl": "audio/44.mp3"}, {"en": "Okay. Would the water fountain next to the steps be good?", "ko": "좋아요. 계단 옆에 있는 분수대가 좋지 않을까요?", "audioUrl": "audio/45.mp3"}, {"en": "Hmm.... If we put the candy there, it would get wet. Let’s choose somewhere dry. How about the flower pot in front of the window?", "ko": "음.... 우리가 사탕을 거기에 두면, 젖어 버릴 거예요. 젖지 않는 다른 곳으로 선택해 봅시다. 창문 앞에 있는 화분은 어때요?", "audioUrl": "audio/46.mp3"}, {"en": "Yeah, I think that’s good. We could also put some in the basket on the table.", "ko": "네, 좋은 것 같아요. 또 일부는 탁자 위에 있는 바구니에 놓아 둘 수도 있을 것 같아요.", "audioUrl": "audio/47.mp3"}, {"en": "Great. Then, I’ll sit in the chair beside the table and pretend nothing’s there.", "ko": "훌륭해요. 그러면 나는 탁자 옆에 있는 의자에 앉아 있으면서 거기에 아무것도 없는 척 할게요.", "audioUrl": "audio/48.mp3"}, {"en": "I like that idea. Now, let’s find one more place.", "ko": "그 아이디어가 마음에 들어요. 이제 한 장소만 더 찾아봅시다.", "audioUrl": "audio/49.mp3"}, {"en": "All right. Umm, the bunny would be good.", "ko": "좋아요. 음, 토끼가 좋겠네요.", "audioUrl": "audio/50.mp3"}, {"en": "You’re right.", "ko": "맞아요.", "audioUrl": "audio/51.mp3"}, {"en": "We could put the rest of the candy inside the hat in the bunny’s hand.", "ko": "나머지 캔디는 토끼의 손에 있는 모자 안에 둘 수 있을 것 같아요.", "audioUrl": "audio/52.mp3"}, {"en": "Perfect! I hope the kids have fun.", "ko": "완벽해요! 아이들이 즐거워했으면 좋겠어요.", "audioUrl": "audio/53.mp3"}, {"en": "Eva, I’ve decided to run for student council president!", "ko": "Eva, 내가 학생회장에 입후보하기로 결정했어.", "audioUrl": "audio/54.mp3"}, {"en": "Great, Matthew!", "ko": "잘 했어, Matthew!", "audioUrl": "audio/55.mp3"}, {"en": "Now I need to start working on some campaign promises.", "ko": "이제 난 선거공약을 좀 준비하는 일에 착수해야 해.", "audioUrl": "audio/56.mp3"}, {"en": "You’re right. You’ll have to think about what the students want. By the way, did you hear Tony Johnson is running, too?", "ko": "맞아. 넌 학생들이 무엇을 원하는지에 대해 생각을 해야만 해. 그건 그렇고, 너Tony Johnson도 출마할 거라는 이야기는 들었니?", "audioUrl": "audio/57.mp3"}, {"en": "Yeah, I know. I don’t think it’ll be easy to win without a good campaign team.", "ko": "그래, 나도 알고 있어. 좋은 선거 유세 팀 없이는 이기기가 쉽지 않을 거라고 생각해.", "audioUrl": "audio/58.mp3"}, {"en": "That’s true. You’ll need people to help you with posters, speeches, and everything else.", "ko": "그건 사실이야. 넌 포스터와 연설과 모든 다른 것들에 있어서 너를 도와 줄 사람들을 필요로 할 거야.", "audioUrl": "audio/59.mp3"}, {"en": "Exactly. So I need an adviser like you for my campaign. Can you give me a hand?", "ko": "맞아. 그래서 나는 선거유세를 위해 너와 같은 자문위원이 필요해. 나를 도와 줄수 있니?", "audioUrl": "audio/60.mp3"}, {"en": "Me? I’d love to help, but do you really think I’m qualified for that position?", "ko": "내가? 도와주고야 싶지만, 넌 정말로 내가 그 자리에 자격이 있다고 생각하니?", "audioUrl": "audio/61.mp3"}, {"en": "Of course. You’ll be a great help with the election.", "ko": "물론이지. 넌 선거에 크게 도움이 될 거야.", "audioUrl": "audio/62.mp3"}, {"en": "Then, okay. I’ll do my best.", "ko": "그럼, 좋아. 최선을 다해 볼게.", "audioUrl": "audio/63.mp3"}, {"en": "Hey, Sarah. It’s Alex. I have a question for you.", "ko": "안녕, Sarah. Alex야. 너에게 물어볼 것이 있어.", "audioUrl": "audio/66.mp3"}, {"en": "Sure. What’s up?", "ko": "그래. 뭔데?", "audioUrl": "audio/67.mp3"}, {"en": "Well, I’ve got two tickets to the National Baseball Championship next Friday, but unfortunately I can’t go. Do you want them?", "ko": "다음 주 금요일에 열리는 전국 야구 선수권대회 표를 내가 두 장 가지고 있는데, 불행하게도 난 갈 수가 없어. 표를 원하니?", "audioUrl": "audio/68.mp3"}, {"en": "Yes, of course, but I thought the tickets were sold out.", "ko": "그럼, 물론이지. 하지만 난 표가 다 팔렸다고 생각했는데.", "audioUrl": "audio/69.mp3"}, {"en": "They are. But my company buys tickets to every game in advance, and I was able to get some.", "ko": "그래. 하지만 우리 회사는 모든 경기의 표를 미리 사두어서 내가 몇 장을 구할 수 있었어.", "audioUrl": "audio/70.mp3"}, {"en": "That’s cool, but why can’t you go?", "ko": "잘 된 일인데, 넌 왜 갈 수 없니?", "audioUrl": "audio/71.mp3"}, {"en": "I have to fly out of town for an important meeting with a client on that day, so I can’t make it.", "ko": "난 그날 고객과 중요한 회의가 있어서 비행기를 타고 시외로 나가야해서 경기를 볼 수 없어.", "audioUrl": "audio/72.mp3"}, {"en": "Maybe you can take your brother with you.", "ko": "네가 네 남동생을 데리고 함께 갈 수 있을 것 같은데.", "audioUrl": "audio/73.mp3"}, {"en": "Yeah, he’d love to go. But I feel sorry that you can’t go to the game because of work.", "ko": "그래, 그도 가고 싶어 할 거야. 하지만 네가 일 때문에 경기에 갈 수 없어서 미안한 마음이구나.", "audioUrl": "audio/74.mp3"}, {"en": "Don’t worry about it. Enjoy the game.", "ko": "그건 걱정하지 마. 경기나 즐겁게 봐.", "audioUrl": "audio/75.mp3"}, {"en": "May I help you?", "ko": "도와드릴까요?", "audioUrl": "audio/76.mp3"}, {"en": "That cheese cake looks delicious! How much is it?", "ko": "저 치즈 케이크가 맛있어 보이네요! 얼마죠?", "audioUrl": "audio/77.mp3"}, {"en": "It’s 30 dollars for the whole cake or 5 dollars per piece.", "ko": "케이크 전체에 30달러 또는 조각 당 5달러입니다.", "audioUrl": "audio/78.mp3"}, {"en": "Okay. I’ll take two pieces.", "ko": "좋습니다. 두 조각을 사겠습니다.", "audioUrl": "audio/79.mp3"}, {"en": "Would you like ice cream with your cake? It’s two dollars per scoop.", "ko": "케이크와 함께 아이스크림을 사시겠습니까? 한 주걱에 2달러입니다.", "audioUrl": "audio/80.mp3"}, {"en": "No, thanks.", "ko": "아뇨, 괜찮습니다.", "audioUrl": "audio/81.mp3"}, {"en": "All right. Would you like anything to drink?", "ko": "알겠습니다. 음료도 하시겠습니까?", "audioUrl": "audio/82.mp3"}, {"en": "Yes, I’ll have two medium coffees.", "ko": "네, 보통 크기로 커피 두 잔 부탁합니다.", "audioUrl": "audio/83.mp3"}, {"en": "A medium coffee is 3 dollars and a large one is 6 dollars. But since you’re buying cake, each large coffee costs just 5 dollars.", "ko": "보통 크기 커피는 3달러이고 큰 것은 6달러입니다. 하지만 케이크를 구매하시므로, 크기가 큰 것을 개당 5달러만 내시면 됩니다.", "audioUrl": "audio/84.mp3"}, {"en": "Great! Make them large then, please.", "ko": "좋습니다! 그렇다면 큰 것으로 주세요.", "audioUrl": "audio/85.mp3"}, {"en": "So, that’s two pieces of cheese cake and two large coffees. Do you need anything else?", "ko": "그렇다면 치즈 케이크 두 조각과 커피 큰 것으로 두 개네요. 또 다른 것 필요하신 가요?", "audioUrl": "audio/86.mp3"}, {"en": "No, but I have a discount coupon. Can I use it now?", "ko": "아뇨, 그런데 제가 할인 쿠폰이 있습니다. 그것을 지금 써도 될까요?", "audioUrl": "audio/87.mp3"}, {"en": "Let me see. Sure. You get 10% off the total price.", "ko": "잠시만요. 물론이지요. 총액에서 10%가 할인 되네요.", "audioUrl": "audio/88.mp3"}, {"en": "Oh, great. Here's my credit card.", "ko": "오, 좋습니다. 여기 제 신용카드가 있습니다", "audioUrl": "audio/89.mp3"}, {"en": "Hey, Jennifer. There's something different about you today.", "ko": "안녕, Jennifer. 오늘 뭔가 달라 보이네요.", "audioUrl": "audio/90.mp3"}, {"en": "Yeah. I got my hair cut yesterday. How do I look?", "ko": "네. 어제 머리를 잘랐어요. 어떤가요?", "audioUrl": "audio/91.mp3"}, {"en": "That style really suits you. What's the name of the hair salon? I need a haircut, too.", "ko": "그 스타일이 정말 어울려요. 미용실 이름이 뭔가요? 저도 머리를 잘라야 하거든요.", "audioUrl": "audio/92.mp3"}, {"en": "It’s called “Beautiful Hair, Wonderful Day.”", "ko": "“Beautiful Hair, Wonderful Day”라고 해요.", "audioUrl": "audio/93.mp3"}, {"en": "Hmm, I think I’ve seen it before. Can you tell me where it is?", "ko": "흠, 전에 본 것 같은 생각이 드네요. 그 미용실이 어디 있는지 알려주실래요?", "audioUrl": "audio/94.mp3"}, {"en": "Sure. It’s located on Main Street, near the Central Shopping Mall.", "ko": "물론이죠. Main Street의 Central Shopping Mall 근처에 있어요.", "audioUrl": "audio/95.mp3"}, {"en": "Oh yeah, now I remember where it is. Do you know how much a man’s haircut costs there?", "ko": "오 맞아요, 어딘지 이제 기억나네요. 거기서 남자는 이발하는데 얼마인지 아세요?", "audioUrl": "audio/96.mp3"}, {"en": "I think it’ about 15 dollars, but you can check the price on the salon’s website to make sure.", "ko": "약 15달러인 것으로 생각되는데, 확실히 하려면 그 미용실의 웹사이트에서 가격을 확인하실 수 있어요.", "audioUrl": "audio/97.mp3"}, {"en": "I’ll check online later.", "ko": "나중에 온라인으로 확인해 볼게요.", "audioUrl": "audio/98.mp3"}, {"en": "I can recommend a stylist if you want. She does a great job with men’s hair.", "ko": "원하시면 미용사를 추천해 드릴 수 있어요. 그녀는 남자 머리를 아주 잘 합니다.", "audioUrl": "audio/99.mp3"}, {"en": "Okay. What’s her name?", "ko": "좋아요. 그녀의 이름이 뭐죠?", "audioUrl": "audio/100.mp3"}, {"en": "Alice Moore. She’s really good.", "ko": "Alice Moore입니다. 그녀는 정말 잘해요.", "audioUrl": "audio/101.mp3"}, {"en": "Thanks.", "ko": "고마워요.", "audioUrl": "audio/102.mp3"}, {"en": "Good morning, everyone! This is Ms. Adams, your science teacher.", "ko": "안녕하세요, 여러분! 저는 여러분의 과학 교사 Adams입니다.", "audioUrl": "audio/103.mp3"}, {"en": "I’m happy to announce the science essay contest sponsored by the ABC Science Institute.", "ko": "ABC 과학관에서 후원하는 과학 에세이 대회를 알려드리게 되어 매우 기쁩니다.", "audioUrl": "audio/104.mp3"}, {"en": "This contest is for high school students, so any of you can participate.", "ko": "이 대회는 고등학교학생들을 위한 것이므로, 여러분 누구라도 참가할 수 있습니다.", "audioUrl": "audio/105.mp3"}, {"en": "There’re two essay topics to choose from.", "ko": "선택할 수 있는 에세이 주제는 두 개가 있습니다.", "audioUrl": "audio/106.mp3"}, {"en": "The first is “How to Save the Earth,” and the second is “The Most Creative Invention.”", "ko": "첫 번째 주제는 ‘지구를 구하는 방법’이고, 두 번째는 ‘가장 창의적인 발명품’입니다.", "audioUrl": "audio/107.mp3"}, {"en": "The essay must be a minimum of 5 pages and a maximum of 10.", "ko": "에세이는 최소 5페이지에서 최대 10페이지가되어야 합니다.", "audioUrl": "audio/108.mp3"}, {"en": "Additionally, the deadline for submission is November 30th.", "ko": "또한, 제출 마감일은 11월 30일입니다.", "audioUrl": "audio/109.mp3"}, {"en": "Only online submission of essays will be accepted.", "ko": "에세이는 온라인 제출만 받습니다.", "audioUrl": "audio/110.mp3"}, {"en": "Please, be sure to follow these guidelines exactly.", "ko": "이러한 지침들을 정확히 지켜주시기 바랍니다.", "audioUrl": "audio/111.mp3"}, {"en": "Lastly, the first prize winner of all participants will be given an opportunity to visit the ABC Science Institute, the contest’s sponsor.", "ko": "마지막으로 모든 참가자 중 1등상 수상자에게는 대회 후원 기관인 ABC 과학관을 방문할 기회가 주어질 것입니다.", "audioUrl": "audio/112.mp3"}, {"en": "The deadline is quickly approaching, so get out there and get writing. Good luck!", "ko": "마감일이 빠르게 다가오고 있으니, 어서들 가서 에세이를 쓰기 시작하기 바랍니다. 행운을 빕니다!", "audioUrl": "audio/113.mp3"}, {"en": "Honey. Here’s a pamphlet for the attraction packages at Grandlife Amusement Park. Let's choose one of them.", "ko": "여보. 여기에 Grandlife Amusement Park의 명소 패키지를 위한 팸플릿이 있어요. 그것들 중 하나를 고릅시다.", "audioUrl": "audio/114.mp3"}, {"en": "Okay. How much do you think we should spend?", "ko": "좋아요. 우리가 얼마나 써야 한다고 생각하나요?", "audioUrl": "audio/115.mp3"}, {"en": "Well, I don’t want to spend more than 50 dollars per person.", "ko": "음, 나는 1인당 50달러 넘게 쓰는 것을 원치 않아요.", "audioUrl": "audio/116.mp3"}, {"en": "All right. For the 3D movie, would you rather watch Amazing Sea or Jungle Safari?", "ko": "좋아요. 3D 영화에 있어서, ‘Amazing Sea’ 혹은 ‘Jungle Safari’ 중 어떤 것을보겠어요?", "audioUrl": "audio/117.mp3"}, {"en": "Either one sounds fine, but I’d prefer Amazing Sea because it would look really cool in 3D.", "ko": "어떤 것도 좋은 것 같지만, 3D로 보면 정말 멋질거 같아서 나는 ‘Amazing Sea’가 더 좋겠어요.", "audioUrl": "audio/118.mp3"}, {"en": "Good. Let’s watch that movie then.", "ko": "좋아요. 그러면 그 영화를 봅시다.", "audioUrl": "audio/119.mp3"}, {"en": "Okay. How about the aquarium? I’ve heard that there’re some fantastic dolphins.", "ko": "그래요. 수족관은 어쩌죠? 환상적인 돌고래들이 좀 있다고 들었어요.", "audioUrl": "audio/120.mp3"}, {"en": "Well, if we’re seeing a movie about the sea, I don’t think we need to go to the aquarium, too.", "ko": "음, 우리가 바다에 관한 영화를 본다면, 수족관도 갈 필요는 없다고 생각해요.", "audioUrl": "audio/121.mp3"}, {"en": "Yeah, I agree. Should we include the lunch box option?", "ko": "네, 동감이에요. 점심 도시락 선택을 포함시켜야 할까요?", "audioUrl": "audio/122.mp3"}, {"en": "Sure. That way, we can save some time.", "ko": "물론이죠. 그런 식으로 우리는 약간의 시간을 절약할 수 있어요.", "audioUrl": "audio/123.mp3"}, {"en": "Then, that leaves this package.", "ko": "그러면 이 패키지가 남네요.", "audioUrl": "audio/124.mp3"}, {"en": "Perfect! Let’s choose that one.", "ko": "완벽해요! 그것을 선택합시다.", "audioUrl": "audio/125.mp3"}, {"en": "Debbie, are you ready for your interview next week?", "ko": "Debbie, 다음 주에 있을 면접에 대해 준비가 되었나요?", "audioUrl": "audio/126.mp3"}, {"en": "I’m not sure. This is my first job interview, so I’m pretty nervous.", "ko": "잘 모르겠어요. 이번이 나의 첫 번째 취업 면접이어서 무척 떨려요.", "audioUrl": "audio/127.mp3"}, {"en": "Don’t worry. You’ll do fine. You’re a great speaker.", "ko": "걱정하지 말아요. 잘 할 거예요. 말을 아주 잘 하잖아요.", "audioUrl": "audio/128.mp3"}, {"en": "Do you think so?", "ko": "그렇게 생각하세요?", "audioUrl": "audio/129.mp3"}, {"en": "Of course. So, have you practiced answering any interview questions?", "ko": "물론이죠. 면접시험 질문에 답변하는 연습을 했나요?", "audioUrl": "audio/130.mp3"}, {"en": "Yeah, just some common ones.", "ko": "네, 몇 가지 흔한 질문에 대해서만요.", "audioUrl": "audio/131.mp3"}, {"en": "And you researched the company, didn’t you?", "ko": "그리고 그 회사에 대해서 조사를 했겠죠?", "audioUrl": "audio/132.mp3"}, {"en": "Researched the company? Do I need to do that?", "ko": "회사에 대해서 조사를 했냐고요? 제가 그렇게 해야 하나요?", "audioUrl": "audio/133.mp3"}, {"en": "Absolutely! It’s important to find out as much information as you can.", "ko": "당연하죠! 가능한 한 많은 정보를 알아내는 게 중요해요.", "audioUrl": "audio/134.mp3"}, {"en": "Well, I know that the company is well known for advertising.", "ko": "음, 나는 그 회사가 광고로 잘 알려져 있다는 것을 알아요.", "audioUrl": "audio/135.mp3"}, {"en": "That’s not enough. You should study more about the company.", "ko": "그건 충분치 않아요. 그 회사에 대해 더 많은 것을 연구해야 해요.", "audioUrl": "audio/136.mp3"}, {"en": "Such as what?", "ko": "예를 들면 어떤 것을요?", "audioUrl": "audio/137.mp3"}, {"en": "For example, you should know the company’s vision, its basic principles, and work ethics.", "ko": "예를 들어, 회사의 비전, 기본적 원칙, 직업윤리를 알아야 해요.", "audioUrl": "audio/138.mp3"}, {"en": "Do I have to know all of that? It’s too much.", "ko": "내가 그 모든 것을 알아야 하나요? 그것은 너무 많아요.", "audioUrl": "audio/139.mp3"}, {"en": "Dad, can you do me a favor?", "ko": "아빠, 제 부탁 좀 들어주실 수 인가요?", "audioUrl": "audio/140.mp3"}, {"en": "Sure. What is it?", "ko": "물론이지. 부탁이 뭐니?", "audioUrl": "audio/141.mp3"}, {"en": "Can you get me a printer cartridge at the computer store? Our printer just ran out of ink.", "ko": "컴퓨터 용품점에서 프린터 카트리지를 사다 주실 수 있나요? 우리 프린터의 잉크가 방금 다 되었어요.", "audioUrl": "audio/142.mp3"}, {"en": "Really? Didn’t we just get a new one a month ago?", "ko": "정말이니? 불과 한 달 전에 새것을 사지 않았니?", "audioUrl": "audio/143.mp3"}, {"en": "We did. But these days, I’ve been printing a lot for school projects.", "ko": "그랬죠. 하지만 요즈음 제가 많은 학교 과제를 출력했어요.", "audioUrl": "audio/144.mp3"}, {"en": "I see. I’m sure that would use up ink pretty quickly.", "ko": "그렇구나. 그런 것이 잉크를 아주 빠르게 소진시킨다는 것을 나도 잘 알지.", "audioUrl": "audio/145.mp3"}, {"en": "It does. And I need to print out my history paper for tomorrow.", "ko": "맞아요. 그리고 저는 내일 필요한 역사 보고서를 출력해야 해요.", "audioUrl": "audio/146.mp3"}, {"en": "I got it. Would one cartridge be okay?", "ko": "알겠다. 카트리지 하나면 되겠니?", "audioUrl": "audio/147.mp3"}, {"en": "Well, can you buy two cartridges this time? That way I’ll have a backup in case the first one suddenly runs out.", "ko": "음, 이번에는 카트리지 두 개를 사 주시겠어요? 그러면 첫 번째 것이 갑자기 다 떨어지는 경우에 예비품을 갖게 될 거예요.", "audioUrl": "audio/148.mp3"}, {"en": "No problem. I’ll get two.", "ko": "좋아. 두 개를 사 오마.", "audioUrl": "audio/149.mp3"}, {"en": "Thanks, Dad. Oh, you’ll need the model number of the cartridge. It’s IJ88BLK97.", "ko": "고마워요, 아빠. 아, 카트리지의 모델 번호가 필요할 거예요. IJ88BLK97이예요.", "audioUrl": "audio/150.mp3"}, {"en": "I won’t be able to remember that. You know my memory.", "ko": "그것을 기억할 수는 없을 거야. 내 기억력을 알잖니.", "audioUrl": "audio/151.mp3"}, {"en": "Peter and Sandra are classmates.", "ko": "Peter와 Sandra는 반 친구입니다.", "audioUrl": "audio/152.mp3"}, {"en": "They’ve been in the library over the weekend reading for their literature class.", "ko": "그들은 문학 수업을 위해 책을 읽으며 주말을 도서관에서 보내고 있습니다.", "audioUrl": "audio/153.mp3"}, {"en": "Sandra is unable to concentrate and is feeling exhausted.", "ko": "Sandra는 집중할 수가 없고 지쳐있습니다.", "audioUrl": "audio/154.mp3"}, {"en": "However, she has noticed that Peter seems to be focused and full of energy.", "ko": "하지만 그녀는 Peter가 집중해 있고 활력으로 가득 찬 것처럼 보이는 것을 알아챘습니다.", "audioUrl": "audio/155.mp3"}, {"en": "In fact, Peter has a secret for maintaining his focus.", "ko": "사실, Peter에게는 집중력을 유지하는 비결이 있습니다.", "audioUrl": "audio/156.mp3"}, {"en": "Whenever he is losing his concentration, he gathers his belongings and moves to another place.", "ko": "집중력을 잃을 때마다, 그는 소지품을 모아 다른 장소로 이동합니다.", "audioUrl": "audio/157.mp3"}, {"en": "To him, a new environment feels like a new beginning.", "ko": "그에게, 새로운 장소는 새로운 시작처럼 느껴집니다.", "audioUrl": "audio/158.mp3"}, {"en": "A different desk, chair, and view help him to feel refreshed and ready to continue for another hour or two.", "ko": "이전과는 다른 책상, 의자, 그리고 시야로 인해, 그는 생기를 되찾고 한 두 시간 더 지속할 수 있는 기분을 느킵니다.", "audioUrl": "audio/159.mp3"}, {"en": "When Sandra asks Peter about how she can stop herself from losing concentration, he wants to advise her to switch study spaces.", "ko": "Sandra가 Peter에게 어떻게 집중력을 잃는 것을 막을 수 있는지를 물을 때, 그는 그녀에게 학습 장소를 바꿔보라고 조언하고자 합니다.", "audioUrl": "audio/160.mp3"}, {"en": "In this situation, what would Peter most likely say to Sandra?", "ko": "이런 상황에서, Peter는 Sandra에게 뭐라고 말하겠습니까?", "audioUrl": "audio/161.mp3"}, {"en": "Hello, everyone. Welcome to Dr. Thompson’ Family Center.", "ko": "안녕하세요, 여러분. Thompson 박사의 Family Center에 오신 것을 환영합니다.", "audioUrl": "audio/162.mp3"}, {"en": "Many of you may not know how to smooth things over with your family members after conflict.", "ko": "여러분 중 많은 분들이 갈등을 겪은 이후에 가족 구성원들과의 상황을 진정시키는 방법을 알지 못할 수도 있습니다.", "audioUrl": "audio/163.mp3"}, {"en": "Today, I’ like to talk about some ways to make up with them after an argument.", "ko": "오늘, 저는 말다툼을 벌인 이후에 그들(가족 구성원들)과 화해하는 방법에 대해서 이야기하려고 합니다.", "audioUrl": "audio/164.mp3"}, {"en": "First, reveal your true feelings.", "ko": "우선, 여러분의 진정한 감정을 보여주세요.", "audioUrl": "audio/165.mp3"}, {"en": "Giving them a letter is one option.", "ko": "그들에게 편지를 써서 주는 것이 한 가지 선택 사항입니다.", "audioUrl": "audio/166.mp3"}, {"en": "Sometimes it’ hard to say everything you want in person.", "ko": "때때로 원하는 모든 것을 직접 말하는 것은 어렵습니다.", "audioUrl": "audio/167.mp3"}, {"en": "Writing gives you time to think about what you want to say.", "ko": "글을 쓰는 것은 여러분에게 말하고 싶은 내용에 대해 생각해 볼 시간을 제공합니다.", "audioUrl": "audio/168.mp3"}, {"en": "If you’e not good at writing, you can also give them a picture you drew.", "ko": "여러분이 글쓰기에 능숙하지 않다면, 그들에게 여러분이 그린 그림을 줄 수도 있습니다.", "audioUrl": "audio/169.mp3"}, {"en": "It can communicate your feelings, too.", "ko": "그것도 여러분의 감정을 전달할 수 있습니다.", "audioUrl": "audio/170.mp3"}, {"en": "Even though it may not be great art, it’ll be touching and make them smile.", "ko": "대단히 잘 그린 그림이 아닐 수도 있지만, 그것은 감동을 줄 것이고 그들을 미소 짓게 할 것입니다.", "audioUrl": "audio/171.mp3"}, {"en": "Showing your interest in what they like is another solution.", "ko": "그들이 좋아하는 것에 관심을 보이는 것이 또 다른 해결책입니다.", "audioUrl": "audio/172.mp3"}, {"en": "For example, if your sister likes earrings, surprise her with a new pair.", "ko": "예를 들면, 여러분의 여자 형제가 귀걸이를 좋아한다면, 한 쌍의 새 귀걸이를 주어 그녀를 놀라게 하십시오.", "audioUrl": "audio/173.mp3"}, {"en": "They don’t have to be expensive.", "ko": "비싼 것일 필요가 없습니다.", "audioUrl": "audio/174.mp3"}, {"en": "It’s the thought that matters, not the cost.", "ko": "중요한 것은 생각이지 비용이 아닙니다.", "audioUrl": "audio/175.mp3"}, {"en": "If your mother likes flowers, give her some.", "ko": "여러분의 어머니가 꽃을 좋아하시면, 그녀에게 꽃을 좀 드리세요.", "audioUrl": "audio/176.mp3"}, {"en": "When you show your interest, your family will know you care and the situation will improve.", "ko": "여러분이 관심을 보일 때, 여러분의 가족은 여러분이 배려하고 있다는 것을 알게 되고 상황이 개선될 것입니다.", "audioUrl": "audio/177.mp3"}, {"en": "Remember, your family is your greatest asset.", "ko": "여러분의 가족이 여러분의 가장 큰 자산이라는 점을 기억하세요.", "audioUrl": "audio/178.mp3"}, {"en": "So the next time you have an argument with them, try one of these.", "ko": "그러므로 다음에 여러분이 그들과 언쟁을 벌이게 되면, 이것들 중의 하나를 시도해 보세요.", "audioUrl": "audio/179.mp3"}];
-        const STORAGE_KEY = 'vocaListenProgress';
-        const ADMIN_PASSWORD = '569020';
-        const urlParams = new URLSearchParams(window.location.search);
-        const unlockParam = urlParams.get('unlock');
-        const FORCE_UNLOCK_INDEX = unlockParam === null ? null : Number(unlockParam);
-
-        let maxUnlockedIndex = Number(localStorage.getItem(STORAGE_KEY) || 0);
-        if (!Number.isFinite(maxUnlockedIndex) || maxUnlockedIndex < 0) maxUnlockedIndex = 0;
-
-        let currentIndex = 0;
-        let currentStep = 1;
-        let currentSentence = '';
-        let currentMeaning = '';
-        let pendingAutoplay = false;
-
-        const audio = new Audio();
-        audio.preload = 'auto';
-
-        const menuView = document.getElementById('menuView');
-        const gameView = document.getElementById('gameView');
-        const stageGrid = document.getElementById('stageGrid');
-        const progressText = document.getElementById('progressText');
-        const meaningBox = document.getElementById('meaningBox');
-        const stepLabel = document.getElementById('stepLabel');
-        const playBtn = document.getElementById('playBtn');
-        const speedControl = document.getElementById('speedControl');
-        const answerArea = document.getElementById('answerArea');
-        const wordBank = document.getElementById('wordBank');
-        const step1Area = document.getElementById('step1Area');
-        const step2Area = document.getElementById('step2Area');
-        const typeInput = document.getElementById('typeInput');
-        const modalOverlay = document.getElementById('modalOverlay');
-        const mTitle = document.getElementById('mTitle');
-        const mMsg = document.getElementById('mMsg');
-        const mYes = document.getElementById('mYes');
-        const mNo = document.getElementById('mNo');
-
-
-        async function requireAuth() {
-    const { data, error } = await supabase.auth.getUser();
-
-    if (error || !data.user) {
-        alert('로그인이 필요합니다.');
-        location.href = 'login.html';
-        return null;
+        ListeningWebView.Navigating += OnNavigating;
     }
 
-    return data.user;
-}
-        const stepInfo = [
-            '',
-            'Step 1. 듣고 배열하기',
-            'Step 2. 듣고 타이핑하기',
-            'Step 3. 뜻 보고 배열하기 (영작)',
-            'Step 4. 뜻 보고 타이핑하기 (영작)'
-        ];
+    private void LoadListeningContent()
+    {
+        // 179개 지문 데이터
+        string rawData = @"
+Emily, what are you doing this weekend?
+I’m going out for dinner to celebrate my friend Jenny’s birthday.
+Sounds fun. Did you get something for her?
+Mr. Lee, do you have time to talk about our winter team-building workshop?
+Sure. Actually, I was wondering if you had found any good locations yet.
+Yes, I have, and we have some options. Here, I picked up some brochures from the travel agency.
+May I have your attention please?
+This is principal Wilson.
+As you know, this Friday is the last day of our month-long item donation event.
+Thank you to those who have already participated.
+However, our involvement in the event has not met expectations yet, so we need to do more.
+The items we are still looking for are children’s clothes, toys, school supplies, and books.
+If you have any of these items, please drop them off in the school cafeteria by Friday.
+Any donation, even just a single pencil, will be a great help.
+Don’t forget that your small actions can make a big difference.
+I really encourage you to participate in this event.
+Thank you for listening.
+Brian, you look really tired.
+Yeah, I’ve been having difficulty sleeping recently.
+Why? Is something troubling you?
+Not really, but I don’t know how to get over this problem.
+Well, keeping a regular sleep pattern can help.
+I usually go to bed and wake up at the same time every day, but it doesn’t work.
+Hmm, do you do anything particular before bed?
+Well, I use my phone to play games or text with friends for a little while.
+Oh, that’s not good. It’s important not to use media devices for at least an hour before sleep.
+Really? I thought it would help relieve my stress.
+It can overexcite your senses and cause trouble sleeping.
+I see.
+One other tip for sound sleep is to drink some warm milk before bed.
+Okay, I’ll try those things and see if they work. Thanks.
+Good evening, Ms. Jackson. Thank you for joining us.
+I’m happy to be here.
+Well, before the main part of the show, can you give the audience any simple tips for the kitchen?
+Sure. Sometimes we have to cook without enough time to go grocery shopping, like when we have unexpected guests, right?
+Yeah, that happens. As a professional, what would you do in such a case? Our audience may want to know.
+Well, throwing a quick meal together is easy if you have some basic ingredients.
+Please, tell us what those are.
+First, 300 to 400 grams of frozen pork or beef is useful.
+I see. What else?
+I also recommend potatoes and onions. With these ingredients, you can make so many different dishes.
+Thanks for the tip. Now, let’s move on to your special recipe.
+Honey, how’s the preparation going for Amy’s birthday party?
+Almost done. We just need to find some places to hide the candy for the kids’ treasure hunt.
+Okay. Would the water fountain next to the steps be good?
+Hmm.... If we put the candy there, it would get wet. Let’s choose somewhere dry. How about the flower pot in front of the window?
+Yeah, I think that’s good. We could also put some in the basket on the table.
+Great. Then, I’ll sit in the chair beside the table and pretend nothing’s there.
+I like that idea. Now, let’s find one more place.
+All right. Umm, the bunny would be good.
+You’re right.
+We could put the rest of the candy inside the hat in the bunny’s hand.
+Perfect! I hope the kids have fun.
+Eva, I’ve decided to run for student council president!
+Great, Matthew!
+Now I need to start working on some campaign promises.
+You’re right. You’ll have to think about what the students want. By the way, did you hear Tony Johnson is running, too?
+Yeah, I know. I don’t think it’ll be easy to win without a good campaign team.
+That’s true. You’ll need people to help you with posters, speeches, and everything else.
+Exactly. So I need an adviser like you for my campaign. Can you give me a hand?
+Me? I’d love to help, but do you really think I’m qualified for that position?
+Of course. You’ll be a great help with the election.
+Then, okay. I’ll do my best.
+Thanks.
+Hello?
+Hey, Sarah. It’s Alex. I have a question for you.
+Sure. What’s up?
+Well, I’ve got two tickets to the National Baseball Championship next Friday, but unfortunately I can’t go. Do you want them?
+Yes, of course, but I thought the tickets were sold out.
+They are. But my company buys tickets to every game in advance, and I was able to get some.
+That’s cool, but why can’t you go?
+I have to fly out of town for an important meeting with a client on that day, so I can’t make it.
+Maybe you can take your brother with you.
+Yeah, he’d love to go. But I feel sorry that you can’t go to the game because of work.
+Don’t worry about it. Enjoy the game.
+May I help you?
+That cheese cake looks delicious! How much is it?
+It’s 30 dollars for the whole cake or 5 dollars per piece.
+Okay. I’ll take two pieces.
+Would you like ice cream with your cake? It’s two dollars per scoop.
+No, thanks.
+All right. Would you like anything to drink?
+Yes, I’ll have two medium coffees.
+A medium coffee is 3 dollars and a large one is 6 dollars. But since you’re buying cake, each large coffee costs just 5 dollars.
+Great! Make them large then, please.
+So, that’s two pieces of cheese cake and two large coffees. Do you need anything else?
+No, but I have a discount coupon. Can I use it now?
+Let me see. Sure. You get 10% off the total price.
+Oh, great. Here’'s my credit card.
+Hey, Jennifer. There’'s something different about you today.
+Yeah. I got my hair cut yesterday. How do I look?
+That style really suits you. What’'s the name of the hair salon? I need a haircut, too.
+It’s called “Beautiful Hair, Wonderful Day.”
+Hmm, I think I’ve seen it before. Can you tell me where it is?
+Sure. It’s located on Main Street, near the Central Shopping Mall.
+Oh yeah, now I remember where it is. Do you know how much a man’s haircut costs there?
+I think it’s about 15 dollars, but you can check the price on the salon’s website to make sure.
+I’ll check online later.
+I can recommend a stylist if you want. She does a great job with men’s hair.
+Okay. What’s her name?
+Alice Moore. She’s really good.
+Great. Thanks.
+Good morning, everyone! This is Ms. Adams, your science teacher.
+I’m happy to announce the science essay contest sponsored by the ABC Science Institute.
+This contest is for high school students, so any of you can participate.
+There’re two essay topics to choose from.
+The first is “How to Save the Earth,” and the second is “The Most Creative Invention.”
+The essay must be a minimum of 5 pages and a maximum of 10.
+Additionally, the deadline for submission is November 30th.
+Only online submission of essays will be accepted.
+Please, be sure to follow these guidelines exactly.
+Lastly, the first prize winner of all participants will be given an opportunity to visit the ABC Science Institute, the contest’s sponsor.
+The deadline is quickly approaching, so get out there and get writing. Good luck!
+Honey. Here’s a pamphlet for the attraction packages at Grandlife Amusement Park. Let’'s choose one of them.
+Okay. How much do you think we should spend?
+Well, I don’t want to spend more than 50 dollars per person.
+All right. For the 3D movie, would you rather watch Amazing Sea or Jungle Safari?
+Either one sounds fine, but I’d prefer Amazing Sea because it would look really cool in 3D.
+Good. Let’s watch that movie then.
+Okay. How about the aquarium? I’'ve heard that there’re some fantastic dolphins.
+Well, if we’re seeing a movie about the sea, I don’t think we need to go to the aquarium, too.
+Yeah, I agree. Should we include the lunch box option?
+Sure. That way, we can save some time.
+Then, that leaves this package.
+Perfect! Let’s choose that one.
+Debbie, are you ready for your interview next week?
+I’m not sure. This is my first job interview, so I’m pretty nervous.
+Don’t worry. You’ll do fine. You’re a great speaker.
+Do you think so?
+Of course. So, have you practiced answering any interview questions?
+Yeah, just some common ones.
+And you researched the company, didn’t you?
+Researched the company? Do I need to do that?
+Absolutely! It’s important to find out as much information as you can.
+Well, I know that the company is well known for advertising.
+That’s not enough. You should study more about the company.
+Such as what?
+For example, you should know the company’s vision, its basic principles, and work ethics.
+Do I have to know all of that? It’s too much.
+Dad, can you do me a favor?
+Sure. What is it?
+Can you get me a printer cartridge at the computer store? Our printer just ran out of ink.
+Really? Didn’t we just get a new one a month ago?
+We did. But these days, I’ve been printing a lot for school projects.
+I see. I’'m sure that would use up ink pretty quickly.
+It does. And I need to print out my history paper for tomorrow.
+I got it. Would one cartridge be okay?
+Well, can you buy two cartridges this time? That way I’ll have a backup in case the first one suddenly runs out.
+No problem. I’ll get two.
+Thanks, Dad. Oh, you’ll need the model number of the cartridge. It’s IJ88BLK97.
+I won’t be able to remember that. You know my memory.
+Peter and Sandra are classmates.
+They’ve been in the library over the weekend reading for their literature class.
+Sandra is unable to concentrate and is feeling exhausted.
+However, she has noticed that Peter seems to be focused and full of energy.
+In fact, Peter has a secret for maintaining his focus.
+Whenever he is losing his concentration, he gathers his belongings and moves to another place.
+To him, a new environment feels like a new beginning.
+A different desk, chair, and view help him to feel refreshed and ready to continue for another hour or two.
+When Sandra asks Peter about how she can stop herself from losing concentration, he wants to advise her to switch study spaces.
+In this situation, what would Peter most likely say to Sandra?
+Hello, everyone. Welcome to Dr. Thompson’ Family Center.
+Many of you may not know how to smooth things over with your family members after conflict.
+Today, I’ like to talk about some ways to make up with them after an argument.
+First, reveal your true feelings.
+Giving them a letter is one option.
+Sometimes it’ hard to say everything you want in person.
+Writing gives you time to think about what you want to say.
+If you’e not good at writing, you can also give them a picture you drew.
+It can communicate your feelings, too.
+Even though it may not be great art, it’ll be touching and make them smile.
+Showing your interest in what they like is another solution.
+For example, if your sister likes earrings, surprise her with a new pair.
+They don’t have to be expensive.
+It’s the thought that matters, not the cost.
+If your mother likes flowers, give her some.
+When you show your interest, your family will know you care and the situation will improve.
+Remember, your family is your greatest asset.
+So the next time you have an argument with them, try one of these.
+";
 
-        const encouragement = [
-            '',
-            '대단해요! 소리를 아주 잘 캐치하시네요!',
-            '정확한 받아쓰기입니다! 이제 문장의 의미를 확인해볼까요?',
-            '단어 조합 능력이 완벽해요! 마지막 영작 단계에 도전하세요!',
-            '축하합니다! 이 문장을 완전히 마스터하셨습니다!'
-        ];
+        var dbSentences = new List<object>();
+        string[] lines = rawData.Trim().Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+        
+        for (int i = 0; i < lines.Length; i++)
+        {
+            string englishSentence = lines[i].Trim();
+            if (string.IsNullOrWhiteSpace(englishSentence)) continue;
 
-        function saveProgress(value) {
-            maxUnlockedIndex = Math.min(value, db.length - 1);
-            localStorage.setItem(STORAGE_KEY, String(maxUnlockedIndex));
+            dbSentences.Add(new 
+            { 
+                en = englishSentence, 
+                audioUrl = $"https://voca-town.pages.dev/audio/{i + 1}.mp3" 
+            });
         }
 
-        function shuffleWords(words) {
-            const arr = [...words];
-            for (let i = arr.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
-            }
-            return arr;
+        string jsonDb = JsonSerializer.Serialize(dbSentences);
+
+        var htmlSource = new HtmlWebViewSource
+        {
+            Html = $@"
+            <!DOCTYPE html>
+            <html lang='en'>
+            <head>
+                <meta charset='UTF-8'>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                <title>Listening Dictation</title>
+                <style>
+                    body {{ font-family: sans-serif; padding: 20px; text-align: center; background-color: #f4f6f8; user-select: none; }}
+                    .card {{ background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }}
+                    #progressText {{ color: #007bff; margin-bottom: 5px; font-size: 22px; font-weight: bold; }}
+                    .drop-zone {{ min-height: 80px; border: 2px dashed #007bff; border-radius: 8px; margin: 20px 0; padding: 15px; display: flex; gap: 10px; flex-wrap: wrap; background: #e9ecef; align-items: center; justify-content: center; }}
+                    .word-bank {{ display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; min-height: 100px; }}
+                    .word-btn {{ padding: 12px 18px; font-size: 16px; font-weight: bold; border: none; border-radius: 8px; background: #2196f3; color: white; cursor: pointer; box-shadow: 0 4px #0b7dda; transition: 0.1s; line-height: 1.2; }}
+                    .word-btn:active {{ transform: translateY(4px); box-shadow: 0 0 #0b7dda; }}
+                    .controls {{ margin: 15px 0 5px 0; display: flex; justify-content: center; gap: 10px; }}
+                    button.action-btn {{ padding: 12px 20px; font-size: 18px; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 5px; }}
+                    #playBtn {{ background: #ff9800; color: white; font-weight: bold; flex-grow: 1; justify-content: center; }}
+                    select {{ padding: 10px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; font-weight: bold; cursor: pointer; }}
+                    
+                    /* 재생 바 디자인 */
+                    .progress-container {{ display: flex; align-items: center; gap: 10px; margin-bottom: 20px; padding: 0 10px; }}
+                    .time-text {{ font-size: 14px; color: #555; width: 45px; font-weight: bold; }}
+                    #progressBar {{ flex-grow: 1; cursor: pointer; accent-color: #ff9800; }}
+
+                    #checkBtn {{ background: #4caf50; color: white; font-weight: bold; width: 100%; padding: 15px; font-size: 18px; border:none; border-radius: 8px; cursor: pointer; }}
+                    #nextBtn {{ margin-top: 10px; background: #673ab7; color: white; font-weight: bold; width: 100%; padding: 15px; font-size: 18px; border:none; border-radius: 8px; display:none; cursor: pointer; }}
+                </style>
+            </head>
+            <body>
+                <div class='card'>
+                    <div id='progressText'></div>
+                    <p style='color: gray; font-size: 14px; margin-top: 5px;'>Listen carefully and order the words.</p>
+                    
+                    <div class='controls'>
+                        <button id='playBtn' class='action-btn'>🔊 Listen</button>
+                        <select id='speedControl'>
+                            <option value='0.5'>0.5x</option>
+                            <option value='0.8'>0.8x</option>
+                            <option value='1.0' selected>1.0x</option>
+                            <option value='1.2'>1.2x</option>
+                            <option value='1.5'>1.5x</option>
+                        </select>
+                    </div>
+
+                    <div class='progress-container'>
+                        <span id='currentTimeDisplay' class='time-text'>0:00</span>
+                        <input type='range' id='progressBar' min='0' max='100' value='0' step='0.1'>
+                        <span id='durationDisplay' class='time-text'>0:00</span>
+                    </div>
+
+                    <div id='answerArea' class='drop-zone'></div>
+                    <div id='wordBank' class='word-bank'></div>
+                    
+                    <button id='checkBtn'>Check Answer</button>
+                    <button id='nextBtn'>Next Question</button>
+                </div>
+
+                <script>
+                    const db = {jsonDb}; 
+                    let currentIndex = 0;
+                    let currentSentence = '';
+                    let currentAudio = null; 
+                    let isDragging = false; 
+
+                    const progressText = document.getElementById('progressText');
+                    const answerArea = document.getElementById('answerArea');
+                    const wordBank = document.getElementById('wordBank');
+                    const playBtn = document.getElementById('playBtn');
+                    const speedControl = document.getElementById('speedControl');
+                    const checkBtn = document.getElementById('checkBtn');
+                    const nextBtn = document.getElementById('nextBtn');
+                    
+                    const progressBar = document.getElementById('progressBar');
+                    const currentTimeDisplay = document.getElementById('currentTimeDisplay');
+                    const durationDisplay = document.getElementById('durationDisplay');
+
+                    function formatTime(seconds) {{
+                        if (!isFinite(seconds) || seconds < 0) return '0:00';
+                        const mins = Math.floor(seconds / 60);
+                        const secs = Math.floor(seconds % 60);
+                        return mins + ':' + (secs < 10 ? '0' : '') + secs;
+                    }}
+
+                    function loadProblem(index) {{
+                        answerArea.innerHTML = '';
+                        wordBank.innerHTML = '';
+                        checkBtn.style.display = 'block';
+                        nextBtn.style.display = 'none';
+
+                        if(index >= db.length) {{
+                            progressText.innerText = 'All Clear! 🎉';
+                            playBtn.disabled = true;
+                            checkBtn.style.display = 'none';
+                            progressBar.disabled = true;
+                            setTimeout(() => {{ window.location.href = 'app://exit'; }}, 2000);
+                            return;
+                        }}
+
+                        currentSentence = db[index].en;
+                        progressText.innerText = 'Q. ' + (index + 1) + ' / ' + db.length;
+
+                        progressBar.value = 0;
+                        currentTimeDisplay.innerText = '0:00';
+                        durationDisplay.innerText = '0:00';
+                        playBtn.innerHTML = '🔊 Listen';
+
+                        if (currentAudio) {{
+                            currentAudio.pause();
+                            currentAudio.removeAttribute('src');
+                        }}
+                        
+                        currentAudio = new Audio(db[index].audioUrl);
+                        currentAudio.preload = 'auto'; 
+                        currentAudio.playbackRate = parseFloat(speedControl.value); 
+
+                        currentAudio.onloadedmetadata = () => {{
+                            if(isFinite(currentAudio.duration)) {{
+                                durationDisplay.innerText = formatTime(currentAudio.duration);
+                            }}
+                        }};
+
+                        currentAudio.ontimeupdate = () => {{
+                            if (currentAudio.duration && isFinite(currentAudio.duration) && !isDragging) {{
+                                progressBar.value = (currentAudio.currentTime / currentAudio.duration) * 100;
+                                currentTimeDisplay.innerText = formatTime(currentAudio.currentTime);
+                            }}
+                        }};
+
+                        currentAudio.onended = () => {{
+                            playBtn.innerHTML = '🔊 Listen';
+                            if(!isDragging) progressBar.value = 100;
+                        }};
+
+                        let words = currentSentence.split(' ');
+                        let shuffled = [...words].sort(() => Math.random() - 0.5);
+
+                        shuffled.forEach(word => {{
+                            const btn = document.createElement('button');
+                            btn.className = 'word-btn';
+                            btn.innerText = word;
+                            
+                            btn.onclick = () => {{
+                                if (btn.parentElement === wordBank) {{
+                                    answerArea.appendChild(btn);
+                                }} else {{
+                                    wordBank.appendChild(btn);
+                                }}
+                            }};
+                            wordBank.appendChild(btn);
+                        }});
+                    }}
+
+                    playBtn.onclick = () => {{
+                        if (currentAudio) {{
+                            // 다 듣고 나서 재생버튼을 다시 누르면 처음부터 재생
+                            if (currentAudio.currentTime >= currentAudio.duration) {{
+                                currentAudio.currentTime = 0;
+                            }}
+
+                            if (currentAudio.paused) {{
+                                currentAudio.play();
+                                playBtn.innerHTML = '⏸ Pause';
+                            }} else {{
+                                currentAudio.pause();
+                                playBtn.innerHTML = '🔊 Listen';
+                            }}
+                        }}
+                    }};
+
+                    // 💡 바를 드래그하는 도중 (시간 표시만 업데이트)
+                    progressBar.addEventListener('input', function(e) {{
+                        isDragging = true; 
+                        if (currentAudio && isFinite(currentAudio.duration)) {{
+                            const seekTime = (parseFloat(e.target.value) / 100) * currentAudio.duration;
+                            currentTimeDisplay.innerText = formatTime(seekTime);
+                        }}
+                    }});
+
+                    // 💡 손가락을 뗐을 때 (안드로이드 버그 완벽 차단 로직)
+                    progressBar.addEventListener('change', function(e) {{
+                        if (currentAudio && isFinite(currentAudio.duration)) {{
+                            const seekTime = (parseFloat(e.target.value) / 100) * currentAudio.duration;
+                            
+                            // ⭐️ 핵심: 먼저 강제로 Play를 호출한 뒤, 그 직후에 시간을 변경해버립니다!
+                            const playPromise = currentAudio.play();
+                            if (playPromise !== undefined) {{
+                                playPromise.then(() => {{
+                                    currentAudio.currentTime = seekTime;
+                                    playBtn.innerHTML = '⏸ Pause';
+                                }}).catch(() => {{
+                                    currentAudio.currentTime = seekTime;
+                                }});
+                            }} else {{
+                                currentAudio.currentTime = seekTime;
+                                currentAudio.play();
+                                playBtn.innerHTML = '⏸ Pause';
+                            }}
+                        }}
+                        
+                        setTimeout(() => {{
+                            isDragging = false; 
+                        }}, 200);
+                    }});
+
+                    speedControl.onchange = (e) => {{
+                        if (currentAudio) {{
+                            currentAudio.playbackRate = parseFloat(e.target.value);
+                        }}
+                    }};
+
+                    checkBtn.onclick = () => {{
+                        const userAns = Array.from(answerArea.children).map(b => b.innerText).join(' ');
+                        if(userAns === currentSentence) {{
+                            alert('🎉 Perfect!');
+                            checkBtn.style.display = 'none';
+                            nextBtn.style.display = 'block';
+                        }} else {{
+                            alert('❌ Incorrect. Please listen again and reorder the words.');
+                        }}
+                    }};
+
+                    nextBtn.onclick = () => {{
+                        currentIndex++;
+                        loadProblem(currentIndex);
+                    }};
+
+                    loadProblem(currentIndex);
+                </script>
+            </body>
+            </html>"
+        };
+
+        ListeningWebView.Source = htmlSource;
+    }
+
+    private async void OnNavigating(object sender, WebNavigatingEventArgs e)
+    {
+        if (e.Url.StartsWith("app://exit", StringComparison.OrdinalIgnoreCase))
+        {
+            e.Cancel = true; 
+            await Navigation.PopAsync(); 
         }
-
-        function clean(s) {
-            return s
-                .toLowerCase()
-                .replace(/[^a-z0-9\s]/g, '')
-                .replace(/\s+/g, ' ')
-                .trim();
-        }
-
-        function stopAudio(resetSource = false) {
-            pendingAutoplay = false;
-            try { audio.pause(); } catch (e) {}
-            try { audio.currentTime = 0; } catch (e) {}
-            playBtn.innerText = '🔊 듣기';
-            if (resetSource) {
-                try {
-                    audio.removeAttribute('src');
-                    audio.load();
-                } catch (e) {}
-            }
-        }
-
-        function setAudioSource(url) {
-            stopAudio(false);
-            audio.src = url;
-            audio.load();
-            audio.playbackRate = parseFloat(speedControl.value);
-        }
-
-        function safePlay(resetToStart = false) {
-            if (!audio.src) return;
-            if (resetToStart) {
-                try { audio.currentTime = 0; } catch (e) {}
-            }
-            audio.playbackRate = parseFloat(speedControl.value);
-
-            const doPlay = () => {
-                const p = audio.play();
-                if (p && typeof p.then === 'function') {
-                    p.then(() => {
-                        playBtn.innerText = '⏸ 중단';
-                    }).catch(() => {
-                        playBtn.innerText = '🔊 듣기';
-                    });
-                } else {
-                    playBtn.innerText = '⏸ 중단';
-                }
-            };
-
-            if (audio.readyState >= 2) {
-                doPlay();
-            } else {
-                pendingAutoplay = true;
-                audio.addEventListener('canplay', function onCanPlay() {
-                    audio.removeEventListener('canplay', onCanPlay);
-                    if (!pendingAutoplay) return;
-                    pendingAutoplay = false;
-                    doPlay();
-                }, { once: true });
-            }
-        }
-
-        function renderMenu() {
-            stageGrid.innerHTML = '';
-
-            let effectiveUnlockedIndex = maxUnlockedIndex;
-            if (FORCE_UNLOCK_INDEX !== null && Number.isFinite(FORCE_UNLOCK_INDEX)) {
-                effectiveUnlockedIndex = Math.max(
-                    maxUnlockedIndex,
-                    Math.min(FORCE_UNLOCK_INDEX - 1, db.length - 1)
-                );
-            }
-
-            for (let i = 0; i < db.length; i++) {
-                const btn = document.createElement('button');
-                const isUnlocked = i <= effectiveUnlockedIndex;
-                btn.className = 'stage-btn ' + (isUnlocked ? 'stage-unlocked' : 'stage-locked');
-                btn.innerText = isUnlocked ? String(i + 1) : '🔒';
-                if (isUnlocked) {
-                    btn.onclick = () => startGame(i, 1);
-                }
-                stageGrid.appendChild(btn);
-            }
-        }
-
-        function showMenu() {
+    }
+function showMenu() {
             stopAudio(true);
             modalOverlay.style.display = 'none';
             gameView.style.display = 'none';
             menuView.style.display = 'flex';
             async function init() {
-    const user = await requireAuth();
-    if (!user) return;
+            const user = await requireAuth();
+            if (!user) return;
 
-    renderMenu();
-}
-
-init();
-        }
-
-        function startGame(idx, step) {
-            currentIndex = idx;
-            currentStep = step;
-            currentSentence = db[idx].en;
-            currentMeaning = db[idx].ko;
-            setAudioSource(db[idx].audioUrl);
-
-            menuView.style.display = 'none';
-            gameView.style.display = 'flex';
-            progressText.innerText = (idx + 1) + '/' + db.length;
-
-            meaningBox.style.display = (step >= 3) ? 'block' : 'none';
-            meaningBox.innerText = currentMeaning;
-            playBtn.style.visibility = (step >= 3) ? 'hidden' : 'visible';
-            stepLabel.innerText = stepInfo[step];
-
-            if (step === 1 || step === 3) {
-                step1Area.style.display = 'flex';
-                step2Area.style.display = 'none';
-                answerArea.innerHTML = '';
-                wordBank.innerHTML = '';
-                shuffleWords(currentSentence.split(' ')).forEach((w) => {
-                    const b = document.createElement('button');
-                    b.className = 'word-btn';
-                    b.innerText = w;
-                    b.onclick = () => {
-                        if (b.parentElement === wordBank) answerArea.appendChild(b);
-                        else wordBank.appendChild(b);
-                    };
-                    wordBank.appendChild(b);
-                });
-            } else {
-                step1Area.style.display = 'none';
-                step2Area.style.display = 'block';
-                typeInput.value = '';
-                setTimeout(() => typeInput.focus(), 300);
-            }
-
-            if (step <= 2) {
-                safePlay(true);
-            } else {
-                playBtn.innerText = '🔊 듣기';
-            }
-        }
-
-        function openPopup(success) {
-            modalOverlay.style.display = 'flex';
-
-            if (success) {
-                mTitle.innerText = '정답입니다!';
-                mTitle.style.color = '#4caf50';
-                mMsg.innerText = encouragement[currentStep];
-                mYes.onclick = () => {
-                    modalOverlay.style.display = 'none';
-                    if (currentStep < 4) {
-                        startGame(currentIndex, currentStep + 1);
-                    } else if (currentIndex + 1 < db.length) {
-                        if (currentIndex >= maxUnlockedIndex) {
-                            saveProgress(currentIndex + 1);
-                        }
-                        startGame(currentIndex + 1, 1);
-                    } else {
-                        saveProgress(db.length - 1);
-                        alert('모든 문장을 완료했습니다! 🎉');
-                        showMenu();
-                    }
-                };
-            } else {
-                mTitle.innerText = '오답입니다';
-                mTitle.style.color = '#f44336';
-                mMsg.innerText = '다시 한 번 차근차근 확인해보세요!';
-                mYes.onclick = () => {
-                    modalOverlay.style.display = 'none';
-                    if (currentStep <= 2) {
-                        safePlay(true);
-                    }
-                };
-            }
-        }
-
-        document.getElementById('checkBtn').onclick = () => {
-            let isCorrect = false;
-
-            if (currentStep === 1 || currentStep === 3) {
-                const ans = Array.from(answerArea.children).map((b) => b.innerText).join(' ');
-                isCorrect = (clean(ans) === clean(currentSentence));
-            } else {
-                isCorrect = (clean(typeInput.value) === clean(currentSentence));
-            }
-
-            openPopup(isCorrect);
-        };
-
-        playBtn.onclick = () => {
-            audio.playbackRate = parseFloat(speedControl.value);
-            if (audio.paused) {
-                safePlay(false);
-            } else {
-                pendingAutoplay = false;
-                audio.pause();
-                playBtn.innerText = '🔊 듣기';
-            }
-        };
-
-        speedControl.onchange = () => {
-            audio.playbackRate = parseFloat(speedControl.value);
-        };
-
-        audio.onended = () => {
-            playBtn.innerText = '🔊 듣기';
-        };
-
-        document.getElementById('backBtn').onclick = showMenu;
-        mNo.onclick = showMenu;
-
-        document.getElementById('resetProgressBtn').onclick = () => {
-            const pw = prompt('관리자 비밀번호를 입력하세요.');
-            if (pw === null) return;
-            if (pw !== ADMIN_PASSWORD) {
-                alert('비밀번호가 일치하지 않습니다.');
-                return;
-            }
-            const ok = confirm('모든 학습 기록을 삭제하시겠습니까?');
-            if (!ok) return;
-            localStorage.removeItem(STORAGE_KEY);
-            maxUnlockedIndex = 0;
-            alert('초기화가 완료되었습니다.');
             renderMenu();
-        };
+        }
 
-        document.getElementById('exitBtn').onclick = () => {
-            alert('이 페이지를 닫거나 이전 화면으로 이동하세요.');
-        };
+        init();
+        }
 
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                if (modalOverlay.style.display === 'flex') mYes.click();
-                else if (gameView.style.display === 'flex') document.getElementById('checkBtn').click();
-            }
-        });
-
-        renderMenu();
-    </script>
-</body>
-</html>
+        }
