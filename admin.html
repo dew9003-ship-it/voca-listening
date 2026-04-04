@@ -175,15 +175,16 @@
         <table>
           <thead>
             <tr>
-              <th>이름</th>
-              <th>이메일</th>
-              <th>권한</th>
-              <th>반</th>
-              <th>user_id</th>
-              <th>max_index</th>
-              <th>진도율</th>
-              <th>가입일</th>
-            </tr>
+  <th>이름</th>
+  <th>진도율</th>
+  <th>최근접속시간</th>
+  <th>이메일</th>
+  <th>권한</th>
+  <th>반</th>
+  <th>user_id</th>
+  <th>max_index</th>
+  <th>가입일</th>
+</tr>
           </thead>
           <tbody id="studentTableBody">
             <tr>
@@ -300,9 +301,9 @@
       if (!user) return;
 
       const { data: profiles, error: profilesError } = await supabase
-        .from('profiles')
-        .select('id, user_id, email, name, role, class_name, created_at')
-        .order('created_at', { ascending: false });
+  .from('profiles')
+  .select('id, user_id, email, name, role, class_name, created_at, last_login_at')
+  .order('last_login_at', { ascending: false, nullsFirst: false });
 
       if (profilesError) {
         console.error(profilesError);
