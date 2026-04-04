@@ -204,31 +204,41 @@
       }
 
       const user = data.user;
-      const guessedName = email.split('@')[0];
+const guessedName = email.split('@')[0];
 
-      const { error: profileError } = await supabase
-        .from('profiles')
-        .upsert(
-          {
-            user_id: user.id,
-            email: user.email,
-            name: guessedName,
-            role: 'student'
-          },
-          {
-            onConflict: 'user_id'
-          }
-        );
+const { data: existingProfile, error: existingProfileError } = await supabase
+  .from('profiles')
+  .select('user_id, role')
+  .eq('user_id', user.id)
+  .maybeSingle();
 
-      if (profileError) {
-        setMessage('profiles 저장 실패: ' + profileError.message);
-        btn.disabled = false;
-        btn.textContent = '로그인';
-        return;
-      }
+if (existingProfileError) {
+  setMessage('profiles 조회 실패: ' + existingProfileError.message);
+  btn.disabled = false;
+  btn.textContent = '로그인';
+  return;
+}
 
-      setMessage('로그인 성공!', false);
-      location.href = 'index.html';
+if (!existingProfile) {
+  const { error: profileError } = await supabase
+    .from('profiles')
+    .insert({
+      user_id: user.id,
+      email: user.email,
+      name: guessedName,
+      role: 'student'
+    });
+
+  if (profileError) {
+    setMessage('profiles 저장 실패: ' + profileError.message);
+    btn.disabled = false;
+    btn.textContent = '로그인';
+    return;
+  }
+}
+
+setMessage('로그인 성공!', false);
+location.href = 'index.html';
     });
 
     document.getElementById('password').addEventListener('keydown', (e) => {
