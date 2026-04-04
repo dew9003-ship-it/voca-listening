@@ -29,18 +29,27 @@
 
      
 
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      });
+      const { data, error } = await supabase.auth.signInWithPassword({
+  email,
+  password
+});
 
-      if (error) {
-        alert('로그인 실패: ' + error.message);
-        return;
-      }
+if (error) {
+  alert('로그인 실패: ' + error.message);
+  return;
+}
 
-      
-      location.href = 'index.html';
+const user = data.user;
+const guessedName = email.split('@')[0];
+
+await supabase.from('profiles').upsert({
+  user_id: user.id,
+  email: email,
+  name: guessedName,
+  role: 'student'
+});
+
+location.href = 'index.html';
     });
   </script>
 </body>
