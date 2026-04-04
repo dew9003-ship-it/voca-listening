@@ -226,11 +226,26 @@ if (!existingProfile) {
       user_id: user.id,
       email: user.email,
       name: guessedName,
-      role: 'student'
+      role: 'student',
+      last_login_at: new Date().toISOString()
     });
 
   if (profileError) {
     setMessage('profiles 저장 실패: ' + profileError.message);
+    btn.disabled = false;
+    btn.textContent = '로그인';
+    return;
+  }
+} else {
+  const { error: updateProfileError } = await supabase
+    .from('profiles')
+    .update({
+      last_login_at: new Date().toISOString()
+    })
+    .eq('user_id', user.id);
+
+  if (updateProfileError) {
+    setMessage('최근 접속시간 저장 실패: ' + updateProfileError.message);
     btn.disabled = false;
     btn.textContent = '로그인';
     return;
