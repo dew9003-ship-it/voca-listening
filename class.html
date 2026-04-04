@@ -398,7 +398,7 @@ for (const row of progressRows || []) {
                 <div class="progress-fill" style="width:${row.progressPercent}%"></div>
               </div>
             </td>
-            <td>${escapeHtml(formatDate(row.last_login_at))}</td>
+            <td>${escapeHtml(formatDate(row.lastStudiedAt))}</td>
             <td>${escapeHtml(row.class_name || '-')}</td>
           </tr>
         `;
