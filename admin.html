@@ -353,22 +353,23 @@
         const progressInfo = calcProgress(maxIndex);
 
         return `
-          <tr>
-            <td>${escapeHtml(profile.name || '-')}</td>
-            <td>${escapeHtml(profile.email || '-')}</td>
-            <td>${getRoleBadge(profile.role)}</td>
-            <td>${escapeHtml(profile.class_name || '-')}</td>
-            <td style="font-size:12px;">${escapeHtml(profile.user_id || '-')}</td>
-            <td>${maxIndex ?? '<span class="muted">없음</span>'}</td>
-            <td class="progress-box">
-              <div>${escapeHtml(progressInfo.text)}</div>
-              <div class="progress-bar">
-                <div class="progress-fill" style="width:${progressInfo.percent}%"></div>
-              </div>
-            </td>
-            <td>${escapeHtml(formatDate(profile.created_at))}</td>
-          </tr>
-        `;
+  <tr>
+    <td>${escapeHtml(profile.name || '-')}</td>
+    <td class="progress-box">
+      <div>${escapeHtml(progressInfo.text)}</div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width:${progressInfo.percent}%"></div>
+      </div>
+    </td>
+    <td>${escapeHtml(formatDate(profile.last_login_at))}</td>
+    <td>${escapeHtml(profile.email || '-')}</td>
+    <td>${getRoleBadge(profile.role)}</td>
+    <td>${escapeHtml(profile.class_name || '-')}</td>
+    <td style="font-size:12px;">${escapeHtml(profile.user_id || '-')}</td>
+    <td>${maxIndex ?? '<span class="muted">없음</span>'}</td>
+    <td>${escapeHtml(formatDate(profile.created_at))}</td>
+  </tr>
+`;
       }).join('');
 
       tbody.innerHTML = rowsHtml;
