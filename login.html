@@ -252,9 +252,22 @@ if (!existingProfile) {
   }
 }
 
+const { data: finalProfile, error: finalProfileError } = await supabase
+  .from('profiles')
+  .select('role')
+  .eq('user_id', user.id)
+  .single();
+
+if (finalProfileError) {
+  setMessage('최종 권한 확인 실패: ' + finalProfileError.message);
+  btn.disabled = false;
+  btn.textContent = '로그인';
+  return;
+}
+
 setMessage('로그인 성공!', false);
 
-if (existingProfile?.role === 'admin') {
+if (finalProfile.role === 'admin') {
   location.href = 'admin.html';
 } else {
   location.href = 'index.html';
