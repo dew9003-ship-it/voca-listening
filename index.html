@@ -111,7 +111,7 @@ async function requireAuth() {
         const STORAGE_KEY = 'vocaListenProgress_locked_v1';
         const ADMIN_PASSWORD = '569020';
         const urlParams = new URLSearchParams(window.location.search);
-        const FORCE_UNLOCK_INDEX = Number(urlParams.get('unlock') || db.length);
+        const FORCE_UNLOCK_INDEX = null;
 
         let maxUnlockedIndex = Number(localStorage.getItem(STORAGE_KEY) || 0);
         if (!Number.isFinite(maxUnlockedIndex) || maxUnlockedIndex < 0) maxUnlockedIndex = 0;
