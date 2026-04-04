@@ -328,7 +328,7 @@
 
       const { data: classmates, error: classmatesError } = await supabase
         .from('profiles')
-        .select('user_id, name, class_name, last_login_at, role')
+        .select('user_id, name, class_name, role')
         .eq('class_name', myClassName)
         .eq('role', 'student');
 
@@ -371,8 +371,8 @@ for (const row of progressRows || []) {
           return b.progressCompleted - a.progressCompleted;
         }
 
-        const aTime = a.last_login_at ? new Date(a.last_login_at).getTime() : 0;
-        const bTime = b.last_login_at ? new Date(b.last_login_at).getTime() : 0;
+        const aTime = a.lastStudiedAt ? new Date(a.lastStudiedAt).getTime() : 0;
+        const bTime = b.lastStudiedAt ? new Date(b.lastStudiedAt).getTime() : 0;
         return bTime - aTime;
       });
 
