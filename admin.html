@@ -274,10 +274,10 @@ let allProgressMap = new Map();
   allBtn.style.background = selectedClassName === '전체' ? '#4f8cff' : '#e5e7eb';
   allBtn.style.color = selectedClassName === '전체' ? 'white' : '#333';
   allBtn.onclick = () => {
-    selectedClassName = '전체';
-    renderClassFilters(allProfiles);
-    renderTable();
-  };
+  selectedClassName = '전체';
+  renderTable();
+  renderClassFilters(allProfiles);
+};
   classFilterWrap.appendChild(allBtn);
 
   for (const className of classNames) {
@@ -293,10 +293,10 @@ let allProgressMap = new Map();
     btn.style.background = selectedClassName === className ? '#4caf50' : '#e5e7eb';
     btn.style.color = selectedClassName === className ? 'white' : '#333';
     btn.onclick = () => {
-      selectedClassName = className;
-      renderClassFilters(allProfiles);
-      renderTable();
-    };
+  selectedClassName = className;
+  renderTable();
+  renderClassFilters(allProfiles);
+};
     classFilterWrap.appendChild(btn);
   }
 }
