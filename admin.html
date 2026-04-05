@@ -171,8 +171,13 @@
     </div>
 
     <div class="card">
-      <div class="status" id="status">불러오는 중...</div>
-      <div class="table-wrap">
+  <div class="status" id="status">불러오는 중...</div>
+
+  <div id="classFilterWrap" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+    <button id="classAllBtn" type="button" style="border:none; border-radius:999px; padding:8px 12px; font-size:13px; font-weight:bold; cursor:pointer; background:#4f8cff; color:white;">전체</button>
+  </div>
+
+  <div class="table-wrap">
         <table>
           <thead>
             <tr>
@@ -208,7 +213,11 @@
     const TOTAL_SENTENCES = 177;
 
     const statusEl = document.getElementById('status');
-    const tbody = document.getElementById('studentTableBody');
+const tbody = document.getElementById('studentTableBody');
+const classFilterWrap = document.getElementById('classFilterWrap');
+
+let selectedClassName = '전체';
+let allProfiles = [];
 
     const totalUsersEl = document.getElementById('totalUsers');
     const totalStudentsEl = document.getElementById('totalStudents');
@@ -242,6 +251,54 @@
       if (Number.isNaN(d.getTime())) return value;
       return d.toLocaleString('ko-KR');
     }
+
+    function renderClassFilters(profiles) {
+  const classNames = [...new Set(
+    (profiles || [])
+      .map(p => (p.class_name || '').trim())
+      .filter(Boolean)
+  )].sort((a, b) => a.localeCompare(b, 'ko'));
+
+  classFilterWrap.innerHTML = '';
+
+  const allBtn = document.createElement('button');
+  allBtn.type = 'button';
+  allBtn.textContent = '전체';
+  allBtn.style.border = 'none';
+  allBtn.style.borderRadius = '999px';
+  allBtn.style.padding = '8px 12px';
+  allBtn.style.fontSize = '13px';
+  allBtn.style.fontWeight = 'bold';
+  allBtn.style.cursor = 'pointer';
+  allBtn.style.background = selectedClassName === '전체' ? '#4f8cff' : '#e5e7eb';
+  allBtn.style.color = selectedClassName === '전체' ? 'white' : '#333';
+  allBtn.onclick = () => {
+    selectedClassName = '전체';
+    renderClassFilters(allProfiles);
+    renderTable();
+  };
+  classFilterWrap.appendChild(allBtn);
+
+  for (const className of classNames) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = className;
+    btn.style.border = 'none';
+    btn.style.borderRadius = '999px';
+    btn.style.padding = '8px 12px';
+    btn.style.fontSize = '13px';
+    btn.style.fontWeight = 'bold';
+    btn.style.cursor = 'pointer';
+    btn.style.background = selectedClassName === className ? '#4caf50' : '#e5e7eb';
+    btn.style.color = selectedClassName === className ? 'white' : '#333';
+    btn.onclick = () => {
+      selectedClassName = className;
+      renderClassFilters(allProfiles);
+      renderTable();
+    };
+    classFilterWrap.appendChild(btn);
+  }
+}
 
     function getRoleBadge(role) {
       if (role === 'admin') {
@@ -335,6 +392,9 @@
         }
       }
 
+      allProfiles = profiles || [];
+renderClassFilters(allProfiles);
+
       const totalUsers = (profiles || []).length;
       const totalStudents = (profiles || []).filter(x => x.role === 'student').length;
       const totalAdmins = (profiles || []).filter(x => x.role === 'admin').length;
@@ -351,7 +411,12 @@
         return;
       }
 
-      const rowsHtml = profiles.map(profile => {
+      const filteredProfiles = (allProfiles || []).filter(profile => {
+  if (selectedClassName === '전체') return true;
+  return (profile.class_name || '') === selectedClassName;
+});
+
+const rowsHtml = filteredProfiles.map(profile => {
         const progress = progressMap.get(profile.user_id);
         const maxIndex = progress?.max_index ?? null;
         const progressInfo = calcProgress(maxIndex);
@@ -377,7 +442,11 @@
       }).join('');
 
       tbody.innerHTML = rowsHtml;
-      statusEl.textContent = `총 ${totalUsers}명의 사용자 데이터를 불러왔습니다.`;
+      const shownCount = filteredProfiles.length;
+statusEl.textContent =
+  selectedClassName === '전체'
+    ? `총 ${totalUsers}명의 사용자 데이터를 불러왔습니다.`
+    : `${selectedClassName} 반 학생 ${shownCount}명을 표시하고 있습니다.`;
     }
 
     loadAdminPage();
