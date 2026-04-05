@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>보카엔딩 문법 학습</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root{
+      --bg:#f4f7fb; --card:#ffffff; --line:#e5e7eb; --text:#1f2937; --muted:#6b7280;
+      --blue:#4f8cff; --green:#4caf50; --red:#ef4444; --shadow:0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+    body{ margin:0; font-family:Arial,sans-serif; background:linear-gradient(180deg,#eff5ff 0%,#f4f7fb 35%,#eef8f1 100%); color:var(--text);}
+    .wrap{ max-width:1100px; margin:0 auto; padding:20px; min-height:100vh;}
+    .topbar{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; flex-wrap:wrap;}
+    .title-box h1{ margin:0; font-size:30px; font-weight:800; letter-spacing:-0.02em;}
+    .title-box p{ margin:8px 0 0; color:var(--muted); font-size:14px;}
+    .btns{ display:flex; gap:8px; flex-wrap:wrap;}
+    button{ border:none; border-radius:14px; padding:11px 16px; font-size:14px; font-weight:700; cursor:pointer; transition:transform .12s ease, opacity .12s ease, box-shadow .12s ease;}
+    button:hover{ opacity:.95; box-shadow:0 8px 18px rgba(0,0,0,.08); } button:active{ transform:translateY(1px); }
+    .btn-blue{ background:var(--blue); color:#fff;} .btn-green{ background:var(--green); color:#fff;}
+    .btn-slate{ background:#607d8b; color:#fff;} .btn-light{ background:#fff; color:#334155; border:1px solid var(--line);}
+    .summary-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:12px; margin-bottom:18px;}
+    .summary-card,.panel{ background:var(--card); border-radius:24px; box-shadow:var(--shadow);}
+    .summary-card{ padding:18px;} .summary-card .label{ color:var(--muted); font-size:13px; margin-bottom:8px;}
+    .summary-card .value{ font-size:28px; font-weight:800;} .panel{ padding:18px; margin-bottom:18px;}
+    .panel-head{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:14px; flex-wrap:wrap;}
+    .panel-head h2{ margin:0; font-size:20px;} .panel-head p{ margin:6px 0 0; color:var(--muted); font-size:13px;}
+    .topic-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(180px,1fr)); gap:12px;}
+    .topic-card{ border:1px solid var(--line); background:linear-gradient(180deg,#fff 0%,#fbfdff 100%); border-radius:18px; padding:16px; min-height:146px; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer; transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;}
+    .topic-card:hover{ transform:translateY(-2px); box-shadow:0 14px 28px rgba(15,23,42,.08); border-color:#bfd5ff;}
+    .topic-card.completed{ background:linear-gradient(180deg,#f7fff7 0%,#edf9ef 100%); border-color:#b9e3c0;}
+    .topic-card .badge{ display:inline-flex; align-items:center; gap:6px; width:max-content; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; background:#eef4ff; color:#335ea8; margin-bottom:10px;}
+    .topic-card.completed .badge{ background:#dff5e3; color:#1e7b33;}
+    .topic-title{ font-size:16px; font-weight:800; line-height:1.35; margin-bottom:10px;}
+    .topic-meta{ color:var(--muted); font-size:12px; line-height:1.5;}
+    .quiz-view{ display:none; }
+    .quiz-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; margin-bottom:14px;}
+    .progress-pill{ display:inline-flex; align-items:center; gap:8px; background:#eef4ff; color:#2f5da8; border-radius:999px; padding:8px 12px; font-size:13px; font-weight:700;}
+    .progress-bar-wrap{ width:100%; height:10px; background:#e5e7eb; border-radius:999px; overflow:hidden; margin-bottom:18px;}
+    .progress-bar{ height:100%; width:0%; background:linear-gradient(90deg,#4f8cff,#6fcf97); transition:width .2s ease;}
+    .question-card{ background:linear-gradient(180deg,#fff 0%,#fafcff 100%); border:1px solid var(--line); border-radius:22px; padding:22px; margin-bottom:16px;}
+    .question-label{ display:inline-block; padding:7px 12px; border-radius:999px; background:#f2f6ff; color:#355ea9; font-size:12px; font-weight:800; margin-bottom:12px;}
+    .question-text{ font-size:24px; font-weight:800; line-height:1.45; white-space:pre-line;}
+    .choices{ display:grid; gap:12px; margin-top:16px;}
+    .choice{ width:100%; text-align:left; background:#fff; color:#1f2937; border:1.5px solid var(--line); border-radius:18px; padding:16px 18px; font-size:16px; font-weight:700; display:flex; gap:12px; align-items:flex-start;}
+    .choice .num{ width:28px; height:28px; border-radius:999px; background:#eef4ff; color:#355ea9; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-size:13px; font-weight:800; margin-top:1px;}
+    .choice.correct{ border-color:#7ac788; background:#edf9ef;} .choice.wrong{ border-color:#f3aaaa; background:#fff2f2;} .choice.dim{ opacity:.75;}
+    .quiz-foot{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-top:8px;}
+    .quiz-status{ color:var(--muted); font-size:14px;}
+    .empty,.loading{ padding:36px 14px; text-align:center; color:var(--muted); font-weight:700;}
+    .result-box{ margin-top:16px; padding:16px 18px; border-radius:18px; font-size:15px; font-weight:700; display:none;}
+    .result-box.correct{ display:block; background:#edf9ef; color:#1e7b33; border:1px solid #b9e3c0;}
+    .result-box.wrong{ display:block; background:#fff2f2; color:#b42318; border:1px solid #f6b8b8;}
+    .topic-complete{ text-align:center; padding:18px; border-radius:20px; background:linear-gradient(180deg,#f7fff7 0%,#edf9ef 100%); border:1px solid #b9e3c0; margin-top:10px; display:none;}
+    .topic-complete h3{ margin:0 0 10px; font-size:24px;} .topic-complete p{ margin:0 0 18px; color:#3f5e4b; line-height:1.6; font-weight:700;}
+    @media (max-width:640px){ .wrap{padding:14px;} .title-box h1{font-size:25px;} .question-text{font-size:20px;} .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));} .topic-card{min-height:132px; padding:14px;} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="title-box">
+        <h1>문법 학습관</h1>
+        <p>문법 파트를 깔끔한 객관식 학습 방식으로 바로 풀 수 있어요.</p>
+      </div>
+      <div class="btns">
+        <button id="homeBtn" class="btn-light">학습 홈</button>
+        <button id="refreshBtn" class="btn-blue">새로고침</button>
+        <button id="logoutBtn" class="btn-slate">로그아웃</button>
+      </div>
+    </div>
+
+    <div id="menuView">
+      <div class="summary-grid">
+        <div class="summary-card"><div class="label">전체 문법 주제</div><div class="value" id="totalTopics">-</div></div>
+        <div class="summary-card"><div class="label">완료한 주제</div><div class="value" id="completedTopics">-</div></div>
+        <div class="summary-card"><div class="label">현재 사용자</div><div class="value" id="currentName" style="font-size:22px;">-</div></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>문법 목차</h2>
+            <p>원하는 주제를 눌러 바로 시작하세요. 완료한 주제는 초록색으로 표시됩니다.</p>
+          </div>
+        </div>
+        <div id="topicGrid" class="topic-grid"></div>
+        <div id="menuLoading" class="loading">목차를 불러오는 중입니다...</div>
+      </div>
+    </div>
+
+    <div id="quizView" class="quiz-view panel">
+      <div class="quiz-head">
+        <div>
+          <div class="progress-pill" id="topicBadge">문법 주제</div>
+          <p id="topicDesc" style="margin:10px 0 0; color:var(--muted); font-size:14px;">문제를 불러오는 중...</p>
+        </div>
+        <div class="btns"><button id="menuBtn" class="btn-light">목차</button></div>
+      </div>
+
+      <div class="progress-bar-wrap"><div id="progressBar" class="progress-bar"></div></div>
+
+      <div class="question-card">
+        <div class="question-label" id="questionLabel">문제 1</div>
+        <div id="questionText" class="question-text">문제를 불러오는 중...</div>
+        <div id="choices" class="choices"></div>
+        <div id="resultBox" class="result-box"></div>
+      </div>
+
+      <div class="quiz-foot">
+        <div id="quizStatus" class="quiz-status">정답을 선택해 주세요.</div>
+        <div class="btns"><button id="nextBtn" class="btn-green" disabled>다음 문제</button></div>
+      </div>
+
+      <div id="completeBox" class="topic-complete">
+        <h3>주제 완료 🎉</h3>
+        <p id="completeText">모든 문제를 끝냈습니다.</p>
+        <div class="btns" style="justify-content:center;">
+          <button id="retryBtn" class="btn-blue">다시 풀기</button>
+          <button id="backToMenuBtn" class="btn-green">목차로 돌아가기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+    const supabase = createClient('https://uuzhdxangctewuklvmlv.supabase.co','sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F');
+    const TOTAL_FALLBACK = 67;
+    const menuView = document.getElementById('menuView');
+    const quizView = document.getElementById('quizView');
+    const topicGrid = document.getElementById('topicGrid');
+    const menuLoading = document.getElementById('menuLoading');
+    const totalTopicsEl = document.getElementById('totalTopics');
+    const completedTopicsEl = document.getElementById('completedTopics');
+    const currentNameEl = document.getElementById('currentName');
+    const topicBadge = document.getElementById('topicBadge');
+    const topicDesc = document.getElementById('topicDesc');
+    const progressBar = document.getElementById('progressBar');
+    const questionLabel = document.getElementById('questionLabel');
+    const questionText = document.getElementById('questionText');
+    const choicesEl = document.getElementById('choices');
+    const quizStatus = document.getElementById('quizStatus');
+    const resultBox = document.getElementById('resultBox');
+    const nextBtn = document.getElementById('nextBtn');
+    const completeBox = document.getElementById('completeBox');
+    const completeText = document.getElementById('completeText');
+    let me = null, role = 'student', topics = [], currentTopic = null, currentQuestions = [], currentIndex = 0, selectedAnswer = null, score = 0;
+
+    function getProgressKey(){ return me?.id ? `voca_grammar_progress_${me.id}` : 'voca_grammar_progress_guest'; }
+    function getProgressStore(){ try { return JSON.parse(localStorage.getItem(getProgressKey()) || '{}'); } catch { return {}; } }
+    function setProgressStore(data){ localStorage.setItem(getProgressKey(), JSON.stringify(data)); }
+    function markTopicCompleted(topicId, totalCount, scoreValue){
+      const store = getProgressStore();
+      store[topicId] = { completed:true, total:totalCount, score:scoreValue, lastStudiedAt:new Date().toISOString() };
+      setProgressStore(store);
+    }
+    function escapeHtml(value){ return String(value ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;'); }
+    function flattenQuestions(input){
+      const result = [];
+      const walk = (value) => {
+        if (Array.isArray(value)) { for (const item of value) walk(item); return; }
+        if (value && typeof value === 'object' && 'q' in value && 'o' in value && 'ans' in value) result.push(value);
+      };
+      walk(input);
+      return result;
+    }
+    function showMenu(){ quizView.style.display='none'; menuView.style.display='block'; completeBox.style.display='none'; renderMenu(); }
+
+    async function requireAuth(){
+      const { data: authData, error: authError } = await supabase.auth.getUser();
+      if (authError || !authData.user) { alert('로그인이 필요합니다.'); location.href='login.html'; return false; }
+      me = authData.user;
+      const { data: profileData } = await supabase.from('profiles').select('user_id, name, role').eq('user_id', me.id).maybeSingle();
+      if (profileData?.role) role = profileData.role;
+      currentNameEl.textContent = profileData?.name || me.email || '사용자';
+      return true;
+    }
+
+    async function loadTopics(){
+      menuLoading.style.display='block'; topicGrid.innerHTML='';
+      try {
+        const res = await fetch('grammar_list.json');
+        const list = await res.json();
+        topics = Array.isArray(list) ? list : [];
+      } catch(e) { console.error(e); topics = []; }
+      totalTopicsEl.textContent = topics.length || TOTAL_FALLBACK;
+      menuLoading.style.display='none';
+      renderMenu();
+    }
+
+    function renderMenu(){
+      topicGrid.innerHTML='';
+      const store = getProgressStore();
+      const completedCount = Object.values(store).filter(v => v?.completed).length;
+      completedTopicsEl.textContent = completedCount;
+      if (!topics.length) { topicGrid.innerHTML = '<div class="empty">문법 목차를 불러오지 못했습니다.</div>'; return; }
+
+      for (const topic of topics) {
+        const progress = store[topic.id];
+        const completed = !!progress?.completed;
+        const card = document.createElement('button');
+        card.type='button';
+        card.className = `topic-card ${completed ? 'completed' : ''}`;
+        card.innerHTML = `
+          <div>
+            <div class="badge">${completed ? '완료' : '학습 가능'}</div>
+            <div class="topic-title">${escapeHtml(topic.title || `주제 ${topic.id}`)}</div>
+          </div>
+          <div class="topic-meta">
+            ID: ${escapeHtml(topic.id)}<br>
+            ${completed ? `최근 학습: ${new Date(progress.lastStudiedAt).toLocaleDateString('ko-KR')}` : '문제를 눌러 시작'}
+          </div>`;
+        card.addEventListener('click', () => startTopic(topic));
+        topicGrid.appendChild(card);
+      }
+    }
+
+    async function startTopic(topic){
+      currentTopic = topic; currentIndex = 0; selectedAnswer = null; score = 0;
+      resultBox.className='result-box'; resultBox.textContent=''; resultBox.style.display='none'; completeBox.style.display='none';
+      try {
+        const res = await fetch(topic.file);
+        const raw = await res.json();
+        currentQuestions = flattenQuestions(raw).filter(item => item && typeof item.q === 'string' && Array.isArray(item.o) && item.o.length >= 2);
+      } catch(e) { console.error(e); alert('문제 파일을 불러오지 못했습니다.'); return; }
+      if (!currentQuestions.length) { alert('이 주제에는 표시할 문제가 없습니다.'); return; }
+      menuView.style.display='none'; quizView.style.display='block'; renderQuestion();
+    }
+
+    function renderQuestion(){
+      const item = currentQuestions[currentIndex];
+      const progressPercent = (currentIndex / currentQuestions.length) * 100;
+      topicBadge.textContent = currentTopic?.title || '문법 주제';
+      topicDesc.textContent = `총 ${currentQuestions.length}문제 · 현재 맞힌 문제 ${score}개`;
+      progressBar.style.width = `${progressPercent}%`;
+      questionLabel.textContent = `문제 ${currentIndex + 1} / ${currentQuestions.length}`;
+      questionText.textContent = item.q;
+      quizStatus.textContent = '정답을 선택해 주세요.';
+      nextBtn.disabled = true;
+      resultBox.className='result-box'; resultBox.textContent=''; resultBox.style.display='none'; choicesEl.innerHTML=''; selectedAnswer = null;
+      item.o.forEach((option, idx) => {
+        const btn = document.createElement('button');
+        btn.type='button'; btn.className='choice';
+        btn.innerHTML = `<span class="num">${idx+1}</span><span>${escapeHtml(option)}</span>`;
+        btn.addEventListener('click', () => selectAnswer(idx+1));
+        choicesEl.appendChild(btn);
+      });
+    }
+
+    function selectAnswer(choiceNumber){
+      if (selectedAnswer !== null) return;
+      selectedAnswer = choiceNumber;
+      const item = currentQuestions[currentIndex];
+      const correct = Number(item.ans);
+      const buttons = Array.from(choicesEl.querySelectorAll('.choice'));
+      buttons.forEach((btn, index) => {
+        const choiceNum = index + 1;
+        if (choiceNum === correct) btn.classList.add('correct');
+        else if (choiceNum === choiceNumber) btn.classList.add('wrong');
+        else btn.classList.add('dim');
+      });
+      if (choiceNumber === correct) {
+        score += 1; quizStatus.textContent='정답입니다!'; resultBox.className='result-box correct'; resultBox.textContent='정답입니다. 아주 좋아요!';
+      } else {
+        quizStatus.textContent='오답입니다.'; resultBox.className='result-box wrong'; resultBox.innerHTML=`오답입니다. 정답은 <b>${correct}번</b>이에요.`;
+      }
+      resultBox.style.display='block'; nextBtn.disabled = false;
+    }
+
+    function handleNext(){
+      if (selectedAnswer === null) return;
+      if (currentIndex < currentQuestions.length - 1) { currentIndex += 1; renderQuestion(); return; }
+      markTopicCompleted(currentTopic.id, currentQuestions.length, score);
+      progressBar.style.width='100%'; completeBox.style.display='block';
+      completeText.textContent = `${currentTopic.title} 학습을 완료했습니다. 총 ${currentQuestions.length}문제 중 ${score}문제를 맞혔어요.`;
+      quizStatus.textContent='주제 학습이 완료되었습니다.'; nextBtn.disabled = true;
+    }
+
+    async function logout(){ await supabase.auth.signOut(); location.href='login.html'; }
+
+    document.getElementById('refreshBtn').addEventListener('click', () => location.reload());
+    document.getElementById('menuBtn').addEventListener('click', showMenu);
+    document.getElementById('retryBtn').addEventListener('click', () => startTopic(currentTopic));
+    document.getElementById('backToMenuBtn').addEventListener('click', showMenu);
+    nextBtn.addEventListener('click', handleNext);
+    document.getElementById('logoutBtn').addEventListener('click', logout);
+    document.getElementById('homeBtn').addEventListener('click', () => { if (role === 'admin') location.href='admin.html'; else location.href='class.html'; });
+
+    async function init(){ const ok = await requireAuth(); if (!ok) return; await loadTopics(); }
+    init();
+  </script>
+</body>
+</html>
