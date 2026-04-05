@@ -308,34 +308,7 @@ let allProgressMap = new Map();
     return (profile.class_name || '') === selectedClassName;
   });
 
-async function updateClassName(userId) {
-  const input = document.getElementById(`class-${userId}`);
-  if (!input) return;
 
-  const newClassName = input.value.trim();
-
-  const { error } = await supabase
-    .from('profiles')
-    .update({
-      class_name: newClassName || null
-    })
-    .eq('user_id', userId);
-
-  if (error) {
-  console.error('반 수정 실패:', error);
-  alert('반 수정 실패: ' + error.message);
-  return;
-}
-
-  const target = allProfiles.find(p => p.user_id === userId);
-  if (target) {
-    target.class_name = newClassName || null;
-  }
-
-  renderClassFilters(allProfiles);
-  renderTable();
-  alert('반이 저장되었습니다.');
-}
       
 
   if (!filteredProfiles.length) {
@@ -403,6 +376,35 @@ statusEl.textContent =
   selectedClassName === '전체'
     ? `총 ${allProfiles.length}명의 사용자 데이터를 불러왔습니다.`
     : `${selectedClassName} 반 학생 ${shownCount}명을 표시하고 있습니다.`;
+}
+
+    async function updateClassName(userId) {
+  const input = document.getElementById(`class-${userId}`);
+  if (!input) return;
+
+  const newClassName = input.value.trim();
+
+  const { error } = await supabase
+    .from('profiles')
+    .update({
+      class_name: newClassName || null
+    })
+    .eq('user_id', userId);
+
+  if (error) {
+  console.error('반 수정 실패:', error);
+  alert('반 수정 실패: ' + error.message);
+  return;
+}
+
+  const target = allProfiles.find(p => p.user_id === userId);
+  if (target) {
+    target.class_name = newClassName || null;
+  }
+
+  renderClassFilters(allProfiles);
+  renderTable();
+  alert('반이 저장되었습니다.');
 }
 
     function getRoleBadge(role) {
