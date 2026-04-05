@@ -183,7 +183,7 @@
             <tr>
   <th>이름</th>
   <th>진도율</th>
-  <th>최근접속시간</th>
+  <th>최근학습시간</th>
   <th>이메일</th>
   <th>권한</th>
   <th>반</th>
@@ -218,6 +218,7 @@ const classFilterWrap = document.getElementById('classFilterWrap');
 
 let selectedClassName = '전체';
 let allProfiles = [];
+let allProgressMap = new Map();
 
     const totalUsersEl = document.getElementById('totalUsers');
     const totalStudentsEl = document.getElementById('totalStudents');
@@ -298,6 +299,55 @@ let allProfiles = [];
     };
     classFilterWrap.appendChild(btn);
   }
+}
+
+    function renderTable() {
+  const filteredProfiles = (allProfiles || []).filter(profile => {
+    if (selectedClassName === '전체') return true;
+    return (profile.class_name || '') === selectedClassName;
+  });
+
+  if (!filteredProfiles.length) {
+    tbody.innerHTML = '<tr><td colspan="9">해당 반의 학생이 없습니다.</td></tr>';
+    statusEl.textContent =
+      selectedClassName === '전체'
+        ? '표시할 사용자 데이터가 없습니다.'
+        : `${selectedClassName} 반 학생이 없습니다.`;
+    return;
+  }
+
+  const rowsHtml = filteredProfiles.map(profile => {
+    const progress = allProgressMap.get(profile.user_id);
+    const maxIndex = progress?.max_index ?? null;
+    const progressInfo = calcProgress(maxIndex);
+
+    return `
+      <tr>
+        <td>${escapeHtml(profile.name || '-')}</td>
+        <td class="progress-box">
+          <div>${escapeHtml(progressInfo.text)}</div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:${progressInfo.percent}%"></div>
+          </div>
+        </td>
+        <td>${escapeHtml(formatDate(progress?.last_studied_at))}</td>
+        <td>${escapeHtml(profile.email || '-')}</td>
+        <td>${getRoleBadge(profile.role)}</td>
+        <td>${escapeHtml(profile.class_name || '-')}</td>
+        <td style="font-size:12px;">${escapeHtml(profile.user_id || '-')}</td>
+        <td>${maxIndex ?? '<span class="muted">없음</span>'}</td>
+        <td>${escapeHtml(formatDate(profile.created_at))}</td>
+      </tr>
+    `;
+  }).join('');
+
+  tbody.innerHTML = rowsHtml;
+
+  const shownCount = filteredProfiles.length;
+  statusEl.textContent =
+    selectedClassName === '전체'
+      ? `총 ${allProfiles.length}명의 사용자 데이터를 불러왔습니다.`
+      : `${selectedClassName} 반 학생 ${shownCount}명을 표시하고 있습니다.`;
 }
 
     function getRoleBadge(role) {
@@ -385,20 +435,20 @@ let allProfiles = [];
         return;
       }
 
-      const progressMap = new Map();
-      for (const row of progressRows || []) {
-        if (!progressMap.has(row.user_id)) {
-          progressMap.set(row.user_id, row);
-        }
-      }
+      allProgressMap = new Map();
+for (const row of progressRows || []) {
+  if (!allProgressMap.has(row.user_id)) {
+    allProgressMap.set(row.user_id, row);
+  }
+}
 
       allProfiles = profiles || [];
 renderClassFilters(allProfiles);
 
-      const totalUsers = (profiles || []).length;
-      const totalStudents = (profiles || []).filter(x => x.role === 'student').length;
-      const totalAdmins = (profiles || []).filter(x => x.role === 'admin').length;
-      const totalProgressUsers = progressMap.size;
+const totalUsers = (profiles || []).length;
+const totalStudents = (profiles || []).filter(x => x.role === 'student').length;
+const totalAdmins = (profiles || []).filter(x => x.role === 'admin').length;
+const totalProgressUsers = allProgressMap.size;
 
       totalUsersEl.textContent = totalUsers;
       totalStudentsEl.textContent = totalStudents;
@@ -411,42 +461,7 @@ renderClassFilters(allProfiles);
         return;
       }
 
-      const filteredProfiles = (allProfiles || []).filter(profile => {
-  if (selectedClassName === '전체') return true;
-  return (profile.class_name || '') === selectedClassName;
-});
-
-const rowsHtml = filteredProfiles.map(profile => {
-        const progress = progressMap.get(profile.user_id);
-        const maxIndex = progress?.max_index ?? null;
-        const progressInfo = calcProgress(maxIndex);
-
-        return `
-  <tr>
-    <td>${escapeHtml(profile.name || '-')}</td>
-    <td class="progress-box">
-      <div>${escapeHtml(progressInfo.text)}</div>
-      <div class="progress-bar">
-        <div class="progress-fill" style="width:${progressInfo.percent}%"></div>
-      </div>
-    </td>
-    <td>${escapeHtml(formatDate(profile.last_login_at))}</td>
-    <td>${escapeHtml(profile.email || '-')}</td>
-    <td>${getRoleBadge(profile.role)}</td>
-    <td>${escapeHtml(profile.class_name || '-')}</td>
-    <td style="font-size:12px;">${escapeHtml(profile.user_id || '-')}</td>
-    <td>${maxIndex ?? '<span class="muted">없음</span>'}</td>
-    <td>${escapeHtml(formatDate(profile.created_at))}</td>
-  </tr>
-`;
-      }).join('');
-
-      tbody.innerHTML = rowsHtml;
-      const shownCount = filteredProfiles.length;
-statusEl.textContent =
-  selectedClassName === '전체'
-    ? `총 ${totalUsers}명의 사용자 데이터를 불러왔습니다.`
-    : `${selectedClassName} 반 학생 ${shownCount}명을 표시하고 있습니다.`;
+      renderTable();
     }
 
     loadAdminPage();
