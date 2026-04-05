@@ -334,9 +334,13 @@ const grammarCount = grammar?.completed_topic_count ?? 0;
       <tr>
         <td>${escapeHtml(profile.name || '-')}</td>
         <td class="progress-box">
-          <div>${escapeHtml(progressInfo.text)}</div>
-          <td>${grammarCount}개</td>
-          <div class="progress-bar">
+  <div>${escapeHtml(progressInfo.text)}</div>
+  <div class="progress-bar">
+    <div class="progress-fill" style="width:${progressInfo.percent}%"></div>
+  </div>
+</td>
+
+<td>${grammarCount}개</td>
             <div class="progress-fill" style="width:${progressInfo.percent}%"></div>
           </div>
         </td>
