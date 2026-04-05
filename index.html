@@ -447,10 +447,29 @@ async function requireAuth() {
         });
 
         async function init() {
-            const user = await requireAuth();
-            if (!user) return;
-            renderMenu();
-        }
+    const user = await requireAuth();
+    if (!user) return;
+
+    const localProgress = Number(localStorage.getItem(STORAGE_KEY) || 0);
+    if (Number.isFinite(localProgress) && localProgress >= 0) {
+        maxUnlockedIndex = localProgress;
+    }
+
+    const { data: serverProgress, error: serverError } = await supabase
+        .from('listening_progress')
+        .select('max_index')
+        .eq('user_id', user.id)
+        .maybeSingle();
+
+    if (serverError) {
+        console.error('서버 듣기 진도 조회 실패:', serverError);
+    } else if (serverProgress && Number.isFinite(serverProgress.max_index)) {
+        maxUnlockedIndex = Math.max(maxUnlockedIndex, Number(serverProgress.max_index));
+        localStorage.setItem(STORAGE_KEY, String(maxUnlockedIndex));
+    }
+
+    renderMenu();
+}
 
         init();
     </script>
