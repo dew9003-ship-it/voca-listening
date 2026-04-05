@@ -52,7 +52,32 @@
     .result-box{ margin-top:16px; padding:16px 18px; border-radius:18px; font-size:15px; font-weight:700; display:none;}
     .result-box.correct{ display:block; background:#edf9ef; color:#1e7b33; border:1px solid #b9e3c0;}
     .result-box.wrong{ display:block; background:#fff2f2; color:#b42318; border:1px solid #f6b8b8;}
-    .topic-complete{ text-align:center; padding:18px; border-radius:20px; background:linear-gradient(180deg,#f7fff7 0%,#edf9ef 100%); border:1px solid #b9e3c0; margin-top:10px; display:none;}
+.topic-complete{ text-align:center; padding:18px; border-radius:20px; background:linear-gradient(180deg,#f7fff7 0%,#edf9ef 100%); border:1px solid #b9e3c0; margin-top:10px; display:none;}
+
+.quiz-shake {
+  animation: quizShake 0.4s ease;
+}
+
+.red-flash {
+  animation: redFlash 0.45s ease;
+}
+
+@keyframes quizShake {
+  0% { transform: translateX(0); }
+  15% { transform: translateX(-10px); }
+  30% { transform: translateX(10px); }
+  45% { transform: translateX(-8px); }
+  60% { transform: translateX(8px); }
+  75% { transform: translateX(-4px); }
+  90% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes redFlash {
+  0% { box-shadow: 0 0 0 rgba(239, 68, 68, 0); }
+  20% { box-shadow: 0 0 0 9999px rgba(239, 68, 68, 0.18) inset; }
+  100% { box-shadow: 0 0 0 rgba(239, 68, 68, 0); }
+}
     .topic-complete h3{ margin:0 0 10px; font-size:24px;} .topic-complete p{ margin:0 0 18px; color:#3f5e4b; line-height:1.6; font-weight:700;}
     @media (max-width:640px){ .wrap{padding:14px;} .title-box h1{font-size:25px;} .question-text{font-size:20px;} .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));} .topic-card{min-height:132px; padding:14px;} }
   </style>
@@ -150,8 +175,9 @@
     const topicDesc = document.getElementById('topicDesc');
     const progressBar = document.getElementById('progressBar');
     const questionLabel = document.getElementById('questionLabel');
-    const questionText = document.getElementById('questionText');
-    const choicesEl = document.getElementById('choices');
+const questionText = document.getElementById('questionText');
+const choicesEl = document.getElementById('choices');
+const quizCard = document.querySelector('.question-card');
     const quizStatus = document.getElementById('quizStatus');
     const resultBox = document.getElementById('resultBox');
     const nextBtn = document.getElementById('nextBtn');
@@ -224,6 +250,23 @@ function openFailPopup() {
 
 function closeFailPopup() {
   failPopup.style.display = 'none';
+}
+
+    function playWrongEffect() {
+  if (!quizCard) return;
+
+  quizCard.classList.remove('quiz-shake');
+  document.body.classList.remove('red-flash');
+
+  void quizCard.offsetWidth;
+
+  quizCard.classList.add('quiz-shake');
+  document.body.classList.add('red-flash');
+
+  setTimeout(() => {
+    quizCard.classList.remove('quiz-shake');
+    document.body.classList.remove('red-flash');
+  }, 500);
 }
 
     async function requireAuth(){
@@ -344,8 +387,9 @@ function closeFailPopup() {
 
   } else {
     quizStatus.textContent = '오답입니다.';
+    playWrongEffect();
     resultBox.className = 'result-box wrong';
-    resultBox.innerHTML = `오답입니다. 정답은 <b>${correct}번</b>이에요.`;
+    resultBox.textContent = '오답입니다.';
 
     setTimeout(() => {
       openFailPopup();   // ⭐ 이게 핵심
