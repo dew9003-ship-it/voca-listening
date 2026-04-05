@@ -180,10 +180,11 @@
       </div>
 
       <div class="btns">
-        <button id="studyBtn" class="study-btn">학습 페이지</button>
-        <button id="refreshBtn" class="refresh-btn">새로고침</button>
-        <button id="logoutBtn" class="logout-btn">로그아웃</button>
-      </div>
+  <button id="studyBtn" class="study-btn">듣기 학습</button>
+  <button id="grammarBtn" class="study-btn">문법 학습</button>
+  <button id="refreshBtn" class="refresh-btn">새로고침</button>
+  <button id="logoutBtn" class="logout-btn">로그아웃</button>
+</div>
     </div>
 
     <div class="card">
@@ -227,6 +228,10 @@
     document.getElementById('studyBtn').addEventListener('click', () => {
       location.href = 'index.html';
     });
+
+    document.getElementById('grammarBtn').addEventListener('click', () => {
+  location.href = 'grammar.html';
+});
 
     document.getElementById('refreshBtn').addEventListener('click', () => {
       loadClassPage();
