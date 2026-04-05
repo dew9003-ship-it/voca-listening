@@ -1,0 +1,502 @@
+[
+  {
+    "q": "Aren't you tired?",
+    "o": [
+      "Yes, I'm not.",
+      "No, I am.",
+      "Yes, I am.",
+      "Yes, you are"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Aren't you a student?",
+    "o": [
+      "Yes, I'm not.",
+      "No, I am.",
+      "Yes, I am.",
+      "Yes, you are"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Aren't you a student?",
+    "o": [
+      "No, I'm not.",
+      "Yes, I'm not.",
+      "No, I amn't.",
+      "No, I am't."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Aren't they students?",
+    "o": [
+      "No, I'm not.",
+      "No, they not.",
+      "No, they aren't.",
+      "No, they isn't."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Isn't she a doctor?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Isn't Jane a teacher?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Isn't Mary a student?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Aren't you a teacher?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Isn't he a teacher?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Isn't Tom a doctor?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Aren't you my friend?",
+    "o": [
+      "Yes, I am.",
+      "No, you aren't",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Isn't Tom with you?",
+    "o": [
+      "Yes, I am.",
+      "No, you aren't",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Isn't Tom with you?",
+    "o": [
+      "Yes, I am.",
+      "No, you aren't",
+      "No, she isn't.",
+      "Yes, he is."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Wasn't she nice to you?",
+    "o": [
+      "Yes, I am.",
+      "No, you aren't",
+      "No, she wasn't.",
+      "Yes, he is."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Wasn't she nice to you?",
+    "o": [
+      "Yes, I am.",
+      "No, you aren't",
+      "Yes, she was.",
+      "Yes, he was."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Aren't you happy?",
+    "o": [
+      "Yes, I am.",
+      "No, you aren't",
+      "Yes, she was.",
+      "Yes, I was."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Weren't you happy?",
+    "o": [
+      "Yes, I am.",
+      "No, you aren't",
+      "Yes, she was.",
+      "Yes, I was."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Can't we go there?",
+    "o": [
+      "No, we can.",
+      "Yes, you can.",
+      "Yes, we can't.",
+      "Yes, we do."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Don't you go there?",
+    "o": [
+      "Yes, I am.",
+      "Yes, I do.",
+      "Yes, he does.",
+      "Yes, she does."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Don't you like a dog?",
+    "o": [
+      "Yes, I am.",
+      "Yes, I do.",
+      "Yes, he does.",
+      "Yes, she does."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Doesn't he like a dog?",
+    "o": [
+      "Yes, I am.",
+      "Yes, I do.",
+      "Yes, he does.",
+      "Yes, she does."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Doesn't she like a dog?",
+    "o": [
+      "Yes, I am.",
+      "Yes, I do.",
+      "Yes, he does.",
+      "Yes, she does."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Don't they like a dog?",
+    "o": [
+      "Yes, I am.",
+      "Yes, I do.",
+      "Yes, he does.",
+      "Yes, they do."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Weren't they happy last Christmas?",
+    "o": [
+      "Yes, you were",
+      "Yes, they were",
+      "Yes, they was",
+      "Yes, you was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Weren't Tom and I happy last Christmas?",
+    "o": [
+      "Yes, you were",
+      "Yes, they were",
+      "Yes, they was",
+      "Yes, you was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Wasn't he happy last Christmas?",
+    "o": [
+      "Yes, you were",
+      "Yes, I was",
+      "Yes, he was",
+      "Yes, they were"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Wasn't she happy last Christmas?",
+    "o": [
+      "Yes, you were",
+      "Yes, I was",
+      "Yes, he was",
+      "Yes, she was"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Weren't we happy last Christmas?",
+    "o": [
+      "yes, you were",
+      "Yes, they were",
+      "Yes, they was",
+      "Yes, you was"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Wasn't Jane happy last Christmas?",
+    "o": [
+      "Yes, you were",
+      "Yes, I was",
+      "Yes, he was",
+      "Yes, she was"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Wasn't Tom happy last Christmas?",
+    "o": [
+      "Yes, you were",
+      "Yes, I was",
+      "Yes, he was",
+      "Yes, she was"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Weren't people happy last Christmas?",
+    "o": [
+      "yes, you were",
+      "Yes, they were",
+      "Yes, they was",
+      "Yes, you was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Wasn't I happy last Christmas?",
+    "o": [
+      "No, you weren't",
+      "No, they weren't",
+      "No, you wasn't",
+      "No, they wasn't"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Weren't they happy last Christmas?",
+    "o": [
+      "No, you weren't",
+      "No, they weren't",
+      "No, you wasn't",
+      "No, they wasn't"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Weren't Tom and I happy last Christmas?",
+    "o": [
+      "No, you weren't",
+      "Yes, I was",
+      "Yes, he was",
+      "Yes, she was"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Wasn't he happy last Christmas?",
+    "o": [
+      "Yes, they were",
+      "Yes, I was",
+      "Yes, he was",
+      "Yes, she was"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Didn't you play Sudden Attack yesterday?",
+    "o": [
+      "Yes, I was.",
+      "Yes, I were.",
+      "Yes, I do.",
+      "Yes, I did."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Didn't you play Sudden Attack yesterday?",
+    "o": [
+      "No, I wasn't.",
+      "No, I weren't.",
+      "No, I don't.",
+      "No, I didn't."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Didn't he go to Japan?",
+    "o": [
+      "Yes, he was.",
+      "Yes, he do.",
+      "Yes, he does.",
+      "Yes, he did."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Didn't he go to Japan?",
+    "o": [
+      "No, he wasn't",
+      "No, he don't",
+      "No, he doesn't",
+      "No, he didn't"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Can't he speak in English?",
+    "o": [
+      "Yes, he can.",
+      "Yes, he can't.",
+      "Yes, she can.",
+      "No, he can."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Can't we play Sudden Attack?",
+    "o": [
+      "Yes, you can.",
+      "No, you can.",
+      "Yes, you can't.",
+      "Yes, we can't."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Can't we play tennis?",
+    "o": [
+      "Yes, you can.",
+      "No, you can.",
+      "Yes, you can't.",
+      "Yes, we can't."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Can't we play Sudden Attack?",
+    "o": [
+      "No, you can.",
+      "No, you can't.",
+      "Yes, you can't.",
+      "Yes, we can't."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Can't we play tennis?",
+    "o": [
+      "No, you can.",
+      "No, you can't.",
+      "Yes, you can't.",
+      "Yes, we can't."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Can't we go to school by bus?",
+    "o": [
+      "Yes, you can.",
+      "No, you can.",
+      "Yes, you can't.",
+      "Yes, we can't."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Can't we meet Jane?",
+    "o": [
+      "Yes, you can.",
+      "No, you can.",
+      "Yes, you can't.",
+      "Yes, we can't."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Can't we go to school by bus?",
+    "o": [
+      "No, you can.",
+      "No, you can't.",
+      "Yes, you can't.",
+      "Yes, we can't."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Can't we meet Jane?",
+    "o": [
+      "No, you can.",
+      "No, you can't.",
+      "Yes, you can't.",
+      "Yes, we can't."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Can't he meet Jane?",
+    "o": [
+      "Yes, he can.",
+      "Yes, he can't.",
+      "Yes, she can.",
+      "No, he can."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Can't she finish her homework?",
+    "o": [
+      "Yes, she can.",
+      "Yes, she can't.",
+      "Yes, he can.",
+      "No, she can."
+    ],
+    "ans": 1
+  }
+]

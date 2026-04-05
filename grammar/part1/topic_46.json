@@ -1,0 +1,202 @@
+[
+  {
+    "q": "I want to drink __________ .",
+    "o": [
+      "something cold",
+      "cold something",
+      ", 2번 둘다 가능",
+      "답없음"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is a __________ .",
+    "o": [
+      "clever boy",
+      "boy clever",
+      ", 2번 둘다 가능",
+      "답없음"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She has __________ .",
+    "o": [
+      "cute cats",
+      "cats cute",
+      ", 2번 둘다 가능",
+      "답없음"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I like __________ .",
+    "o": [
+      "someone kind",
+      "kind someone",
+      ", 2번 둘다 가능",
+      "답없음"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I saw a __________ girl.",
+    "o": [
+      "pretty",
+      "prettily",
+      ", 2번 둘다 가능",
+      "답없음"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I am __________ .",
+    "o": [
+      "happy",
+      "happily",
+      ", 2번 둘다 가능",
+      "답없음"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She is a __________ .",
+    "o": [
+      "pretty girl",
+      "girl pretty",
+      ", 2번 둘다 가능",
+      "답없음"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She made him __________ .",
+    "o": [
+      "happiness",
+      "happy",
+      ", 2번 둘다 가능",
+      "답없음"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She is a __________ woman.",
+    "o": [
+      "clever",
+      "love",
+      "kindness",
+      "beautifully"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She was __________ last night.",
+    "o": [
+      "love",
+      "sick",
+      "kindness",
+      "beautifully"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She was __________ last night.",
+    "o": [
+      "love",
+      "angry",
+      "kindness",
+      "beautifully"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She was __________ last night.",
+    "o": [
+      "love",
+      "angrily",
+      "kindness",
+      "happy"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "She was __________ last night.",
+    "o": [
+      "love",
+      "angrily",
+      "kindness",
+      "sad"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "My father made me __________ .",
+    "o": [
+      "happily",
+      "happness",
+      "sad",
+      "sadly"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "The box is __________ .",
+    "o": [
+      "heavily",
+      "heavy",
+      ", 2번 둘다 가능",
+      "답없음"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The desk is __________ .",
+    "o": [
+      "heavily",
+      "heavy",
+      ", 2번 둘다 가능",
+      "답없음"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The room is __________ .",
+    "o": [
+      "large",
+      "largely",
+      ", 2번 둘다 가능",
+      "답없음"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "There is __________ under ther the sun.",
+    "o": [
+      "new nothing",
+      "nothing new",
+      ", 2번 둘다 가능",
+      "답없음"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "There is __________ with the plan.",
+    "o": [
+      "something wrong",
+      "wrong something",
+      ", 2번 둘다 가능",
+      "답없음"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I met an __________ .",
+    "o": [
+      "old man",
+      "man old",
+      ", 2번 둘다 가능",
+      "답없음"
+    ],
+    "ans": 1
+  }
+]

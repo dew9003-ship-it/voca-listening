@@ -1,0 +1,252 @@
+[
+  {
+    "q": "I study English __________ I am happy.",
+    "o": [
+      "when",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I study English __________ I am happy.",
+    "o": [
+      "when",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "I am happy __________ I can study English.",
+    "o": [
+      "when",
+      "after",
+      "until",
+      "because"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "__________ I study English, I am happy.",
+    "o": [
+      "when",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ you eat lunch, you should study English.",
+    "o": [
+      "when",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "__________ you eat lunch, you should study English.",
+    "o": [
+      "when",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ you eat lunch, you should study English.",
+    "o": [
+      "when",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ you eat lunch, you should study English.",
+    "o": [
+      "when",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "__________ you study English hard, you can enter the best university.",
+    "o": [
+      "when",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ you study English hard, you can enter the best university.",
+    "o": [
+      "if",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I read the book __________ I understood it.",
+    "o": [
+      "if",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "__________ you need money, I'll lend you some.",
+    "o": [
+      "if",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We didn't go there __________ it rained hard.",
+    "o": [
+      "when",
+      "after",
+      "until",
+      "because"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "__________ it rains hard, we won't go there.",
+    "o": [
+      "if",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I know __________ you have many good books.",
+    "o": [
+      "that",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I think __________ you are very smart.",
+    "o": [
+      "that",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I was tired __________ I got up early in the morning.",
+    "o": [
+      "because",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I was tired __________ I studied English for 7 hours.",
+    "o": [
+      "because",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I was tired __________ I studied English for 7 hours.",
+    "o": [
+      "because",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I was tired __________ I studied English for 7 hours.",
+    "o": [
+      "because",
+      "when",
+      "until",
+      "before"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I didn't go to church __________ I was very sick.",
+    "o": [
+      "because",
+      "when",
+      "until",
+      "before"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I didn't go to church __________ I was very sick.",
+    "o": [
+      "because",
+      "when",
+      "until",
+      "before"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It is true __________ She is smart.",
+    "o": [
+      "that",
+      "when",
+      "until",
+      "before"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I believe __________ she is honest.",
+    "o": [
+      "that",
+      "when",
+      "until",
+      "before"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I watched TV __________ I finished my homework.",
+    "o": [
+      "that",
+      "after",
+      "until",
+      "before"
+    ],
+    "ans": 2
+  }
+]

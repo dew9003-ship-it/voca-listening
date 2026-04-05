@@ -1,0 +1,362 @@
+[
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "He gave some money to me.",
+      "He gave some money for me.",
+      "He gave some money of me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "Tom asked a question to me.",
+      "Tom asked a question for me.",
+      "Tom asked a question of me."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "Mother bought a bag to me.",
+      "Mother bought a bag for me.",
+      "Mother bought a bag of me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "My father bought a computer to me.",
+      "My father bought a computer for me.",
+      "My father bought a computer of me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "She taught math to us.",
+      "She taught math for us.",
+      "She taught math of us."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "I asked some questions to him.",
+      "I asked some questions for him.",
+      "I asked some questions of him."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "He gives some money to me.",
+      "He gives some money for me.",
+      "He gives some money of me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "Mom made a cake to me.",
+      "Mom made a cake for me.",
+      "Mom made a cake of me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "My mother made a bag to me.",
+      "My mother made a bag for me.",
+      "My mother made a bag of me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "My father made a computer to me.",
+      "My father made a computer for me.",
+      "My father made a computer of me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "She teaches math to us.",
+      "She teaches math for us.",
+      "She teaches math of us."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "I begged some money to him.",
+      "I begged some money for him.",
+      "I begged some money of him."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "Jane sent an email to me.",
+      "Jane sent an email for me.",
+      "Jane sent an email of me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "He showed the interesting book to me.",
+      "He showed the interesting book for me.",
+      "He showed the interesting book of me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "Jane lent some money to me.",
+      "Jane lent some money for me.",
+      "Jane lent some money of me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "My father bought a toy to me.",
+      "My father bought a toy for me.",
+      "My father bought a toy of me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "Mom cooked pizza to me.",
+      "Mom cooked pizza for me.",
+      "Mom cooked pizza of me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "Bring the book to me.",
+      "Bring the book for me.",
+      "Bring the book of me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "He brought a pen to me.",
+      "He brought a pen for me.",
+      "He brought a pen of me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장을 3형식으로 바꿀때 올바른 것은?",
+    "o": [
+      "I showed my pictures to her.",
+      "I showed my pictures for her.",
+      "I showed my pictures of her."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "He gave some money to me.",
+      "He gave some money for me.",
+      "He gave some money of me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "Tom asked a question to me.",
+      "Tom asked a question for me.",
+      "Tom asked a question of me."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "Mother bought a bag to me.",
+      "Mother bought a bag for me.",
+      "Mother bought a bag of me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "My father bought a computer to me.",
+      "My father bought a computer for me.",
+      "My father bought a computer of me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "She taught math to us.",
+      "She taught math for us.",
+      "She taught math of us."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "I asked some questions to him.",
+      "I asked some questions for him.",
+      "I asked some questions of him."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "He gives some money to me.",
+      "He gives some money for me.",
+      "He gives some money of me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "Mom made a cake to me.",
+      "Mom made a cake for me.",
+      "Mom made a cake of me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "My mother made a bag to me.",
+      "My mother made a bag for me.",
+      "My mother made a bag of me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "My father made a computer to me.",
+      "My father made a computer for me.",
+      "My father made a computer of me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "She teaches math to us.",
+      "She teaches math for us.",
+      "She teaches math of us."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "I begged some money to him.",
+      "I begged some money for him.",
+      "I begged some money of him."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "Jane sent an email to me.",
+      "Jane sent an email for me.",
+      "Jane sent an email of me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "He showed the interesting book to me.",
+      "He showed the interesting book for me.",
+      "He showed the interesting book of me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "Jane lent some money to me.",
+      "Jane lent some money for me.",
+      "Jane lent some money of me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "My father bought a toy to me.",
+      "My father bought a toy for me.",
+      "My father bought a toy of me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "Mom cooked pizza to me.",
+      "Mom cooked pizza for me.",
+      "Mom cooked pizza of me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "Bring the book to me.",
+      "Bring the book for me.",
+      "Bring the book of me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "He brought a pen to me.",
+      "He brought a pen for me.",
+      "He brought a pen of me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "I showed my pictures to her.",
+      "I showed my pictures for her.",
+      "I showed my pictures of her."
+    ],
+    "ans": 1
+  }
+]

@@ -1,0 +1,165 @@
+[
+  {
+    "q": "this는 가까운 것을 나타낸다.",
+    "o": [ "true", "false", "잘 모르겠음", "기권" ],
+    "ans": 1
+  },
+  {
+    "q": "that은 가까운 것을 나타낸다.",
+    "o": [ "true", "false", "잘 모르겠음", "기권" ],
+    "ans": 2
+  },
+  {
+    "q": "this, that으로 물어보면 it으로 대답한다.",
+    "o": [ "true", "false", "잘 모르겠음", "기권" ],
+    "ans": 1
+  },
+  {
+    "q": "This is Tom.",
+    "o": [ "이 사람은 Tom입니다.", "저 사람은 Tom입니다.", "그 사람은 Tom입니다.", "기권" ],
+    "ans": 1
+  },
+  {
+    "q": "That is Tom.",
+    "o": [ "이 사람은 Tom입니다.", "저 사람은 Tom입니다.", "그 사람은 Tom입니다.", "기권" ],
+    "ans": 2
+  },
+  {
+    "q": "That is의 줄임말은?",
+    "o": [ "It's", "I'm", "That's", "기권" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 틀린 것은? ",
+    "o": [ "it is - it's", "I am - I'm", "this is - this's", "that is - that's" ],
+    "ans": 3
+  },
+  {
+    "q": "this는 멀리 있는 것을 나타낸다.",
+    "o": [ "true", "false", "잘 모르겠음", "기권" ],
+    "ans": 2
+  },
+  {
+    "q": "that은 멀리 있는 것을 나타낸다.",
+    "o": [ "true", "false", "잘 모르겠음", "기권" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 <u>This</u>가 지시대명사인 것은?",
+    "o": [
+      "<u>This</u> is my father.",
+      "<u>This</u> pen is good.",
+      "I like <u>this</u> pen.",
+      "기권"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 <u>This</u>의 용법이 다른 것은?",
+    "o": [
+      "<u>This</u> man is a doctor.",
+      "<u>This</u> pen is good.",
+      "I like <u>this</u> pen.",
+      "<u>This</u> is yours."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "this의 복수형태는 these이다.",
+    "o": [ "true", "false", "잘 모르겠음", "기권" ],
+    "ans": 1
+  },
+  {
+    "q": "this의 복수형태는 those이다.",
+    "o": [ "true", "false", "잘 모르겠음", "기권" ],
+    "ans": 2
+  },
+  {
+    "q": "that의 복수형태는 these이다.",
+    "o": [ "true", "false", "잘 모르겠음", "기권" ],
+    "ans": 2
+  },
+  {
+    "q": "that의 복수형태는 those이다.",
+    "o": [ "true", "false", "잘 모르겠음", "기권" ],
+    "ans": 1
+  },
+  {
+    "q": "this, that으로 물으면 it으로 답한다.",
+    "o": [ "true", "false", "잘 모르겠음", "기권" ],
+    "ans": 1
+  },
+  {
+    "q": "these, those로 물으면 it으로 답한다.",
+    "o": [ "true", "false", "잘 모르겠음", "기권" ],
+    "ans": 2
+  },
+  {
+    "q": "these, those로 물으면 they나 them으로 답한다.",
+    "o": [ "true", "false", "잘 모르겠음", "기권" ],
+    "ans": 1
+  },
+  {
+    "q": "this가 명사를 수식하면 지시형용사이다.",
+    "o": [ "true", "false", "잘 모르겠음", "기권" ],
+    "ans": 1
+  },
+  {
+    "q": "This __________ my pen.",
+    "o": [ "am", "are", "is", "기권" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 지시대명사가 쓰인 문장은?",
+    "o": [
+      "This book is interesting.",
+      "That dog is cute.",
+      "This is interesting.",
+      "I like that movie."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 지시형용사가 쓰인 문장은?",
+    "o": [
+      "This is my pen.",
+      "That is expensive.",
+      "This pen is mine.",
+      "It is new."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nI see a dog. ___ is very cute.",
+    "o": [ "This", "That", "It", "These" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장에서 밑줄 친 말의 역할은?\n<u>This</u> is my favorite song.",
+    "o": [ "지시형용사", "지시대명사", "인칭대명사", "소유대명사" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 밑줄 친 말의 역할은?\nI like <u>this</u> movie.",
+    "o": [ "지시형용사", "지시대명사", "인칭대명사", "재귀대명사" ],
+    "ans": 1
+  },
+  
+  {
+    "q": "다음 중 it의 쓰임으로 알맞은 것은?",
+    "o": [
+      "가까이에 있는 물건을 가리킨다",
+      "멀리 있는 물건을 가리킨다",
+      "이미 나온 대상이나 상황을 대신한다",
+      "명사 앞에서 꾸며준다"
+    ],
+    "ans": 3
+  },
+  
+  
+  {
+    "q": "These __________ my pens.",
+    "o": [ "am", "are", "is", "기권" ],
+    "ans": 2
+  }
+]

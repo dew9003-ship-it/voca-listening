@@ -1,0 +1,182 @@
+[
+  {
+    "q": "보어의 역할로 가장 알맞은 것은?",
+    "o": [
+      "주어의 행동을 나타낸다",
+      "주어를 설명하거나 보충한다",
+      "동사를 꾸며준다",
+      "문장을 연결한다"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "보어가 필요한 동사는?",
+    "o": [ "run", "eat", "be", "play" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장에서 보어는 무엇인가?\nI am a student.",
+    "o": [ "I", "am", "a student", "없다" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장에서 보어는 무엇인가?\nShe is happy.",
+    "o": [ "She", "is", "happy", "없다" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장에서 보어는 무엇인가?\nTom is my friend.",
+    "o": [ "Tom", "is", "my friend", "없다" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 보어가 있는 문장은?",
+    "o": [
+      "I like apples.",
+      "She runs fast.",
+      "He is tall.",
+      "They play soccer."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 보어가 없는 문장은?",
+    "o": [
+      "She is kind.",
+      "He is a teacher.",
+      "They are students.",
+      "I eat lunch."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 형용사가 보어로 쓰인 문장은?",
+    "o": [
+      "She likes milk.",
+      "He runs fast.",
+      "The sky is blue.",
+      "I read books."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 명사가 보어로 쓰인 문장은?",
+    "o": [
+      "She is happy.",
+      "He is my brother.",
+      "They run fast.",
+      "I like pizza."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "보어에 대한 설명으로 옳은 것은?",
+    "o": [
+      "항상 목적어 뒤에 온다",
+      "주어를 설명해 주는 말이다",
+      "동사를 수식한다",
+      "전치사 뒤에 온다"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 들어갈 수 없는 말은?\nShe looks __________.",
+    "o": [
+      "happy",
+      "sad",
+      "beautiful",
+      "sadly"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThe cookie tastes __________.",
+    "o": [
+      "good",
+      "well",
+      "goodly",
+      "to good"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 보어는 무엇인가?\nHe became a doctor.",
+    "o": [
+      "He",
+      "became",
+      "a doctor",
+      "없다"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 어법상 올바른 문장은?",
+    "o": [
+      "You look happily.",
+      "The music sounds great.",
+      "This feels softly.",
+      "It smells badly."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "보어 자리에 올 수 없는 품사는?",
+    "o": [
+      "명사",
+      "형용사",
+      "대명사",
+      "부사"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 '주어 = 보어'의 관계가 성립하는 문장은?",
+    "o": [
+      "I watch TV.",
+      "He is a singer.",
+      "She likes pizza.",
+      "They run fast."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nI feel __________.",
+    "o": [
+      "tired",
+      "tiredly",
+      "tire",
+      "to tire"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 보어의 역할이 다른 하나는? (품사 구별)",
+    "o": [
+      "She is smart.",
+      "He looks busy.",
+      "The tea is hot.",
+      "He is a teacher."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 문장에서 보어는 무엇인가?\nYour plan sounds interesting.",
+    "o": [
+      "Your plan",
+      "sounds",
+      "interesting",
+      "없다"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 밑줄 친 부분이 보어가 아닌 것은?",
+    "o": [
+      "She is <u>kind</u>.",
+      "He became <u>rich</u>.",
+      "I saw <u>a lion</u>.",
+      "They are <u>students</u>."
+    ],
+    "ans": 3
+  }
+]

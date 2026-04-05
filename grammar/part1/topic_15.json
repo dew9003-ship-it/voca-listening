@@ -1,0 +1,82 @@
+[
+  {
+    "q": "man의 복수형을 고르시오.",
+    "o": [ "man", "men", "mans", "manes" ],
+    "ans": 2
+  },
+  {
+    "q": "woman의 복수형을 고르시오.",
+    "o": [ "woman", "women", "womans", "womanes" ],
+    "ans": 2
+  },
+  {
+    "q": "foot의 복수형을 고르시오.",
+    "o": [ "foot", "foots", "feet", "footes" ],
+    "ans": 3
+  },
+  {
+    "q": "tooth의 복수형을 고르시오.",
+    "o": [ "tooth", "teeth", "tooths", "toothes" ],
+    "ans": 2
+  },
+  {
+    "q": "goose의 복수형을 고르시오.",
+    "o": [ "goose", "gooses", "geese", "goosees" ],
+    "ans": 3
+  },
+  {
+    "q": "child의 복수형을 고르시오.",
+    "o": [ "childes", "child", "children", "childves" ],
+    "ans": 3
+  },
+  {
+    "q": "ox의 복수형을 고르시오.",
+    "o": [ "ox", "oxs", "oxes", "oxen" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 단수와 복수 형태가 같은 명사를 고르시오.",
+    "o": [ "man", "woman", "child", "sheep" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 단수와 복수 형태가 같은 명사를 고르시오.",
+    "o": [ "foot", "tooth", "goose", "deer" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 복수형이 아닌 것을 고르시오.",
+    "o": [ "men", "feet", "oxen", "goose" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 복수형이 아닌 것을 고르시오.",
+    "o": [ "sheep", "deer", "fish", "child" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 단수와 복수 형태가 같은 명사끼리만 묶인 것은?",
+    "o": [
+      "sheep, deer",
+      "man, woman",
+      "foot, tooth",
+      "goose, ox"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 복수형을 만드는 방법이 다른 하나는?",
+    "o": [ "sheep", "deer", "fish", "goose" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 단수형과 복수형의 짝이 올바른 것은?",
+    "o": [ "child - childs", "mouse - mouses", "tooth - teeth", "man - mans" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 단수형과 복수형의 짝이 틀린 것은?",
+    "o": [ "man - men", "woman - women", "foot - feet", "fish - fishes" ],
+    "ans": 4
+  }
+]

@@ -1,0 +1,213 @@
+[
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nAre you tired?",
+    "o": [
+      "Yes, I'm not.",
+      "No, I am.",
+      "Yes, I am.",
+      "Yes, you are."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nAren't you tired?",
+    "o": [
+      "Yes, I'm not.",
+      "No, I am.",
+      "Yes, I am.",
+      "Yes, you are."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nAre you a student?",
+    "o": [
+      "Yes, I'm not.",
+      "No, I am.",
+      "Yes, I am.",
+      "Yes, you are."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nAren't you a student?",
+    "o": [
+      "Yes, I'm not.",
+      "No, I am.",
+      "Yes, I am.",
+      "Yes, you are."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nAren't you a student?",
+    "o": [
+      "No, I'm not.",
+      "Yes, I'm not.",
+      "No, I amn't.",
+      "No, I am't."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nAren't they students?",
+    "o": [
+      "No, I'm not.",
+      "No, they not.",
+      "No, they aren't.",
+      "No, they isn't."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nIsn't she a doctor?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't.",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nIsn't Jane a teacher?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't.",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nIsn't Alice a student?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't.",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nAren't you a teacher?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't.",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nIsn't he a teacher?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't.",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nIsn't Tom a doctor?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't.",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nAm I late for school?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't.",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nAren't you my friend?",
+    "o": [
+      "Yes, I am.",
+      "No, you aren't.",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nIsn't Tom with you?",
+    "o": [
+      "Yes, I am.",
+      "No, you aren't.",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 4
+  },
+  
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nAre you happy?",
+    "o": [
+      "Yes, I am.",
+      "No, you aren't.",
+      "Yes, she was.",
+      "Yes, I was."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nAren't you happy?",
+    "o": [
+      "Yes, I am.",
+      "No, you aren't.",
+      "Yes, she was.",
+      "Yes, I was."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nWere you happy?",
+    "o": [
+      "Yes, I am.",
+      "No, you aren't.",
+      "Yes, she was.",
+      "Yes, I was."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nWeren't you happy?",
+    "o": [
+      "Yes, I am.",
+      "No, you aren't.",
+      "Yes, she was.",
+      "Yes, I was."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nWas she nice to you?",
+    "o": [
+      "Yes, I am.",
+      "No, you aren't.",
+      "No, she wasn't.",
+      "Yes, he is."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 질문에 대한 알맞은 대답은?\nWasn't she nice to you?",
+    "o": [
+      "Yes, I am.",
+      "No, you aren't.",
+      "Yes, she was.",
+      "Yes, he is."
+    ],
+    "ans": 3
+  }
+]

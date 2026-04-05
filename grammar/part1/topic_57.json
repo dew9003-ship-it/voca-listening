@@ -1,0 +1,322 @@
+[
+  {
+    "q": "__________ a pretty girl she is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ an honest boy he is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ a kind boy he is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ a kind boy you are!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ an interesting story this is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ lovely eyes she has!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ a delicious cake this is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ a nice weather it is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ a fantastic show it is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ great teachers they are!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ a nice computer this is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ a fast runner Tom is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ a difficult test it is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ a great scientist she was!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ a terrible traffic it was!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ an exciting game it was!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ a clever girl she is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ a nice pen this is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ a good phone this is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ a good book this is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ pretty she is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ honest the boy is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ kind the boy is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ kind you are!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ interesting this story is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ handsome they are!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ delicious this cake is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ nice the weather is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ fantastic the show is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ great they are!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ nice this computer is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ fast Tom is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ difficult this test was!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ great the scientist was!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ terrible the traffic was!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ exciting the game was!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ clever the girl is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ nice this pen is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ nice this phone is!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ beautiful you are!",
+    "o": [
+      "What",
+      "How"
+    ],
+    "ans": 2
+  }
+]

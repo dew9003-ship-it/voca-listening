@@ -1,0 +1,302 @@
+[
+  {
+    "q": "He __________ comes in time.",
+    "o": [
+      "always",
+      "often",
+      "usually",
+      "hardly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He __________ comes in time.",
+    "o": [
+      "always",
+      "often",
+      "usually",
+      "hardly"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He __________ comes in time.",
+    "o": [
+      "always",
+      "often",
+      "usually",
+      "hardly"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "He __________ comes in time.",
+    "o": [
+      "always",
+      "often",
+      "never",
+      "hardly"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He is __________ polite to others.",
+    "o": [
+      "always",
+      "often",
+      "never",
+      "hardly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is __________ polite to others.",
+    "o": [
+      "always",
+      "often",
+      "never",
+      "hardly"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "He is __________ polite to others.",
+    "o": [
+      "always",
+      "often",
+      "never",
+      "hardly"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "빈도부사의 위치는?",
+    "o": [
+      "be동사 앞",
+      "일반동사 뒤",
+      "조동사 앞",
+      "be동사 뒤"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "빈도부사의 위치는?",
+    "o": [
+      "be동사 앞",
+      "일반동사 뒤",
+      "조동사 앞",
+      "일반동사 앞"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "빈도부사의 위치는?",
+    "o": [
+      "be동사 앞",
+      "일반동사 뒤",
+      "조동사 앞",
+      "조동사 뒤"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "빈도부사가 아닌것은?",
+    "o": [
+      "very",
+      "always",
+      "hardly",
+      "never"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He __________ goes to the zoo.",
+    "o": [
+      "very",
+      "always",
+      "hardly",
+      "never"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "He __________ goes to the zoo.",
+    "o": [
+      "often",
+      "always",
+      "hardly",
+      "never"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He __________ goes to the zoo.",
+    "o": [
+      "often",
+      "always",
+      "hardly",
+      "never"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He __________ goes to the zoo.",
+    "o": [
+      "often",
+      "sometimes",
+      "hardly",
+      "never"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I __________ go to school by bus.",
+    "o": [
+      "always",
+      "usually",
+      "often",
+      "sometimes"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I __________ go to school by bus.",
+    "o": [
+      "always",
+      "usually",
+      "often",
+      "sometimes"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I __________ go to school by bus.",
+    "o": [
+      "always",
+      "usually",
+      "often",
+      "sometimes"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "I __________ go to school by bus.",
+    "o": [
+      "always",
+      "usually",
+      "often",
+      "sometimes"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "I __________ go to school by bus.",
+    "o": [
+      "always",
+      "usually",
+      "seldom",
+      "never"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "I __________ go to school by bus.",
+    "o": [
+      "always",
+      "usually",
+      "seldom",
+      "never"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "He __________ wastes money.",
+    "o": [
+      "always",
+      "usually",
+      "seldom",
+      "never"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He __________ wastes money.",
+    "o": [
+      "always",
+      "usually",
+      "seldom",
+      "never"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He __________ wastes money.",
+    "o": [
+      "always",
+      "usually",
+      "seldom",
+      "never"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Tom is __________ late.",
+    "o": [
+      "always",
+      "usually",
+      "seldom",
+      "never"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom is __________ late.",
+    "o": [
+      "always",
+      "usually",
+      "seldom",
+      "never"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Tom is __________ late.",
+    "o": [
+      "always",
+      "usually",
+      "seldom",
+      "never"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Tom is __________ late.",
+    "o": [
+      "always",
+      "usually",
+      "seldom",
+      "never"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I __________ love you.",
+    "o": [
+      "always",
+      "usually",
+      "seldom",
+      "never"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I __________ love you.",
+    "o": [
+      "always",
+      "usually",
+      "seldom",
+      "never"
+    ],
+    "ans": 4
+  }
+]

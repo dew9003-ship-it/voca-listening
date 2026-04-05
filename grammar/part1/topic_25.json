@@ -1,0 +1,122 @@
+[
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nI ____ dogs.",
+    "o": [ "like", "likes", "liking", "liked" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nHe ____ dogs.",
+    "o": [ "like", "likes", "liking", "liked" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nYou ____ cats.",
+    "o": [ "like", "likes", "liking", "liked" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThey ____ soccer.",
+    "o": [ "play", "plays", "playing", "played" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nShe ____ soccer.",
+    "o": [ "play", "plays", "playing", "played" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nTom ____ the guitar.",
+    "o": [ "play", "plays", "playing", "played" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nWe ____ English.",
+    "o": [ "study", "studies", "studying", "studied" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nJane ____ English.",
+    "o": [ "study", "studies", "studying", "studied" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 3인칭 단수일 때 동사에 -s가 붙는 주어는?",
+    "o": [ "I", "You", "They", "He" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 3인칭 단수일 때 동사에 -s가 붙는 주어는?",
+    "o": [ "We", "You", "She", "They" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nMy father ____ TV every day.",
+    "o": [ "watch", "watches", "watchs", "watching" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nMy friends ____ TV every day.",
+    "o": [ "watch", "watches", "watchs", "watching" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nHe ____ the bus.",
+    "o": [ "miss", "misses", "misss", "missing" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nShe ____ the door.",
+    "o": [ "open", "opens", "openes", "opening" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 -es를 붙여야 하는 동사는?",
+    "o": [ "play", "wash", "study", "read" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nHe ____ his hands.",
+    "o": [ "wash", "washes", "washs", "washing" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nShe ____ to school.",
+    "o": [ "go", "goes", "gos", "going" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nTony ____ English every day.",
+    "o": [ "study", "studies", "studys", "studying" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 -y가 -ies로 바뀌는 경우는?",
+    "o": [ "play → plaies", "study → studies", "enjoy → enjoies", "toy → toies" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nShe ____ a lot of books.",
+    "o": [ "have", "has", "haves", "having" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nI ____ a cat.",
+    "o": [ "have", "has", "haves", "having" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 어법상 올바른 문장은?",
+    "o": [
+      "He have a dog.",
+      "She likes pizza.",
+      "They likes pizza.",
+      "I has a book."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 틀린 것을 고르시오.",
+    "o": [ "does", "passes", "washes", "likees" ],
+    "ans": 4
+  }
+]

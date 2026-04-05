@@ -1,0 +1,302 @@
+[
+  {
+    "q": "I don't have a camera. Can you lend me __________ ?",
+    "o": [
+      "one",
+      "it",
+      "this",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I gave you the camera yesterday. Do you have __________ now?",
+    "o": [
+      "one",
+      "it",
+      "this",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My camera doesn't work. I'll buy a new __________ .",
+    "o": [
+      "one",
+      "it",
+      "this",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I need a pen. Do you have __________ ?",
+    "o": [
+      "one",
+      "it",
+      "this",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I wrote you a letter. Did you get __________ ?",
+    "o": [
+      "one",
+      "it",
+      "this",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This towel is too dirty. Can you give me a new __________?",
+    "o": [
+      "one",
+      "it",
+      "this",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I lost my phone. I need a new __________.",
+    "o": [
+      "one",
+      "it",
+      "this",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I lost my pen. Maybe I left __________ at home.",
+    "o": [
+      "one",
+      "it",
+      "this",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I got a new computer. I like __________.",
+    "o": [
+      "one",
+      "it",
+      "this",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I read a new book. I like __________.",
+    "o": [
+      "one",
+      "it",
+      "this",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I watched a movie. I want to watch __________ again.",
+    "o": [
+      "one",
+      "it",
+      "this",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "A: Did you see the movie? B: Yes, I saw __________.",
+    "o": [
+      "one",
+      "it",
+      "this",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "We don't have __________ money.",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We have __________ money.",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I need __________ money for dinner.",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I didn't eat __________ meat.",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Will you have __________ pizza?",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Please don't say __________ more about it.",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Will you have __________ chicken?",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom doesn't have __________ dogs.",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She didn't buy __________ apples.",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Will you lend me __________ money?",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He does not drink __________ more.",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Would you like __________ coffee?",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The man is buying __________ tools.",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have __________ friends.",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "There are __________ people in the libraray.",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I bought a pen yesterday. I'll give __________ to Tom.",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "I bought a book. __________ is very nice.",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "I don't need __________ help.",
+    "o": [
+      "any",
+      "some",
+      "one",
+      "it"
+    ],
+    "ans": 1
+  }
+]

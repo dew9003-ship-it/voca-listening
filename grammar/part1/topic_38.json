@@ -1,0 +1,93 @@
+[
+  {
+    "q": "__________ did you pass the test? – I practiced a lot.",
+    "o": [ "How", "Where", "What", "When" ],
+    "ans": 1
+  },
+  {
+    "q": "How __________ did James play the game? – For about two hours.",
+    "o": [ "often", "long", "old", "many" ],
+    "ans": 2
+  },
+  {
+    "q": "How __________ people are there in your family? – There are five.",
+    "o": [ "much", "many", "often", "long" ],
+    "ans": 2
+  },
+
+  {
+    "q": "How __________ is your brother? – He is ten years old.",
+    "o": [ "many", "old", "long", "often" ],
+    "ans": 2
+  },
+  {
+    "q": "How __________ do you go to the library? – Twice a week.",
+    "o": [ "long", "often", "many", "old" ],
+    "ans": 2
+  },
+
+  {
+    "q": "How __________ milk do we need? – Just one bottle.",
+    "o": [ "many", "much", "often", "long" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did the movie start? – At 7 p.m.",
+    "o": [ "How", "When", "Where", "Why" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ is your birthday? – It’s in July.",
+    "o": [ "How", "When", "Where", "Why" ],
+    "ans": 2
+  },
+
+  {
+    "q": "__________ do you usually study after school? – At the library.",
+    "o": [ "How", "Where", "When", "Why" ],
+    "ans": 2
+  },
+  {
+    "q": "How __________ is the movie? – It’s about two hours.",
+    "o": [ "old", "often", "long", "many" ],
+    "ans": 3
+  },
+  {
+    "q": "How __________ students are in your class? – Thirty.",
+    "o": [ "much", "often", "long", "many" ],
+    "ans": 4
+  },
+  
+  {
+    "q": "How __________ water do you drink every day? – About two liters.",
+    "o": [ "many", "often", "much", "long" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ did he feel when he heard the news? – Very happy.",
+    "o": [ "How", "Why", "Where", "When" ],
+    "ans": 1
+  },
+  {
+    "q": "How __________ is that building? – About 100 meters.",
+    "o": [ "old", "long", "often", "many" ],
+    "ans": 2
+  },
+  
+  {
+    "q": "How __________ do you watch TV? – Almost every day.",
+    "o": [ "many", "often", "long", "old" ],
+    "ans": 2
+  },
+  
+  {
+    "q": "How __________ homework do you have today? – Just a little.",
+    "o": [ "many", "much", "often", "long" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did she travel to Busan? – By train.",
+    "o": [ "How", "Where", "What", "When" ],
+    "ans": 1
+  }
+]

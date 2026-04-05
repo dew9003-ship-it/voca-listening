@@ -1,0 +1,156 @@
+[
+  {
+    "q": "Was he happy yesterday?",
+    "o": [ "Yes, he was", "Yes, he were", "Yes, they were", "Yes, I was" ],
+    "ans": 1
+  },
+  {
+    "q": "Were they at school yesterday?",
+    "o": [ "Yes, they was", "Yes, they were", "Yes, he was", "Yes, she was" ],
+    "ans": 2
+  },
+  {
+    "q": "Was she sad yesterday?",
+    "o": [ "Yes, she were", "Yes, they were", "Yes, she was", "Yes, you were" ],
+    "ans": 3
+  },
+  {
+    "q": "Were Tom and Jane busy yesterday?",
+    "o": [ "Yes, he was", "Yes, she was", "Yes, they was", "Yes, they were" ],
+    "ans": 4
+  },
+
+  {
+    "q": "__________ you tired yesterday?",
+    "o": [ "Was", "Were", "Is", "Are" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ he at home last night?",
+    "o": [ "Was", "Were", "Is", "Are" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ they happy yesterday?",
+    "o": [ "Was", "Were", "Is", "Are" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ she at school yesterday?",
+    "o": [ "Was", "Were", "Is", "Are" ],
+    "ans": 1
+  },
+
+  {
+    "q": "Were the boys late yesterday?",
+    "o": [ "Yes, they was", "Yes, we were", "Yes, they were", "Yes, you were" ],
+    "ans": 3
+  },
+  {
+    "q": "Was Jane at home last night?",
+    "o": [ "Yes, they were", "Yes, he was", "Yes, she was", "Yes, I was" ],
+    "ans": 3
+  },
+  {
+    "q": "Were we ready yesterday?",
+    "o": [ "Yes, we was", "Yes, we were", "Yes, they were", "Yes, you was" ],
+    "ans": 2
+  },
+  {
+    "q": "Was Tom tired yesterday?",
+    "o": [ "Yes, he were", "Yes, they were", "Yes, he was", "Yes, I was" ],
+    "ans": 3
+  },
+
+  {
+    "q": "How was your day?",
+    "o": [ "Yes, it was", "No, it wasn't", "It was good", "It is good" ],
+    "ans": 3
+  },
+  {
+    "q": "How was the movie?",
+    "o": [ "Yes, it was", "No, it wasn't", "It is fun", "It was fun" ],
+    "ans": 4
+  },
+  {
+    "q": "How was your trip?",
+    "o": [ "It is good", "Yes, it was", "No, it wasn't", "It was good" ],
+    "ans": 4
+  },
+  {
+    "q": "How was your class?",
+    "o": [ "Yes, it was", "It was nice", "No, it wasn't", "It is nice" ],
+    "ans": 2
+  },
+
+  {
+    "q": "Why __________ you angry yesterday?",
+    "o": [ "was", "were", "is", "are" ],
+    "ans": 2
+  },
+  {
+    "q": "Why __________ she happy yesterday?",
+    "o": [ "was", "were", "is", "are" ],
+    "ans": 1
+  },
+  {
+    "q": "Why __________ they tired yesterday?",
+    "o": [ "was", "were", "is", "are" ],
+    "ans": 2
+  },
+  {
+    "q": "Why __________ Tom late yesterday?",
+    "o": [ "were", "is", "are", "was" ],
+    "ans": 4
+  },
+  {
+    "q": "Was he at home last night?",
+    "o": [
+      "No, he was",
+      "No, he weren't",
+      "No, he wasn't",
+      "No, he were"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Were they happy yesterday?",
+    "o": [
+      "No, they were",
+      "No, they wasn't",
+      "No, they weren't",
+      "No, they was"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Was she tired yesterday?",
+    "o": [
+      "No, she wasn't",
+      "No, she was",
+      "No, she weren't",
+      "No, she were"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Were Tom and Jane at school yesterday?",
+    "o": [
+      "No, they was",
+      "No, they were",
+      "No, they weren't",
+      "No, they wasn't"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Was Tony angry yesterday?",
+    "o": [
+      "No, he was",
+      "No, he weren't",
+      "No, he were",
+      "No, he wasn't"
+    ],
+    "ans": 4
+  }
+]

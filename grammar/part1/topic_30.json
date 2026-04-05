@@ -1,0 +1,106 @@
+[
+  {
+    "q": "I __________ happy yesterday.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 3
+  },
+  {
+    "q": "They __________ happy yesterday.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 4
+  },
+  {
+    "q": "He __________ at home last night.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 3
+  },
+  {
+    "q": "We __________ busy yesterday.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 4
+  },
+
+  {
+    "q": "She __________ angry yesterday.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 3
+  },
+  {
+    "q": "Tom and Jane __________ tired yesterday.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 4
+  },
+  {
+    "q": "I __________ in China last year.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 3
+  },
+  {
+    "q": "They __________ late yesterday.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 4
+  },
+
+  {
+    "q": "I __________ happy now.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 1
+  },
+  {
+    "q": "She __________ happy now.",
+    "o": [ "am not", "isn't", "wasn't", "weren't" ],
+    "ans": 2
+  },
+  {
+    "q": "They __________ busy now.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 2
+  },
+  {
+    "q": "We __________ at school now.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 2
+  },
+
+  {
+    "q": "He __________ angry today.",
+    "o": [ "am not", "isn't", "wasn't", "weren't" ],
+    "ans": 2
+  },
+  {
+    "q": "I __________ tired today.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 1
+  },
+  {
+    "q": "They __________ ready now.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 2
+  },
+  {
+    "q": "She __________ at home now.",
+    "o": [ "am not", "isn't", "wasn't", "weren't" ],
+    "ans": 2
+  },
+
+  {
+    "q": "We __________ happy last Christmas.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 4
+  },
+  {
+    "q": "He __________ in China last year.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 3
+  },
+  {
+    "q": "They __________ at home last night.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 4
+  },
+  {
+    "q": "She __________ busy yesterday.",
+    "o": [ "am not", "aren't", "wasn't", "weren't" ],
+    "ans": 3
+  }
+]

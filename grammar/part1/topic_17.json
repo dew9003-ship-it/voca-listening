@@ -1,0 +1,117 @@
+[
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\n___ am a student.",
+    "o": [ "I", "Me", "My", "Mine" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nTom likes ___.",
+    "o": [ "I", "me", "my", "they" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\n___ is my friend.",
+    "o": [ "He", "Him", "His", "Her" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nI helped ___.",
+    "o": [ "she", "her", "hers", "she's" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\n___ are happy.",
+    "o": [ "They", "Them", "Their", "Theirs" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nI saw ___ in the park.",
+    "o": [ "they", "them", "their", "theirs" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nThis is ___ bag.",
+    "o": [ "I", "me", "my", "mine" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nThis bag is ___.",
+    "o": [ "my", "mine", "me", "I" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nThat is ___ car.",
+    "o": [ "he", "him", "his", "he's" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nThat car is ___.",
+    "o": [ "his", "him", "he", "her" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nThis is ___ house.",
+    "o": [ "we", "us", "our", "ours" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nThis house is ___.",
+    "o": [ "our", "ours", "us", "we" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\n___ teacher likes us.",
+    "o": [ "We", "Us", "Our", "Ours" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\n___ are my parents.",
+    "o": [ "They", "Them", "Their", "Theirs" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 밑줄 친 말의 역할로 알맞은 것은?\nShe gave <u>me</u> a book.",
+    "o": [ "주격", "목적격", "소유격", "소유대명사" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 밑줄 친 말의 역할로 알맞은 것은?\nThis is <u>my</u> pen.",
+    "o": [ "주격", "목적격", "소유격(형용사)", "소유대명사" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장에서 밑줄 친 말의 역할로 알맞은 것은?\nThis pen is <u>mine</u>.",
+    "o": [ "주격", "목적격", "소유격(형용사)", "소유대명사" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 어법상 올바른 문장은?",
+    "o": [
+      "Me am happy.",
+      "Him is my friend.",
+      "She likes me.",
+      "I like he."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 어법상 올바른 문장은?",
+    "o": [
+      "This is mine book.",
+      "This is my book.",
+      "This is me book.",
+      "This is I book."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 어법상 올바른 문장은?",
+    "o": [
+      "That dog is her.",
+      "That dog is hers.",
+      "That dog is she.",
+      "That dog is she's."
+    ],
+    "ans": 2
+  }
+]

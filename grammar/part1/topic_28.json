@@ -1,0 +1,352 @@
+[
+  {
+    "q": "She __________ .",
+    "o": [
+      "look pretty",
+      "looks prettily",
+      "look prettily",
+      "looks pretty"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Jane and Mary __________ .",
+    "o": [
+      "look pretty",
+      "looks prettily",
+      "look prettily",
+      "looks pretty"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Jane __________ .",
+    "o": [
+      "look pretty",
+      "looks prettily",
+      "look prettily",
+      "looks pretty"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "They __________ .",
+    "o": [
+      "look pretty",
+      "looks prettily",
+      "look prettily",
+      "looks pretty"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He __________ .",
+    "o": [
+      "look pretty",
+      "looks prettily",
+      "look prettily",
+      "looks pretty"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "The song __________ .",
+    "o": [
+      "sound sweet",
+      "sounds sweet",
+      "sound sweetly",
+      "sounds sweetly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Their voice __________ .",
+    "o": [
+      "sound sweet",
+      "sounds sweet",
+      "sound sweetly",
+      "sounds sweetly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "His voice __________ .",
+    "o": [
+      "sound sweet",
+      "sounds sweet",
+      "sound sweetly",
+      "sounds sweetly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "His song __________ .",
+    "o": [
+      "sound sweet",
+      "sounds sweet",
+      "sound sweetly",
+      "sounds sweetly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Her voice __________ .",
+    "o": [
+      "sound sweet",
+      "sounds sweet",
+      "sound sweetly",
+      "sounds sweetly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Her song __________ .",
+    "o": [
+      "sound sweet",
+      "sounds sweet",
+      "sound sweetly",
+      "sounds sweetly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Their song __________ .",
+    "o": [
+      "sound sweet",
+      "sounds sweet",
+      "sound sweetly",
+      "sounds sweetly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Their songs __________ .",
+    "o": [
+      "sound sweet",
+      "sounds sweet",
+      "sound sweetly",
+      "sounds sweetly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She __________ .",
+    "o": [
+      "looks beautiful",
+      "look beautiful",
+      "looks beautifully",
+      "look beautifully"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Jane and Mary __________ .",
+    "o": [
+      "looks beautiful",
+      "look beautiful",
+      "looks beautifully",
+      "look beautifully"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Jane __________ .",
+    "o": [
+      "looks beautiful",
+      "look beautiful",
+      "looks beautifully",
+      "look beautifully"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They __________ .",
+    "o": [
+      "looks beautiful",
+      "look beautiful",
+      "looks beautifully",
+      "look beautifully"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He __________ .",
+    "o": [
+      "looks beautiful",
+      "look beautiful",
+      "looks beautifully",
+      "look beautifully"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The chicken __________ .",
+    "o": [
+      "smell nice",
+      "smells nicely.",
+      "smell nicely",
+      "smells nice"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "This apple __________ .",
+    "o": [
+      "smell nice",
+      "smells nicely.",
+      "smell nicely",
+      "smells nice"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "These apples __________ .",
+    "o": [
+      "smell nice",
+      "smells nicely.",
+      "smell nicely",
+      "smells nice"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Your apple __________ .",
+    "o": [
+      "smell nice",
+      "smells nicely.",
+      "smell nicely",
+      "smells nice"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "This steak __________ .",
+    "o": [
+      "smell nice",
+      "smells nicely.",
+      "smell nicely",
+      "smells nice"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "The chicken __________ .",
+    "o": [
+      "tastes great",
+      "taste great",
+      "tastes greatly",
+      "taste greatly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This apple __________ .",
+    "o": [
+      "tastes great",
+      "taste great",
+      "tastes greatly",
+      "taste greatly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "These apples __________ .",
+    "o": [
+      "tastes great",
+      "taste great",
+      "tastes greatly",
+      "taste greatly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Your apple __________ .",
+    "o": [
+      "tastes great",
+      "taste great",
+      "tastes greatly",
+      "taste greatly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This steak __________ .",
+    "o": [
+      "tastes great",
+      "taste great",
+      "tastes greatly",
+      "taste greatly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This towel __________ .",
+    "o": [
+      "feel soft",
+      "feels soft.",
+      "feel softly",
+      "feels softly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She __________ .",
+    "o": [
+      "feel tired",
+      "feels tired",
+      "feel softly",
+      "feels softly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Jane and Mary __________ .",
+    "o": [
+      "feel tired",
+      "feels tired",
+      "feel softly",
+      "feels softly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Jane __________ .",
+    "o": [
+      "feel tired",
+      "feels tired",
+      "feel softly",
+      "feels softly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "They __________ .",
+    "o": [
+      "feel tired",
+      "feels tired",
+      "feel softly",
+      "feels softly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He __________ .",
+    "o": [
+      "feel tired",
+      "feels tired",
+      "feel softly",
+      "feels softly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The little girl looks __________",
+    "o": [
+      "beautifully",
+      "a doll like",
+      "like a doll",
+      "prettily"
+    ],
+    "ans": 3
+  }
+]

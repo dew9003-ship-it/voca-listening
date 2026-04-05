@@ -1,0 +1,139 @@
+[
+  
+  {
+    "q": "Seoul is __________ capital of Korea.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ sun is a star.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 3
+  },
+  {
+    "q": "I like __________ baseball.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 4
+  },
+  {
+    "q": "He plays __________ guitar.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 3
+  },
+  {
+    "q": "He is __________ teacher.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 1
+  },
+  
+  {
+    "q": "I have __________ breakfast at 7.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 4
+  },
+  {
+    "q": "I like __________ violin.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 3
+  },
+  {
+    "q": "Is this __________ pen?",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 1
+  },
+  {
+    "q": "He is __________ honest boy.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 2
+  },
+  {
+    "q": "My mom is __________ nurse.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 1
+  },
+  {
+    "q": "I wear __________ uniform at school.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 1
+  },
+  {
+    "q": "That is __________ album.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ earth is round.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 3
+  },
+  {
+    "q": "I have __________ lunch at noon.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 4
+  },
+  {
+    "q": "There is __________ window in the room.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 1
+  },
+  {
+    "q": "Jane is __________ actress.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 2
+  },
+  {
+    "q": "Tom is __________ university student.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 1
+  },
+  {
+    "q": "Tom is playing __________ violin.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 3
+  },
+  {
+    "q": "Tom is playing __________ tennis.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 4
+  },
+  {
+    "q": "I like __________ English.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 4
+  },
+  {
+    "q": "I have a car. __________ car is very nice.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 3
+  },
+  {
+    "q": "I can play __________ basketball.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 4
+  },
+  {
+    "q": "Jane plays __________ guitar.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 3
+  },
+  {
+    "q": "She doesn't like to play __________ tennis.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 4
+  },
+  {
+    "q": "He plays __________ soccer with his friends.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 4
+  },
+  {
+    "q": "They play __________ baseball after school.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 4
+  },
+  {
+    "q": "This is __________ Tom.",
+    "o": [ "a", "an", "the", "안씀" ],
+    "ans": 4
+  }
+]

@@ -1,0 +1,169 @@
+[
+  {
+    "q": "주어의 역할로 가장 알맞은 것은?",
+    "o": [
+      "동작을 받는 대상",
+      "문장의 중심이 되는 대상",
+      "동사를 꾸며주는 말",
+      "문장을 연결하는 말"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "주어가 될 수 있는 품사는?",
+    "o": [ "명사", "부사", "전치사", "접속사" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 주어가 될 수 있는 것은?",
+    "o": [ "I", "me", "my", "mine" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 주어가 될 수 있는 것은?",
+    "o": [ "he", "him", "his", "happy" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 주어가 될 수 있는 것은?",
+    "o": [ "Tom", "quickly", "very", "to school" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 주어는 무엇인가?\nShe likes apples.",
+    "o": [ "She", "likes", "apples", "없다" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 주어는 무엇인가?\nTom is a student.",
+    "o": [ "Tom", "is", "a", "student" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 주어는 무엇인가?\nThey are happy.",
+    "o": [ "They", "are", "happy", "없다" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 주어가 없는 문장은?",
+    "o": [
+      "I like milk.",
+      "She is tall.",
+      "Run fast.",
+      "They are friends."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 주어가 명사인 문장은?",
+    "o": [
+      "He runs fast.",
+      "She is kind.",
+      "Tom likes music.",
+      "I am happy."
+    ],
+    "ans": 3
+  },
+  
+    {
+      "q": "다음 문장에서 주어는 무엇인가?\nThe tall boy is smart.",
+      "o": [
+        "The tall boy",
+        "is",
+        "smart",
+        "없다"
+      ],
+      "ans": 1
+    },
+    {
+      "q": "다음 문장에서 주어는 무엇인가?\nTom and Jane are friends.",
+      "o": [
+        "Tom",
+        "Jane",
+        "Tom and Jane",
+        "friends"
+      ],
+      "ans": 3
+    },
+    {
+      "q": "다음 중 주어가 될 수 있는 대명사는?",
+      "o": [
+        "us",
+        "them",
+        "we",
+        "her"
+      ],
+      "ans": 3
+    },
+    {
+      "q": "다음 문장에서 주어는 무엇인가?\nThis is my bag.",
+      "o": [
+        "This",
+        "is",
+        "my",
+        "bag"
+      ],
+      "ans": 1
+    },
+    {
+      "q": "다음 의문문에서 주어는 무엇인가?\nIs she a teacher?",
+      "o": [
+        "Is",
+        "she",
+        "a",
+        "teacher"
+      ],
+      "ans": 2
+    },
+    {
+      "q": "영어 평서문에서 주어는 보통 어디에 위치하는가?",
+      "o": [
+        "동사 뒤",
+        "문장 맨 앞(동사 앞)",
+        "문장 맨 끝",
+        "전치사 뒤"
+      ],
+      "ans": 2
+    },
+    {
+      "q": "다음 중 3인칭 단수 주어는?",
+      "o": [
+        "I",
+        "You",
+        "They",
+        "He"
+      ],
+      "ans": 4
+    },
+    {
+      "q": "다음 문장에서 주어는 무엇인가?\nMy father likes coffee.",
+      "o": [
+        "My",
+        "My father",
+        "likes",
+        "coffee"
+      ],
+      "ans": 2
+    },
+    {
+      "q": "다음 문장에서 주어는 무엇인가?\nRunning is fun.",
+      "o": [
+        "Running",
+        "is",
+        "fun",
+        "없다"
+      ],
+      "ans": 1
+    },
+    {
+      "q": "다음 중 주어 자리에 들어갈 수 없는 것은?",
+      "o": [
+        "The dog",
+        "She",
+        "Mary",
+        "Him"
+      ],
+      "ans": 4
+    }
+  ]
+

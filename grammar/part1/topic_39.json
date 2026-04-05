@@ -1,0 +1,150 @@
+[
+  {
+    "q": "__________ is knocking at the door? – It’s my neighbor.",
+    "o": [ "Who", "What", "Which", "Where" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ did you buy at the store? – I bought some bread.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ bus should we take, number 3 or number 5? – Number 5.",
+    "o": [ "What", "Which", "Where", "When" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did the class start today? – At 9 a.m.",
+    "o": [ "Why", "When", "Where", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did she stay home yesterday? – Because she was sick.",
+    "o": [ "How", "Why", "When", "Where" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ is your classroom? – On the second floor.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did you solve the problem? – With my friend’s help.",
+    "o": [ "How", "Why", "When", "Where" ],
+    "ans": 1
+  },
+
+  {
+    "q": "__________ made this cake? – My mom did.",
+    "o": [ "Who", "What", "Which", "How" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ is your favorite subject? – Science.",
+    "o": [ "Who", "What", "Which", "When" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ movie do you like more, this one or that one? – This one.",
+    "o": [ "What", "Which", "Who", "Why" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ will the trip begin? – Next Monday.",
+    "o": [ "Why", "When", "Where", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did he run so fast? – Because he was late.",
+    "o": [ "How", "Why", "When", "Where" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ do you usually study after school? – At the library.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did you get to school today? – By bike.",
+    "o": [ "How", "Where", "When", "Why" ],
+    "ans": 1
+  },
+
+  {
+    "q": "__________ is sitting next to you? – My best friend.",
+    "o": [ "Who", "What", "Which", "Where" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ do you want for your birthday? – A new watch.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ color do you like better, red or blue? – Blue.",
+    "o": [ "What", "Which", "Who", "When" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did the movie end? – Around 10 p.m.",
+    "o": [ "Why", "When", "Where", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did she choose that dress? – Because it was cheap.",
+    "o": [ "How", "Why", "When", "Where" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ is the meeting held? – In the teacher’s office.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did you learn English so well? – By practicing every day.",
+    "o": [ "How", "Why", "When", "Where" ],
+    "ans": 1
+  },
+
+  {
+    "q": "__________ knows the answer? – Tom does.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ is in the box? – Some old photos.",
+    "o": [ "Who", "What", "Which", "Where" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ student won the prize, Tom or Alex? – Alex.",
+    "o": [ "What", "Which", "Who", "Why" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ do we celebrate Christmas? – In December.",
+    "o": [ "Why", "When", "Where", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did you skip breakfast? – Because I woke up late.",
+    "o": [ "How", "Why", "When", "Where" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ do you keep your books? – On the shelf.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did the accident happen? – Near the school gate.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did you finish the work so quickly? – By working together.",
+    "o": [ "How", "Why", "When", "Where" ],
+    "ans": 1
+  }
+]

@@ -1,0 +1,178 @@
+[
+  {
+    "q": "He runs very __________ .",
+    "o": [
+      "fast",
+      "fastly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He studied English __________ .",
+    "o": [
+      "hard",
+      "hardly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He was __________ for school.",
+    "o": [
+      "late",
+      "lately"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She sings __________ .",
+    "o": [
+      "beautiful",
+      "beautifully"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He runs very __________ .",
+    "o": [
+      "slow",
+      "slowly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I got up __________ in the morning.",
+    "o": [
+      "late",
+      "lately"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________, I saw him studying English.",
+    "o": [
+      "late",
+      "lately"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I __________ studied English.",
+    "o": [
+      "hard",
+      "hardly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He runs very __________ .",
+    "o": [
+      "careful",
+      "carefully"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It is raining __________ .",
+    "o": [
+      "heavy",
+      "heavily"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________, he came home.",
+    "o": [
+      "sudden",
+      "suddenly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She solved the problem very __________ .",
+    "o": [
+      "highly",
+      "quickly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The bus stopped very __________ .",
+    "o": [
+      "slow",
+      "slowly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She solved the problem very __________ .",
+    "o": [
+      "easy",
+      "easily"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She is very __________ .",
+    "o": [
+      "pretty",
+      "prettily"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She looks very __________ .",
+    "o": [
+      "pretty",
+      "prettily"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is a __________ driver.",
+    "o": [
+      "careful",
+      "carefully"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He walks very __________ .",
+    "o": [
+      "careful",
+      "carefully"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He went __________ at the news.",
+    "o": [
+      "mad",
+      "madly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He runs __________ into the house.",
+    "o": [
+      "mad",
+      "madly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This house looks __________ .",
+    "o": [
+      "safe",
+      "safely"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He looks __________ .",
+    "o": [
+      "wise",
+      "wisely"
+    ],
+    "ans": 1
+  }
+]

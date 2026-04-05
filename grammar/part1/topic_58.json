@@ -1,0 +1,242 @@
+[
+  {
+    "q": "You like horror movies, __________?",
+    "o": [
+      "doesn't you?",
+      "do you?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He doesn't like horror movies, __________?",
+    "o": [
+      "does he?",
+      "doesn't he?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You like horror movies, __________?",
+    "o": [
+      "don't you?",
+      "like you?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Jenny is smart, __________?",
+    "o": [
+      "isn't she?",
+      "doesn't she?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Jenny and Tom often meet, __________?",
+    "o": [
+      "don't they?",
+      "do they?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You are hungry, __________?",
+    "o": [
+      "aren't you?",
+      "don't you?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He can't speak Chinese, __________?",
+    "o": [
+      "can he?",
+      "doesn't he?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She came late, __________?",
+    "o": [
+      "didn't she?",
+      "doesn't she?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You like salad, __________?",
+    "o": [
+      "aren't you?",
+      "don't you?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Sumin and Sujin are twins, __________?",
+    "o": [
+      "are they?",
+      "aren't they?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You can't join us, __________?",
+    "o": [
+      "are you?",
+      "can you?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is your cell phone, __________?",
+    "o": [
+      "isn't this?",
+      "isn't it?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Let's go shopping at Myeongdong, __________?",
+    "o": [
+      "don't go?",
+      "shall we?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Do your homework first, __________?",
+    "o": [
+      "don't you?",
+      "will you?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Be quiet, __________?",
+    "o": [
+      "don't you?",
+      "will you?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Don't go there, __________?",
+    "o": [
+      "don't you?",
+      "will you?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Don't run in the library, __________?",
+    "o": [
+      "don't you?",
+      "will you?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Be ready for it, __________?",
+    "o": [
+      "will you?",
+      "aren't you?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Be careful, __________?",
+    "o": [
+      "will you?",
+      "aren't you?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Ms. Baker doesn't teach English, __________?",
+    "o": [
+      "doesn't she?",
+      "does she?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Let's have lunch together, __________?",
+    "o": [
+      "will you?",
+      "shall we?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Let's not stay up late, __________?",
+    "o": [
+      "will you?",
+      "shall we?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Don't be foolish, __________?",
+    "o": [
+      "will you?",
+      "shall we?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do it right now, __________?",
+    "o": [
+      "will you?",
+      "shall we?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Let's study English right now, __________?",
+    "o": [
+      "will you?",
+      "shall we?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She had a meeting with her boss, __________?",
+    "o": [
+      "doesn't she?",
+      "didn't she?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It's really hot today, __________?",
+    "o": [
+      "is it?",
+      "isn't it?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You can play the guitar for me, __________?",
+    "o": [
+      "can't you?",
+      "can you?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Don't wait for me, __________?",
+    "o": [
+      "will you?",
+      "shall we?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Let's not play computer games, __________?",
+    "o": [
+      "will you?",
+      "shall we?"
+    ],
+    "ans": 2
+  }
+]

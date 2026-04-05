@@ -1,0 +1,187 @@
+[
+  {
+    "q": "다음 문장의 빈칸에 가장 적절한 등위 접속사는? \"I am hungry, _____ there is nothing to eat.\"",
+    "o": [ "and", "or", "but", "so" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 밑줄 친 'or'의 의미가 '그렇지 않으면'으로 해석되는 문장은?",
+    "o": [
+      "Do you want tea or coffee?",
+      "Hurry up, or you will be late.",
+      "Is he a doctor or a teacher?",
+      "You can go by bus or taxi."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 성격이 다른 접속사 하나를 고르시오.",
+    "o": [ "and", "but", "because", "or" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 빈칸에 들어갈 접속사가 나머지와 다른 것은?",
+    "o": [
+      "I like him _____ he is kind.",
+      "We stayed home _____ it rained.",
+      "I went to bed early _____ I was tired.",
+      "Finish your homework, _____ you can play."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 '시간'을 나타내는 종속 접속사가 아닌 것은?",
+    "o": [ "when", "before", "if", "after" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 등위접속사의 특징으로 옳은 것은?",
+    "o": [
+      "주절과 종속절을 만든다",
+      "대등한 말이나 문장을 연결한다",
+      "항상 문장 맨 앞에 온다",
+      "형용사만 연결한다"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 종속접속사의 특징으로 옳은 것은?",
+    "o": [
+      "두 문장의 의미가 같다",
+      "항상 문장을 끝낸다",
+      "주절에 종속되는 절을 만든다",
+      "단어만 연결한다"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 등위접속사를 고르시오",
+    "o": [ "and", "when", "if", "because" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 종속접속사를 고르시오",
+    "o": [ "but", "or", "and", "when" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 등위접속사가 아닌 것은?",
+    "o": [ "and", "but", "or", "because" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 종속접속사가 아닌 것은?",
+    "o": [ "if", "although", "and", "when" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 두 문장을 대등하게 이어주는 접속사는?",
+    "o": [ "if", "because", "and", "when" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 '만약 ~라면'의 의미로 쓰이는 종속접속사는?",
+    "o": [ "if", "and", "but", "or" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 '~할 때'의 의미로 쓰이는 종속접속사는?",
+    "o": [ "when", "so", "and", "but" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 '비록 ~일지라도'의 의미로 쓰이는 종속접속사는?",
+    "o": [ "although", "if", "and", "or" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 등위접속사를 모두 고른 것은?",
+    "o": [
+      "and, but, or",
+      "if, when, because",
+      "although, though, when",
+      "if, and, because"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 종속접속사끼리만 묶인 것은?",
+    "o": [
+      "and, but, or",
+      "if, when, although",
+      "and, if, or",
+      "but, because, or"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 문장과 문장을 연결할 수 있는 접속사는?",
+    "o": [
+      "and",
+      "very",
+      "quickly",
+      "happy"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 접속사가 사용된 문장은?",
+    "o": [
+      "I am happy.",
+      "She is very tall.",
+      "I like apples and bananas.",
+      "He runs fast."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장에서 사용된 접속사의 종류는?\nI stayed home because it was raining.",
+    "o": [
+      "등위접속사",
+      "종속접속사",
+      "전치사",
+      "부사"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 사용된 접속사의 종류는?\nI like milk and bread.",
+    "o": [
+      "종속접속사",
+      "관계사",
+      "등위접속사",
+      "전치사"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 접속사 사용이 올바른 것은?",
+    "o": [
+      "Because I like pizza.",
+      "And I went to school.",
+      "I was tired, but I studied.",
+      "If is raining."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 종속절을 이끄는 접속사는?",
+    "o": [
+      "and",
+      "but",
+      "or",
+      "if"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 등위접속사의 의미로 알맞은 것은?",
+    "o": [
+      "이유를 나타낸다",
+      "조건을 나타낸다",
+      "대등하게 이어준다",
+      "시간을 나타낸다"
+    ],
+    "ans": 3
+  }
+]

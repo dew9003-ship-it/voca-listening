@@ -1,0 +1,232 @@
+[
+  {
+    "q": "We will go __________ Busan.",
+    "o": [
+      "to",
+      "of",
+      "with",
+      "about"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We will leave __________ Busan.",
+    "o": [
+      "of",
+      "for",
+      "with",
+      "about"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I gave money __________ Tom.",
+    "o": [
+      "to",
+      "of",
+      "with",
+      "about"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This present is __________ Christmas.",
+    "o": [
+      "of",
+      "for",
+      "with",
+      "about"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I repaired the leg __________ the chair.",
+    "o": [
+      "of",
+      "for",
+      "with",
+      "about"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I'll go to school __________ you.",
+    "o": [
+      "of",
+      "for",
+      "with",
+      "about"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "This book is __________ love.",
+    "o": [
+      "of",
+      "to",
+      "with",
+      "about"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "This book is __________ monkeys.",
+    "o": [
+      "of",
+      "to",
+      "with",
+      "about"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "We go to school __________ bus.",
+    "o": [
+      "of",
+      "to",
+      "for",
+      "by"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "We go to school __________ subway.",
+    "o": [
+      "of",
+      "to",
+      "for",
+      "by"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "We go to school __________ taxi.",
+    "o": [
+      "of",
+      "to",
+      "for",
+      "by"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "We go to school __________ train.",
+    "o": [
+      "of",
+      "to",
+      "for",
+      "by"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "We go to school __________ car.",
+    "o": [
+      "of",
+      "to",
+      "for",
+      "by"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "I went to Mokpo __________ plane.",
+    "o": [
+      "of",
+      "to",
+      "for",
+      "by"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "I bought a present __________ Mom.",
+    "o": [
+      "of",
+      "to",
+      "for",
+      "by"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "I studied English __________ Tom.",
+    "o": [
+      "of",
+      "to",
+      "for",
+      "with"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Mom made pizza __________ me.",
+    "o": [
+      "of",
+      "to",
+      "for",
+      "with"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Mom wrote a letter __________ me.",
+    "o": [
+      "of",
+      "to",
+      "for",
+      "with"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She cut the apple __________ a knife.",
+    "o": [
+      "of",
+      "to",
+      "for",
+      "with"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "I went fishing __________ Tom.",
+    "o": [
+      "of",
+      "to",
+      "for",
+      "with"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Mom wrote a letter to me __________ email.",
+    "o": [
+      "of",
+      "by",
+      "to",
+      "in"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I keep a diary __________ a pencil.",
+    "o": [
+      "of",
+      "by",
+      "for",
+      "with"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "I didn't play tennis __________ Jane.",
+    "o": [
+      "of",
+      "by",
+      "for",
+      "with"
+    ],
+    "ans": 4
+  }
+]

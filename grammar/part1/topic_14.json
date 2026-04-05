@@ -1,0 +1,122 @@
+[
+  {
+    "q": "복수형을 만들 때 -es를 붙이는 명사는?",
+    "o": [ "cat", "pen", "book", "class" ],
+    "ans": 4
+  },
+  {
+    "q": "복수형을 만들 때 -es를 붙이는 명사는?",
+    "o": [ "apple", "boy", "daughter", "box" ],
+    "ans": 4
+  },
+  {
+    "q": "복수형을 만들 때 규칙이 다른 하나는?",
+    "o": [ "bus", "class", "dish", "map" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 올바른 복수형은?",
+    "o": [ "potatos", "pianoes", "radioes", "books" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 올바른 복수형은?",
+    "o": [ "potatoes", "pianoes", "radioes", "bookes" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 복수형은?",
+    "o": [ "pianos", "potatos", "boxes", "babys" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 단수형과 복수형의 짝이 올바른 것은?",
+    "o": [ "child - childs", "man - mans", "mouse - mice", "tooth - tooths" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 단수형과 복수형의 짝이 틀린 것은?",
+    "o": [ "foot - feet", "woman - women", "mouse - mice", "fish - fishes" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nWhere ____ my glasses?",
+    "o": [ "am", "are", "is", "be" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nI bought a pair of ____.",
+    "o": [ "pant", "pants", "pantes", "panties" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 항상 복수형으로 쓰이는 명사가 아닌 것은?",
+    "o": [ "scissors", "jeans", "glasses", "shirt" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nHe brushed his ____ three times a day.",
+    "o": [ "tooth", "toothes", "teeth", "tooths" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nLook at those ____ flying in the sky.",
+    "o": [ "goose", "geese", "gooses", "geeses" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nThere are many ____ in the room.",
+    "o": [ "person", "persons", "people", "peoples" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nThe cat caught two ____.",
+    "o": [ "mouse", "mouses", "mice", "mices" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장에서 어법상 틀린 부분은?",
+    "o": [
+      "I have two watches.",
+      "She has big eyes.",
+      "He has three childs.",
+      "They are good friends."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nThese ____ are heavy.",
+    "o": [ "box", "boxes", "boxs", "boxies" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장의 빈칸에 알맞은 말은?\nThis ____ is heavy.",
+    "o": [ "box", "boxes", "boxs", "boxies" ],
+    "ans": 1
+  },
+  {
+    "q": "단자음 + y로 끝나는 명사의 복수형으로 옳은 것은?",
+    "o": [ "baby → babys", "baby → babies", "boy → boies", "toy → toies" ],
+    "ans": 2
+  },
+  {
+    "q": "f 또는 fe로 끝나는 명사의 복수형으로 옳은 것은?",
+    "o": [ "knife → knifes", "leaf → leafs", "knife → knives", "roof → rooves" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 복수형이 바르게 쓰인 것은?",
+    "o": [ "boys", "boies", "boyes", "boyss" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 복수형이 바르게 쓰인 것은?",
+    "o": [ "toies", "toyss", "toys", "toyes" ],
+    "ans": 3
+  },
+  {
+    "q": "o, s, ss, sh, ch, x 로 끝나는 명사의 복수형 규칙은?",
+    "o": [ "-s", "-es", "-ves", "-ies" ],
+    "ans": 2
+  }
+]

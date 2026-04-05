@@ -1,0 +1,202 @@
+[
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nI __________ a student.",
+    "o": [
+      "am not",
+      "are not",
+      "is not",
+      "be not"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nShe __________ my sister.",
+    "o": [
+      "am not",
+      "are not",
+      "is not",
+      "be not"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nWe __________ friends.",
+    "o": [
+      "am not",
+      "are not",
+      "is not",
+      "be not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nHe __________ my brother.",
+    "o": [
+      "aren't",
+      "isn't",
+      "amn't",
+      "not is"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThey __________ students.",
+    "o": [
+      "aren't",
+      "isn't",
+      "amn't",
+      "not are"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nTom and Jane __________ my friends.",
+    "o": [
+      "am not",
+      "isn't",
+      "aren't",
+      "not are"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nYou __________ a teacher.",
+    "o": [
+      "am not",
+      "isn't",
+      "aren't",
+      "be not"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 질문에 대한 대답으로 알맞은 것은?\nAre you a student?",
+    "o": [
+      "No, I'm not.",
+      "Yes, I'm not.",
+      "No, I amn't.",
+      "No, I am't."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 질문에 대한 대답으로 알맞은 것은?\nAre they students?",
+    "o": [
+      "No, I'm not.",
+      "No, they not.",
+      "No, they aren't.",
+      "No, they isn't."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 질문에 대한 대답으로 알맞은 것은?\nIs she a doctor?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't.",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 질문에 대한 대답으로 알맞은 것은?\nIs Jane a teacher?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't.",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 질문에 대한 대답으로 알맞은 것은?\nAre you a teacher?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't.",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 질문에 대한 대답으로 알맞은 것은?\nIs he a teacher?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't.",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 질문에 대한 대답으로 알맞은 것은?\nIs Tom a doctor?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't.",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 질문에 대한 대답으로 알맞은 것은?\nAm I late for school?",
+    "o": [
+      "No, I'm not.",
+      "No, you aren't.",
+      "No, she isn't.",
+      "No, he isn't."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 줄임말 연결이 올바른 것은?",
+    "o": [
+      "is not = isn't",
+      "am not = amn't",
+      "are not = are'nt",
+      "was not = wasnot"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 줄임말이 존재하지 않는 것은?",
+    "o": [
+      "is not",
+      "are not",
+      "am not",
+      "were not"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "are not = aren't ?",
+    "o": [
+      "true",
+      "false",
+      "잘 모르겠음",
+      "기권"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "was not = wasn't ?",
+    "o": [
+      "true",
+      "false",
+      "잘 모르겠음",
+      "기권"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "am not = amn't ?",
+    "o": [
+      "true",
+      "false",
+      "잘 모르겠음",
+      "기권"
+    ],
+    "ans": 2
+  }
+]

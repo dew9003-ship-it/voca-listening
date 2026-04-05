@@ -1,0 +1,352 @@
+[
+  {
+    "q": "There are __________ people in the library.",
+    "o": [
+      "some",
+      "any",
+      "many",
+      "a little"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "There are __________ people in the library.",
+    "o": [
+      "some",
+      "any",
+      "many",
+      "a little"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "There are __________ people in the library.",
+    "o": [
+      "a few",
+      "any",
+      "many",
+      "a little"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "There aren't __________ people in the library.",
+    "o": [
+      "some",
+      "any",
+      "many",
+      "a little"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "There are __________ people in the library.",
+    "o": [
+      "some",
+      "any",
+      "many",
+      "few"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "There are __________ people in the library.",
+    "o": [
+      "some",
+      "any",
+      "a lot of",
+      "a little"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "There are __________ people in the library.",
+    "o": [
+      "some",
+      "any",
+      "lots of",
+      "a little"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "There are __________ people in the library.",
+    "o": [
+      "some",
+      "any",
+      "plenty of",
+      "a little"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 빈칸에 들어갈수 없는 것은?",
+    "o": [
+      "much",
+      "many",
+      "plenty of",
+      "a lot of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 들어갈수 없는 것은?",
+    "o": [
+      "little",
+      "many",
+      "plenty of",
+      "a lot of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 들어갈수 없는 것은?",
+    "o": [
+      "a little",
+      "many",
+      "plenty of",
+      "a lot of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 들어갈수 없는 것은?",
+    "o": [
+      "any",
+      "many",
+      "plenty of",
+      "a lot of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "There is __________ milk on the table.",
+    "o": [
+      "many",
+      "a few",
+      "any",
+      "much"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "There is __________ milk on the table.",
+    "o": [
+      "many",
+      "a few",
+      "any",
+      "a lot of"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "There is __________ milk on the table.",
+    "o": [
+      "many",
+      "a few",
+      "any",
+      "lots of"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "There is __________ milk on the table.",
+    "o": [
+      "many",
+      "a few",
+      "any",
+      "plenty of"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "There is __________ milk on the table.",
+    "o": [
+      "many",
+      "a few",
+      "any",
+      "a little"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "There is __________ milk on the table.",
+    "o": [
+      "many",
+      "a few",
+      "any",
+      "little"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "There isn't __________ milk on the table.",
+    "o": [
+      "many",
+      "a few",
+      "any",
+      "some"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 빈칸에 들어갈수 없는 것은?",
+    "o": [
+      "much",
+      "a few",
+      "a little",
+      "little"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 들어갈수 없는 것은?",
+    "o": [
+      "much",
+      "few",
+      "a little",
+      "little"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 들어갈수 없는 것은?",
+    "o": [
+      "much",
+      "any",
+      "a little",
+      "little"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 들어갈수 없는 것은?",
+    "o": [
+      "much",
+      "many",
+      "a little",
+      "little"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 들어갈수 없는 것은?",
+    "o": [
+      "much",
+      "a lot of",
+      "lots of",
+      "many"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "I drink __________ soda everyday.",
+    "o": [
+      "many",
+      "a few",
+      "any",
+      "much"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "I drink __________ soda everyday.",
+    "o": [
+      "many",
+      "a few",
+      "any",
+      "a lot of"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "I drink __________ soda everyday.",
+    "o": [
+      "many",
+      "a few",
+      "any",
+      "lots of"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "I drink __________ soda everyday.",
+    "o": [
+      "many",
+      "a few",
+      "any",
+      "plenty of"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "I drink __________ soda everyday.",
+    "o": [
+      "many",
+      "a few",
+      "any",
+      "a little"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "I drink __________ soda everyday.",
+    "o": [
+      "many",
+      "a few",
+      "any",
+      "little"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 빈칸에 들어갈수 없는 것은?",
+    "o": [
+      "much",
+      "a few",
+      "a little",
+      "little"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 들어갈수 없는 것은?",
+    "o": [
+      "much",
+      "few",
+      "a little",
+      "little"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 들어갈수 없는 것은?",
+    "o": [
+      "much",
+      "some",
+      "a little",
+      "many"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 빈칸에 들어갈수 없는 것은?",
+    "o": [
+      "much",
+      "many",
+      "a little",
+      "little"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 들어갈수 없는 것은?",
+    "o": [
+      "much",
+      "a lot of",
+      "lots of",
+      "many"
+    ],
+    "ans": 4
+  }
+]

@@ -1,0 +1,402 @@
+[
+  {
+    "q": "come의 과거형은?",
+    "o": [
+      "come",
+      "comes",
+      "comed",
+      "came"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "give의 과거형은?",
+    "o": [
+      "give",
+      "gives",
+      "gived",
+      "gave"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "become의 과거형은?",
+    "o": [
+      "become",
+      "became",
+      "becomed",
+      "becomes"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "begin의 과거형은?",
+    "o": [
+      "begin",
+      "began",
+      "begins",
+      "begined"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "go의 과거형은?",
+    "o": [
+      "go",
+      "goes",
+      "went",
+      "gone"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "leave의 과거형은?",
+    "o": [
+      "leave",
+      "leaved",
+      "left",
+      "leaves"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "get의 과거형은?",
+    "o": [
+      "get",
+      "gets",
+      "got",
+      "getted"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "take의 과거형은?",
+    "o": [
+      "take",
+      "took",
+      "takes",
+      "taked"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "do의 과거형은?",
+    "o": [
+      "do",
+      "does",
+      "did",
+      "done"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "have의 과거형은?",
+    "o": [
+      "have",
+      "has",
+      "haves",
+      "had"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "say의 과거형은?",
+    "o": [
+      "say",
+      "sayed",
+      "saied",
+      "said"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "make의 과거형은?",
+    "o": [
+      "make",
+      "maked",
+      "made",
+      "makes"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "eat의 과거형은?",
+    "o": [
+      "eat",
+      "eated",
+      "eats",
+      "ate"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "put의 과거형은?",
+    "o": [
+      "put",
+      "puts",
+      "putted",
+      "puted"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "cut의 과거형은?",
+    "o": [
+      "cut",
+      "cuts",
+      "cutted",
+      "cuted"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "meet의 과거형은?",
+    "o": [
+      "meet",
+      "meeted",
+      "met",
+      "meets"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "read의 과거형은?",
+    "o": [
+      "read",
+      "reads",
+      "readed",
+      "red"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "run의 과거형은?",
+    "o": [
+      "run",
+      "ran",
+      "runs",
+      "runed"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "drink의 과거형은?",
+    "o": [
+      "drink",
+      "drinked",
+      "drank",
+      "drinks"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "see의 과거형은?",
+    "o": [
+      "see",
+      "sees",
+      "seed",
+      "saw"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "swim의 과거형은?",
+    "o": [
+      "swim",
+      "swims",
+      "swimmed",
+      "swam"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "catch의 과거형은?",
+    "o": [
+      "catch",
+      "catched",
+      "caught",
+      "catches"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "teach의 과거형은?",
+    "o": [
+      "teach",
+      "teached",
+      "teaches",
+      "taught"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "bring의 과거형은?",
+    "o": [
+      "bring",
+      "brought",
+      "bought",
+      "bringed"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "buy의 과거형은?",
+    "o": [
+      "buy",
+      "brought",
+      "bought",
+      "buyed"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "think의 과거형은?",
+    "o": [
+      "think",
+      "thinked",
+      "thought",
+      "thank"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "win의 과거형은?",
+    "o": [
+      "win",
+      "won",
+      "winned",
+      "wins"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "pay의 과거형은?",
+    "o": [
+      "pay",
+      "paid",
+      "payed",
+      "pays"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "hear의 과거형은?",
+    "o": [
+      "hear",
+      "heard",
+      "heared",
+      "hears"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "write의 과거형은?",
+    "o": [
+      "write",
+      "wrote",
+      "writes",
+      "writed"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He __________ a letter to me yesterday.",
+    "o": [
+      "write",
+      "wrote",
+      "writes",
+      "writed"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She __________ a letter to me yesterday.",
+    "o": [
+      "write",
+      "wrote",
+      "writes",
+      "writed"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Sam __________ a letter to me yesterday.",
+    "o": [
+      "write",
+      "wrote",
+      "writes",
+      "writed"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "They __________ a letter to me yesterday.",
+    "o": [
+      "write",
+      "wrote",
+      "writes",
+      "writed"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Jane __________ a letter to me yesterday.",
+    "o": [
+      "write",
+      "wrote",
+      "writes",
+      "writed"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "They __________ my pizza yesterday.",
+    "o": [
+      "eat",
+      "eats",
+      "ate",
+      "eated"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "She __________ my pizza yesterday.",
+    "o": [
+      "eat",
+      "eats",
+      "ate",
+      "eated"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He __________ my pizza yesterday.",
+    "o": [
+      "eat",
+      "eats",
+      "ate",
+      "eated"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Tom __________ my pizza yesterday.",
+    "o": [
+      "eat",
+      "eats",
+      "ate",
+      "eated"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "The man __________ my pizza yesterday.",
+    "o": [
+      "eat",
+      "eats",
+      "ate",
+      "eated"
+    ],
+    "ans": 3
+  }
+]

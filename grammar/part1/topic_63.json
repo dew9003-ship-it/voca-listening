@@ -1,0 +1,162 @@
+[
+  {
+    "q": "나는 읽을 책이 많이 있다.",
+    "o": [
+      "many books to read",
+      "to read many books"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "뉴욕엔 볼것들이 많이 있다.",
+    "o": [
+      "many things to see",
+      "to see many things"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you have __________?",
+    "o": [
+      "anything to say",
+      "to say anything"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I need __________.",
+    "o": [
+      "a jacket to wear",
+      "to wear a jacket"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you want __________?",
+    "o": [
+      "to eat something",
+      "something to eat"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She has __________.",
+    "o": [
+      "to write with no pencil",
+      "no pencil to write with"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I don't have __________.",
+    "o": [
+      "to talk about anything",
+      "anything to talk about"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is __________.",
+    "o": [
+      "to put things in a box",
+      "a box to put things in"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I need __________.",
+    "o": [
+      "a note to write on",
+      "to write on a note"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I need a note __________.",
+    "o": [
+      "to write on",
+      "to do"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have many books __________.",
+    "o": [
+      "to read",
+      "to play"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "There are many things __________ in New York.",
+    "o": [
+      "to do",
+      "to can"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you have __________?",
+    "o": [
+      "anything to say",
+      "anything to go"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I need __________.",
+    "o": [
+      "a jacket to wear",
+      "a jacket to say"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you want __________?",
+    "o": [
+      "water to eat",
+      "water to drink"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She has a pen __________.",
+    "o": [
+      "to write with",
+      "to eat"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I don't have __________.",
+    "o": [
+      "nothing to say",
+      "anything to say"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Give me __________.",
+    "o": [
+      "something to eat",
+      "something to drink"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Give me __________.",
+    "o": [
+      "something to eat",
+      "something to drink"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have much homework __________.",
+    "o": [
+      "to do",
+      "to go"
+    ],
+    "ans": 1
+  }
+]

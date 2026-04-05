@@ -1,0 +1,262 @@
+[
+  {
+    "q": "There are two books __________ the table.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "over"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom lives __________ London.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "over"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The cat is __________ the desk.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "over"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "We played __________ the backyard.",
+    "o": [
+      "in",
+      "by",
+      "under",
+      "over"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The picture is __________ the wall.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "over"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The clock is __________ the wall.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "over"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He teaches English __________ a middle school.",
+    "o": [
+      "by",
+      "under",
+      "at",
+      "over"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "They sit __________ the tree.",
+    "o": [
+      "in",
+      "on",
+      "under",
+      "over"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "There are two balls __________ the box.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "over"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I saw him __________ the station.",
+    "o": [
+      "under",
+      "by",
+      "at",
+      "over"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "I met him __________ the party.",
+    "o": [
+      "by",
+      "under",
+      "at",
+      "over"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "The dog sits __________ the sofa.",
+    "o": [
+      "under",
+      "on",
+      "at",
+      "over"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is __________ Seoul now.",
+    "o": [
+      "in",
+      "under",
+      "by",
+      "over"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Be quiet __________ the library.",
+    "o": [
+      "in",
+      "under",
+      "by",
+      "over"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She is sitting __________ the tree.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "under"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "She is sitting __________ the grass.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "over"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The ball is __________ the box.",
+    "o": [
+      "in",
+      "on",
+      "next to",
+      "under"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The ball is __________ the box.",
+    "o": [
+      "in",
+      "on",
+      "next to",
+      "under"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The ball is __________ the box.",
+    "o": [
+      "in",
+      "on",
+      "next to",
+      "under"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "The ball is __________ the box.",
+    "o": [
+      "over",
+      "near",
+      "in front of",
+      "between"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The ball is __________ the seat.",
+    "o": [
+      "in",
+      "on",
+      "next to",
+      "under"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "The ball is __________ the box and the chair.",
+    "o": [
+      "over",
+      "near",
+      "in front of",
+      "between"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "The balloon is __________ the box.",
+    "o": [
+      "in",
+      "over",
+      "next to",
+      "under"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The ball is __________ the box.",
+    "o": [
+      "over",
+      "near",
+      "in front of",
+      "between"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "There is a bookstore __________ my house.",
+    "o": [
+      "across from",
+      "near",
+      "on",
+      "between"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My school is __________ the market.",
+    "o": [
+      "across from",
+      "near",
+      "in front of",
+      "behind"
+    ],
+    "ans": 4
+  }
+]

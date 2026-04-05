@@ -1,0 +1,132 @@
+[
+  {
+    "q": "I __________ a cat.",
+    "o": [ "am not have", "aren't have", "don't have", "isn't have" ],
+    "ans": 3
+  },
+  {
+    "q": "He __________ a cat.",
+    "o": [ "isn't have", "aren't have", "doesn't have", "don't have" ],
+    "ans": 3
+  },
+  {
+    "q": "They __________ a cat.",
+    "o": [ "aren't have", "don't have", "isn't have", "am not have" ],
+    "ans": 2
+  },
+  {
+    "q": "Tom and Jane __________ a cat.",
+    "o": [ "aren't have", "doesn't have", "don't have", "isn't have" ],
+    "ans": 3
+  },
+  {
+    "q": "The student __________ a cat.",
+    "o": [ "aren't have", "isn't have", "don't have", "doesn't have" ],
+    "ans": 4
+  },
+  {
+    "q": "The students __________ a cat.",
+    "o": [ "doesn't have", "aren't have", "don't have", "isn't have" ],
+    "ans": 3
+  },
+  {
+    "q": "The children __________ a cat.",
+    "o": [ "isn't have", "don't have", "aren't have", "doesn't have" ],
+    "ans": 2
+  },
+  {
+    "q": "Tom and I __________ like baseball.",
+    "o": [ "aren't", "don't", "doesn't", "isn't" ],
+    "ans": 2
+  },
+  {
+    "q": "My sister __________ like baseball.",
+    "o": [ "aren't", "isn't", "doesn't", "don't" ],
+    "ans": 3
+  },
+  {
+    "q": "His brothers __________ like baseball.",
+    "o": [ "doesn't", "aren't", "don't", "isn't" ],
+    "ans": 3
+  },
+  {
+    "q": "The boys __________ like baseball.",
+    "o": [ "aren't", "isn't", "don't", "doesn't" ],
+    "ans": 3
+  },
+  {
+    "q": "My brother __________ like baseball.",
+    "o": [ "don't", "aren't", "doesn't", "isn't" ],
+    "ans": 3
+  },
+  {
+    "q": "My friend __________ go to school by bus.",
+    "o": [ "aren't", "doesn't", "isn't", "don't" ],
+    "ans": 2
+  },
+  {
+    "q": "My friends __________ go to school by bus.",
+    "o": [ "doesn't", "aren't", "don't", "isn't" ],
+    "ans": 3
+  },
+  {
+    "q": "They __________ go to school by bus.",
+    "o": [ "aren't", "don't", "isn't", "doesn't" ],
+    "ans": 2
+  },
+  {
+    "q": "He __________ to school by bus.",
+    "o": [ "aren't", "isn't", "doesn't go", "don't go" ],
+    "ans": 3
+  },
+  {
+    "q": "They __________ to school by bus.",
+    "o": [ "doesn't go", "aren't", "don't go", "isn't" ],
+    "ans": 3
+  },
+  {
+    "q": "Tom __________ English.",
+    "o": [ "aren't", "doesn't study", "don't study", "isn't" ],
+    "ans": 2
+  },
+  {
+    "q": "People __________ Math.",
+    "o": [ "doesn't study", "aren't", "isn't", "don't study" ],
+    "ans": 4
+  },
+  {
+    "q": "The men __________ Math.",
+    "o": [ "aren't", "don't study", "isn't", "doesn't study" ],
+    "ans": 2
+  },
+  {
+    "q": "Jane __________ Math.",
+    "o": [ "don't study", "aren't", "doesn't study", "isn't" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "He isn't have a cat.",
+      "He don't have a cat.",
+      "He doesn't have a cat.",
+      "He aren't have a cat."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "They aren't like baseball.",
+      "They don't like baseball.",
+      "They doesn't like baseball.",
+      "They isn't like baseball."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 빈칸에 들어갈 말이 알맞은 것은?\nShe ________ go to school by bus.",
+    "o": [ "aren't", "isn't", "doesn't", "don't" ],
+    "ans": 3
+  }
+]

@@ -1,0 +1,362 @@
+[
+  {
+    "q": "올바른 재귀대명사의 형태를 고르시오.",
+    "o": [
+      "myself",
+      "meself"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 재귀대명사의 형태를 고르시오.",
+    "o": [
+      "yourself",
+      "youself"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 재귀대명사의 형태를 고르시오.",
+    "o": [
+      "hiself",
+      "himself"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 재귀대명사의 형태를 고르시오.",
+    "o": [
+      "itself",
+      "itsself"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 재귀대명사의 형태를 고르시오.",
+    "o": [
+      "herself",
+      "hiself"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 재귀대명사의 형태를 고르시오.",
+    "o": [
+      "themselves",
+      "theirselves"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 재귀대명사의 형태를 고르시오.",
+    "o": [
+      "uself",
+      "ourselves"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 재귀대명사의 형태를 고르시오.",
+    "o": [
+      "yourselves",
+      "youselves"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 재귀대명사의 형태를 고르시오.",
+    "o": [
+      "sheself",
+      "herself"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 재귀대명사의 형태를 고르시오.",
+    "o": [
+      "heself",
+      "himself"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 재귀대명사의 형태를 고르시오.",
+    "o": [
+      "himself",
+      "himselves"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 재귀대명사의 형태를 고르시오.",
+    "o": [
+      "myself",
+      "myselves"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 재귀대명사의 형태를 고르시오.",
+    "o": [
+      "herself",
+      "herselves"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 재귀대명사의 형태를 고르시오.",
+    "o": [
+      "themselves",
+      "theyselves"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "재귀용법으로 쓰인 문장은?",
+    "o": [
+      "I myself love you.",
+      "Help yourself to pizza."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "재귀용법으로 쓰인 문장은?",
+    "o": [
+      "I enjoyed myself at the party.",
+      "I love you myself."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "재귀용법으로 쓰인 문장은?",
+    "o": [
+      "She loves herself.",
+      "She loves him herself."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "재귀용법으로 쓰인 문장은?",
+    "o": [
+      "Let me introduce myself.",
+      "I did it myself."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "재귀용법으로 쓰인 문장은?",
+    "o": [
+      "Let me introduce myself.",
+      "You can do it yourself."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "재귀용법으로 쓰인 문장은?",
+    "o": [
+      "Let's fix the car ourselves.",
+      "He enjoyed himself very much."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "재귀용법으로 쓰인 문장은?",
+    "o": [
+      "They will do it themselves.",
+      "Help yourselves."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "재귀용법으로 쓰인 문장은?",
+    "o": [
+      "He often talks to himself.",
+      "I solved the problem myself."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "강조용법으로 쓰인 문장은?",
+    "o": [
+      "I myself love you.",
+      "Help yourself to pizza."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "강조용법으로 쓰인 문장은?",
+    "o": [
+      "I enjoyed myself at the party.",
+      "I love you myself."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "강조용법으로 쓰인 문장은?",
+    "o": [
+      "She loves herself.",
+      "She loves him herself."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "강조용법으로 쓰인 문장은?",
+    "o": [
+      "Let me introduce myself.",
+      "I did it myself."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "강조용법으로 쓰인 문장은?",
+    "o": [
+      "Let me introduce myself.",
+      "You can do it yourself."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "강조용법으로 쓰인 문장은?",
+    "o": [
+      "Let's fix the car ourselves.",
+      "He enjoyed himself very much."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "강조용법으로 쓰인 문장은?",
+    "o": [
+      "They will do it themselves.",
+      "Help yourselves."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "강조용법으로 쓰인 문장은?",
+    "o": [
+      "He often talks to himself.",
+      "I solved the problem myself."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I __________ love you.",
+    "o": [
+      "myself",
+      "yourself"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I enjoyed __________ at the party.",
+    "o": [
+      "yourself",
+      "myself"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She loves __________.",
+    "o": [
+      "himself",
+      "herself"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Let me introduce __________.",
+    "o": [
+      "yourself",
+      "myself"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I'll pay for __________.",
+    "o": [
+      "myself",
+      "herself"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Let's fix the car __________.",
+    "o": [
+      "myself",
+      "ourselves"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "They will do it __________.",
+    "o": [
+      "yourself",
+      "themselves"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He often talks to __________.",
+    "o": [
+      "herself",
+      "himself"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Help __________ to pizza.",
+    "o": [
+      "yourself",
+      "myself"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I did it __________.",
+    "o": [
+      "himself",
+      "myself"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You can do it __________.",
+    "o": [
+      "myself",
+      "yourself"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He enjoyed __________ at the party.",
+    "o": [
+      "myself",
+      "himself"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Help __________.",
+    "o": [
+      "myself",
+      "yourself"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I solved the problem __________.",
+    "o": [
+      "themselves",
+      "myself"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I was angry at __________.",
+    "o": [
+      "yourself",
+      "myself"
+    ],
+    "ans": 2
+  }
+]

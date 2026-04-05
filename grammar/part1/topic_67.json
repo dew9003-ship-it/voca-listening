@@ -1,0 +1,322 @@
+[
+  {
+    "q": "I want you __________ right now.",
+    "o": [
+      "leave",
+      "to leave"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He told me __________ the room.",
+    "o": [
+      "clean",
+      "to clean"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My mom gets me __________ breakfast every day.",
+    "o": [
+      "have",
+      "to have"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I'll let you __________ when it is finished.",
+    "o": [
+      "go",
+      "to go"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Jane had me __________ with her baby yesterday.",
+    "o": [
+      "stay",
+      "to stay"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He always makes me __________.",
+    "o": [
+      "laugh",
+      "to laugh"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It will help you __________ the rule.",
+    "o": [
+      "remembering",
+      "remember"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It will help you __________ the rule.",
+    "o": [
+      "remembering",
+      "to remember"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Did you have them __________ here?",
+    "o": [
+      "come",
+      "to come"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My teacher encouraged me __________ an interest in paintings.",
+    "o": [
+      "having",
+      "to have"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She asked us __________ over to her house the other day.",
+    "o": [
+      "come",
+      "to come"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I will get him __________ camping tomorrow.",
+    "o": [
+      "go",
+      "to go"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The police want him __________ everything about the crime.",
+    "o": [
+      "to confess",
+      "confessing"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The man allowed the students __________ to the haunted house.",
+    "o": [
+      "go",
+      "to go"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mom told me __________ rid of stains on the wall.",
+    "o": [
+      "get",
+      "to get"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Let me __________ you fix the computer.",
+    "o": [
+      "help",
+      "to help"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The man helped his guests __________ their bags.",
+    "o": [
+      "deliver",
+      "delivering"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Jim made the team __________ the goal.",
+    "o": [
+      "reach",
+      "to reach"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She tried to do everything to make her husband __________.",
+    "o": [
+      "succeed",
+      "to succeed"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Ms. Smith let her son __________ all that he wanted.",
+    "o": [
+      "buy",
+      "bought"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Dad had me __________ to clean the garage instead of being punished.",
+    "o": [
+      "come",
+      "to come"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Those rules helped the town __________ kept clean.",
+    "o": [
+      "to be",
+      "being"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mina saw a man __________ delicious cakes.",
+    "o": [
+      "to bake",
+      "baking"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I heard the children __________ all together.",
+    "o": [
+      "sing",
+      "to sing"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Did you see the people __________ the street at the red light?",
+    "o": [
+      "to cross",
+      "crossing"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I heard people __________ in the cafe.",
+    "o": [
+      "to shout",
+      "shouting"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Did you see Mary __________ those trees?",
+    "o": [
+      "plant",
+      "to plant"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Did you hear the teenagers __________ each other last night?",
+    "o": [
+      "fighting",
+      "fought"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I felt the chair __________ back little by little.",
+    "o": [
+      "to move",
+      "moving"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You should see our baby __________ by himself.",
+    "o": [
+      "walk",
+      "to walk"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I feel something __________ my arm.",
+    "o": [
+      "touch",
+      "to touch"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We watched the full moon __________ yesterday evening.",
+    "o": [
+      "to rise",
+      "rising"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I made my dad __________.",
+    "o": [
+      "angry",
+      "angrily"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "you should keep it __________.",
+    "o": [
+      "cool",
+      "cooly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This scarf will keep you __________.",
+    "o": [
+      "warm",
+      "warmly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I found the bag __________.",
+    "o": [
+      "heavy",
+      "heavily"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Why don't you keep the kids __________?",
+    "o": [
+      "quiet",
+      "quietly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She always makes me __________.",
+    "o": [
+      "happy",
+      "happily"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The music makes me __________.",
+    "o": [
+      "sad",
+      "sadly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This shirt makes you __________.",
+    "o": [
+      "nice",
+      "nicely"
+    ],
+    "ans": 1
+  }
+]

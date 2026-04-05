@@ -1,0 +1,212 @@
+[
+  {
+    "q": "누구인지 궁금하면?",
+    "o": [
+      "who",
+      "when",
+      "what",
+      "how"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "시간이 궁금하면?",
+    "o": [
+      "who",
+      "when",
+      "what",
+      "how"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "무엇인지 궁금하면?",
+    "o": [
+      "who",
+      "when",
+      "what",
+      "how"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "방법, 상태가 궁금하면?",
+    "o": [
+      "who",
+      "when",
+      "what",
+      "how"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "장소가 궁금하면?",
+    "o": [
+      "where",
+      "why",
+      "which",
+      "who"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "이유가 궁금하면?",
+    "o": [
+      "where",
+      "why",
+      "which",
+      "who"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "어떤 것인지 궁금하면?",
+    "o": [
+      "where",
+      "why",
+      "which",
+      "who"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "저 소년은 누구냐?\n__________ that boy?",
+    "o": [
+      "Who is",
+      "What is",
+      "Where is",
+      "When is"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "저 것은 무엇이냐?\n__________ that?",
+    "o": [
+      "Who is",
+      "What is",
+      "Where is",
+      "When is"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "어느 것이 네 모자니?\n__________ your cap?",
+    "o": [
+      "Who is",
+      "What is",
+      "Where is",
+      "Which is"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "내 신발은 어디 있어요?\n__________ my shoes?",
+    "o": [
+      "Who is",
+      "Where is",
+      "Where are",
+      "When is"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "너의 생일은 언제니?\n__________ your birthday?",
+    "o": [
+      "Who is",
+      "What is",
+      "Where is",
+      "When is"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "이곳 날씨는 어떻습니까?\n__________ the weather here?",
+    "o": [
+      "Who is",
+      "What is",
+      "Where is",
+      "How is"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "저 학생들은 누구죠?\n__________ those students?",
+    "o": [
+      "Who is",
+      "Who are",
+      "Where are",
+      "When are"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Ms. Brown의 직업이 무엇입니까?\n__________ Ms. Brown?",
+    "o": [
+      "Who is",
+      "What is",
+      "Where is",
+      "When is"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "너희 형제들은 어디있니?\n__________ your brothers?",
+    "o": [
+      "Who are",
+      "What are",
+      "Where are",
+      "When are"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "너 왜 매일 늦지?\n__________ you late everyday?",
+    "o": [
+      "Who are",
+      "What are",
+      "Where are",
+      "Why are"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "당신은 어디 출신입니까?\n__________ you from?",
+    "o": [
+      "Who are",
+      "What are",
+      "Where are",
+      "When are"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "네 여동생의 이름이 뭐니?\n__________ your sister's name?",
+    "o": [
+      "Who is",
+      "What is",
+      "Where is",
+      "When is"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "너의 제일 친한 친구가 누구니?\n__________ your best friend?",
+    "o": [
+      "Who is",
+      "What is",
+      "Where is",
+      "When is"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "사과가 얼마죠?\n__________ an apple?",
+    "o": [
+      "Who is",
+      "What is",
+      "Where is",
+      "How much is"
+    ],
+    "ans": 4
+  }
+]

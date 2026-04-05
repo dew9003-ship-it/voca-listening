@@ -1,0 +1,432 @@
+[
+  {
+    "q": "Do you like a dog?",
+    "o": [
+      "Yes, I am.",
+      "Yes, I do.",
+      "Yes, he does.",
+      "Yes, she does."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Does he like a dog?",
+    "o": [
+      "Yes, I am.",
+      "Yes, I do.",
+      "Yes, he does.",
+      "Yes, she does."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Does she like a dog?",
+    "o": [
+      "Yes, I am.",
+      "Yes, I do.",
+      "Yes, he does.",
+      "Yes, she does."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Do they like a dog?",
+    "o": [
+      "Yes, I am.",
+      "Yes, I do.",
+      "Yes, he does.",
+      "Yes, they do."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "__________ you go to school by bus?",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "do"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "__________ they go to school by bus?",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "do"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "__________ he go to school by bus?",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "does"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "__________ Tom go to school by bus?",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "does"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "__________ she go to school by bus?",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "does"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "__________ Jane go to school by bus?",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "does"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "__________ Jane and Tom go to school by bus?",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "do"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Does he __________ to school by bus?",
+    "o": [
+      "do",
+      "does",
+      "go",
+      "goes"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Does she __________ to school by bus?",
+    "o": [
+      "do",
+      "does",
+      "go",
+      "goes"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Does Tom __________ to school by bus?",
+    "o": [
+      "do",
+      "does",
+      "go",
+      "goes"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Does Jane __________ to school by bus?",
+    "o": [
+      "do",
+      "does",
+      "go",
+      "goes"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Does the boy __________ to school by bus?",
+    "o": [
+      "do",
+      "does",
+      "go",
+      "goes"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Do they __________ to school by bus?",
+    "o": [
+      "do",
+      "go",
+      "does",
+      "goes"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Do Tom and Jane __________ to school by bus?",
+    "o": [
+      "do",
+      "go",
+      "does",
+      "goes"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Do the people __________ to school by bus?",
+    "o": [
+      "do",
+      "go",
+      "does",
+      "goes"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Do the men __________ to school by bus?",
+    "o": [
+      "do",
+      "go",
+      "does",
+      "goes"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ the men like you?",
+    "o": [
+      "are",
+      "is",
+      "do",
+      "does"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "__________ I like you?",
+    "o": [
+      "are",
+      "is",
+      "do",
+      "does"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "__________ the people like you?",
+    "o": [
+      "are",
+      "is",
+      "do",
+      "does"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "__________ Tom and Mary like you?",
+    "o": [
+      "are",
+      "is",
+      "do",
+      "does"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "__________ Tom like you?",
+    "o": [
+      "are",
+      "is",
+      "do",
+      "does"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "__________ he like you?",
+    "o": [
+      "are",
+      "is",
+      "do",
+      "does"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "__________ she like you?",
+    "o": [
+      "are",
+      "is",
+      "do",
+      "does"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "__________ Jane like you?",
+    "o": [
+      "are",
+      "is",
+      "do",
+      "does"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "__________ Tony like you?",
+    "o": [
+      "are",
+      "is",
+      "do",
+      "does"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "__________ the man like you?",
+    "o": [
+      "are",
+      "is",
+      "do",
+      "does"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Do __________ study English?",
+    "o": [
+      "I",
+      "she",
+      "he",
+      "Tom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do __________ study English?",
+    "o": [
+      "they",
+      "she",
+      "he",
+      "Tom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do __________ study English?",
+    "o": [
+      "we",
+      "she",
+      "he",
+      "Tom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do __________ study English?",
+    "o": [
+      "Tom and Mary",
+      "she",
+      "he",
+      "Tom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Does __________ study English?",
+    "o": [
+      "Tom and Mary",
+      "they",
+      "we",
+      "Tom"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Does __________ study English?",
+    "o": [
+      "Tom and Mary",
+      "they",
+      "we",
+      "he"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Does __________ study English?",
+    "o": [
+      "Tom and Mary",
+      "they",
+      "we",
+      "she"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Does __________ study English?",
+    "o": [
+      "Tom and Mary",
+      "they",
+      "we",
+      "Jane"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Does __________ study English?",
+    "o": [
+      "Tom and Mary",
+      "they",
+      "we",
+      "Tony"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Do you like a dog?",
+    "o": [
+      "No, I am not.",
+      "No, I don't.",
+      "No, he doesn't.",
+      "No, she doesn't."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Does he like a dog?",
+    "o": [
+      "No, I am not.",
+      "No, I don't.",
+      "No, he doesn't.",
+      "No, she doesn't."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Does she like a dog?",
+    "o": [
+      "No, I am not.",
+      "No, I don't.",
+      "No, he doesn't.",
+      "No, she doesn't."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Do they like a dog?",
+    "o": [
+      "No, I am not.",
+      "No, I don't.",
+      "No, he doesn't.",
+      "No, they don't."
+    ],
+    "ans": 4
+  }
+]

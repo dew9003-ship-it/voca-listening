@@ -1,0 +1,202 @@
+[
+  {
+    "q": "다음 중 be동사 현재형이 아닌 것은?",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "was"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "be동사의 원형은?",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "be"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nI __________ 13 years old.",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "be"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nWe __________ students.",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "be"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThey __________ students.",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "be"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nYou __________ a student.",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "be"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nShe __________ a student.",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "be"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "빈칸에 들어갈 말이 나머지 셋과 다른 것은?",
+    "o": [
+      "He __________ a doctor.",
+      "Tony __________ happy.",
+      "Jane __________ a pretty girl.",
+      "You __________ my classmate."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 문장의 빈칸에 들어갈 수 없는 말은?\nHe is __________ .",
+    "o": [
+      "kind",
+      "short",
+      "honest",
+      "bags"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 빈칸에 알맞은 대명사는?\nI have a brother. __________ is ten years old.",
+    "o": [
+      "He",
+      "She",
+      "They",
+      "We"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nShe __________ very kind to me.",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "be"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 빈칸에 알맞지 않은 주어는?\n__________ are students.",
+    "o": [
+      "Tom",
+      "We",
+      "They",
+      "The girls"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "be동사의 쓰임이 어법상 틀린 것은?",
+    "o": [
+      "I am a dentist.",
+      "Jack is a fast runner.",
+      "My brother am an engineer.",
+      "Tom and Jane are classmates."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "be동사의 의미(역할)가 나머지 셋과 다른 것은?",
+    "o": [
+      "That is a dog.",
+      "Mike is a dentist.",
+      "She is his friend.",
+      "He is at the school."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 우리말을 영어로 바르게 옮긴 것은?\n'그들은 학생이다.'",
+    "o": [
+      "They aren't students.",
+      "They isn't students.",
+      "They are students.",
+      "They is students."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 짝지어진 대화가 어색한 것은?",
+    "o": [
+      "A: Is it your dog?\nB: No, it isn't.",
+      "A: Are you a teacher?\nB: Yes, you are.",
+      "A: Is Mike a handsome boy?\nB: No, he isn't.",
+      "A: Is Jane your sister?\nB: Yes, she is."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 우리말을 영어 의문문으로 바르게 옮긴 것은?\n'그녀는 예쁜 소녀이니?'",
+    "o": [
+      "Is she a pretty girl?",
+      "Are she a pretty girl?",
+      "Is she is a pretty girl?",
+      "Are she is a pretty girl?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "빈칸에 들어갈 be동사가 나머지 셋과 다른 것은?",
+    "o": [
+      "Their house __________ very clean.",
+      "My keys __________ not in my bag.",
+      "Those people __________ not Chinese.",
+      "All her children __________ at school now."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThe car __________ my car.",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "be"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "be동사의 쓰임이 어법상 틀린 것은?",
+    "o": [
+      "He is a student.",
+      "Jane are a student.",
+      "Are you busy?",
+      "They are teachers."
+    ],
+    "ans": 2
+  }
+]

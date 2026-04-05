@@ -1,0 +1,272 @@
+[
+  {
+    "q": "They __________ a soccer game.",
+    "o": [
+      "am playing",
+      "are playing",
+      "is playing"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I __________ a soccer game.",
+    "o": [
+      "am playing",
+      "are playing",
+      "is playing"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom __________ a soccer game.",
+    "o": [
+      "am playing",
+      "are playing",
+      "is playing"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "We __________ a soccer game.",
+    "o": [
+      "am playing",
+      "are playing",
+      "is playing"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He __________ a soccer game.",
+    "o": [
+      "am playing",
+      "are playing",
+      "is playing"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "They __________ TV.",
+    "o": [
+      "am watching",
+      "are watching",
+      "is watching"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I __________ TV.",
+    "o": [
+      "am watching",
+      "are watching",
+      "is watching"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We __________ TV.",
+    "o": [
+      "am watching",
+      "are watching",
+      "is watching"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom __________ TV.",
+    "o": [
+      "am watching",
+      "are watching",
+      "is watching"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He __________ TV.",
+    "o": [
+      "am watching",
+      "are watching",
+      "is watching"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "They __________ a soccer game.",
+    "o": [
+      "not are playing",
+      "are not playing",
+      "are playing not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I __________ a soccer game.",
+    "o": [
+      "not am playing",
+      "am not playing",
+      "am playing not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom __________ a soccer game.",
+    "o": [
+      "not is playing",
+      "is not playing",
+      "is playing not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "We __________ a soccer game.",
+    "o": [
+      "not are playing",
+      "are not playing",
+      "are playing not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He __________ a soccer game.",
+    "o": [
+      "not is playing",
+      "is not playing",
+      "is playing not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "They __________ TV.",
+    "o": [
+      "are not watching",
+      "not are watching",
+      "are watching not"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I __________ TV.",
+    "o": [
+      "am not watching",
+      "not am watching",
+      "am watching not"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We __________ TV.",
+    "o": [
+      "are not watching",
+      "not are watching",
+      "are watching not"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom __________ TV.",
+    "o": [
+      "not is watching",
+      "is watching not",
+      "is not watching"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He __________ TV.",
+    "o": [
+      "not is watching",
+      "is watching not",
+      "is not watching"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "__________ they watching TV?",
+    "o": [
+      "am",
+      "are",
+      "is"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ he watching TV?",
+    "o": [
+      "am",
+      "are",
+      "is"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "__________ she watching TV?",
+    "o": [
+      "am",
+      "are",
+      "is"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "__________ Tom watching TV?",
+    "o": [
+      "am",
+      "are",
+      "is"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "__________ Jane watching TV?",
+    "o": [
+      "am",
+      "are",
+      "is"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Are they __________ a desk?",
+    "o": [
+      "making",
+      "makeing",
+      "make"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Is he __________ English?",
+    "o": [
+      "studying",
+      "studing",
+      "studied"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Is he __________ a bike?",
+    "o": [
+      "riding",
+      "rideing",
+      "rode"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Is he __________ a book?",
+    "o": [
+      "reading",
+      "readding",
+      "readed"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Is he __________ on the stage?",
+    "o": [
+      "danceing",
+      "dancing",
+      "dance"
+    ],
+    "ans": 2
+  }
+]

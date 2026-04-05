@@ -1,0 +1,206 @@
+[
+  {
+    "q": "가산명사(셀 수 있는 명사)의 특징으로 옳은 것은?",
+    "o": [
+      "항상 단수형으로만 쓴다",
+      "앞에 a나 an을 붙일 수 있다",
+      "앞에 much를 붙여 수량을 나타낸다",
+      "절대로 수를 셀 수 없다"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 가산명사가 아닌 것은?",
+    "o": [
+      "book",
+      "apple",
+      "student",
+      "water"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 가산명사로만 짝지어진 것은?",
+    "o": [
+      "desk, chair, computer",
+      "water, milk, juice",
+      "love, peace, happiness",
+      "rice, sugar, salt"
+    ],
+    "ans": 1
+  },
+
+  {
+    "q": "다음 중 어법상 올바른 문장은?",
+    "o": [
+      "I saw dog.",
+      "I saw a dog.",
+      "I saw doges.",
+      "I saw much dog."
+    ],
+    "ans": 2
+  },
+
+  {
+    "q": "다음 빈칸에 'an'을 써야 하는 명사는?",
+    "o": [
+      "car",
+      "orange",
+      "house",
+      "uniform"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 복수형(-s/es)을 만들 수 없는 명사는?",
+    "o": [
+      "air",
+      "bag",
+      "cat",
+      "dish"
+    ],
+    "ans": 1
+  },
+
+  {
+    "q": "다음 문장이 어색한 이유는?\nShe has a money.",
+    "o": [
+      "money는 셀 수 없는 명사라 'a'를 쓸 수 없다",
+      "money는 복수형으로 써야 한다",
+      "has 대신 have를 써야 한다",
+      "She 뒤에는 명사가 올 수 없다"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 가산명사 앞에 'Many'를 썼을 때 뒤에 오는 형태는?",
+    "o": [
+      "단수형 (예: many book)",
+      "복수형 (예: many books)",
+      "동사원형 (예: many go)",
+      "형용사형 (예: many happy)"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "가산명사의 특징으로 옳은 것은?",
+    "o": [
+      "항상 셀 수 없다",
+      "단수와 복수 형태가 있다",
+      "앞에 much를 주로 쓴다",
+      "복수형이 없다"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 가산명사로 알맞은 것은?",
+    "o": [
+      "water",
+      "milk",
+      "book",
+      "rice"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 가산명사가 아닌 것은?",
+    "o": [
+      "student",
+      "teacher",
+      "chair",
+      "information"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 가산명사로만 이루어진 것은?",
+    "o": [
+      "dog, cat, bird",
+      "milk, juice, water",
+      "money, time, love",
+      "rice, sugar, salt"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장 중 어법상 올바른 것은?",
+    "o": [
+      "I have a apple.",
+      "I have an apple.",
+      "I have much apple.",
+      "I have an apples."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 것은?\nShe bought ___ umbrella.",
+    "o": [
+      "a",
+      "an",
+      "the",
+      "없다"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 가산명사의 복수형이 바르게 쓰인 것은?",
+    "o": [
+      "three cat",
+      "many book",
+      "two dogs",
+      "much students"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 가산명사 앞에 쓸 수 없는 것은?",
+    "o": [
+      "a",
+      "an",
+      "many",
+      "much"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 문장이 어색한 이유로 알맞은 것은?\nI have a bread.",
+    "o": [
+      "bread는 가산명사이기 때문이다",
+      "bread는 셀 수 없는 명사라 a를 쓸 수 없다",
+      "have 대신 has를 써야 한다",
+      "문장에 동사가 없다"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 many를 사용할 수 있는 것은?",
+    "o": [
+      "many water",
+      "many rice",
+      "many books",
+      "many milk"
+    ],
+    "ans": 3
+  },
+  
+  {
+    "q": "다음 문장 중 가산명사가 올바르게 쓰인 것은?",
+    "o": [
+      "She has many apple.",
+      "He bought a chairs.",
+      "There are three cars.",
+      "I need much pen."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 단어들 중 성격이 다른 하나는? (가산 vs 불가산)",
+    "o": [
+      "Bread",
+      "Lion",
+      "Tree",
+      "House"
+    ],
+    "ans": 1
+  }
+]

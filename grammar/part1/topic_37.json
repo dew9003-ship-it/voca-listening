@@ -1,0 +1,102 @@
+[
+  {
+    "q": "__________ is the school festival? – It’s in October.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ do you have English class? – On Mondays.",
+    "o": [ "Where", "When", "Why", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did you stay home yesterday? – Because it was raining.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ is your birthday? – It’s in July.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ do you usually study after school? – At the library.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ is the math test? – It’s next Friday.",
+    "o": [ "Why", "When", "Where", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did she open the window? – Because the room was hot.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ do you keep your backpack? – In my room.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ do we celebrate Christmas? – In December.",
+    "o": [ "Why", "What", "Where", "When" ],
+    "ans": 4
+  },
+  {
+    "q": "__________ did he run so fast? – Because he was late.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ is your classroom? – On the third floor.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did you start learning English? – In elementary school.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ do they eat lunch? – In the cafeteria.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ is the school trip? – It’s in May.",
+    "o": [ "Where", "Why", "When", "How" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ did she choose that book? – Because it looked interesting.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ do you play soccer? – On Saturdays.",
+    "o": [ "Where", "When", "Why", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ is the meeting held? – In the teacher’s office.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did the movie start? – At 7 p.m.",
+    "o": [ "Why", "Where", "What", "When" ],
+    "ans": 4
+  },
+  {
+    "q": "__________ do you like spring the most? – Because the weather is nice.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ is the science fair? – It’s in April.",
+    "o": [ "When", "Where", "Why", "How" ],
+    "ans": 1
+  }
+]

@@ -1,0 +1,105 @@
+[
+  {
+    "q": "I __________ TV last night.",
+    "o": [ "don't watch", "doesn't watch", "didn't watch", "didn't watched" ],
+    "ans": 3
+  },
+  {
+    "q": "She __________ her homework yesterday.",
+    "o": [ "didn't do", "doesn't do", "didn't did", "don't do" ],
+    "ans": 1
+  },
+  {
+    "q": "They __________ soccer yesterday.",
+    "o": [ "didn't play", "didn't played", "don't play", "weren't play" ],
+    "ans": 1
+  },
+  {
+    "q": "Tom __________ English last year.",
+    "o": [ "doesn't study", "didn't studies", "didn't study", "don't study" ],
+    "ans": 3
+  },
+  {
+    "q": "We __________ to school yesterday.",
+    "o": [ "didn't go", "didn't went", "don't go", "weren't go" ],
+    "ans": 1
+  },
+
+  {
+    "q": "__________ you finish your homework yesterday?",
+    "o": [ "Do", "Does", "Did", "Were" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ she clean the room yesterday?",
+    "o": [ "Do", "Does", "Did", "Is" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ they play games last night?",
+    "o": [ "Do", "Does", "Did", "Were" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ Tom visit his grandma yesterday?",
+    "o": [ "Do", "Does", "Did", "Was" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ you eat breakfast this morning?",
+    "o": [ "Do", "Does", "Did", "Are" ],
+    "ans": 3
+  },
+
+  {
+    "q": "Did you __________ TV last night?",
+    "o": [ "watch", "watched", "watching", "watches" ],
+    "ans": 1
+  },
+  {
+    "q": "Did she __________ English yesterday?",
+    "o": [ "study", "studied", "studying", "studies" ],
+    "ans": 1
+  },
+  {
+    "q": "Did they __________ to Busan last year?",
+    "o": [ "go", "went", "gone", "goes" ],
+    "ans": 1
+  },
+  {
+    "q": "Did Tom __________ soccer yesterday?",
+    "o": [ "play", "played", "playing", "plays" ],
+    "ans": 1
+  },
+  {
+    "q": "Did you __________ the door last night?",
+    "o": [ "close", "closed", "closing", "closes" ],
+    "ans": 1
+  },
+
+  {
+    "q": "Did they watch the movie yesterday?",
+    "o": [ "Yes, they do.", "Yes, they did.", "Yes, they were.", "Yes, they watched." ],
+    "ans": 2
+  },
+  {
+    "q": "Did she go to school yesterday?",
+    "o": [ "No, she doesn't.", "No, she wasn't.", "No, she didn't.", "No, she don't." ],
+    "ans": 3
+  },
+  {
+    "q": "Did you play soccer last weekend?",
+    "o": [ "Yes, I do.", "Yes, I was.", "Yes, I played.", "Yes, I did." ],
+    "ans": 4
+  },
+  {
+    "q": "Did Tom clean his room yesterday?",
+    "o": [ "No, he wasn't.", "No, he doesn't.", "No, he didn't.", "No, he don't." ],
+    "ans": 3
+  },
+  {
+    "q": "Did they eat dinner at home last night?",
+    "o": [ "Yes, they ate.", "Yes, they did.", "Yes, they were.", "Yes, they do." ],
+    "ans": 2
+  }
+]

@@ -1,0 +1,266 @@
+[
+  {
+    "q": "To __________ computer games is exciting.",
+    "o": [
+      "play",
+      "plays"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I like __________ computer games.",
+    "o": [
+      "to play",
+      "to plays"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom likes __________ computer games.",
+    "o": [
+      "to play",
+      "to plays"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He likes __________ computer games.",
+    "o": [
+      "to play",
+      "to plays"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She likes __________ computer games.",
+    "o": [
+      "to play",
+      "to plays"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They like __________ computer games.",
+    "o": [
+      "to play",
+      "to plays"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I like __________ computer games.",
+    "o": [
+      "to play",
+      "play"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom likes __________ computer games.",
+    "o": [
+      "to play",
+      "play"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He likes __________ computer games.",
+    "o": [
+      "to play",
+      "play"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She likes __________ computer games.",
+    "o": [
+      "to play",
+      "play"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They like __________ computer games.",
+    "o": [
+      "to play",
+      "play"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My hobby is __________ computer games.",
+    "o": [
+      "to play",
+      "to plays"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Her only weak point is __________ too much.",
+    "o": [
+      "to talk",
+      "talk"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I want her __________ my bodyguard.",
+    "o": [
+      "to be",
+      "is"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ computer games is exciting.",
+    "o": [
+      "to plays",
+      "to play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I like to __________ computer games.",
+    "o": [
+      "to play",
+      "play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom likes to __________ computer games.",
+    "o": [
+      "to play",
+      "play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He likes to __________ computer games.",
+    "o": [
+      "to play",
+      "play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She likes to __________ computer games.",
+    "o": [
+      "to play",
+      "play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "They like to __________ computer games.",
+    "o": [
+      "to play",
+      "play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I like to __________ computer games.",
+    "o": [
+      "to play",
+      "play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom likes to __________ computer games.",
+    "o": [
+      "plays",
+      "play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He likes to __________ computer games.",
+    "o": [
+      "plays",
+      "play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She likes to __________ computer games.",
+    "o": [
+      "plays",
+      "play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "They like to __________ computer games.",
+    "o": [
+      "plays",
+      "play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My hobby is to __________ computer games.",
+    "o": [
+      "to play",
+      "play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Her only weak point is to __________ too much.",
+    "o": [
+      "to talk",
+      "talk"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I want her to __________ my bodyguard.",
+    "o": [
+      "be",
+      "is"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I want __________ Chinese.",
+    "o": [
+      "to learn",
+      "to learns"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I want to __________ with you.",
+    "o": [
+      "to be",
+      "be"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I want to __________ with you.",
+    "o": [
+      "to am",
+      "be"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She wants to __________ with you.",
+    "o": [
+      "to is",
+      "be"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She wants __________ with you.",
+    "o": [
+      "to be",
+      "be"
+    ],
+    "ans": 1
+  }
+]

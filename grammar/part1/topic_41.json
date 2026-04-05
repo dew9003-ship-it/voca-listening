@@ -1,0 +1,372 @@
+[
+  {
+    "q": "He got up early __________ the morning.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "by"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We met Tom at the bus stop __________ five o'clock.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "by"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "We met Tom at the bus stop __________ Monday.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "by"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I entered elementary school __________ 1979.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "by"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I got up __________ 7 o'clock today.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "by"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "We go to church __________ Sundays.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "by"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I went to the museum __________ Saturday.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "by"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I will finish my homework __________ 9 o'clock.",
+    "o": [
+      "in",
+      "on",
+      "between",
+      "by"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Tom went to bed __________ 10 o'clock.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "between"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "It is very hot __________ summer.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "by"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The bank opens __________ 9 a.m.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "between"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Jane likes to read books __________ the evening.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "by"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Jane likes to read books __________ night.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "by"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Jane likes to read books __________ dawn.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "by"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Jane likes to read books __________ noon.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "by"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "We met Jane __________ Christmas.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "by"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "We met Jane __________ Christmas day.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "by"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The World Cup was held __________ 2002.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "between"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The World Cup was held __________ June.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "between"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The World Cup was held __________ June 15.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "between"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The World Cup was held __________ 5 o'clock.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "between"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He studied English __________ 10 p.m.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "around"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "We met Tom __________ June.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "between"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We met Tom __________ 2001.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "between"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We met Tom __________ June 15.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "between"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "We met Tom __________ 7 p.m.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "between"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "We met Tom __________ 7 p.m.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "around"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "The movie is __________ 7 to 9 p.m.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "from"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "The movie begins __________ 7 p.m.",
+    "o": [
+      "in",
+      "on",
+      "at",
+      "from"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "We'll be back __________ 7 and 9 p.m.",
+    "o": [
+      "between",
+      "on",
+      "at",
+      "from"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I studied English __________ two hours.",
+    "o": [
+      "between",
+      "on",
+      "for",
+      "from"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "I was in Japan __________ last summer vacation.",
+    "o": [
+      "between",
+      "during",
+      "for",
+      "from"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I washed my hands __________ lunch.",
+    "o": [
+      "before",
+      "during",
+      "for",
+      "from"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I washed the dishes __________ lunch.",
+    "o": [
+      "before",
+      "during",
+      "for",
+      "after"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "We played soccer __________ school.",
+    "o": [
+      "before",
+      "during",
+      "for",
+      "after"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "We palyed phone games __________ 9 o'clock.",
+    "o": [
+      "before",
+      "during",
+      "for",
+      "until"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "The work will be finished __________ a month.",
+    "o": [
+      "within",
+      "during",
+      "for",
+      "until"
+    ],
+    "ans": 1
+  }
+]

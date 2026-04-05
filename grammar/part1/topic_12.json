@@ -1,0 +1,182 @@
+[
+  {
+    "q": "수식어의 역할로 가장 알맞은 것은?",
+    "o": [
+      "문장을 연결한다",
+      "다른 말을 꾸며준다",
+      "동작을 나타낸다",
+      "주어가 된다"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 수식어에 해당하는 것은?",
+    "o": [ "형용사", "명사", "동사", "대명사" ],
+    "ans": 1
+  },
+  {
+    "q": "형용사의 역할로 알맞은 것은?",
+    "o": [
+      "동사를 수식한다",
+      "명사를 수식한다",
+      "문장을 연결한다",
+      "주어 역할을 한다"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "부사의 역할로 알맞은 것은?",
+    "o": [
+      "명사만 수식한다",
+      "동사, 형용사, 부사를 수식한다",
+      "주어를 대신한다",
+      "문장을 연결한다"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 형용사는 무엇인가?\nShe has a big bag.",
+    "o": [ "She", "has", "big", "bag" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장에서 부사는 무엇인가?\nHe runs fast.",
+    "o": [ "He", "runs", "fast", "없다" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 문장에서 수식어는 무엇인가?\nThe boy in the room is tall.",
+    "o": [ "boy", "room", "in the room", "is" ],
+    "ans": 3
+  },
+  {
+    "q": "전치사구의 역할로 알맞은 것은?",
+    "o": [
+      "주어 역할",
+      "목적어 역할",
+      "수식어 역할",
+      "접속사 역할"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 수식어가 없는 문장은?",
+    "o": [
+      "She has a red apple.",
+      "He runs very fast.",
+      "They study English.",
+      "I like cold milk."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nShe is a __________ girl.",
+    "o": [
+      "beauty",
+      "beautiful",
+      "beautifully",
+      "beauties"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nHe speaks English __________.",
+    "o": [
+      "perfect",
+      "perfectly",
+      "perfection",
+      "nice"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThe birds sing __________.",
+    "o": [
+      "happy",
+      "happily",
+      "happiness",
+      "unhappy"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThis problem is __________ easy.",
+    "o": [
+      "very",
+      "many",
+      "much",
+      "a lot"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 어법상 틀린 문장은?",
+    "o": [
+      "He runs fastly.",
+      "She works hard.",
+      "The train is late.",
+      "I get up early."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nShe looks __________ today.",
+    "o": [
+      "sad",
+      "sadly",
+      "sadness",
+      "to sad"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nHe plays the piano __________.",
+    "o": [
+      "good",
+      "well",
+      "goodly",
+      "nice"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 밑줄 친 단어가 부사인 것은?",
+    "o": [
+      "He is a <u>fast</u> runner.",
+      "He runs <u>fast</u>.",
+      "She is a <u>hard</u> worker.",
+      "I had a <u>late</u> lunch."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 형용사와 부사의 형태가 같은 단어는?",
+    "o": [
+      "quick",
+      "happy",
+      "early",
+      "slow"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nMy friend is very __________.",
+    "o": [
+      "friend",
+      "friendly",
+      "friendship",
+      "friendily"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "수식어에 대한 설명으로 옳은 것은?",
+    "o": [
+      "항상 문장 맨 앞에 온다",
+      "다른 말을 꾸며주는 말이다",
+      "동사만 수식한다",
+      "주어 역할만 한다"
+    ],
+    "ans": 2
+  }
+]

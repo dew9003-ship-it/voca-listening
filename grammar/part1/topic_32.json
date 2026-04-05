@@ -1,0 +1,109 @@
+[
+  {
+    "q": "They __________ soccer after school every day.",
+    "o": [ "play", "played", "plays", "playing" ],
+    "ans": 1
+  },
+  {
+    "q": "They __________ soccer after school yesterday.",
+    "o": [ "play", "plays", "playing", "played" ],
+    "ans": 4
+  },
+  {
+    "q": "Tom __________ TV every night.",
+    "o": [ "watch", "watched", "watches", "watching" ],
+    "ans": 3
+  },
+  {
+    "q": "Tom __________ TV last night.",
+    "o": [ "watch", "watches", "watched", "watching" ],
+    "ans": 3
+  },
+
+  {
+    "q": "I __________ English every day.",
+    "o": [ "study", "studied", "studies", "studying" ],
+    "ans": 1
+  },
+  {
+    "q": "I __________ English yesterday.",
+    "o": [ "study", "studies", "studied", "studying" ],
+    "ans": 3
+  },
+  {
+    "q": "She __________ her room every weekend.",
+    "o": [ "clean", "cleans", "cleaned", "cleaning" ],
+    "ans": 2
+  },
+  {
+    "q": "She __________ her room last weekend.",
+    "o": [ "clean", "cleans", "cleaning", "cleaned" ],
+    "ans": 4
+  },
+
+  {
+    "q": "We __________ to school by bus every day.",
+    "o": [ "go", "went", "goes", "going" ],
+    "ans": 1
+  },
+  {
+    "q": "We __________ to school by bus yesterday.",
+    "o": [ "go", "goes", "going", "went" ],
+    "ans": 4
+  },
+
+  {
+    "q": "He __________ hard at school every day.",
+    "o": [ "work", "works", "worked", "working" ],
+    "ans": 2
+  },
+  {
+    "q": "He __________ hard at school last week.",
+    "o": [ "work", "works", "working", "worked" ],
+    "ans": 4
+  },
+
+  {
+    "q": "They __________ dinner at six every day.",
+    "o": [ "eat", "eats", "ate", "eating" ],
+    "ans": 1
+  },
+  {
+    "q": "They __________ dinner at six yesterday.",
+    "o": [ "eat", "eats", "eating", "ate" ],
+    "ans": 4
+  },
+
+  {
+    "q": "Jane __________ tennis with her friend every Saturday.",
+    "o": [ "play", "plays", "played", "playing" ],
+    "ans": 2
+  },
+  {
+    "q": "Jane __________ tennis with her friend last Saturday.",
+    "o": [ "play", "playing", "played", "plays" ],
+    "ans": 3
+  },
+
+  {
+    "q": "I __________ milk every morning.",
+    "o": [ "drink", "drinks", "drank", "drinking" ],
+    "ans": 1
+  },
+  {
+    "q": "I __________ milk this morning.",
+    "o": [ "drink", "drinks", "drinking", "drank" ],
+    "ans": 4
+  },
+
+  {
+    "q": "He __________ his homework after dinner every day.",
+    "o": [ "do", "does", "did", "doing" ],
+    "ans": 2
+  },
+  {
+    "q": "He __________ his homework after dinner last night.",
+    "o": [ "do", "does", "doing", "did" ],
+    "ans": 4
+  }
+]

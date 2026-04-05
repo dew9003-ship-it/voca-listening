@@ -1,0 +1,122 @@
+[
+  {
+    "q": "There is 뒤에는 어떤 명사가 오나요?",
+    "o": [ "단수/셀 수 없는 명사", "복수명사", "항상 사람 명사", "항상 장소 명사" ],
+    "ans": 1
+  },
+  {
+    "q": "There are 뒤에는 어떤 명사가 오나요?",
+    "o": [ "단수/셀 수 없는 명사", "복수명사", "항상 셀 수 없는 명사", "항상 고유명사" ],
+    "ans": 2
+  },
+  {
+    "q": "There was의 뜻으로 알맞은 것은?",
+    "o": [ "~이 있다(현재)", "~들이 있다(현재)", "~이 있었다(과거)", "~들이 있었다(과거)" ],
+    "ans": 3
+  },
+  {
+    "q": "There were의 뜻으로 알맞은 것은?",
+    "o": [ "~이 있다(현재)", "~들이 있다(현재)", "~이 있었다(과거)", "~들이 있었다(과거)" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThere ___ a pen on the table.",
+    "o": [ "is", "are" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThere ___ two pens on the table.",
+    "o": [ "is", "are" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThere ___ an apple on the table yesterday.",
+    "o": [ "is", "are", "was", "were" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThere ___ three books in the room yesterday.",
+    "o": [ "is", "are", "was", "were" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThere ___ some milk in the fridge.",
+    "o": [ "is", "are" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThere ___ some cookies on the plate.",
+    "o": [ "is", "are" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThere ___ a piece of cheese on the table.",
+    "o": [ "is", "are" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThere ___ someone at the door.",
+    "o": [ "is", "are" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThere ___ a pen on the table.",
+    "o": [ "isn't", "aren't"],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThere ___ any pens on the table.",
+    "o": [ "isn't", "aren't" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThere ___ an apple on the table yesterday.",
+    "o": [ "isn't", "aren't", "wasn't", "weren't" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\nThere ___ three books in the room yesterday.",
+    "o": [ "isn't", "aren't", "wasn't", "weren't" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\n___ there a book on the table?",
+    "o": [ "Is", "Are", "Was", "Were" ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\n___ there any books on the table?",
+    "o": [ "Is", "Are", "Was", "Were" ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\n___ there an apple on the table yesterday?",
+    "o": [ "Is", "Are", "Was", "Were" ],
+    "ans": 3
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\n___ there toys on the table yesterday?",
+    "o": [ "Is", "Are", "Was", "Were" ],
+    "ans": 4
+  },
+  {
+    "q": "다음 중 어법상 올바른 문장은?",
+    "o": [
+      "There are a pen on the table.",
+      "There is two pens on the table.",
+      "There is a pen on the table.",
+      "There were a pen on the table."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 중 어법상 올바른 문장은?",
+    "o": [
+      "There is many books in the room.",
+      "There are many books in the room.",
+      "There are a book in the room.",
+      "There were many book in the room."
+    ],
+    "ans": 2
+  }
+]

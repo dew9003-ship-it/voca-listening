@@ -1,0 +1,362 @@
+[
+  {
+    "q": "__________ quiet!",
+    "o": [
+      "Be",
+      "Don't"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ go there.",
+    "o": [
+      "Be",
+      "Don't"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ run in the library.",
+    "o": [
+      "Be",
+      "Don't"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ ready for it.",
+    "o": [
+      "Be",
+      "Don't"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ careful.",
+    "o": [
+      "Be",
+      "Don't"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ your homework.",
+    "o": [
+      "Be",
+      "Do"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ ready for it.",
+    "o": [
+      "Be",
+      "Don't"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ stay up late.",
+    "o": [
+      "Be",
+      "Don't"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ stay up late.",
+    "o": [
+      "Ben't",
+      "Don't"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ be foolish.",
+    "o": [
+      "Do",
+      "Don't"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ it right now.",
+    "o": [
+      "Do",
+      "Don't"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ English right now.",
+    "o": [
+      "Be",
+      "Study"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ quiet!",
+    "o": [
+      "Be",
+      "Let's"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ go there.",
+    "o": [
+      "Be not",
+      "Don't"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ run in the library.",
+    "o": [
+      "Go",
+      "Don't"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ ready for it.",
+    "o": [
+      "Be",
+      "Let's"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ careful.",
+    "o": [
+      "Be",
+      "Let's"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ your homework.",
+    "o": [
+      "Be",
+      "Let's"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ ready for it.",
+    "o": [
+      "Be",
+      "Let's"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ stay up late.",
+    "o": [
+      "Be",
+      "Let's not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ stay up late.",
+    "o": [
+      "Do",
+      "Let's not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ be foolish.",
+    "o": [
+      "Do",
+      "Don't"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ it right now.",
+    "o": [
+      "Do",
+      "Let's"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ English right now.",
+    "o": [
+      "Let's",
+      "Study"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ English right now.",
+    "o": [
+      "Let's",
+      "Let's study"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "__________ there.",
+    "o": [
+      "Let's go",
+      "Let's"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "__________ in the library.",
+    "o": [
+      "Let's not run",
+      "Let's not"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "Shall we study English?",
+      "Why we study English?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "Why don't we study English?",
+      "How don't we study English?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "What don't we study English?",
+      "Why don't we study English?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "Where don't we study English?",
+      "Why don't we study English?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "Why don't we study English?",
+      "When don't we study English?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "How about studying English?",
+      "Why about atudying English?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "What about studying English?",
+      "Where about studying English?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "What about study English?",
+      "What about studying English?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "How about study English?",
+      "How about studying English?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "How about studying English?",
+      "Will we study English?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "Shall we study English?",
+      "How don't we study English?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "What don't we study English?",
+      "Shall we study English?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "Where don't we study English?",
+      "How about studying English?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "What about studying English?",
+      "When don't we study English?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "Shall we study English?",
+      "Why about atudying English?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "Shall we study English?",
+      "Where about studying English?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "Shall we studying English?",
+      "What about studying English?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장과 같은 문장은?",
+    "o": [
+      "Why don't we studying English?",
+      "How about studying English?"
+    ],
+    "ans": 2
+  }
+]

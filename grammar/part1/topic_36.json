@@ -1,0 +1,102 @@
+[
+  {
+    "q": "__________ washed my car? – Sarah did.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ did you do last weekend? – I went to the park.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ helped you with your homework? – My brother did.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ book do you want, this one or that one? – This one.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ did she meet at the station? – She met her teacher.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ is your favorite food? – Pizza.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ broke the window? – A boy from my class did.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ color do you like more, blue or green? – Blue.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ did you invite to the party? – I invited Jane.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ is your dream? – To be a pilot.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ is calling you now? – My mom is.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ pencil is yours, the red one or the black one? – The red one.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ did he buy at the store? – He bought some milk.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ did you see in the classroom? – I saw Mr. Lee.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ student won the prize, Tom or Alex? – Alex did.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ made this sandwich? – I did.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ do you want for your birthday? – A new bike.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 2
+  },
+  {
+    "q": "__________ teacher do you like more, Mr. Kim or Ms. Park? – Ms. Park.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 3
+  },
+  {
+    "q": "__________ did she talk to after class? – She talked to her friend.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 1
+  },
+  {
+    "q": "__________ is responsible for the mistake? – John is.",
+    "o": [ "Who", "What", "Which", "Why" ],
+    "ans": 1
+  }
+]

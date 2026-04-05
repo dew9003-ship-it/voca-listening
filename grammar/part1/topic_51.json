@@ -1,0 +1,182 @@
+[
+  {
+    "q": "I can play the piano.",
+    "o": [
+      "I am able to play the piano.",
+      "I are able to play the piano.",
+      "I is able to play the piano."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I can play the piano.",
+    "o": [
+      "나는 피아노를 칠것이다.",
+      "나는 피아노를 칠지도 모른다.",
+      "나는 피아노를 칠수있다."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "I __________ the piano.",
+    "o": [
+      "not can play",
+      "can not play",
+      "can play not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She __________ the piano.",
+    "o": [
+      "not cans play",
+      "cans not play",
+      "can not play"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "She __________ the piano.",
+    "o": [
+      "cans play",
+      "can plays",
+      "can play"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He __________ the piano.",
+    "o": [
+      "cans play",
+      "can plays",
+      "can play"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He __________ the piano.",
+    "o": [
+      "not is able to play",
+      "is not able to play",
+      "is able to not play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She can __________ to school alone.",
+    "o": [
+      "goes",
+      "went",
+      "go"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He can __________ tennis.",
+    "o": [
+      "plays",
+      "play",
+      "played"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Can he __________ tennis?",
+    "o": [
+      "plays",
+      "play",
+      "played"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Can she __________ tennis?",
+    "o": [
+      "plays",
+      "play",
+      "played"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Can they __________ tennis?",
+    "o": [
+      "plays",
+      "play",
+      "played"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Is she __________ to play tennis?",
+    "o": [
+      "can",
+      "able",
+      "cans"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom __________ play tennis.",
+    "o": [
+      "cans not",
+      "not can",
+      "can not"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Can we go inside?",
+    "o": [
+      "Yes, you do.",
+      "Yes, you are.",
+      "Yes, you can."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "I'm tired, but I __________ study English.",
+    "o": [
+      "can",
+      "can't",
+      "not can"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She is smart, but she __________ solve the problem.",
+    "o": [
+      "can",
+      "cans",
+      "can't"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "조동사 다음에 오는 동사는 반드시 __________ 이어야한다.",
+    "o": [
+      "동사원형",
+      "이어동사",
+      "감각동사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He __________ pizza.",
+    "o": [
+      "cans makes",
+      "can makes",
+      "can make"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "What __________ for you?",
+    "o": [
+      "I can do",
+      "can do I",
+      "can I do"
+    ],
+    "ans": 3
+  }
+]

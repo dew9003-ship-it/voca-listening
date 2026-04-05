@@ -1,0 +1,292 @@
+[
+  {
+    "q": "다음 중 올바른 의문문은?",
+    "o": [
+      "She is always happy.",
+      "She isn't always happy.",
+      "Is she always happy?",
+      "She is not always happy."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "be동사를 주어 앞에 놓으면 의문문이 된다.",
+    "o": [
+      "true",
+      "false",
+      "잘 모르겠음",
+      "기권"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 의문문은?",
+    "o": [
+      "They are very lazy.",
+      "Are they very lazy?",
+      "They aren't very lazy.",
+      "They are not very lazy."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 우리말을 영어 의문문으로 바르게 옮긴 것은?\n'그것은 맛이 있니?'",
+    "o": [
+      "It is so delicious.",
+      "It is not so delicious.",
+      "It isn't so delicious.",
+      "Is it so delicious?"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 우리말을 영어 의문문으로 바르게 옮긴 것은?\n'너는 그의 여동생이니?'",
+    "o": [
+      "You are his sister.",
+      "You are not his sister?",
+      "You aren't his sister?",
+      "Are you his sister?"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\n__________ he a student?",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "be"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\n__________ I wrong?",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "be"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\n__________ you a student?",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "be"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\n__________ they your friends?",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "be"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\n__________ she a teacher?",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "be"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 빈칸에 알맞은 말은?\n__________ Tom your brother?",
+    "o": [
+      "am",
+      "are",
+      "is",
+      "be"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: __________ a student?\nB: No, I’m not.",
+    "o": [
+      "You are",
+      "Is he",
+      "Are you",
+      "Am I"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: __________ a student?\nB: No, you aren’t.",
+    "o": [
+      "You are",
+      "Is he",
+      "Are you",
+      "Am I"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: __________ a student?\nB: No, she isn't.",
+    "o": [
+      "You are",
+      "Is he",
+      "Are you",
+      "Is she"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: __________ a student?\nB: No, he isn't.",
+    "o": [
+      "You are",
+      "Is he",
+      "Are you",
+      "Am I"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: __________ a student?\nB: No, he isn't.",
+    "o": [
+      "You are",
+      "Is Tom",
+      "Are you",
+      "Am I"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: __________ a student?\nB: Yes, he is.",
+    "o": [
+      "You are",
+      "Is Tom",
+      "Are you",
+      "Am I"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: __________ a student?\nB: Yes, you are.",
+    "o": [
+      "You are",
+      "Is Tom",
+      "Are you",
+      "Am I"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: __________ a student?\nB: Yes, he is.",
+    "o": [
+      "You are",
+      "Is he",
+      "Are you",
+      "Am I"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: __________ a student?\nB: Yes, I am.",
+    "o": [
+      "You are",
+      "Is Tom",
+      "Are you",
+      "Am I"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: Are you a student?\nB: Yes, __________.",
+    "o": [
+      "I am",
+      "you are",
+      "he is",
+      "she is"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: Am I a student?\nB: Yes, __________.",
+    "o": [
+      "I am",
+      "you are",
+      "he is",
+      "she is"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: Is he a student?\nB: Yes, __________.",
+    "o": [
+      "I am",
+      "you are",
+      "he is",
+      "she is"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: Is Tom a student?\nB: Yes, __________.",
+    "o": [
+      "I am",
+      "you are",
+      "he is",
+      "she is"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: Is she a student?\nB: Yes, __________.",
+    "o": [
+      "I am",
+      "you are",
+      "he is",
+      "she is"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: Is she a student?\nB: __________.",
+    "o": [
+      "Yes, I am.",
+      "No, she is.",
+      "Yes, she is.",
+      "No, they aren't."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: Are you a student?\nB: __________.",
+    "o": [
+      "Yes, I am.",
+      "No, I am.",
+      "Yes, you are.",
+      "No, they aren't."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: Are they students?\nB: __________.",
+    "o": [
+      "Yes, I am.",
+      "No, they are.",
+      "Yes, they aren't.",
+      "No, they aren't."
+    ],
+    "ans": 4
+  },
+  {
+    "q": "다음 대화의 빈칸에 알맞은 말은?\nA: Are you a student?\nB: __________.",
+    "o": [
+      "Yes, you are.",
+      "No, I'm not.",
+      "Yes, I'm not.",
+      "No, you aren't."
+    ],
+    "ans": 2
+  }
+]
