@@ -317,9 +317,9 @@
       }
 
       const { data: progressRows, error: progressError } = await supabase
-        .from('listening_progress')
-        .select('id, user_id, max_index, created_at')
-        .order('created_at', { ascending: false });
+  .from('listening_progress')
+  .select('id, user_id, max_index, created_at, last_studied_at')
+  .order('last_studied_at', { ascending: false, nullsFirst: false });
 
       if (progressError) {
         console.error(progressError);
