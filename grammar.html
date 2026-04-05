@@ -268,12 +268,33 @@ const failMenuBtn = document.getElementById('failMenuBtn');
   const { data, error } = await supabase.auth.getUser();
   if (error || !data.user) return;
 
+  const userId = data.user.id;
+
+  const { data: existingRow, error: fetchError } = await supabase
+    .from('grammar_progress')
+    .select('completed_topics')
+    .eq('user_id', userId)
+    .maybeSingle();
+
+  if (fetchError) {
+    console.error('grammar_progress 기존 데이터 조회 실패:', fetchError);
+  }
+
+  const completedTopics = existingRow?.completed_topics || {};
+  completedTopics[String(topicId)] = {
+    completed: true,
+    total: totalCount,
+    score: scoreValue,
+    lastStudiedAt: now
+  };
+
   const { error: saveError } = await supabase
     .from('grammar_progress')
     .upsert(
       {
-        user_id: data.user.id,
+        user_id: userId,
         completed_topic_count: completedTopicCount,
+        completed_topics: completedTopics,
         last_studied_at: now
       },
       {
