@@ -187,6 +187,7 @@
   <th>이메일</th>
   <th>권한</th>
   <th>반</th>
+              <th>반관리</th>
   <th>user_id</th>
   <th>max_index</th>
   <th>가입일</th>
@@ -307,6 +308,35 @@ let allProgressMap = new Map();
     return (profile.class_name || '') === selectedClassName;
   });
 
+async function updateClassName(userId) {
+  const input = document.getElementById(`class-${userId}`);
+  if (!input) return;
+
+  const newClassName = input.value.trim();
+
+  const { error } = await supabase
+    .from('profiles')
+    .update({
+      class_name: newClassName || null
+    })
+    .eq('user_id', userId);
+
+  if (error) {
+    alert('반 수정 실패: ' + error.message);
+    return;
+  }
+
+  const target = allProfiles.find(p => p.user_id === userId);
+  if (target) {
+    target.class_name = newClassName || null;
+  }
+
+  renderClassFilters(allProfiles);
+  renderTable();
+  alert('반이 저장되었습니다.');
+}
+      
+
   if (!filteredProfiles.length) {
     tbody.innerHTML = '<tr><td colspan="9">해당 반의 학생이 없습니다.</td></tr>';
     statusEl.textContent =
@@ -334,7 +364,23 @@ let allProgressMap = new Map();
         <td>${escapeHtml(profile.email || '-')}</td>
         <td>${getRoleBadge(profile.role)}</td>
         <td>${escapeHtml(profile.class_name || '-')}</td>
-        <td style="font-size:12px;">${escapeHtml(profile.user_id || '-')}</td>
+
+<td>
+  <input 
+    type="text" 
+    value="${escapeHtml(profile.class_name || '')}" 
+    id="class-${profile.user_id}"
+    style="width:90px; padding:4px; font-size:12px;"
+  />
+  <button 
+    onclick="updateClassName('${profile.user_id}')"
+    style="margin-top:4px; font-size:11px; padding:4px 6px; cursor:pointer;"
+  >
+    저장
+  </button>
+</td>
+
+<td style="font-size:12px;">${escapeHtml(profile.user_id || '-')}</td>
         <td>${maxIndex ?? '<span class="muted">없음</span>'}</td>
         <td>${escapeHtml(formatDate(profile.created_at))}</td>
       </tr>
