@@ -485,12 +485,24 @@ statusEl.textContent =
   .select('id, user_id, max_index, created_at, last_studied_at')
   .order('last_studied_at', { ascending: false, nullsFirst: false });
 
+      const { data: grammarRows, error: grammarError } = await supabase
+  .from('grammar_progress')
+  .select('user_id, completed_topic_count, last_studied_at')
+  .order('last_studied_at', { ascending: false, nullsFirst: false });
+
       if (progressError) {
         console.error(progressError);
         statusEl.textContent = 'listening_progress 조회 실패';
         tbody.innerHTML = `<tr><td colspan="8">progress 조회 실패: ${escapeHtml(progressError.message)}</td></tr>`;
         return;
       }
+
+      if (grammarError) {
+  console.error(grammarError);
+  statusEl.textContent = 'grammar_progress 조회 실패';
+  tbody.innerHTML = `<tr><td colspan="8">grammar_progress 조회 실패: ${escapeHtml(grammarError.message)}</td></tr>`;
+  return;
+}
 
       allProgressMap = new Map();
 for (const row of progressRows || []) {
