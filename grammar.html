@@ -109,9 +109,9 @@
       </div>
 
       <div class="quiz-foot">
-        <div id="quizStatus" class="quiz-status">정답을 선택해 주세요.</div>
-        <div class="btns"><button id="nextBtn" class="btn-green" disabled>다음 문제</button></div>
-      </div>
+  <div id="quizStatus" class="quiz-status">정답을 선택해 주세요.</div>
+  <div class="btns" style="display:none;"><button id="nextBtn" class="btn-green" disabled>다음 문제</button></div>
+</div>
 
       <div id="completeBox" class="topic-complete">
         <h3>주제 완료 🎉</h3>
@@ -296,7 +296,7 @@ function closeFailPopup() {
       questionLabel.textContent = `문제 ${currentIndex + 1} / ${currentQuestions.length}`;
       questionText.textContent = item.q;
       quizStatus.textContent = '정답을 선택해 주세요.';
-      nextBtn.disabled = true;
+      
       resultBox.className='result-box'; resultBox.textContent=''; resultBox.style.display='none'; choicesEl.innerHTML=''; selectedAnswer = null;
       item.o.forEach((option, idx) => {
         const btn = document.createElement('button');
@@ -308,24 +308,50 @@ function closeFailPopup() {
     }
 
     function selectAnswer(choiceNumber){
-      if (selectedAnswer !== null) return;
-      selectedAnswer = choiceNumber;
-      const item = currentQuestions[currentIndex];
-      const correct = Number(item.ans);
-      const buttons = Array.from(choicesEl.querySelectorAll('.choice'));
-      buttons.forEach((btn, index) => {
-        const choiceNum = index + 1;
-        if (choiceNum === correct) btn.classList.add('correct');
-        else if (choiceNum === choiceNumber) btn.classList.add('wrong');
-        else btn.classList.add('dim');
-      });
-      if (choiceNumber === correct) {
-        score += 1; quizStatus.textContent='정답입니다!'; resultBox.className='result-box correct'; resultBox.textContent='정답입니다. 아주 좋아요!';
+  if (selectedAnswer !== null) return;
+
+  selectedAnswer = choiceNumber;
+  const item = currentQuestions[currentIndex];
+  const correct = Number(item.ans);
+  const buttons = Array.from(choicesEl.querySelectorAll('.choice'));
+
+  buttons.forEach((btn, index) => {
+    const choiceNum = index + 1;
+    if (choiceNum === correct) btn.classList.add('correct');
+    else if (choiceNum === choiceNumber) btn.classList.add('wrong');
+    else btn.classList.add('dim');
+  });
+
+  resultBox.style.display = 'block';
+
+  if (choiceNumber === correct) {
+    score += 1;
+    quizStatus.textContent = '정답입니다!';
+    resultBox.className = 'result-box correct';
+    resultBox.textContent = '정답입니다.';
+
+    setTimeout(() => {
+      if (currentIndex < currentQuestions.length - 1) {
+        currentIndex += 1;
+        renderQuestion();
       } else {
-        quizStatus.textContent='오답입니다.'; resultBox.className='result-box wrong'; resultBox.innerHTML=`오답입니다. 정답은 <b>${correct}번</b>이에요.`;
+        markTopicCompleted(currentTopic.id, currentQuestions.length, score);
+        progressBar.style.width = '100%';
+        completeBox.style.display = 'block';
+        completeText.textContent = `${currentTopic.title} 완료!`;
       }
-      resultBox.style.display='block'; nextBtn.disabled = false;
-    }
+    }, 600);
+
+  } else {
+    quizStatus.textContent = '오답입니다.';
+    resultBox.className = 'result-box wrong';
+    resultBox.innerHTML = `오답입니다. 정답은 <b>${correct}번</b>이에요.`;
+
+    setTimeout(() => {
+      openFailPopup();   // ⭐ 이게 핵심
+    }, 500);
+  }
+}
 
     function handleNext(){
       if (selectedAnswer === null) return;
@@ -356,7 +382,7 @@ failMenuBtn.addEventListener('click', () => {
   score = 0;
   showMenu();
 });
-    nextBtn.addEventListener('click', handleNext);
+    
     document.getElementById('logoutBtn').addEventListener('click', logout);
     document.getElementById('homeBtn').addEventListener('click', () => { if (role === 'admin') location.href='admin.html'; else location.href='class.html'; });
 
