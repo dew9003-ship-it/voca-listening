@@ -322,9 +322,10 @@ async function updateClassName(userId) {
     .eq('user_id', userId);
 
   if (error) {
-    alert('반 수정 실패: ' + error.message);
-    return;
-  }
+  console.error('반 수정 실패:', error);
+  alert('반 수정 실패: ' + error.message);
+  return;
+}
 
   const target = allProfiles.find(p => p.user_id === userId);
   if (target) {
@@ -373,7 +374,8 @@ async function updateClassName(userId) {
     style="width:90px; padding:4px; font-size:12px;"
   />
   <button 
-    onclick="updateClassName('${profile.user_id}')"
+    class="save-class-btn"
+    data-user-id="${profile.user_id}"
     style="margin-top:4px; font-size:11px; padding:4px 6px; cursor:pointer;"
   >
     저장
@@ -389,11 +391,18 @@ async function updateClassName(userId) {
 
   tbody.innerHTML = rowsHtml;
 
-  const shownCount = filteredProfiles.length;
-  statusEl.textContent =
-    selectedClassName === '전체'
-      ? `총 ${allProfiles.length}명의 사용자 데이터를 불러왔습니다.`
-      : `${selectedClassName} 반 학생 ${shownCount}명을 표시하고 있습니다.`;
+tbody.querySelectorAll('.save-class-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const userId = btn.dataset.userId;
+    updateClassName(userId);
+  });
+});
+
+const shownCount = filteredProfiles.length;
+statusEl.textContent =
+  selectedClassName === '전체'
+    ? `총 ${allProfiles.length}명의 사용자 데이터를 불러왔습니다.`
+    : `${selectedClassName} 반 학생 ${shownCount}명을 표시하고 있습니다.`;
 }
 
     function getRoleBadge(role) {
