@@ -151,11 +151,41 @@
     function getProgressKey(){ return me?.id ? `voca_grammar_progress_${me.id}` : 'voca_grammar_progress_guest'; }
     function getProgressStore(){ try { return JSON.parse(localStorage.getItem(getProgressKey()) || '{}'); } catch { return {}; } }
     function setProgressStore(data){ localStorage.setItem(getProgressKey(), JSON.stringify(data)); }
-    function markTopicCompleted(topicId, totalCount, scoreValue){
-      const store = getProgressStore();
-      store[topicId] = { completed:true, total:totalCount, score:scoreValue, lastStudiedAt:new Date().toISOString() };
-      setProgressStore(store);
-    }
+    async function markTopicCompleted(topicId, totalCount, scoreValue) {
+  const now = new Date().toISOString();
+
+  const store = getProgressStore();
+  store[topicId] = {
+    completed: true,
+    total: totalCount,
+    score: scoreValue,
+    lastStudiedAt: now
+  };
+  setProgressStore(store);
+
+  const completedTopicCount = Object.values(store).filter(v => v?.completed).length;
+
+  const { data, error } = await supabase.auth.getUser();
+  if (error || !data.user) return;
+
+  const { error: saveError } = await supabase
+    .from('grammar_progress')
+    .upsert(
+      {
+        user_id: data.user.id,
+        completed_topic_count: completedTopicCount,
+        last_studied_at: now
+      },
+      {
+        onConflict: 'user_id'
+      }
+    );
+
+  if (saveError) {
+    console.error('grammar_progress 저장 실패:', saveError);
+    alert('문법 진도 저장 실패: ' + saveError.message);
+  }
+}
     function escapeHtml(value){ return String(value ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;'); }
     function flattenQuestions(input){
       const result = [];
