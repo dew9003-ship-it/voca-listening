@@ -331,10 +331,7 @@ function closeFailPopup() {
   }, 500);
 }
     function playCorrectEffect() {
-  if (correctSound) {
-    correctSound.currentTime = 0;
-    correctSound.play().catch(() => {});
-  }
+  // 성공 시 추가 시각효과를 나중에 넣고 싶으면 여기 확장
 }
 
     async function requireAuth(){
