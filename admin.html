@@ -144,10 +144,11 @@
     <div class="topbar">
       <h1>관리자 페이지</h1>
       <div class="btns">
-        <button class="refresh-btn" id="refreshBtn">새로고침</button>
-        <button class="home-btn" id="homeBtn">학습 페이지</button>
-        <button class="logout-btn" id="logoutBtn">로그아웃</button>
-      </div>
+  <button class="refresh-btn" id="refreshBtn">새로고침</button>
+  <button class="home-btn" id="homeBtn">듣기 페이지</button>
+  <button class="home-btn" id="grammarBtn">문법 페이지</button>
+  <button class="logout-btn" id="logoutBtn">로그아웃</button>
+</div>
     </div>
 
     <div class="summary">
@@ -218,6 +219,9 @@
     document.getElementById('homeBtn').addEventListener('click', () => {
       location.href = 'index.html';
     });
+    document.getElementById('grammarBtn').addEventListener('click', () => {
+  location.href = 'grammar.html';
+});
     document.getElementById('logoutBtn').addEventListener('click', async () => {
       await supabase.auth.signOut();
       location.href = 'login.html';
