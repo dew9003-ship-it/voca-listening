@@ -183,6 +183,7 @@
             <tr>
   <th>이름</th>
   <th>진도율</th>
+              <th>문법</th>
   <th>최근학습시간</th>
   <th>이메일</th>
   <th>권한</th>
@@ -220,7 +221,8 @@ const classFilterWrap = document.getElementById('classFilterWrap');
 let selectedClassName = '전체';
 let allProfiles = [];
 let allProgressMap = new Map();
-
+let grammarMap = new Map();
+    
     const totalUsersEl = document.getElementById('totalUsers');
     const totalStudentsEl = document.getElementById('totalStudents');
     const totalAdminsEl = document.getElementById('totalAdmins');
@@ -325,11 +327,15 @@ let allProgressMap = new Map();
     const maxIndex = progress?.max_index ?? null;
     const progressInfo = calcProgress(maxIndex);
 
+    const grammar = grammarMap.get(profile.user_id);
+const grammarCount = grammar?.completed_topic_count ?? 0;
+
     return `
       <tr>
         <td>${escapeHtml(profile.name || '-')}</td>
         <td class="progress-box">
           <div>${escapeHtml(progressInfo.text)}</div>
+          <td>${grammarCount}개</td>
           <div class="progress-bar">
             <div class="progress-fill" style="width:${progressInfo.percent}%"></div>
           </div>
@@ -509,6 +515,11 @@ for (const row of progressRows || []) {
   if (!allProgressMap.has(row.user_id)) {
     allProgressMap.set(row.user_id, row);
   }
+}
+
+      grammarMap = new Map();
+for (const row of grammarRows || []) {
+  grammarMap.set(row.user_id, row);
 }
 
       allProfiles = profiles || [];
