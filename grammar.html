@@ -121,6 +121,17 @@
           <button id="backToMenuBtn" class="btn-green">목차로 돌아가기</button>
         </div>
       </div>
+      <div id="failPopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:9999; align-items:center; justify-content:center;">
+  <div style="width:min(92vw, 520px); background:rgba(60, 0, 0, 0.96); border:3px solid #ff5252; border-radius:26px; padding:28px 24px; text-align:center; box-shadow:0 18px 50px rgba(0,0,0,0.35);">
+    <h3 style="margin:0 0 18px; font-size:54px; line-height:1; color:#ff5a5a; font-weight:900;">실패!</h3>
+    <p style="margin:0; font-size:22px; line-height:1.5; color:white; font-weight:700;">오답입니다.</p>
+
+    <div style="display:flex; gap:16px; justify-content:center; margin-top:28px; flex-wrap:wrap;">
+      <button id="failRetryBtn" style="min-width:180px; padding:18px 22px; border:none; border-radius:18px; background:#33f15a; color:#111; font-size:22px; font-weight:900; cursor:pointer;">예 (재도전)</button>
+      <button id="failMenuBtn" style="min-width:180px; padding:18px 22px; border:none; border-radius:18px; background:#666; color:white; font-size:22px; font-weight:900; cursor:pointer;">아니오 (목차)</button>
+    </div>
+  </div>
+</div>
     </div>
   </div>
 
@@ -145,7 +156,10 @@
     const resultBox = document.getElementById('resultBox');
     const nextBtn = document.getElementById('nextBtn');
     const completeBox = document.getElementById('completeBox');
-    const completeText = document.getElementById('completeText');
+const completeText = document.getElementById('completeText');
+const failPopup = document.getElementById('failPopup');
+const failRetryBtn = document.getElementById('failRetryBtn');
+const failMenuBtn = document.getElementById('failMenuBtn');
     let me = null, role = 'student', topics = [], currentTopic = null, currentQuestions = [], currentIndex = 0, selectedAnswer = null, score = 0;
 
     function getProgressKey(){ return me?.id ? `voca_grammar_progress_${me.id}` : 'voca_grammar_progress_guest'; }
@@ -196,7 +210,21 @@
       walk(input);
       return result;
     }
-    function showMenu(){ quizView.style.display='none'; menuView.style.display='block'; completeBox.style.display='none'; renderMenu(); }
+    function showMenu(){
+  quizView.style.display = 'none';
+  menuView.style.display = 'block';
+  completeBox.style.display = 'none';
+  failPopup.style.display = 'none';
+  renderMenu();
+}
+
+function openFailPopup() {
+  failPopup.style.display = 'flex';
+}
+
+function closeFailPopup() {
+  failPopup.style.display = 'none';
+}
 
     async function requireAuth(){
       const { data: authData, error: authError } = await supabase.auth.getUser();
@@ -312,8 +340,22 @@
 
     document.getElementById('refreshBtn').addEventListener('click', () => location.reload());
     document.getElementById('menuBtn').addEventListener('click', showMenu);
-    document.getElementById('retryBtn').addEventListener('click', () => startTopic(currentTopic));
-    document.getElementById('backToMenuBtn').addEventListener('click', showMenu);
+document.getElementById('retryBtn').addEventListener('click', () => startTopic(currentTopic));
+document.getElementById('backToMenuBtn').addEventListener('click', showMenu);
+
+failRetryBtn.addEventListener('click', () => {
+  closeFailPopup();
+  currentIndex = 0;
+  score = 0;
+  renderQuestion();
+});
+
+failMenuBtn.addEventListener('click', () => {
+  closeFailPopup();
+  currentIndex = 0;
+  score = 0;
+  showMenu();
+});
     nextBtn.addEventListener('click', handleNext);
     document.getElementById('logoutBtn').addEventListener('click', logout);
     document.getElementById('homeBtn').addEventListener('click', () => { if (role === 'admin') location.href='admin.html'; else location.href='class.html'; });
