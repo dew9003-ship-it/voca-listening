@@ -459,7 +459,28 @@ if (assignmentError) {
   assignmentStatusEl.textContent = '숙제 조회 실패';
   assignmentListEl.innerHTML = `<div class="empty">${escapeHtml(assignmentError.message)}</div>`;
 } else {
-  renderAssignments(assignmentRows || []);
+  const { data: progressRows, error: progressError } = await supabase
+    .from('assignment_progress')
+    .select('assignment_id, status')
+    .eq('user_id', myUserId);
+
+  if (progressError) {
+    assignmentStatusEl.textContent = '숙제 진행 조회 실패';
+    assignmentListEl.innerHTML = `<div class="empty">${escapeHtml(progressError.message)}</div>`;
+    return;
+  }
+
+  const completedAssignmentIds = new Set(
+    (progressRows || [])
+      .filter(row => row.status === 'completed')
+      .map(row => String(row.assignment_id))
+  );
+
+  const visibleAssignments = (assignmentRows || []).filter(row => {
+    return !completedAssignmentIds.has(String(row.id));
+  });
+
+  renderAssignments(visibleAssignments);
 }
 
       if (!myClassName) {
