@@ -618,17 +618,57 @@ for (const topic of visibleTopics) {
   const item = currentQuestions[currentIndex];
   const correct = Number(item.ans);
   const buttons = Array.from(choicesEl.querySelectorAll('.choice'));
-buttons.forEach((btn, index) => {
-  const choiceNum = index + 1;
+
+  buttons.forEach((btn, index) => {
+    const choiceNum = index + 1;
+
+    if (choiceNumber === correct) {
+      if (choiceNum === correct) btn.classList.add('correct');
+      else btn.classList.add('dim');
+    } else {
+      if (choiceNum === choiceNumber) btn.classList.add('wrong');
+      else btn.classList.add('dim');
+    }
+  });
+
+  resultBox.style.display = 'block';
 
   if (choiceNumber === correct) {
-    if (choiceNum === correct) btn.classList.add('correct');
-    else btn.classList.add('dim');
+    score += 1;
+    quizStatus.textContent = '정답입니다!';
+    playCorrectSound();
+    playCorrectEffect();
+    resultBox.className = 'result-box correct';
+    resultBox.textContent = '정답입니다.';
+
+    setTimeout(async () => {
+      if (currentIndex < currentQuestions.length - 1) {
+        currentIndex += 1;
+        renderQuestion();
+      } else {
+        await markTopicCompleted(currentTopic.id, currentQuestions.length, score);
+        progressBar.style.width = '100%';
+        completeBox.style.display = 'block';
+
+        if (isAssignmentMode && currentAssignment) {
+          completeText.textContent = '숙제 주제 완료! 남은 숙제를 이어서 진행하세요.';
+        } else {
+          completeText.textContent = `${currentTopic.title} 완료!`;
+        }
+      }
+    }, 600);
+
   } else {
-    if (choiceNum === choiceNumber) btn.classList.add('wrong');
-    else btn.classList.add('dim');
+    quizStatus.textContent = '오답입니다.';
+    playWrongEffect();
+    resultBox.className = 'result-box wrong';
+    resultBox.textContent = '오답입니다.';
+
+    setTimeout(() => {
+      openFailPopup();
+    }, 500);
   }
-});
+}
 
   resultBox.style.display = 'block';
 
