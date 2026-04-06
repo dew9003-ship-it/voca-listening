@@ -159,6 +159,63 @@
       color: #666;
     }
 
+    .assignment-list {
+  display: grid;
+  gap: 12px;
+}
+
+.assignment-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+  background: #fff;
+}
+
+.assignment-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.assignment-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.assignment-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #eef4ff;
+  color: #355ea9;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.assignment-meta {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.assignment-actions {
+  margin-top: 12px;
+}
+
+.assignment-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #4caf50;
+  color: white;
+}
+
     @media (max-width: 600px) {
       .wrap {
         padding: 14px;
@@ -187,6 +244,18 @@
 </div>
     </div>
 
+<div class="card">
+  <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
+    <div>
+      <h2 style="margin:0; font-size:20px;">내 숙제</h2>
+      <div style="margin-top:6px; font-size:14px; color:#666;">우리 반에 배정된 숙제를 확인할 수 있어요.</div>
+    </div>
+  </div>
+
+  <div id="assignmentStatus" class="status">숙제를 불러오는 중...</div>
+  <div id="assignmentList"></div>
+</div>
+    
     <div class="card">
       <div id="status" class="status">불러오는 중...</div>
 
@@ -224,6 +293,8 @@
     const statusEl = document.getElementById('status');
     const tableBody = document.getElementById('tableBody');
     const classBadge = document.getElementById('classBadge');
+    const assignmentStatusEl = document.getElementById('assignmentStatus');
+const assignmentListEl = document.getElementById('assignmentList');
 
     document.getElementById('studyBtn').addEventListener('click', () => {
       location.href = 'index.html';
@@ -311,6 +382,60 @@
       };
     }
 
+    function getCategoryLabel(category) {
+  if (category === 'grammar') return '문법';
+  if (category === 'exam') return '시험대비';
+  return '듣기';
+}
+
+function moveToAssignmentPage(assignmentId, category) {
+  const target = category === 'grammar' ? 'grammar.html' : 'index.html';
+  location.href = `${target}?assignment_id=${encodeURIComponent(assignmentId)}`;
+}
+
+function renderAssignments(assignments) {
+  if (!assignments || assignments.length === 0) {
+    assignmentStatusEl.textContent = '현재 배정된 숙제가 없습니다.';
+    assignmentListEl.innerHTML = '<div class="empty">아직 받은 숙제가 없습니다.</div>';
+    return;
+  }
+
+  assignmentStatusEl.textContent = `배정된 숙제 ${assignments.length}개가 있습니다.`;
+
+  assignmentListEl.innerHTML = `
+    <div class="assignment-list">
+      ${assignments.map(row => `
+        <div class="assignment-item">
+          <div class="assignment-top">
+            <div class="assignment-title">${escapeHtml(row.title || '숙제')}</div>
+            <div class="assignment-badge">${escapeHtml(getCategoryLabel(row.category))}</div>
+          </div>
+
+          <div class="assignment-meta">
+            <div>학년: ${escapeHtml(row.grade || '-')}</div>
+            <div>출판사: ${escapeHtml(row.publisher || '-')}</div>
+            <div>단원: ${escapeHtml(row.unit || '-')}</div>
+            <div>범위: ${escapeHtml(String(row.start_index ?? '-'))} ~ ${escapeHtml(String(row.end_index ?? '-'))}</div>
+            <div>마감일: ${escapeHtml(row.due_date || '-')}</div>
+          </div>
+
+          <div class="assignment-actions">
+            <button
+              class="assignment-btn"
+              type="button"
+              onclick="window.__openAssignment('${String(row.id).replaceAll("'", "\\'")}', '${String(row.category || '').replaceAll("'", "\\'")}')"
+            >
+              숙제 하러 가기
+            </button>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+    
+window.__openAssignment = moveToAssignmentPage;
+    
     async function loadClassPage() {
       statusEl.textContent = '불러오는 중...';
       tableBody.innerHTML = '<tr><td colspan="5" class="empty">데이터를 불러오는 중입니다...</td></tr>';
@@ -321,12 +446,30 @@
       const myUserId = meData.profile.user_id;
       const myClassName = meData.profile.class_name;
 
+      assignmentStatusEl.textContent = '숙제를 불러오는 중...';
+assignmentListEl.innerHTML = '<div class="empty">숙제를 불러오는 중입니다...</div>';
+
+const { data: assignmentRows, error: assignmentError } = await supabase
+  .from('assignments')
+  .select('id, class_name, title, category, grade, publisher, unit, start_index, end_index, due_date, created_at')
+  .eq('class_name', myClassName)
+  .order('created_at', { ascending: false });
+
+if (assignmentError) {
+  assignmentStatusEl.textContent = '숙제 조회 실패';
+  assignmentListEl.innerHTML = `<div class="empty">${escapeHtml(assignmentError.message)}</div>`;
+} else {
+  renderAssignments(assignmentRows || []);
+}
+
       if (!myClassName) {
-        classBadge.style.display = 'none';
-        statusEl.textContent = '내 반 정보가 아직 설정되지 않았습니다.';
-        tableBody.innerHTML = '<tr><td colspan="5" class="empty">반 정보가 없습니다. 관리자에게 class_name 설정을 요청하세요.</td></tr>';
-        return;
-      }
+  classBadge.style.display = 'none';
+  statusEl.textContent = '내 반 정보가 아직 설정되지 않았습니다.';
+  tableBody.innerHTML = '<tr><td colspan="5" class="empty">반 정보가 없습니다. 관리자에게 class_name 설정을 요청하세요.</td></tr>';
+  assignmentStatusEl.textContent = '반 정보가 없어서 숙제를 불러올 수 없습니다.';
+  assignmentListEl.innerHTML = '<div class="empty">반 정보가 없습니다.</div>';
+  return;
+}
 
       classBadge.style.display = 'inline-block';
       classBadge.textContent = `반: ${myClassName}`;
