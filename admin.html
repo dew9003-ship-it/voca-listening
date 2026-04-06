@@ -274,7 +274,7 @@ const totalAdminsEl = document.getElementById('totalAdmins');
 const totalProgressUsersEl = document.getElementById('totalProgressUsers');
 const assignmentClassEl = document.getElementById('assignmentClass');
 
-const createAssignmentBtn = document.getElementById('createAssignmentBtn');
+    const createAssignmentBtn = document.getElementById('createAssignmentBtn');
 const assignmentCreateStatusEl = document.getElementById('assignmentCreateStatus');
 
 const assignmentTitleEl = document.getElementById('assignmentTitle');
@@ -485,99 +485,87 @@ renderTable();
 alert('반이 저장되었습니다.');
 }
 
-function setAssignmentStatus(text, isError = false) {
-assignmentCreateStatusEl.textContent = text;
-assignmentCreateStatusEl.style.color = isError ? '#ef4444' : '#16a34a';
+    function setAssignmentStatus(text, isError = false) {
+  assignmentCreateStatusEl.textContent = text;
+  assignmentCreateStatusEl.style.color = isError ? '#ef4444' : '#16a34a';
 }
 
 function resetAssignmentForm() {
-assignmentClassEl.value = '';
-assignmentTitleEl.value = '';
-assignmentCategoryEl.value = 'listening';
-assignmentGradeEl.value = '';
-assignmentPublisherEl.value = '';
-assignmentUnitEl.value = '';
-assignmentStartIndexEl.value = '';
-assignmentEndIndexEl.value = '';
-assignmentDueDateEl.value = '';
+  assignmentClassEl.value = '';
+  assignmentTitleEl.value = '';
+  assignmentCategoryEl.value = 'listening';
+  assignmentGradeEl.value = '';
+  assignmentPublisherEl.value = '';
+  assignmentUnitEl.value = '';
+  assignmentStartIndexEl.value = '';
+  assignmentEndIndexEl.value = '';
+  assignmentDueDateEl.value = '';
 }
 
 async function createAssignment() {
-const adminUser = await requireAdmin();
-if (!adminUser) return;
+  const adminUser = await requireAdmin();
+  if (!adminUser) return;
 
-const className = assignmentClassEl.value.trim();
-const title = assignmentTitleEl.value.trim();
-const category = assignmentCategoryEl.value;
-const grade = assignmentGradeEl.value;
-const publisher = assignmentPublisherEl.value;
-const unit = assignmentUnitEl.value.trim();
-const startIndex = Number(assignmentStartIndexEl.value);
-const endIndex = Number(assignmentEndIndexEl.value);
-const dueDate = assignmentDueDateEl.value;
+  const className = assignmentClassEl.value.trim();
+  const title = assignmentTitleEl.value.trim();
+  const category = assignmentCategoryEl.value;
+  const grade = assignmentGradeEl.value;
+  const publisher = assignmentPublisherEl.value;
+  const unit = assignmentUnitEl.value.trim();
+  const startIndex = Number(assignmentStartIndexEl.value);
+  const endIndex = Number(assignmentEndIndexEl.value);
+  const dueDate = assignmentDueDateEl.value;
 
-if (!className) {
-setAssignmentStatus('반을 선택하세요.', true);
-return;
-}
+  if (!className) {
+    setAssignmentStatus('반을 선택하세요.', true);
+    return;
+  }
 
-if (!title) {
-setAssignmentStatus('숙제 제목을 입력하세요.', true);
-return;
-}
+  if (!title) {
+    setAssignmentStatus('숙제 제목을 입력하세요.', true);
+    return;
+  }
 
   if (!grade) {
     setAssignmentStatus('학년을 선택하세요.', true);
     return;
   }
-  if (!isGrammar && !grade) {
-  setAssignmentStatus('학년을 선택하세요.', true);
-  return;
-}
 
   if (!publisher) {
     setAssignmentStatus('출판사를 선택하세요.', true);
     return;
   }
-if (!isGrammar && !publisher) {
-  setAssignmentStatus('출판사를 선택하세요.', true);
-  return;
-}
 
   if (!unit) {
     setAssignmentStatus('단원명을 입력하세요.', true);
     return;
   }
-if (!isGrammar && !unit) {
-  setAssignmentStatus('단원명을 입력하세요.', true);
-  return;
-}
 
-if (!Number.isFinite(startIndex) || !Number.isFinite(endIndex)) {
-setAssignmentStatus('시작 번호와 끝 번호를 입력하세요.', true);
-return;
-}
+  if (!Number.isFinite(startIndex) || !Number.isFinite(endIndex)) {
+    setAssignmentStatus('시작 번호와 끝 번호를 입력하세요.', true);
+    return;
+  }
 
-if (startIndex <= 0 || endIndex <= 0) {
-setAssignmentStatus('번호는 1 이상이어야 합니다.', true);
-return;
-}
+  if (startIndex <= 0 || endIndex <= 0) {
+    setAssignmentStatus('번호는 1 이상이어야 합니다.', true);
+    return;
+  }
 
-if (startIndex > endIndex) {
-setAssignmentStatus('시작 번호는 끝 번호보다 클 수 없습니다.', true);
-return;
-}
+  if (startIndex > endIndex) {
+    setAssignmentStatus('시작 번호는 끝 번호보다 클 수 없습니다.', true);
+    return;
+  }
 
-if (!dueDate) {
-setAssignmentStatus('마감일을 선택하세요.', true);
-return;
-}
+  if (!dueDate) {
+    setAssignmentStatus('마감일을 선택하세요.', true);
+    return;
+  }
 
-createAssignmentBtn.disabled = true;
-createAssignmentBtn.textContent = '생성 중...';
-setAssignmentStatus('');
+  createAssignmentBtn.disabled = true;
+  createAssignmentBtn.textContent = '생성 중...';
+  setAssignmentStatus('');
 
-const payload = {
+  const payload = {
     class_name: className,
     title,
     category,
@@ -589,35 +577,24 @@ const payload = {
     due_date: dueDate,
     created_by: adminUser.id
   };
-  class_name: className,
-  title,
-  category,
-  grade: grade || null,
-  publisher: publisher || null,
-  unit: unit || null,
-  start_index: startIndex,
-  end_index: endIndex,
-  due_date: dueDate,
-  created_by: adminUser.id
-};
 
-const { error } = await supabase
-.from('assignments')
-.insert(payload);
+  const { error } = await supabase
+    .from('assignments')
+    .insert(payload);
 
-if (error) {
-console.error('숙제 생성 실패:', error);
-setAssignmentStatus('숙제 생성 실패: ' + error.message, true);
-createAssignmentBtn.disabled = false;
-createAssignmentBtn.textContent = '숙제 생성';
-return;
-}
+  if (error) {
+    console.error('숙제 생성 실패:', error);
+    setAssignmentStatus('숙제 생성 실패: ' + error.message, true);
+    createAssignmentBtn.disabled = false;
+    createAssignmentBtn.textContent = '숙제 생성';
+    return;
+  }
 
-setAssignmentStatus('숙제가 생성되었습니다.');
-resetAssignmentForm();
+  setAssignmentStatus('숙제가 생성되었습니다.');
+  resetAssignmentForm();
 
-createAssignmentBtn.disabled = false;
-createAssignmentBtn.textContent = '숙제 생성';
+  createAssignmentBtn.disabled = false;
+  createAssignmentBtn.textContent = '숙제 생성';
 }
 
 function getRoleBadge(role) {
@@ -750,6 +727,7 @@ return;
 
 renderTable();
 }
+
 createAssignmentBtn.addEventListener('click', createAssignment);
 loadAdminPage();
 </script>
