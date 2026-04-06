@@ -247,6 +247,10 @@ const failRetryBtn = document.getElementById('failRetryBtn');
 const failMenuBtn = document.getElementById('failMenuBtn');
     
     let me = null, role = 'student', topics = [], currentTopic = null, currentQuestions = [], currentIndex = 0, selectedAnswer = null, score = 0;
+let currentAssignmentId = null;
+let currentAssignment = null;
+let assignmentTopicIds = [];
+let isAssignmentMode = false;
 
     function getProgressKey(){ return me?.id ? `voca_grammar_progress_${me.id}` : 'voca_grammar_progress_guest'; }
     function getProgressStore(){ try { return JSON.parse(localStorage.getItem(getProgressKey()) || '{}'); } catch { return {}; } }
@@ -306,6 +310,7 @@ const failMenuBtn = document.getElementById('failMenuBtn');
     console.error('grammar_progress 저장 실패:', saveError);
     alert('문법 진도 저장 실패: ' + saveError.message);
   }
+      await syncAssignmentProgress();
 }
     function escapeHtml(value){ return String(value ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;'); }
     function flattenQuestions(input){
@@ -317,11 +322,144 @@ const failMenuBtn = document.getElementById('failMenuBtn');
       walk(input);
       return result;
     }
+
+function getAssignmentIdFromUrl() {
+  const params = new URLSearchParams(location.search);
+  return params.get('assignment_id');
+}
+
+function getVisibleTopics() {
+  if (!isAssignmentMode) return topics;
+  if (!assignmentTopicIds.length) return [];
+  return topics.filter(topic => assignmentTopicIds.includes(Number(topic.id)));
+}
+
+function getAssignmentLabel(row) {
+  if (!row) return '';
+  const start = Number(row.start_index);
+  const end = Number(row.end_index);
+  return `${row.title || '문법 숙제'} · 범위 ${start}~${end}`;
+}
+
+async function loadAssignmentContext() {
+  currentAssignmentId = getAssignmentIdFromUrl();
+  isAssignmentMode = !!currentAssignmentId;
+  currentAssignment = null;
+  assignmentTopicIds = [];
+
+  if (!isAssignmentMode) return true;
+
+  const { data: authData, error: authError } = await supabase.auth.getUser();
+  if (authError || !authData?.user) {
+    alert('로그인이 필요합니다.');
+    location.href = 'login.html';
+    return false;
+  }
+
+  const { data: profileRow, error: profileError } = await supabase
+    .from('profiles')
+    .select('user_id, class_name')
+    .eq('user_id', authData.user.id)
+    .single();
+
+  if (profileError || !profileRow) {
+    alert('프로필을 확인할 수 없습니다.');
+    location.href = 'class.html';
+    return false;
+  }
+
+  const { data: assignmentRow, error: assignmentError } = await supabase
+    .from('assignments')
+    .select('id, class_name, title, category, start_index, end_index, due_date')
+    .eq('id', currentAssignmentId)
+    .single();
+
+  if (assignmentError || !assignmentRow) {
+    alert('숙제 정보를 찾을 수 없습니다.');
+    location.href = 'class.html';
+    return false;
+  }
+
+  if (assignmentRow.category !== 'grammar') {
+    alert('이 숙제는 문법 숙제가 아닙니다.');
+    location.href = 'class.html';
+    return false;
+  }
+
+  if ((assignmentRow.class_name || '') !== (profileRow.class_name || '')) {
+    alert('내 반에 배정된 숙제가 아닙니다.');
+    location.href = 'class.html';
+    return false;
+  }
+
+  currentAssignment = assignmentRow;
+
+  const start = Number(assignmentRow.start_index);
+  const end = Number(assignmentRow.end_index);
+
+  if (!Number.isFinite(start) || !Number.isFinite(end) || start > end) {
+    alert('숙제 범위가 올바르지 않습니다.');
+    location.href = 'class.html';
+    return false;
+  }
+
+  assignmentTopicIds = Array.from(
+    { length: end - start + 1 },
+    (_, i) => start + i
+  );
+
+  return true;
+}
+
+async function syncAssignmentProgress() {
+  if (!isAssignmentMode || !currentAssignmentId || !me?.id) return;
+
+  const store = getProgressStore();
+  const totalTopicCount = assignmentTopicIds.length;
+  const completedCount = assignmentTopicIds.filter(topicId => {
+    const row = store[String(topicId)] || store[topicId];
+    return !!row?.completed;
+  }).length;
+
+  const status =
+    completedCount >= totalTopicCount ? 'completed'
+    : completedCount > 0 ? 'in_progress'
+    : 'assigned';
+
+  const now = new Date().toISOString();
+
+  const { error } = await supabase
+    .from('assignment_progress')
+    .upsert(
+      {
+        assignment_id: currentAssignmentId,
+        user_id: me.id,
+        status,
+        completed_count: completedCount,
+        total_count: totalTopicCount,
+        last_studied_at: now,
+        submitted_at: status === 'completed' ? now : null
+      },
+      {
+        onConflict: 'assignment_id,user_id'
+      }
+    );
+
+  if (error) {
+    console.error('assignment_progress 저장 실패:', error);
+  }
+}
+    
     function showMenu(){
   quizView.style.display = 'none';
   menuView.style.display = 'block';
   completeBox.style.display = 'none';
   failPopup.style.display = 'none';
+
+  if (isAssignmentMode && currentAssignment) {
+    topicDesc.textContent = getAssignmentLabel(currentAssignment);
+  }
+
   renderMenu();
 }
 
@@ -399,15 +537,28 @@ function closeFailPopup() {
     }
   }
 
-  const completedCount = Object.values(store).filter(v => v?.completed).length;
-  completedTopicsEl.textContent = completedCount;
+  const visibleTopics = getVisibleTopics();
+const completedCount = visibleTopics.filter(topic => {
+  const progress = store[String(topic.id)] || store[topic.id];
+  return !!progress?.completed;
+}).length;
+completedTopicsEl.textContent = completedCount;
 
-  if (!topics.length) {
-    topicGrid.innerHTML = '<div class="empty">문법 목차를 불러오지 못했습니다.</div>';
-    return;
-  }
+if (!topics.length) {
+  topicGrid.innerHTML = '<div class="empty">문법 목차를 불러오지 못했습니다.</div>';
+  return;
+}
 
-  for (const topic of topics) {
+if (isAssignmentMode && currentAssignment) {
+  topicDesc.textContent = getAssignmentLabel(currentAssignment);
+}
+
+if (!visibleTopics.length) {
+  topicGrid.innerHTML = '<div class="empty">이 숙제에 해당하는 문법 주제가 없습니다.</div>';
+  return;
+}
+
+for (const topic of visibleTopics) {
     const progress = store[String(topic.id)] || store[topic.id];
     const completed = !!progress?.completed;
 
@@ -499,7 +650,11 @@ buttons.forEach((btn, index) => {
         markTopicCompleted(currentTopic.id, currentQuestions.length, score);
         progressBar.style.width = '100%';
         completeBox.style.display = 'block';
-        completeText.textContent = `${currentTopic.title} 완료!`;
+        if (isAssignmentMode && currentAssignment) {
+  completeText.textContent = `숙제 주제 완료! 남은 숙제를 이어서 진행하세요.`;
+} else {
+  completeText.textContent = `${currentTopic.title} 완료!`;
+}
       }
     }, 600);
 
@@ -548,8 +703,17 @@ failMenuBtn.addEventListener('click', () => {
     document.getElementById('logoutBtn').addEventListener('click', logout);
     document.getElementById('homeBtn').addEventListener('click', () => { if (role === 'admin') location.href='admin.html'; else location.href='class.html'; });
 
-    async function init(){ const ok = await requireAuth(); if (!ok) return; await loadTopics(); }
-    init();
+    async function init() {
+  const ok = await requireAuth();
+  if (!ok) return;
+
+  const assignmentOk = await loadAssignmentContext();
+  if (!assignmentOk) return;
+
+  await loadTopics();
+}
+
+init();
   </script>
 </body>
   
