@@ -332,24 +332,24 @@ return d.toLocaleString('ko-KR');
 }
 
 function calcProgress(maxIndex) {
-const safe = Number(maxIndex);
+  const safe = Number(maxIndex);
 
-if (!Number.isFinite(safe) || safe < 0) {
-return {
-completed: 0,
-percent: 0,
-text: `0 / ${TOTAL_SENTENCES}`
-};
-}
+  if (!Number.isFinite(safe) || safe < 0) {
+    return {
+      completed: 0,
+      percent: 0,
+      text: `0 / ${TOTAL_SENTENCES}`
+    };
+  }
 
-const completed = Math.min(safe, TOTAL_SENTENCES);
-const percent = Math.min((completed / TOTAL_SENTENCES) * 100, 100);
+  const completed = Math.min(safe, TOTAL_SENTENCES);
+  const percent = Math.min((completed / TOTAL_SENTENCES) * 100, 100);
 
-return {
-completed,
-percent,
-text: `${completed} / ${TOTAL_SENTENCES}`
-};
+  return {
+    completed,
+    percent,
+    text: `${completed} / ${TOTAL_SENTENCES}`
+  };
 }
 
 function calcGrammarProgress(completedTopicCount) {
