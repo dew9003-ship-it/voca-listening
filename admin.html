@@ -382,7 +382,7 @@ return (profile.class_name || '') === selectedClassName;
 
 
 if (!filteredProfiles.length) {
-tbody.innerHTML = '<tr><td colspan="9">해당 반의 학생이 없습니다.</td></tr>';
+tbody.innerHTML = '<tr><td colspan="11">해당 반의 학생이 없습니다.</td></tr>';
 statusEl.textContent =
 selectedClassName === '전체'
 ? '표시할 사용자 데이터가 없습니다.'
@@ -653,7 +653,7 @@ return user;
 
 async function loadAdminPage() {
 statusEl.textContent = '불러오는 중...';
-tbody.innerHTML = '<tr><td colspan="8">데이터를 불러오는 중입니다...</td></tr>';
+tbody.innerHTML = '<tr><td colspan="11">데이터를 불러오는 중입니다...</td></tr>';
 
 const user = await requireAdmin();
 if (!user) return;
@@ -666,7 +666,7 @@ const { data: profiles, error: profilesError } = await supabase
 if (profilesError) {
 console.error(profilesError);
 statusEl.textContent = 'profiles 조회 실패';
-tbody.innerHTML = `<tr><td colspan="8">profiles 조회 실패: ${escapeHtml(profilesError.message)}</td></tr>`;
+tbody.innerHTML = `<tr><td colspan="11">profiles 조회 실패: ${escapeHtml(profilesError.message)}</td></tr>`;
 return;
 }
 
@@ -683,14 +683,14 @@ const { data: grammarRows, error: grammarError } = await supabase
 if (progressError) {
 console.error(progressError);
 statusEl.textContent = 'listening_progress 조회 실패';
-tbody.innerHTML = `<tr><td colspan="8">progress 조회 실패: ${escapeHtml(progressError.message)}</td></tr>`;
+tbody.innerHTML = `<tr><td colspan="11">progress 조회 실패: ${escapeHtml(progressError.message)}</td></tr>`;
 return;
 }
 
 if (grammarError) {
 console.error(grammarError);
 statusEl.textContent = 'grammar_progress 조회 실패';
-tbody.innerHTML = `<tr><td colspan="8">grammar_progress 조회 실패: ${escapeHtml(grammarError.message)}</td></tr>`;
+tbody.innerHTML = `<tr><td colspan="11">grammar_progress 조회 실패: ${escapeHtml(grammarError.message)}</td></tr>`;
 return;
 }
 
@@ -721,7 +721,7 @@ totalProgressUsersEl.textContent = totalProgressUsers;
 
 if (!profiles || profiles.length === 0) {
 statusEl.textContent = '사용자 데이터가 없습니다.';
-tbody.innerHTML = '<tr><td colspan="8">등록된 사용자가 없습니다.</td></tr>';
+tbody.innerHTML = '<tr><td colspan="11">등록된 사용자가 없습니다.</td></tr>';
 return;
 }
 

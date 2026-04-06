@@ -377,31 +377,6 @@ menuLoading.style.display='none';
 renderMenu();
 }
 
-    function renderMenu(){
-      topicGrid.innerHTML='';
-      const store = getProgressStore();
-      const completedCount = Object.values(store).filter(v => v?.completed).length;
-      completedTopicsEl.textContent = completedCount;
-      if (!topics.length) { topicGrid.innerHTML = '<div class="empty">문법 목차를 불러오지 못했습니다.</div>'; return; }
-
-      for (const topic of topics) {
-        const progress = store[topic.id];
-        const completed = !!progress?.completed;
-        const card = document.createElement('button');
-        card.type='button';
-        card.className = `topic-card ${completed ? 'completed' : ''}`;
-        card.innerHTML = `
-          <div>
-            <div class="badge">${completed ? '완료' : '학습 가능'}</div>
-            <div class="topic-title">${escapeHtml(topic.title || `주제 ${topic.id}`)}</div>
-          </div>
-          <div class="topic-meta">
-            ID: ${escapeHtml(topic.id)}<br>
-            ${completed ? `최근 학습: ${new Date(progress.lastStudiedAt).toLocaleDateString('ko-KR')}` : '문제를 눌러 시작'}
-          </div>`;
-        card.addEventListener('click', () => startTopic(topic));
-        topicGrid.appendChild(card);
-      }
     async function renderMenu() {
   topicGrid.innerHTML = '';
 
@@ -421,7 +396,7 @@ renderMenu();
         ...serverRow.completed_topics
       };
       setProgressStore(store);
-}
+    }
   }
 
   const completedCount = Object.values(store).filter(v => v?.completed).length;
@@ -446,7 +421,7 @@ renderMenu();
       </div>
       <div class="topic-meta">
         ID: ${escapeHtml(topic.id)}<br>
-        ${completed
+        ${completed && progress?.lastStudiedAt
           ? `최근 학습: ${new Date(progress.lastStudiedAt).toLocaleDateString('ko-KR')}`
           : '문제를 눌러 시작'}
       </div>`;
