@@ -670,44 +670,6 @@ for (const topic of visibleTopics) {
   }
 }
 
-  resultBox.style.display = 'block';
-
-  if (choiceNumber === correct) {
-    score += 1;
-    quizStatus.textContent = '정답입니다!';
-    playCorrectSound();
-    playCorrectEffect();
-    resultBox.className = 'result-box correct';
-    resultBox.textContent = '정답입니다.';
-
-    setTimeout(() => {
-      if (currentIndex < currentQuestions.length - 1) {
-        currentIndex += 1;
-        renderQuestion();
-      } else {
-        await markTopicCompleted(currentTopic.id, currentQuestions.length, score);
-        progressBar.style.width = '100%';
-        completeBox.style.display = 'block';
-        if (isAssignmentMode && currentAssignment) {
-  completeText.textContent = `숙제 주제 완료! 남은 숙제를 이어서 진행하세요.`;
-} else {
-  completeText.textContent = `${currentTopic.title} 완료!`;
-}
-      }
-    }, 600);
-
-  } else {
-    quizStatus.textContent = '오답입니다.';
-    playWrongEffect();
-    resultBox.className = 'result-box wrong';
-    resultBox.textContent = '오답입니다.';
-
-    setTimeout(() => {
-      openFailPopup();   // ⭐ 이게 핵심
-    }, 500);
-  }
-}
-
     function handleNext(){
       if (selectedAnswer === null) return;
       if (currentIndex < currentQuestions.length - 1) { currentIndex += 1; renderQuestion(); return; }
