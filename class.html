@@ -1,163 +1,163 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>우리 반 진도판</title>
-  <style>
-    * { box-sizing: border-box; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>우리 반 진도판</title>
+<style>
+* { box-sizing: border-box; }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      color: #222;
-    }
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background: #f4f6f8;
+color: #222;
+}
 
-    .wrap {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+.wrap {
+max-width: 1000px;
+margin: 0 auto;
+padding: 20px;
+}
 
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
+.topbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 10px;
+margin-bottom: 20px;
+flex-wrap: wrap;
+}
 
-    h1 {
-      margin: 0;
-      font-size: 24px;
-    }
+h1 {
+margin: 0;
+font-size: 24px;
+}
 
-    .subtext {
-      margin-top: 6px;
-      font-size: 14px;
-      color: #666;
-    }
+.subtext {
+margin-top: 6px;
+font-size: 14px;
+color: #666;
+}
 
-    .btns {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+.btns {
+display: flex;
+gap: 8px;
+flex-wrap: wrap;
+}
 
-    button {
-      border: none;
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+button {
+border: none;
+border-radius: 10px;
+padding: 10px 14px;
+font-size: 14px;
+font-weight: bold;
+cursor: pointer;
+}
 
-    .study-btn {
-      background: #4caf50;
-      color: white;
-    }
+.study-btn {
+background: #4caf50;
+color: white;
+}
 
-    .refresh-btn {
-      background: #2196f3;
-      color: white;
-    }
+.refresh-btn {
+background: #2196f3;
+color: white;
+}
 
-    .logout-btn {
-      background: #607d8b;
-      color: white;
-    }
+.logout-btn {
+background: #607d8b;
+color: white;
+}
 
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 16px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-      margin-bottom: 16px;
-    }
+.card {
+background: white;
+border-radius: 16px;
+padding: 16px;
+box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+margin-bottom: 16px;
+}
 
-    .status {
-      margin-bottom: 12px;
-      font-size: 14px;
-      color: #444;
-    }
+.status {
+margin-bottom: 12px;
+font-size: 14px;
+color: #444;
+}
 
-    .class-badge {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #e8f0ff;
-      color: #2459c3;
-      font-size: 13px;
-      font-weight: bold;
-      margin-top: 8px;
-    }
+.class-badge {
+display: inline-block;
+padding: 6px 10px;
+border-radius: 999px;
+background: #e8f0ff;
+color: #2459c3;
+font-size: 13px;
+font-weight: bold;
+margin-top: 8px;
+}
 
-    .table-wrap {
-      overflow-x: auto;
-    }
+.table-wrap {
+overflow-x: auto;
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 760px;
-      background: white;
-    }
+table {
+width: 100%;
+border-collapse: collapse;
+min-width: 760px;
+background: white;
+}
 
-    th, td {
-      padding: 12px 10px;
-      border-bottom: 1px solid #e5e7eb;
-      text-align: left;
-      font-size: 14px;
-      vertical-align: middle;
-    }
+th, td {
+padding: 12px 10px;
+border-bottom: 1px solid #e5e7eb;
+text-align: left;
+font-size: 14px;
+vertical-align: middle;
+}
 
-    th {
-      background: #f8fafc;
-      position: sticky;
-      top: 0;
-      z-index: 1;
-    }
+th {
+background: #f8fafc;
+position: sticky;
+top: 0;
+z-index: 1;
+}
 
-    .rank {
-      font-weight: bold;
-      font-size: 15px;
-    }
+.rank {
+font-weight: bold;
+font-size: 15px;
+}
 
-    .me-row {
-      background: #f0f9ff;
-    }
+.me-row {
+background: #f0f9ff;
+}
 
-    .progress-box {
-      min-width: 180px;
-    }
+.progress-box {
+min-width: 180px;
+}
 
-    .progress-bar {
-      width: 100%;
-      height: 10px;
-      background: #e5e7eb;
-      border-radius: 999px;
-      overflow: hidden;
-      margin-top: 6px;
-    }
+.progress-bar {
+width: 100%;
+height: 10px;
+background: #e5e7eb;
+border-radius: 999px;
+overflow: hidden;
+margin-top: 6px;
+}
 
-    .progress-fill {
-      height: 100%;
-      background: #4caf50;
-      width: 0%;
-    }
+.progress-fill {
+height: 100%;
+background: #4caf50;
+width: 0%;
+}
 
-    .muted {
-      color: #888;
-    }
+.muted {
+color: #888;
+}
 
-    .empty {
-      text-align: center;
-      padding: 30px 10px;
-      color: #666;
-    }
+.empty {
+text-align: center;
+padding: 30px 10px;
+color: #666;
+}
 
     .assignment-list {
   display: grid;
@@ -216,33 +216,33 @@
   color: white;
 }
 
-    @media (max-width: 600px) {
-      .wrap {
-        padding: 14px;
-      }
+@media (max-width: 600px) {
+.wrap {
+padding: 14px;
+}
 
-      h1 {
-        font-size: 20px;
-      }
-    }
-  </style>
+h1 {
+font-size: 20px;
+}
+}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="topbar">
-      <div>
-        <h1>우리 반 진도판</h1>
-        <div class="subtext">같은 반 친구들의 학습 진도를 확인할 수 있어요.</div>
-        <div id="classBadge" class="class-badge" style="display:none;"></div>
-      </div>
-
-      <div class="btns">
-  <button id="studyBtn" class="study-btn">듣기 학습</button>
-  <button id="grammarBtn" class="study-btn">문법 학습</button>
-  <button id="refreshBtn" class="refresh-btn">새로고침</button>
-  <button id="logoutBtn" class="logout-btn">로그아웃</button>
+<div class="wrap">
+<div class="topbar">
+<div>
+<h1>우리 반 진도판</h1>
+<div class="subtext">같은 반 친구들의 학습 진도를 확인할 수 있어요.</div>
+<div id="classBadge" class="class-badge" style="display:none;"></div>
 </div>
-    </div>
+
+<div class="btns">
+<button id="studyBtn" class="study-btn">듣기 학습</button>
+<button id="grammarBtn" class="study-btn">문법 학습</button>
+<button id="refreshBtn" class="refresh-btn">새로고침</button>
+<button id="logoutBtn" class="logout-btn">로그아웃</button>
+</div>
+</div>
 
 <div class="card">
   <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
@@ -256,131 +256,131 @@
   <div id="assignmentList"></div>
 </div>
     
-    <div class="card">
-      <div id="status" class="status">불러오는 중...</div>
+<div class="card">
+<div id="status" class="status">불러오는 중...</div>
 
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>순위</th>
-              <th>이름</th>
-              <th>진도율</th>
-              <th>최근학습시간</th>
-              <th>반</th>
-            </tr>
-          </thead>
-          <tbody id="tableBody">
-            <tr>
-              <td colspan="5" class="empty">데이터를 불러오는 중입니다...</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>순위</th>
+<th>이름</th>
+<th>진도율</th>
+<th>최근학습시간</th>
+<th>반</th>
+</tr>
+</thead>
+<tbody id="tableBody">
+<tr>
+<td colspan="5" class="empty">데이터를 불러오는 중입니다...</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 
-  <script type="module">
-    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
-    const supabase = createClient(
-      'https://uuzhdxangctewuklvmlv.supabase.co',
-      'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
-    );
+const supabase = createClient(
+'https://uuzhdxangctewuklvmlv.supabase.co',
+'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
+);
 
-    const TOTAL_SENTENCES = 177;
+const TOTAL_SENTENCES = 177;
 
-    const statusEl = document.getElementById('status');
-    const tableBody = document.getElementById('tableBody');
-    const classBadge = document.getElementById('classBadge');
+const statusEl = document.getElementById('status');
+const tableBody = document.getElementById('tableBody');
+const classBadge = document.getElementById('classBadge');
     const assignmentStatusEl = document.getElementById('assignmentStatus');
 const assignmentListEl = document.getElementById('assignmentList');
 
-    document.getElementById('studyBtn').addEventListener('click', () => {
-      location.href = 'index.html';
-    });
-
-    document.getElementById('grammarBtn').addEventListener('click', () => {
-  location.href = 'grammar.html';
+document.getElementById('studyBtn').addEventListener('click', () => {
+location.href = 'index.html';
 });
 
-    document.getElementById('refreshBtn').addEventListener('click', () => {
-      loadClassPage();
-    });
+document.getElementById('grammarBtn').addEventListener('click', () => {
+location.href = 'grammar.html';
+});
 
-    document.getElementById('logoutBtn').addEventListener('click', async () => {
-      await supabase.auth.signOut();
-      location.href = 'login.html';
-    });
+document.getElementById('refreshBtn').addEventListener('click', () => {
+loadClassPage();
+});
 
-    function escapeHtml(value) {
-      return String(value ?? '')
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#039;');
-    }
+document.getElementById('logoutBtn').addEventListener('click', async () => {
+await supabase.auth.signOut();
+location.href = 'login.html';
+});
 
-    function formatDate(value) {
-      if (!value) return '-';
-      const d = new Date(value);
-      if (Number.isNaN(d.getTime())) return value;
-      return d.toLocaleString('ko-KR');
-    }
+function escapeHtml(value) {
+return String(value ?? '')
+.replaceAll('&', '&amp;')
+.replaceAll('<', '&lt;')
+.replaceAll('>', '&gt;')
+.replaceAll('"', '&quot;')
+.replaceAll("'", '&#039;');
+}
 
-    function calcProgress(maxIndex) {
-      const safe = Number(maxIndex);
+function formatDate(value) {
+if (!value) return '-';
+const d = new Date(value);
+if (Number.isNaN(d.getTime())) return value;
+return d.toLocaleString('ko-KR');
+}
 
-      if (!Number.isFinite(safe) || safe < 0) {
-        return {
-          completed: 0,
-          percent: 0,
-          text: `0 / ${TOTAL_SENTENCES}`
-        };
-      }
+function calcProgress(maxIndex) {
+const safe = Number(maxIndex);
 
-      const completed = Math.min(safe, TOTAL_SENTENCES);
-      const percent = Math.min((completed / TOTAL_SENTENCES) * 100, 100);
+if (!Number.isFinite(safe) || safe < 0) {
+return {
+completed: 0,
+percent: 0,
+text: `0 / ${TOTAL_SENTENCES}`
+};
+}
 
-      return {
-        completed,
-        percent,
-        text: `${completed} / ${TOTAL_SENTENCES}`
-      };
-    }
+const completed = Math.min(safe, TOTAL_SENTENCES);
+const percent = Math.min((completed / TOTAL_SENTENCES) * 100, 100);
 
-    async function requireStudent() {
-      const { data: authData, error: authError } = await supabase.auth.getUser();
+return {
+completed,
+percent,
+text: `${completed} / ${TOTAL_SENTENCES}`
+};
+}
 
-      if (authError || !authData.user) {
-        alert('로그인이 필요합니다.');
-        location.href = 'login.html';
-        return null;
-      }
+async function requireStudent() {
+const { data: authData, error: authError } = await supabase.auth.getUser();
 
-      const { data: me, error: meError } = await supabase
-        .from('profiles')
-        .select('user_id, name, role, class_name')
-        .eq('user_id', authData.user.id)
-        .single();
+if (authError || !authData.user) {
+alert('로그인이 필요합니다.');
+location.href = 'login.html';
+return null;
+}
 
-      if (meError || !me) {
-        alert('내 프로필을 확인할 수 없습니다.');
-        location.href = 'login.html';
-        return null;
-      }
+const { data: me, error: meError } = await supabase
+.from('profiles')
+.select('user_id, name, role, class_name')
+.eq('user_id', authData.user.id)
+.single();
 
-      if (me.role === 'admin') {
-        location.href = 'admin.html';
-        return null;
-      }
+if (meError || !me) {
+alert('내 프로필을 확인할 수 없습니다.');
+location.href = 'login.html';
+return null;
+}
 
-      return {
-        authUser: authData.user,
-        profile: me
-      };
-    }
+if (me.role === 'admin') {
+location.href = 'admin.html';
+return null;
+}
+
+return {
+authUser: authData.user,
+profile: me
+};
+}
 
     function getCategoryLabel(category) {
   if (category === 'grammar') return '문법';
@@ -436,15 +436,15 @@ function renderAssignments(assignments) {
     
 window.__openAssignment = moveToAssignmentPage;
     
-    async function loadClassPage() {
-      statusEl.textContent = '불러오는 중...';
-      tableBody.innerHTML = '<tr><td colspan="5" class="empty">데이터를 불러오는 중입니다...</td></tr>';
+async function loadClassPage() {
+statusEl.textContent = '불러오는 중...';
+tableBody.innerHTML = '<tr><td colspan="5" class="empty">데이터를 불러오는 중입니다...</td></tr>';
 
-      const meData = await requireStudent();
-      if (!meData) return;
+const meData = await requireStudent();
+if (!meData) return;
 
-      const myUserId = meData.profile.user_id;
-      const myClassName = meData.profile.class_name;
+const myUserId = meData.profile.user_id;
+const myClassName = meData.profile.class_name;
 
       assignmentStatusEl.textContent = '숙제를 불러오는 중...';
 assignmentListEl.innerHTML = '<div class="empty">숙제를 불러오는 중입니다...</div>';
@@ -459,31 +459,15 @@ if (assignmentError) {
   assignmentStatusEl.textContent = '숙제 조회 실패';
   assignmentListEl.innerHTML = `<div class="empty">${escapeHtml(assignmentError.message)}</div>`;
 } else {
-  const { data: progressRows, error: progressError } = await supabase
-    .from('assignment_progress')
-    .select('assignment_id, status')
-    .eq('user_id', myUserId);
-
-  if (progressError) {
-    assignmentStatusEl.textContent = '숙제 진행 조회 실패';
-    assignmentListEl.innerHTML = `<div class="empty">${escapeHtml(progressError.message)}</div>`;
-    return;
-  }
-
-  const completedAssignmentIds = new Set(
-    (progressRows || [])
-      .filter(row => row.status === 'completed')
-      .map(row => String(row.assignment_id))
-  );
-
-  const visibleAssignments = (assignmentRows || []).filter(row => {
-    return !completedAssignmentIds.has(String(row.id));
-  });
-
-  renderAssignments(visibleAssignments);
+  renderAssignments(assignmentRows || []);
 }
 
-      if (!myClassName) {
+if (!myClassName) {
+        classBadge.style.display = 'none';
+        statusEl.textContent = '내 반 정보가 아직 설정되지 않았습니다.';
+        tableBody.innerHTML = '<tr><td colspan="5" class="empty">반 정보가 없습니다. 관리자에게 class_name 설정을 요청하세요.</td></tr>';
+        return;
+      }
   classBadge.style.display = 'none';
   statusEl.textContent = '내 반 정보가 아직 설정되지 않았습니다.';
   tableBody.innerHTML = '<tr><td colspan="5" class="empty">반 정보가 없습니다. 관리자에게 class_name 설정을 요청하세요.</td></tr>';
@@ -492,92 +476,92 @@ if (assignmentError) {
   return;
 }
 
-      classBadge.style.display = 'inline-block';
-      classBadge.textContent = `반: ${myClassName}`;
+classBadge.style.display = 'inline-block';
+classBadge.textContent = `반: ${myClassName}`;
 
-      const { data: classmates, error: classmatesError } = await supabase
-        .from('profiles')
-        .select('user_id, name, class_name, role')
-        .eq('class_name', myClassName)
-        .eq('role', 'student');
+const { data: classmates, error: classmatesError } = await supabase
+.from('profiles')
+.select('user_id, name, class_name, role')
+.eq('class_name', myClassName)
+.eq('role', 'student');
 
-      if (classmatesError) {
-        statusEl.textContent = '반 학생 목록 조회 실패';
-        tableBody.innerHTML = `<tr><td colspan="5" class="empty">${escapeHtml(classmatesError.message)}</td></tr>`;
-        return;
-      }
-
-      const { data: progressRows, error: progressError } = await supabase
-  .from('listening_progress')
-  .select('user_id, max_index, last_studied_at');
-
-      if (progressError) {
-        statusEl.textContent = '진도 조회 실패';
-        tableBody.innerHTML = `<tr><td colspan="5" class="empty">${escapeHtml(progressError.message)}</td></tr>`;
-        return;
-      }
-
-      const progressMap = new Map();
-for (const row of progressRows || []) {
-  progressMap.set(row.user_id, row);
+if (classmatesError) {
+statusEl.textContent = '반 학생 목록 조회 실패';
+tableBody.innerHTML = `<tr><td colspan="5" class="empty">${escapeHtml(classmatesError.message)}</td></tr>`;
+return;
 }
 
-     const merged = (classmates || []).map(profile => {
-  const progressRow = progressMap.get(profile.user_id);
-  const progress = calcProgress(progressRow?.max_index);
+const { data: progressRows, error: progressError } = await supabase
+.from('listening_progress')
+.select('user_id, max_index, last_studied_at');
 
-  return {
-    ...profile,
-    progressCompleted: progress.completed,
-    progressPercent: progress.percent,
-    progressText: progress.text,
-    lastStudiedAt: progressRow?.last_studied_at || null
-  };
+if (progressError) {
+statusEl.textContent = '진도 조회 실패';
+tableBody.innerHTML = `<tr><td colspan="5" class="empty">${escapeHtml(progressError.message)}</td></tr>`;
+return;
+}
+
+const progressMap = new Map();
+for (const row of progressRows || []) {
+progressMap.set(row.user_id, row);
+}
+
+const merged = (classmates || []).map(profile => {
+const progressRow = progressMap.get(profile.user_id);
+const progress = calcProgress(progressRow?.max_index);
+
+return {
+...profile,
+progressCompleted: progress.completed,
+progressPercent: progress.percent,
+progressText: progress.text,
+lastStudiedAt: progressRow?.last_studied_at || null
+};
 });
 
-      merged.sort((a, b) => {
-        if (b.progressCompleted !== a.progressCompleted) {
-          return b.progressCompleted - a.progressCompleted;
-        }
+merged.sort((a, b) => {
+if (b.progressCompleted !== a.progressCompleted) {
+return b.progressCompleted - a.progressCompleted;
+}
 
-        const aTime = a.lastStudiedAt ? new Date(a.lastStudiedAt).getTime() : 0;
-        const bTime = b.lastStudiedAt ? new Date(b.lastStudiedAt).getTime() : 0;
-        return bTime - aTime;
-      });
+const aTime = a.lastStudiedAt ? new Date(a.lastStudiedAt).getTime() : 0;
+const bTime = b.lastStudiedAt ? new Date(b.lastStudiedAt).getTime() : 0;
+return bTime - aTime;
+});
 
-      if (merged.length === 0) {
-        statusEl.textContent = '같은 반 학생이 없습니다.';
-        tableBody.innerHTML = '<tr><td colspan="5" class="empty">같은 반 학생 데이터가 없습니다.</td></tr>';
-        return;
-      }
+if (merged.length === 0) {
+statusEl.textContent = '같은 반 학생이 없습니다.';
+tableBody.innerHTML = '<tr><td colspan="5" class="empty">같은 반 학생 데이터가 없습니다.</td></tr>';
+return;
+}
 
-      const rowsHtml = merged.map((row, index) => {
-        const isMe = row.user_id === myUserId;
+const rowsHtml = merged.map((row, index) => {
+const isMe = row.user_id === myUserId;
 
-        return `
-          <tr class="${isMe ? 'me-row' : ''}">
-            <td class="rank">${index + 1}</td>
-            <td>
-              ${escapeHtml(row.name || '-')}
-              ${isMe ? ' <span class="muted">(나)</span>' : ''}
-            </td>
-            <td class="progress-box">
-              <div>${escapeHtml(row.progressText)}</div>
-              <div class="progress-bar">
-                <div class="progress-fill" style="width:${row.progressPercent}%"></div>
-              </div>
-            </td>
-            <td>${escapeHtml(formatDate(row.lastStudiedAt))}</td>
-            <td>${escapeHtml(row.class_name || '-')}</td>
-          </tr>
-        `;
-      }).join('');
+return `
+         <tr class="${isMe ? 'me-row' : ''}">
+           <td class="rank">${index + 1}</td>
+           <td>
+             ${escapeHtml(row.name || '-')}
+             ${isMe ? ' <span class="muted">(나)</span>' : ''}
+           </td>
+           <td class="progress-box">
+             <div>${escapeHtml(row.progressText)}</div>
+             <div class="progress-bar">
+               <div class="progress-fill" style="width:${row.progressPercent}%"></div>
+             </div>
+           </td>
+           <td>${escapeHtml(formatDate(row.lastStudiedAt))}</td>
+           <td>${escapeHtml(row.class_name || '-')}</td>
+         </tr>
+       `;
+}).join('');
 
-      tableBody.innerHTML = rowsHtml;
-      statusEl.textContent = `${escapeHtml(myClassName)} 반 학생 ${merged.length}명의 진도를 표시합니다.`;
-    }
+tableBody.innerHTML = rowsHtml;
+statusEl.textContent = `${escapeHtml(myClassName)} 반 학생 ${merged.length}명의 진도를 표시합니다.`;
+}
 
-    loadClassPage();
-  </script>
+loadClassPage();
+</script>
 </body>
 </html>
