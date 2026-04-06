@@ -595,17 +595,17 @@ return `
              ${isMe ? ' <span class="muted">(나)</span>' : ''}
            </td>
            <td class="progress-box">
+  <div>${escapeHtml(row.progressText || `0 / ${TOTAL_SENTENCES}`)}</div>
+  <div class="progress-bar">
+    <div class="progress-fill" style="width:${Number(row.progressPercent || 0)}%"></div>
+  </div>
+</td>
+<td class="progress-box">
   <div>${escapeHtml(row.grammarText || `0 / ${TOTAL_GRAMMAR_TOPICS}`)}</div>
   <div class="progress-bar">
     <div class="progress-fill" style="width:${Number(row.grammarPercent || 0)}%"></div>
   </div>
 </td>
-           <td class="progress-box">
-             <div>${escapeHtml(row.grammarText)}</div>
-             <div class="progress-bar">
-               <div class="progress-fill" style="width:${row.grammarPercent}%"></div>
-             </div>
-           </td>
            <td>${escapeHtml(formatDate(row.lastStudiedAt))}</td>
            <td>${escapeHtml(row.class_name || '-')}</td>
          </tr>
