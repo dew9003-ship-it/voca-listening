@@ -169,7 +169,34 @@
         <div class="value" id="totalProgressUsers">-</div>
       </div>
     </div>
+<div class="card">
+  <h2 style="margin:0 0 14px 0; font-size:20px;">숙제 만들기</h2>
 
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:10px;">
+    <input id="assignmentClass" type="text" placeholder="반 이름" style="padding:10px; border:1px solid #ddd; border-radius:10px;" />
+    <input id="assignmentTitle" type="text" placeholder="숙제 제목" style="padding:10px; border:1px solid #ddd; border-radius:10px;" />
+
+    <select id="assignmentCategory" style="padding:10px; border:1px solid #ddd; border-radius:10px;">
+      <option value="listening">듣기</option>
+      <option value="grammar">문법</option>
+      <option value="exam">시험대비</option>
+    </select>
+
+    <input id="assignmentGrade" type="text" placeholder="학년 (예: 중1)" style="padding:10px; border:1px solid #ddd; border-radius:10px;" />
+    <input id="assignmentPublisher" type="text" placeholder="출판사" style="padding:10px; border:1px solid #ddd; border-radius:10px;" />
+    <input id="assignmentUnit" type="text" placeholder="단원명" style="padding:10px; border:1px solid #ddd; border-radius:10px;" />
+
+    <input id="assignmentStartIndex" type="number" placeholder="시작 번호" style="padding:10px; border:1px solid #ddd; border-radius:10px;" />
+    <input id="assignmentEndIndex" type="number" placeholder="끝 번호" style="padding:10px; border:1px solid #ddd; border-radius:10px;" />
+    <input id="assignmentDueDate" type="date" style="padding:10px; border:1px solid #ddd; border-radius:10px;" />
+  </div>
+
+  <div style="margin-top:12px;">
+    <button id="createAssignmentBtn" class="home-btn">숙제 생성</button>
+  </div>
+
+  <div id="assignmentCreateStatus" style="margin-top:10px; font-size:14px; color:#444;"></div>
+</div>
     <div class="card">
   <div class="status" id="status">불러오는 중...</div>
 
