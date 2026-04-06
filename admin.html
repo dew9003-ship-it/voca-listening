@@ -272,6 +272,7 @@ let grammarMap = new Map();
     const totalStudentsEl = document.getElementById('totalStudents');
     const totalAdminsEl = document.getElementById('totalAdmins');
     const totalProgressUsersEl = document.getElementById('totalProgressUsers');
+    const assignmentClassEl = document.getElementById('assignmentClass');
 
     document.getElementById('refreshBtn').addEventListener('click', loadAdminPage);
     document.getElementById('homeBtn').addEventListener('click', () => {
@@ -310,6 +311,16 @@ let grammarMap = new Map();
 
   classFilterWrap.innerHTML = '';
 
+  if (assignmentClassEl) {
+    assignmentClassEl.innerHTML = '<option value="">반 선택</option>';
+    for (const className of classNames) {
+      const option = document.createElement('option');
+      option.value = className;
+      option.textContent = className;
+      assignmentClassEl.appendChild(option);
+    }
+  }
+
   const allBtn = document.createElement('button');
   allBtn.type = 'button';
   allBtn.textContent = '전체';
@@ -322,10 +333,10 @@ let grammarMap = new Map();
   allBtn.style.background = selectedClassName === '전체' ? '#4f8cff' : '#e5e7eb';
   allBtn.style.color = selectedClassName === '전체' ? 'white' : '#333';
   allBtn.onclick = () => {
-  selectedClassName = '전체';
-  renderTable();
-  renderClassFilters(allProfiles);
-};
+    selectedClassName = '전체';
+    renderTable();
+    renderClassFilters(allProfiles);
+  };
   classFilterWrap.appendChild(allBtn);
 
   for (const className of classNames) {
@@ -341,10 +352,10 @@ let grammarMap = new Map();
     btn.style.background = selectedClassName === className ? '#4caf50' : '#e5e7eb';
     btn.style.color = selectedClassName === className ? 'white' : '#333';
     btn.onclick = () => {
-  selectedClassName = className;
-  renderTable();
-  renderClassFilters(allProfiles);
-};
+      selectedClassName = className;
+      renderTable();
+      renderClassFilters(allProfiles);
+    };
     classFilterWrap.appendChild(btn);
   }
 }
