@@ -514,8 +514,18 @@ const { data: progressRows, error: progressError } = await supabase
 .select('user_id, max_index, last_studied_at');
 
 if (progressError) {
-statusEl.textContent = '진도 조회 실패';
+statusEl.textContent = '듣기 진도 조회 실패';
 tableBody.innerHTML = `<tr><td colspan="6" class="empty">${escapeHtml(progressError.message)}</td></tr>`;
+return;
+}
+
+const { data: grammarRows, error: grammarError } = await supabase
+.from('grammar_progress')
+.select('user_id, completed_topic_count, last_studied_at');
+
+if (grammarError) {
+statusEl.textContent = '문법 진도 조회 실패';
+tableBody.innerHTML = `<tr><td colspan="6" class="empty">${escapeHtml(grammarError.message)}</td></tr>`;
 return;
 }
 
@@ -524,16 +534,37 @@ for (const row of progressRows || []) {
 progressMap.set(row.user_id, row);
 }
 
+const grammarMap = new Map();
+for (const row of grammarRows || []) {
+grammarMap.set(row.user_id, row);
+}
+
 const merged = (classmates || []).map(profile => {
 const progressRow = progressMap.get(profile.user_id);
 const progress = calcProgress(progressRow?.max_index);
+
+const grammarRow = grammarMap.get(profile.user_id);
+const grammar = calcGrammarProgress(grammarRow?.completed_topic_count);
+
+const listeningTime = progressRow?.last_studied_at
+? new Date(progressRow.last_studied_at).getTime()
+: 0;
+
+const grammarTime = grammarRow?.last_studied_at
+? new Date(grammarRow.last_studied_at).getTime()
+: 0;
 
 return {
 ...profile,
 progressCompleted: progress.completed,
 progressPercent: progress.percent,
 progressText: progress.text,
-lastStudiedAt: progressRow?.last_studied_at || null
+grammarCompleted: grammar.completed,
+grammarPercent: grammar.percent,
+grammarText: grammar.text,
+lastStudiedAt: listeningTime >= grammarTime
+  ? (progressRow?.last_studied_at || null)
+  : (grammarRow?.last_studied_at || null)
 };
 });
 
@@ -564,11 +595,11 @@ return `
              ${isMe ? ' <span class="muted">(나)</span>' : ''}
            </td>
            <td class="progress-box">
-             <div>${escapeHtml(row.progressText)}</div>
-             <div class="progress-bar">
-               <div class="progress-fill" style="width:${row.progressPercent}%"></div>
-             </div>
-           </td>
+  <div>${escapeHtml(row.grammarText || `0 / ${TOTAL_GRAMMAR_TOPICS}`)}</div>
+  <div class="progress-bar">
+    <div class="progress-fill" style="width:${Number(row.grammarPercent || 0)}%"></div>
+  </div>
+</td>
            <td class="progress-box">
              <div>${escapeHtml(row.grammarText)}</div>
              <div class="progress-bar">
