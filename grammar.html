@@ -428,25 +428,23 @@ async function syncAssignmentProgress() {
 
   const now = new Date().toISOString();
 
+  const payload = {
+    assignment_id: currentAssignmentId,
+    user_id: me.id,
+    status,
+    last_studied_at: now,
+    submitted_at: status === 'completed' ? now : null
+  };
+
   const { error } = await supabase
     .from('assignment_progress')
-    .upsert(
-      {
-        assignment_id: currentAssignmentId,
-        user_id: me.id,
-        status,
-        completed_count: completedCount,
-        total_count: totalTopicCount,
-        last_studied_at: now,
-        submitted_at: status === 'completed' ? now : null
-      },
-      {
-        onConflict: 'assignment_id,user_id'
-      }
-    );
+    .upsert(payload, {
+      onConflict: 'assignment_id,user_id'
+    });
 
   if (error) {
     console.error('assignment_progress 저장 실패:', error);
+    alert('숙제 진행 저장 실패: ' + error.message);
   }
 }
     
@@ -613,7 +611,7 @@ for (const topic of visibleTopics) {
       });
     }
 
-    function selectAnswer(choiceNumber){
+    async function selectAnswer(choiceNumber){
   if (selectedAnswer !== null) return;
 
   selectedAnswer = choiceNumber;
@@ -647,7 +645,7 @@ buttons.forEach((btn, index) => {
         currentIndex += 1;
         renderQuestion();
       } else {
-        markTopicCompleted(currentTopic.id, currentQuestions.length, score);
+        await markTopicCompleted(currentTopic.id, currentQuestions.length, score);
         progressBar.style.width = '100%';
         completeBox.style.display = 'block';
         if (isAssignmentMode && currentAssignment) {
