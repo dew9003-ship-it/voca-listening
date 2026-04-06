@@ -173,7 +173,9 @@
   <h2 style="margin:0 0 14px 0; font-size:20px;">숙제 만들기</h2>
 
   <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:10px;">
-    <input id="assignmentClass" type="text" placeholder="반 이름" style="padding:10px; border:1px solid #ddd; border-radius:10px;" />
+    <select id="assignmentClass" style="padding:10px; border:1px solid #ddd; border-radius:10px;">
+  <option value="">반 선택</option>
+</select>
     <input id="assignmentTitle" type="text" placeholder="숙제 제목" style="padding:10px; border:1px solid #ddd; border-radius:10px;" />
 
     <select id="assignmentCategory" style="padding:10px; border:1px solid #ddd; border-radius:10px;">
@@ -182,8 +184,24 @@
       <option value="exam">시험대비</option>
     </select>
 
-    <input id="assignmentGrade" type="text" placeholder="학년 (예: 중1)" style="padding:10px; border:1px solid #ddd; border-radius:10px;" />
-    <input id="assignmentPublisher" type="text" placeholder="출판사" style="padding:10px; border:1px solid #ddd; border-radius:10px;" />
+    <select id="assignmentGrade" style="padding:10px; border:1px solid #ddd; border-radius:10px;">
+  <option value="">학년 선택</option>
+  <option value="중1">중1</option>
+  <option value="중2">중2</option>
+  <option value="중3">중3</option>
+  <option value="고1">고1</option>
+  <option value="고2">고2</option>
+  <option value="고3">고3</option>
+</select>
+    <select id="assignmentPublisher" style="padding:10px; border:1px solid #ddd; border-radius:10px;">
+  <option value="">출판사 선택</option>
+  <option value="천재">천재</option>
+  <option value="비상">비상</option>
+  <option value="동아">동아</option>
+  <option value="미래엔">미래엔</option>
+  <option value="능률">능률</option>
+  <option value="YBM">YBM</option>
+</select>
     <input id="assignmentUnit" type="text" placeholder="단원명" style="padding:10px; border:1px solid #ddd; border-radius:10px;" />
 
     <input id="assignmentStartIndex" type="number" placeholder="시작 번호" style="padding:10px; border:1px solid #ddd; border-radius:10px;" />
