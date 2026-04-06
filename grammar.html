@@ -1,327 +1,327 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>보카엔딩 문법 학습</title>
-  <style>
-    * { box-sizing: border-box; }
-    :root{
-      --bg:#f4f7fb; --card:#ffffff; --line:#e5e7eb; --text:#1f2937; --muted:#6b7280;
-      --blue:#4f8cff; --green:#4caf50; --red:#ef4444; --shadow:0 10px 30px rgba(15, 23, 42, 0.08);
-    }
-    body{ margin:0; font-family:Arial,sans-serif; background:linear-gradient(180deg,#eff5ff 0%,#f4f7fb 35%,#eef8f1 100%); color:var(--text);}
-    .wrap{ max-width:1100px; margin:0 auto; padding:20px; min-height:100vh;}
-    .topbar{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; flex-wrap:wrap;}
-    .title-box h1{ margin:0; font-size:30px; font-weight:800; letter-spacing:-0.02em;}
-    .title-box p{ margin:8px 0 0; color:var(--muted); font-size:14px;}
-    .btns{ display:flex; gap:8px; flex-wrap:wrap;}
-    button{ border:none; border-radius:14px; padding:11px 16px; font-size:14px; font-weight:700; cursor:pointer; transition:transform .12s ease, opacity .12s ease, box-shadow .12s ease;}
-    button:hover{ opacity:.95; box-shadow:0 8px 18px rgba(0,0,0,.08); } button:active{ transform:translateY(1px); }
-    .btn-blue{ background:var(--blue); color:#fff;} .btn-green{ background:var(--green); color:#fff;}
-    .btn-slate{ background:#607d8b; color:#fff;} .btn-light{ background:#fff; color:#334155; border:1px solid var(--line);}
-    .summary-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:12px; margin-bottom:18px;}
-    .summary-card,.panel{ background:var(--card); border-radius:24px; box-shadow:var(--shadow);}
-    .summary-card{ padding:18px;} .summary-card .label{ color:var(--muted); font-size:13px; margin-bottom:8px;}
-    .summary-card .value{ font-size:28px; font-weight:800;} .panel{ padding:18px; margin-bottom:18px;}
-    .panel-head{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:14px; flex-wrap:wrap;}
-    .panel-head h2{ margin:0; font-size:20px;} .panel-head p{ margin:6px 0 0; color:var(--muted); font-size:13px;}
-    .topic-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(180px,1fr)); gap:12px;}
-    .topic-card{ border:1px solid var(--line); background:linear-gradient(180deg,#fff 0%,#fbfdff 100%); border-radius:18px; padding:16px; min-height:146px; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer; transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;}
-    .topic-card:hover{ transform:translateY(-2px); box-shadow:0 14px 28px rgba(15,23,42,.08); border-color:#bfd5ff;}
-    .topic-card.completed{ background:linear-gradient(180deg,#f7fff7 0%,#edf9ef 100%); border-color:#b9e3c0;}
-    .topic-card .badge{ display:inline-flex; align-items:center; gap:6px; width:max-content; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; background:#eef4ff; color:#335ea8; margin-bottom:10px;}
-    .topic-card.completed .badge{ background:#dff5e3; color:#1e7b33;}
-    .topic-title{ font-size:16px; font-weight:800; line-height:1.35; margin-bottom:10px;}
-    .topic-meta{ color:var(--muted); font-size:12px; line-height:1.5;}
-    .quiz-view{ display:none; }
-    .quiz-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; margin-bottom:14px;}
-    .progress-pill{ display:inline-flex; align-items:center; gap:8px; background:#eef4ff; color:#2f5da8; border-radius:999px; padding:8px 12px; font-size:13px; font-weight:700;}
-    .progress-bar-wrap{ width:100%; height:10px; background:#e5e7eb; border-radius:999px; overflow:hidden; margin-bottom:18px;}
-    .progress-bar{ height:100%; width:0%; background:linear-gradient(90deg,#4f8cff,#6fcf97); transition:width .2s ease;}
-    .question-card{ background:linear-gradient(180deg,#fff 0%,#fafcff 100%); border:1px solid var(--line); border-radius:22px; padding:22px; margin-bottom:16px;}
-    .question-label{ display:inline-block; padding:7px 12px; border-radius:999px; background:#f2f6ff; color:#355ea9; font-size:12px; font-weight:800; margin-bottom:12px;}
-    .question-text{ font-size:24px; font-weight:800; line-height:1.45; white-space:pre-line;}
-    .choices{ display:grid; gap:12px; margin-top:16px;}
-    .choice{ width:100%; text-align:left; background:#fff; color:#1f2937; border:1.5px solid var(--line); border-radius:18px; padding:16px 18px; font-size:16px; font-weight:700; display:flex; gap:12px; align-items:flex-start;}
-    .choice .num{ width:28px; height:28px; border-radius:999px; background:#eef4ff; color:#355ea9; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-size:13px; font-weight:800; margin-top:1px;}
-    .choice.correct{ border-color:#7ac788; background:#edf9ef;} .choice.wrong{ border-color:#f3aaaa; background:#fff2f2;} .choice.dim{ opacity:.75;}
-    .quiz-foot{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-top:8px;}
-    .quiz-status{ color:var(--muted); font-size:14px;}
-    .empty,.loading{ padding:36px 14px; text-align:center; color:var(--muted); font-weight:700;}
-    .result-box{ margin-top:16px; padding:16px 18px; border-radius:18px; font-size:15px; font-weight:700; display:none;}
-    .result-box.correct{ display:block; background:#edf9ef; color:#1e7b33; border:1px solid #b9e3c0;}
-    .result-box.wrong{ display:block; background:#fff2f2; color:#b42318; border:1px solid #f6b8b8;}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>보카엔딩 문법 학습</title>
+<style>
+* { box-sizing: border-box; }
+:root{
+--bg:#f4f7fb; --card:#ffffff; --line:#e5e7eb; --text:#1f2937; --muted:#6b7280;
+--blue:#4f8cff; --green:#4caf50; --red:#ef4444; --shadow:0 10px 30px rgba(15, 23, 42, 0.08);
+}
+body{ margin:0; font-family:Arial,sans-serif; background:linear-gradient(180deg,#eff5ff 0%,#f4f7fb 35%,#eef8f1 100%); color:var(--text);}
+.wrap{ max-width:1100px; margin:0 auto; padding:20px; min-height:100vh;}
+.topbar{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; flex-wrap:wrap;}
+.title-box h1{ margin:0; font-size:30px; font-weight:800; letter-spacing:-0.02em;}
+.title-box p{ margin:8px 0 0; color:var(--muted); font-size:14px;}
+.btns{ display:flex; gap:8px; flex-wrap:wrap;}
+button{ border:none; border-radius:14px; padding:11px 16px; font-size:14px; font-weight:700; cursor:pointer; transition:transform .12s ease, opacity .12s ease, box-shadow .12s ease;}
+button:hover{ opacity:.95; box-shadow:0 8px 18px rgba(0,0,0,.08); } button:active{ transform:translateY(1px); }
+.btn-blue{ background:var(--blue); color:#fff;} .btn-green{ background:var(--green); color:#fff;}
+.btn-slate{ background:#607d8b; color:#fff;} .btn-light{ background:#fff; color:#334155; border:1px solid var(--line);}
+.summary-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:12px; margin-bottom:18px;}
+.summary-card,.panel{ background:var(--card); border-radius:24px; box-shadow:var(--shadow);}
+.summary-card{ padding:18px;} .summary-card .label{ color:var(--muted); font-size:13px; margin-bottom:8px;}
+.summary-card .value{ font-size:28px; font-weight:800;} .panel{ padding:18px; margin-bottom:18px;}
+.panel-head{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:14px; flex-wrap:wrap;}
+.panel-head h2{ margin:0; font-size:20px;} .panel-head p{ margin:6px 0 0; color:var(--muted); font-size:13px;}
+.topic-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(180px,1fr)); gap:12px;}
+.topic-card{ border:1px solid var(--line); background:linear-gradient(180deg,#fff 0%,#fbfdff 100%); border-radius:18px; padding:16px; min-height:146px; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer; transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;}
+.topic-card:hover{ transform:translateY(-2px); box-shadow:0 14px 28px rgba(15,23,42,.08); border-color:#bfd5ff;}
+.topic-card.completed{ background:linear-gradient(180deg,#f7fff7 0%,#edf9ef 100%); border-color:#b9e3c0;}
+.topic-card .badge{ display:inline-flex; align-items:center; gap:6px; width:max-content; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; background:#eef4ff; color:#335ea8; margin-bottom:10px;}
+.topic-card.completed .badge{ background:#dff5e3; color:#1e7b33;}
+.topic-title{ font-size:16px; font-weight:800; line-height:1.35; margin-bottom:10px;}
+.topic-meta{ color:var(--muted); font-size:12px; line-height:1.5;}
+.quiz-view{ display:none; }
+.quiz-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; margin-bottom:14px;}
+.progress-pill{ display:inline-flex; align-items:center; gap:8px; background:#eef4ff; color:#2f5da8; border-radius:999px; padding:8px 12px; font-size:13px; font-weight:700;}
+.progress-bar-wrap{ width:100%; height:10px; background:#e5e7eb; border-radius:999px; overflow:hidden; margin-bottom:18px;}
+.progress-bar{ height:100%; width:0%; background:linear-gradient(90deg,#4f8cff,#6fcf97); transition:width .2s ease;}
+.question-card{ background:linear-gradient(180deg,#fff 0%,#fafcff 100%); border:1px solid var(--line); border-radius:22px; padding:22px; margin-bottom:16px;}
+.question-label{ display:inline-block; padding:7px 12px; border-radius:999px; background:#f2f6ff; color:#355ea9; font-size:12px; font-weight:800; margin-bottom:12px;}
+.question-text{ font-size:24px; font-weight:800; line-height:1.45; white-space:pre-line;}
+.choices{ display:grid; gap:12px; margin-top:16px;}
+.choice{ width:100%; text-align:left; background:#fff; color:#1f2937; border:1.5px solid var(--line); border-radius:18px; padding:16px 18px; font-size:16px; font-weight:700; display:flex; gap:12px; align-items:flex-start;}
+.choice .num{ width:28px; height:28px; border-radius:999px; background:#eef4ff; color:#355ea9; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-size:13px; font-weight:800; margin-top:1px;}
+.choice.correct{ border-color:#7ac788; background:#edf9ef;} .choice.wrong{ border-color:#f3aaaa; background:#fff2f2;} .choice.dim{ opacity:.75;}
+.quiz-foot{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-top:8px;}
+.quiz-status{ color:var(--muted); font-size:14px;}
+.empty,.loading{ padding:36px 14px; text-align:center; color:var(--muted); font-weight:700;}
+.result-box{ margin-top:16px; padding:16px 18px; border-radius:18px; font-size:15px; font-weight:700; display:none;}
+.result-box.correct{ display:block; background:#edf9ef; color:#1e7b33; border:1px solid #b9e3c0;}
+.result-box.wrong{ display:block; background:#fff2f2; color:#b42318; border:1px solid #f6b8b8;}
 .topic-complete{ text-align:center; padding:18px; border-radius:20px; background:linear-gradient(180deg,#f7fff7 0%,#edf9ef 100%); border:1px solid #b9e3c0; margin-top:10px; display:none;}
 
 .quiz-shake {
-  animation: quizShake 0.4s ease;
+animation: quizShake 0.4s ease;
 }
 
 .red-flash {
-  animation: redFlash 0.45s ease;
+animation: redFlash 0.45s ease;
 }
 
 @keyframes quizShake {
-  0% { transform: translateX(0); }
-  15% { transform: translateX(-10px); }
-  30% { transform: translateX(10px); }
-  45% { transform: translateX(-8px); }
-  60% { transform: translateX(8px); }
-  75% { transform: translateX(-4px); }
-  90% { transform: translateX(4px); }
-  100% { transform: translateX(0); }
+0% { transform: translateX(0); }
+15% { transform: translateX(-10px); }
+30% { transform: translateX(10px); }
+45% { transform: translateX(-8px); }
+60% { transform: translateX(8px); }
+75% { transform: translateX(-4px); }
+90% { transform: translateX(4px); }
+100% { transform: translateX(0); }
 }
 
 @keyframes redFlash {
-  0% { box-shadow: 0 0 0 rgba(239, 68, 68, 0); }
-  20% { box-shadow: 0 0 0 9999px rgba(239, 68, 68, 0.18) inset; }
-  100% { box-shadow: 0 0 0 rgba(239, 68, 68, 0); }
+0% { box-shadow: 0 0 0 rgba(239, 68, 68, 0); }
+20% { box-shadow: 0 0 0 9999px rgba(239, 68, 68, 0.18) inset; }
+100% { box-shadow: 0 0 0 rgba(239, 68, 68, 0); }
 }
-    .topic-complete h3{ margin:0 0 10px; font-size:24px;} .topic-complete p{ margin:0 0 18px; color:#3f5e4b; line-height:1.6; font-weight:700;}
-    @media (max-width:640px){ .wrap{padding:14px;} .title-box h1{font-size:25px;} .question-text{font-size:20px;} .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));} .topic-card{min-height:132px; padding:14px;} }
-  </style>
+.topic-complete h3{ margin:0 0 10px; font-size:24px;} .topic-complete p{ margin:0 0 18px; color:#3f5e4b; line-height:1.6; font-weight:700;}
+@media (max-width:640px){ .wrap{padding:14px;} .title-box h1{font-size:25px;} .question-text{font-size:20px;} .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));} .topic-card{min-height:132px; padding:14px;} }
+</style>
 </head>
 <body>
-  
-  <div class="wrap">
-    <div class="topbar">
-      <div class="title-box">
-        <h1>문법 학습관</h1>
-        <p>문법 파트를 깔끔한 객관식 학습 방식으로 바로 풀 수 있어요.</p>
-      </div>
-      <div class="btns">
-        <button id="homeBtn" class="btn-light">학습 홈</button>
-        <button id="refreshBtn" class="btn-blue">새로고침</button>
-        <button id="logoutBtn" class="btn-slate">로그아웃</button>
-      </div>
-    </div>
 
-    <div id="menuView">
-      <div class="summary-grid">
-        <div class="summary-card"><div class="label">전체 문법 주제</div><div class="value" id="totalTopics">-</div></div>
-        <div class="summary-card"><div class="label">완료한 주제</div><div class="value" id="completedTopics">-</div></div>
-        <div class="summary-card"><div class="label">현재 사용자</div><div class="value" id="currentName" style="font-size:22px;">-</div></div>
-      </div>
-
-      <div class="panel">
-        <div class="panel-head">
-          <div>
-            <h2>문법 목차</h2>
-            <p>원하는 주제를 눌러 바로 시작하세요. 완료한 주제는 초록색으로 표시됩니다.</p>
-          </div>
-        </div>
-        <div id="topicGrid" class="topic-grid"></div>
-        <div id="menuLoading" class="loading">목차를 불러오는 중입니다...</div>
-      </div>
-    </div>
-
-    <div id="quizView" class="quiz-view panel">
-      <div class="quiz-head">
-        <div>
-          <div class="progress-pill" id="topicBadge">문법 주제</div>
-          <p id="topicDesc" style="margin:10px 0 0; color:var(--muted); font-size:14px;">문제를 불러오는 중...</p>
-        </div>
-        <div class="btns"><button id="menuBtn" class="btn-light">목차</button></div>
-      </div>
-
-      <div class="progress-bar-wrap"><div id="progressBar" class="progress-bar"></div></div>
-
-      <div class="question-card">
-        <div class="question-label" id="questionLabel">문제 1</div>
-        <div id="questionText" class="question-text">문제를 불러오는 중...</div>
-        <div id="choices" class="choices"></div>
-        <div id="resultBox" class="result-box"></div>
-      </div>
-
-      <div class="quiz-foot">
-  <div id="quizStatus" class="quiz-status">정답을 선택해 주세요.</div>
-  <div class="btns" style="display:none;"><button id="nextBtn" class="btn-green" disabled>다음 문제</button></div>
+<div class="wrap">
+<div class="topbar">
+<div class="title-box">
+<h1>문법 학습관</h1>
+<p>문법 파트를 깔끔한 객관식 학습 방식으로 바로 풀 수 있어요.</p>
+</div>
+<div class="btns">
+<button id="homeBtn" class="btn-light">학습 홈</button>
+<button id="refreshBtn" class="btn-blue">새로고침</button>
+<button id="logoutBtn" class="btn-slate">로그아웃</button>
+</div>
 </div>
 
-      <div id="completeBox" class="topic-complete">
-        <h3>주제 완료 🎉</h3>
-        <p id="completeText">모든 문제를 끝냈습니다.</p>
-        <div class="btns" style="justify-content:center;">
-          <button id="retryBtn" class="btn-blue">다시 풀기</button>
-          <button id="backToMenuBtn" class="btn-green">목차로 돌아가기</button>
-        </div>
-      </div>
-      <div id="failPopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:9999; align-items:center; justify-content:center;">
-  <div style="width:min(92vw, 520px); background:rgba(60, 0, 0, 0.96); border:3px solid #ff5252; border-radius:26px; padding:28px 24px; text-align:center; box-shadow:0 18px 50px rgba(0,0,0,0.35);">
-    <h3 style="margin:0 0 18px; font-size:54px; line-height:1; color:#ff5a5a; font-weight:900;">실패!</h3>
-    <p style="margin:0; font-size:22px; line-height:1.5; color:white; font-weight:700;">오답입니다.</p>
-
-    <div style="display:flex; gap:16px; justify-content:center; margin-top:28px; flex-wrap:wrap;">
-      <button id="failRetryBtn" style="min-width:180px; padding:18px 22px; border:none; border-radius:18px; background:#33f15a; color:#111; font-size:22px; font-weight:900; cursor:pointer;">예 (재도전)</button>
-      <button id="failMenuBtn" style="min-width:180px; padding:18px 22px; border:none; border-radius:18px; background:#666; color:white; font-size:22px; font-weight:900; cursor:pointer;">아니오 (목차)</button>
-    </div>
-  </div>
+<div id="menuView">
+<div class="summary-grid">
+<div class="summary-card"><div class="label">전체 문법 주제</div><div class="value" id="totalTopics">-</div></div>
+<div class="summary-card"><div class="label">완료한 주제</div><div class="value" id="completedTopics">-</div></div>
+<div class="summary-card"><div class="label">현재 사용자</div><div class="value" id="currentName" style="font-size:22px;">-</div></div>
 </div>
-    </div>
-  </div>
 
-  <script type="module">
-    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+<div class="panel">
+<div class="panel-head">
+<div>
+<h2>문법 목차</h2>
+<p>원하는 주제를 눌러 바로 시작하세요. 완료한 주제는 초록색으로 표시됩니다.</p>
+</div>
+</div>
+<div id="topicGrid" class="topic-grid"></div>
+<div id="menuLoading" class="loading">목차를 불러오는 중입니다...</div>
+</div>
+</div>
+
+<div id="quizView" class="quiz-view panel">
+<div class="quiz-head">
+<div>
+<div class="progress-pill" id="topicBadge">문법 주제</div>
+<p id="topicDesc" style="margin:10px 0 0; color:var(--muted); font-size:14px;">문제를 불러오는 중...</p>
+</div>
+<div class="btns"><button id="menuBtn" class="btn-light">목차</button></div>
+</div>
+
+<div class="progress-bar-wrap"><div id="progressBar" class="progress-bar"></div></div>
+
+<div class="question-card">
+<div class="question-label" id="questionLabel">문제 1</div>
+<div id="questionText" class="question-text">문제를 불러오는 중...</div>
+<div id="choices" class="choices"></div>
+<div id="resultBox" class="result-box"></div>
+</div>
+
+<div class="quiz-foot">
+<div id="quizStatus" class="quiz-status">정답을 선택해 주세요.</div>
+<div class="btns" style="display:none;"><button id="nextBtn" class="btn-green" disabled>다음 문제</button></div>
+</div>
+
+<div id="completeBox" class="topic-complete">
+<h3>주제 완료 🎉</h3>
+<p id="completeText">모든 문제를 끝냈습니다.</p>
+<div class="btns" style="justify-content:center;">
+<button id="retryBtn" class="btn-blue">다시 풀기</button>
+<button id="backToMenuBtn" class="btn-green">목차로 돌아가기</button>
+</div>
+</div>
+<div id="failPopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:9999; align-items:center; justify-content:center;">
+<div style="width:min(92vw, 520px); background:rgba(60, 0, 0, 0.96); border:3px solid #ff5252; border-radius:26px; padding:28px 24px; text-align:center; box-shadow:0 18px 50px rgba(0,0,0,0.35);">
+<h3 style="margin:0 0 18px; font-size:54px; line-height:1; color:#ff5a5a; font-weight:900;">실패!</h3>
+<p style="margin:0; font-size:22px; line-height:1.5; color:white; font-weight:700;">오답입니다.</p>
+
+<div style="display:flex; gap:16px; justify-content:center; margin-top:28px; flex-wrap:wrap;">
+<button id="failRetryBtn" style="min-width:180px; padding:18px 22px; border:none; border-radius:18px; background:#33f15a; color:#111; font-size:22px; font-weight:900; cursor:pointer;">예 (재도전)</button>
+<button id="failMenuBtn" style="min-width:180px; padding:18px 22px; border:none; border-radius:18px; background:#666; color:white; font-size:22px; font-weight:900; cursor:pointer;">아니오 (목차)</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 const supabase = createClient('https://uuzhdxangctewuklvmlv.supabase.co','sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F');
 const TOTAL_FALLBACK = 67;
 
 let audioCtx = null;
 
 function getAudioCtx() {
-  if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  }
-  if (audioCtx.state === 'suspended') {
-    audioCtx.resume();
-  }
-  return audioCtx;
+if (!audioCtx) {
+audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+}
+if (audioCtx.state === 'suspended') {
+audioCtx.resume();
+}
+return audioCtx;
 }
 
 function playCorrectSound() {
-  const ctx = getAudioCtx();
-  const osc1 = ctx.createOscillator();
-  const gain1 = ctx.createGain();
-  const osc2 = ctx.createOscillator();
-  const gain2 = ctx.createGain();
+const ctx = getAudioCtx();
+const osc1 = ctx.createOscillator();
+const gain1 = ctx.createGain();
+const osc2 = ctx.createOscillator();
+const gain2 = ctx.createGain();
 
-  osc1.type = 'sine';
-  osc1.frequency.setValueAtTime(784, ctx.currentTime);
-  gain1.gain.setValueAtTime(0.0001, ctx.currentTime);
-  gain1.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime + 0.01);
-  gain1.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.18);
+osc1.type = 'sine';
+osc1.frequency.setValueAtTime(784, ctx.currentTime);
+gain1.gain.setValueAtTime(0.0001, ctx.currentTime);
+gain1.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime + 0.01);
+gain1.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.18);
 
-  osc2.type = 'sine';
-  osc2.frequency.setValueAtTime(1046, ctx.currentTime + 0.08);
-  gain2.gain.setValueAtTime(0.0001, ctx.currentTime);
-  gain2.gain.exponentialRampToValueAtTime(0.10, ctx.currentTime + 0.09);
-  gain2.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.24);
+osc2.type = 'sine';
+osc2.frequency.setValueAtTime(1046, ctx.currentTime + 0.08);
+gain2.gain.setValueAtTime(0.0001, ctx.currentTime);
+gain2.gain.exponentialRampToValueAtTime(0.10, ctx.currentTime + 0.09);
+gain2.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.24);
 
-  osc1.connect(gain1).connect(ctx.destination);
-  osc2.connect(gain2).connect(ctx.destination);
+osc1.connect(gain1).connect(ctx.destination);
+osc2.connect(gain2).connect(ctx.destination);
 
-  osc1.start();
-  osc1.stop(ctx.currentTime + 0.2);
-  osc2.start(ctx.currentTime + 0.08);
-  osc2.stop(ctx.currentTime + 0.26);
+osc1.start();
+osc1.stop(ctx.currentTime + 0.2);
+osc2.start(ctx.currentTime + 0.08);
+osc2.stop(ctx.currentTime + 0.26);
 }
 
 function playWrongSound() {
-  const ctx = getAudioCtx();
-  const osc = ctx.createOscillator();
-  const gain = ctx.createGain();
+const ctx = getAudioCtx();
+const osc = ctx.createOscillator();
+const gain = ctx.createGain();
 
-  osc.type = 'square';
-  osc.frequency.setValueAtTime(220, ctx.currentTime);
-  osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.18);
+osc.type = 'square';
+osc.frequency.setValueAtTime(220, ctx.currentTime);
+osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.18);
 
-  gain.gain.setValueAtTime(0.0001, ctx.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime + 0.01);
-  gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.2);
+gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+gain.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime + 0.01);
+gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.2);
 
-  osc.connect(gain).connect(ctx.destination);
-  osc.start();
-  osc.stop(ctx.currentTime + 0.22);
+osc.connect(gain).connect(ctx.destination);
+osc.start();
+osc.stop(ctx.currentTime + 0.22);
 }
-    const menuView = document.getElementById('menuView');
-    const quizView = document.getElementById('quizView');
-    const topicGrid = document.getElementById('topicGrid');
-    const menuLoading = document.getElementById('menuLoading');
-    const totalTopicsEl = document.getElementById('totalTopics');
-    const completedTopicsEl = document.getElementById('completedTopics');
-    const currentNameEl = document.getElementById('currentName');
-    const topicBadge = document.getElementById('topicBadge');
-    const topicDesc = document.getElementById('topicDesc');
-    const progressBar = document.getElementById('progressBar');
-    const questionLabel = document.getElementById('questionLabel');
+const menuView = document.getElementById('menuView');
+const quizView = document.getElementById('quizView');
+const topicGrid = document.getElementById('topicGrid');
+const menuLoading = document.getElementById('menuLoading');
+const totalTopicsEl = document.getElementById('totalTopics');
+const completedTopicsEl = document.getElementById('completedTopics');
+const currentNameEl = document.getElementById('currentName');
+const topicBadge = document.getElementById('topicBadge');
+const topicDesc = document.getElementById('topicDesc');
+const progressBar = document.getElementById('progressBar');
+const questionLabel = document.getElementById('questionLabel');
 const questionText = document.getElementById('questionText');
 const choicesEl = document.getElementById('choices');
 const quizCard = document.querySelector('.question-card');
-    const quizStatus = document.getElementById('quizStatus');
-    const resultBox = document.getElementById('resultBox');
-    const nextBtn = document.getElementById('nextBtn');
-    const completeBox = document.getElementById('completeBox');
+const quizStatus = document.getElementById('quizStatus');
+const resultBox = document.getElementById('resultBox');
+const nextBtn = document.getElementById('nextBtn');
+const completeBox = document.getElementById('completeBox');
 const completeText = document.getElementById('completeText');
 const failPopup = document.getElementById('failPopup');
 const failRetryBtn = document.getElementById('failRetryBtn');
 const failMenuBtn = document.getElementById('failMenuBtn');
-    
-    let me = null, role = 'student', topics = [], currentTopic = null, currentQuestions = [], currentIndex = 0, selectedAnswer = null, score = 0;
+
+let me = null, role = 'student', topics = [], currentTopic = null, currentQuestions = [], currentIndex = 0, selectedAnswer = null, score = 0;
 let currentAssignmentId = null;
 let currentAssignment = null;
 let assignmentTopicIds = [];
 let isAssignmentMode = false;
 
-    function getProgressKey(){ return me?.id ? `voca_grammar_progress_${me.id}` : 'voca_grammar_progress_guest'; }
-    function getProgressStore(){ try { return JSON.parse(localStorage.getItem(getProgressKey()) || '{}'); } catch { return {}; } }
-    function setProgressStore(data){ localStorage.setItem(getProgressKey(), JSON.stringify(data)); }
-    async function markTopicCompleted(topicId, totalCount, scoreValue) {
-  const now = new Date().toISOString();
+function getProgressKey(){ return me?.id ? `voca_grammar_progress_${me.id}` : 'voca_grammar_progress_guest'; }
+function getProgressStore(){ try { return JSON.parse(localStorage.getItem(getProgressKey()) || '{}'); } catch { return {}; } }
+function setProgressStore(data){ localStorage.setItem(getProgressKey(), JSON.stringify(data)); }
+async function markTopicCompleted(topicId, totalCount, scoreValue) {
+const now = new Date().toISOString();
 
-  const store = getProgressStore();
-  store[topicId] = {
-    completed: true,
-    total: totalCount,
-    score: scoreValue,
-    lastStudiedAt: now
-  };
-  setProgressStore(store);
+const store = getProgressStore();
+store[topicId] = {
+completed: true,
+total: totalCount,
+score: scoreValue,
+lastStudiedAt: now
+};
+setProgressStore(store);
 
-  const completedTopicCount = Object.values(store).filter(v => v?.completed).length;
+const completedTopicCount = Object.values(store).filter(v => v?.completed).length;
 
-  const { data, error } = await supabase.auth.getUser();
-  if (error || !data.user) return;
+const { data, error } = await supabase.auth.getUser();
+if (error || !data.user) return;
 
-  const userId = data.user.id;
+const userId = data.user.id;
 
-  const { data: existingRow, error: fetchError } = await supabase
-    .from('grammar_progress')
-    .select('completed_topics')
-    .eq('user_id', userId)
-    .maybeSingle();
+const { data: existingRow, error: fetchError } = await supabase
+.from('grammar_progress')
+.select('completed_topics')
+.eq('user_id', userId)
+.maybeSingle();
 
-  if (fetchError) {
-    console.error('grammar_progress 기존 데이터 조회 실패:', fetchError);
-  }
+if (fetchError) {
+console.error('grammar_progress 기존 데이터 조회 실패:', fetchError);
+}
 
-  const completedTopics = existingRow?.completed_topics || {};
-  completedTopics[String(topicId)] = {
-    completed: true,
-    total: totalCount,
-    score: scoreValue,
-    lastStudiedAt: now
-  };
+const completedTopics = existingRow?.completed_topics || {};
+completedTopics[String(topicId)] = {
+completed: true,
+total: totalCount,
+score: scoreValue,
+lastStudiedAt: now
+};
 
-  const { error: saveError } = await supabase
-    .from('grammar_progress')
-    .upsert(
-      {
-        user_id: userId,
-        completed_topic_count: completedTopicCount,
-        completed_topics: completedTopics,
-        last_studied_at: now
-      },
-      {
-        onConflict: 'user_id'
-      }
-    );
+const { error: saveError } = await supabase
+.from('grammar_progress')
+.upsert(
+{
+user_id: userId,
+completed_topic_count: completedTopicCount,
+completed_topics: completedTopics,
+last_studied_at: now
+},
+{
+onConflict: 'user_id'
+}
+);
 
-  if (saveError) {
-    console.error('grammar_progress 저장 실패:', saveError);
-    alert('문법 진도 저장 실패: ' + saveError.message);
-  }
+if (saveError) {
+console.error('grammar_progress 저장 실패:', saveError);
+alert('문법 진도 저장 실패: ' + saveError.message);
+}
       await syncAssignmentProgress();
 }
-    function escapeHtml(value){ return String(value ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;'); }
-    function flattenQuestions(input){
-      const result = [];
-      const walk = (value) => {
-        if (Array.isArray(value)) { for (const item of value) walk(item); return; }
-        if (value && typeof value === 'object' && 'q' in value && 'o' in value && 'ans' in value) result.push(value);
-      };
-      walk(input);
-      return result;
-    }
+function escapeHtml(value){ return String(value ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;'); }
+function flattenQuestions(input){
+const result = [];
+const walk = (value) => {
+if (Array.isArray(value)) { for (const item of value) walk(item); return; }
+if (value && typeof value === 'object' && 'q' in value && 'o' in value && 'ans' in value) result.push(value);
+};
+walk(input);
+return result;
+}
 
 function getAssignmentIdFromUrl() {
   const params = new URLSearchParams(location.search);
@@ -428,113 +428,117 @@ async function syncAssignmentProgress() {
 
   const now = new Date().toISOString();
 
-  const payload = {
-    assignment_id: currentAssignmentId,
-    user_id: me.id,
-    status,
-    last_studied_at: now,
-    submitted_at: status === 'completed' ? now : null
-  };
-
   const { error } = await supabase
     .from('assignment_progress')
-    .upsert(payload, {
-      onConflict: 'assignment_id,user_id'
-    });
+    .upsert(
+      {
+        assignment_id: currentAssignmentId,
+        user_id: me.id,
+        status,
+        completed_count: completedCount,
+        total_count: totalTopicCount,
+        last_studied_at: now,
+        submitted_at: status === 'completed' ? now : null
+      },
+      {
+        onConflict: 'assignment_id,user_id'
+      }
+    );
 
   if (error) {
     console.error('assignment_progress 저장 실패:', error);
-    alert('숙제 진행 저장 실패: ' + error.message);
   }
 }
     
-    function showMenu(){
-  quizView.style.display = 'none';
-  menuView.style.display = 'block';
-  completeBox.style.display = 'none';
-  failPopup.style.display = 'none';
+function showMenu(){
+quizView.style.display = 'none';
+menuView.style.display = 'block';
+completeBox.style.display = 'none';
+failPopup.style.display = 'none';
 
   if (isAssignmentMode && currentAssignment) {
     topicDesc.textContent = getAssignmentLabel(currentAssignment);
   }
 
-  renderMenu();
+renderMenu();
 }
 
 function openFailPopup() {
-  failPopup.style.display = 'flex';
+failPopup.style.display = 'flex';
 }
 
 function closeFailPopup() {
-  failPopup.style.display = 'none';
+failPopup.style.display = 'none';
 }
 
-    function playWrongEffect() {
-  playWrongSound();
+function playWrongEffect() {
+playWrongSound();
 
-  if (!quizCard) return;
+if (!quizCard) return;
 
-  quizCard.classList.remove('quiz-shake');
-  document.body.classList.remove('red-flash');
+quizCard.classList.remove('quiz-shake');
+document.body.classList.remove('red-flash');
 
-  void quizCard.offsetWidth;
+void quizCard.offsetWidth;
 
-  quizCard.classList.add('quiz-shake');
-  document.body.classList.add('red-flash');
+quizCard.classList.add('quiz-shake');
+document.body.classList.add('red-flash');
 
-  setTimeout(() => {
-    quizCard.classList.remove('quiz-shake');
-    document.body.classList.remove('red-flash');
-  }, 500);
+setTimeout(() => {
+quizCard.classList.remove('quiz-shake');
+document.body.classList.remove('red-flash');
+}, 500);
 }
-    function playCorrectEffect() {
-  // 성공 시 추가 시각효과를 나중에 넣고 싶으면 여기 확장
+function playCorrectEffect() {
+// 성공 시 추가 시각효과를 나중에 넣고 싶으면 여기 확장
 }
 
-    async function requireAuth(){
-      const { data: authData, error: authError } = await supabase.auth.getUser();
-      if (authError || !authData.user) { alert('로그인이 필요합니다.'); location.href='login.html'; return false; }
-      me = authData.user;
-      const { data: profileData } = await supabase.from('profiles').select('user_id, name, role').eq('user_id', me.id).maybeSingle();
-      if (profileData?.role) role = profileData.role;
-      currentNameEl.textContent = profileData?.name || me.email || '사용자';
-      return true;
-    }
+async function requireAuth(){
+const { data: authData, error: authError } = await supabase.auth.getUser();
+if (authError || !authData.user) { alert('로그인이 필요합니다.'); location.href='login.html'; return false; }
+me = authData.user;
+const { data: profileData } = await supabase.from('profiles').select('user_id, name, role').eq('user_id', me.id).maybeSingle();
+if (profileData?.role) role = profileData.role;
+currentNameEl.textContent = profileData?.name || me.email || '사용자';
+return true;
+}
 
-    async function loadTopics(){
-      menuLoading.style.display='block'; topicGrid.innerHTML='';
-      try {
-        const res = await fetch('grammar_list.json');
-        const list = await res.json();
-        topics = Array.isArray(list) ? list : [];
-      } catch(e) { console.error(e); topics = []; }
-      totalTopicsEl.textContent = topics.length || TOTAL_FALLBACK;
-      menuLoading.style.display='none';
-      renderMenu();
-    }
+async function loadTopics(){
+menuLoading.style.display='block'; topicGrid.innerHTML='';
+try {
+const res = await fetch('grammar_list.json');
+const list = await res.json();
+topics = Array.isArray(list) ? list : [];
+} catch(e) { console.error(e); topics = []; }
+totalTopicsEl.textContent = topics.length || TOTAL_FALLBACK;
+menuLoading.style.display='none';
+renderMenu();
+}
 
-    async function renderMenu() {
-  topicGrid.innerHTML = '';
+async function renderMenu() {
+topicGrid.innerHTML = '';
 
-  let store = getProgressStore();
+let store = getProgressStore();
 
-  const { data: authData, error: authError } = await supabase.auth.getUser();
-  if (!authError && authData?.user) {
-    const { data: serverRow, error: serverError } = await supabase
-      .from('grammar_progress')
-      .select('completed_topics')
-      .eq('user_id', authData.user.id)
-      .maybeSingle();
+const { data: authData, error: authError } = await supabase.auth.getUser();
+if (!authError && authData?.user) {
+const { data: serverRow, error: serverError } = await supabase
+.from('grammar_progress')
+.select('completed_topics')
+.eq('user_id', authData.user.id)
+.maybeSingle();
 
-    if (!serverError && serverRow?.completed_topics) {
-      store = {
-        ...store,
-        ...serverRow.completed_topics
-      };
-      setProgressStore(store);
-    }
-  }
+if (!serverError && serverRow?.completed_topics) {
+store = {
+...store,
+...serverRow.completed_topics
+};
+setProgressStore(store);
+}
+}
 
+  const completedCount = Object.values(store).filter(v => v?.completed).length;
+  completedTopicsEl.textContent = completedCount;
   const visibleTopics = getVisibleTopics();
 const completedCount = visibleTopics.filter(topic => {
   const progress = store[String(topic.id)] || store[topic.id];
@@ -542,6 +546,10 @@ const completedCount = visibleTopics.filter(topic => {
 }).length;
 completedTopicsEl.textContent = completedCount;
 
+  if (!topics.length) {
+    topicGrid.innerHTML = '<div class="empty">문법 목차를 불러오지 못했습니다.</div>';
+    return;
+  }
 if (!topics.length) {
   topicGrid.innerHTML = '<div class="empty">문법 목차를 불러오지 못했습니다.</div>';
   return;
@@ -551,160 +559,160 @@ if (isAssignmentMode && currentAssignment) {
   topicDesc.textContent = getAssignmentLabel(currentAssignment);
 }
 
+  for (const topic of topics) {
 if (!visibleTopics.length) {
   topicGrid.innerHTML = '<div class="empty">이 숙제에 해당하는 문법 주제가 없습니다.</div>';
   return;
 }
 
 for (const topic of visibleTopics) {
-    const progress = store[String(topic.id)] || store[topic.id];
-    const completed = !!progress?.completed;
+const progress = store[String(topic.id)] || store[topic.id];
+const completed = !!progress?.completed;
 
-    const card = document.createElement('button');
-    card.type = 'button';
-    card.className = `topic-card ${completed ? 'completed' : ''}`;
-    card.innerHTML = `
-      <div>
-        <div class="badge">${completed ? '완료' : '학습 가능'}</div>
-        <div class="topic-title">${escapeHtml(topic.title || `주제 ${topic.id}`)}</div>
-      </div>
-      <div class="topic-meta">
-        ID: ${escapeHtml(topic.id)}<br>
-        ${completed
-          ? `최근 학습: ${new Date(progress.lastStudiedAt).toLocaleDateString('ko-KR')}`
-          : '문제를 눌러 시작'}
-      </div>`;
-    card.addEventListener('click', () => startTopic(topic));
-    topicGrid.appendChild(card);
-  }
+const card = document.createElement('button');
+card.type = 'button';
+card.className = `topic-card ${completed ? 'completed' : ''}`;
+card.innerHTML = `
+     <div>
+       <div class="badge">${completed ? '완료' : '학습 가능'}</div>
+       <div class="topic-title">${escapeHtml(topic.title || `주제 ${topic.id}`)}</div>
+     </div>
+     <div class="topic-meta">
+       ID: ${escapeHtml(topic.id)}<br>
+       ${completed
+         ? `최근 학습: ${new Date(progress.lastStudiedAt).toLocaleDateString('ko-KR')}`
+         : '문제를 눌러 시작'}
+     </div>`;
+card.addEventListener('click', () => startTopic(topic));
+topicGrid.appendChild(card);
+}
 }
 
-    async function startTopic(topic){
-      currentTopic = topic; currentIndex = 0; selectedAnswer = null; score = 0;
-      resultBox.className='result-box'; resultBox.textContent=''; resultBox.style.display='none'; completeBox.style.display='none';
-      try {
-        const res = await fetch(topic.file);
-        const raw = await res.json();
-        currentQuestions = flattenQuestions(raw).filter(item => item && typeof item.q === 'string' && Array.isArray(item.o) && item.o.length >= 2);
-      } catch(e) { console.error(e); alert('문제 파일을 불러오지 못했습니다.'); return; }
-      if (!currentQuestions.length) { alert('이 주제에는 표시할 문제가 없습니다.'); return; }
-      menuView.style.display='none'; quizView.style.display='block'; renderQuestion();
-    }
+async function startTopic(topic){
+currentTopic = topic; currentIndex = 0; selectedAnswer = null; score = 0;
+resultBox.className='result-box'; resultBox.textContent=''; resultBox.style.display='none'; completeBox.style.display='none';
+try {
+const res = await fetch(topic.file);
+const raw = await res.json();
+currentQuestions = flattenQuestions(raw).filter(item => item && typeof item.q === 'string' && Array.isArray(item.o) && item.o.length >= 2);
+} catch(e) { console.error(e); alert('문제 파일을 불러오지 못했습니다.'); return; }
+if (!currentQuestions.length) { alert('이 주제에는 표시할 문제가 없습니다.'); return; }
+menuView.style.display='none'; quizView.style.display='block'; renderQuestion();
+}
 
-    function renderQuestion(){
-      const item = currentQuestions[currentIndex];
-      const progressPercent = (currentIndex / currentQuestions.length) * 100;
-      topicBadge.textContent = currentTopic?.title || '문법 주제';
-      topicDesc.textContent = `총 ${currentQuestions.length}문제 · 현재 맞힌 문제 ${score}개`;
-      progressBar.style.width = `${progressPercent}%`;
-      questionLabel.textContent = `문제 ${currentIndex + 1} / ${currentQuestions.length}`;
-      questionText.textContent = item.q;
-      quizStatus.textContent = '정답을 선택해 주세요.';
-      
-      resultBox.className='result-box'; resultBox.textContent=''; resultBox.style.display='none'; choicesEl.innerHTML=''; selectedAnswer = null;
-      item.o.forEach((option, idx) => {
-        const btn = document.createElement('button');
-        btn.type='button'; btn.className='choice';
-        btn.innerHTML = `<span class="num">${idx+1}</span><span>${escapeHtml(option)}</span>`;
-        btn.addEventListener('click', () => selectAnswer(idx+1));
-        choicesEl.appendChild(btn);
-      });
-    }
+function renderQuestion(){
+const item = currentQuestions[currentIndex];
+const progressPercent = (currentIndex / currentQuestions.length) * 100;
+topicBadge.textContent = currentTopic?.title || '문법 주제';
+topicDesc.textContent = `총 ${currentQuestions.length}문제 · 현재 맞힌 문제 ${score}개`;
+progressBar.style.width = `${progressPercent}%`;
+questionLabel.textContent = `문제 ${currentIndex + 1} / ${currentQuestions.length}`;
+questionText.textContent = item.q;
+quizStatus.textContent = '정답을 선택해 주세요.';
 
-    async function selectAnswer(choiceNumber){
-  if (selectedAnswer !== null) return;
+resultBox.className='result-box'; resultBox.textContent=''; resultBox.style.display='none'; choicesEl.innerHTML=''; selectedAnswer = null;
+item.o.forEach((option, idx) => {
+const btn = document.createElement('button');
+btn.type='button'; btn.className='choice';
+btn.innerHTML = `<span class="num">${idx+1}</span><span>${escapeHtml(option)}</span>`;
+btn.addEventListener('click', () => selectAnswer(idx+1));
+choicesEl.appendChild(btn);
+});
+}
 
-  selectedAnswer = choiceNumber;
-  const item = currentQuestions[currentIndex];
-  const correct = Number(item.ans);
-  const buttons = Array.from(choicesEl.querySelectorAll('.choice'));
+function selectAnswer(choiceNumber){
+if (selectedAnswer !== null) return;
 
-  buttons.forEach((btn, index) => {
-    const choiceNum = index + 1;
+selectedAnswer = choiceNumber;
+const item = currentQuestions[currentIndex];
+const correct = Number(item.ans);
+const buttons = Array.from(choicesEl.querySelectorAll('.choice'));
+buttons.forEach((btn, index) => {
+const choiceNum = index + 1;
 
-    if (choiceNumber === correct) {
-      if (choiceNum === correct) btn.classList.add('correct');
-      else btn.classList.add('dim');
-    } else {
-      if (choiceNum === choiceNumber) btn.classList.add('wrong');
-      else btn.classList.add('dim');
-    }
-  });
+if (choiceNumber === correct) {
+if (choiceNum === correct) btn.classList.add('correct');
+else btn.classList.add('dim');
+} else {
+if (choiceNum === choiceNumber) btn.classList.add('wrong');
+else btn.classList.add('dim');
+}
+});
 
-  resultBox.style.display = 'block';
+resultBox.style.display = 'block';
 
-  if (choiceNumber === correct) {
-    score += 1;
-    quizStatus.textContent = '정답입니다!';
-    playCorrectSound();
-    playCorrectEffect();
-    resultBox.className = 'result-box correct';
-    resultBox.textContent = '정답입니다.';
+if (choiceNumber === correct) {
+score += 1;
+quizStatus.textContent = '정답입니다!';
+playCorrectSound();
+playCorrectEffect();
+resultBox.className = 'result-box correct';
+resultBox.textContent = '정답입니다.';
 
-    setTimeout(async () => {
-      if (currentIndex < currentQuestions.length - 1) {
-        currentIndex += 1;
-        renderQuestion();
-      } else {
-        await markTopicCompleted(currentTopic.id, currentQuestions.length, score);
-        progressBar.style.width = '100%';
-        completeBox.style.display = 'block';
-
+setTimeout(() => {
+if (currentIndex < currentQuestions.length - 1) {
+currentIndex += 1;
+renderQuestion();
+} else {
+markTopicCompleted(currentTopic.id, currentQuestions.length, score);
+progressBar.style.width = '100%';
+completeBox.style.display = 'block';
+        completeText.textContent = `${currentTopic.title} 완료!`;
         if (isAssignmentMode && currentAssignment) {
-          completeText.textContent = '숙제 주제 완료! 남은 숙제를 이어서 진행하세요.';
-        } else {
-          completeText.textContent = `${currentTopic.title} 완료!`;
-        }
-      }
-    }, 600);
+  completeText.textContent = `숙제 주제 완료! 남은 숙제를 이어서 진행하세요.`;
+} else {
+  completeText.textContent = `${currentTopic.title} 완료!`;
+}
+}
+}, 600);
 
-  } else {
-    quizStatus.textContent = '오답입니다.';
-    playWrongEffect();
-    resultBox.className = 'result-box wrong';
-    resultBox.textContent = '오답입니다.';
+} else {
+quizStatus.textContent = '오답입니다.';
+playWrongEffect();
+resultBox.className = 'result-box wrong';
+resultBox.textContent = '오답입니다.';
 
-    setTimeout(() => {
-      openFailPopup();
-    }, 500);
-  }
+setTimeout(() => {
+openFailPopup();   // ⭐ 이게 핵심
+}, 500);
+}
 }
 
-  
+function handleNext(){
+if (selectedAnswer === null) return;
+if (currentIndex < currentQuestions.length - 1) { currentIndex += 1; renderQuestion(); return; }
+markTopicCompleted(currentTopic.id, currentQuestions.length, score);
+progressBar.style.width='100%'; completeBox.style.display='block';
+completeText.textContent = `${currentTopic.title} 학습을 완료했습니다. 총 ${currentQuestions.length}문제 중 ${score}문제를 맞혔어요.`;
+quizStatus.textContent='주제 학습이 완료되었습니다.'; nextBtn.disabled = true;
+}
 
-    function handleNext(){
-      if (selectedAnswer === null) return;
-      if (currentIndex < currentQuestions.length - 1) { currentIndex += 1; renderQuestion(); return; }
-      markTopicCompleted(currentTopic.id, currentQuestions.length, score);
-      progressBar.style.width='100%'; completeBox.style.display='block';
-      completeText.textContent = `${currentTopic.title} 학습을 완료했습니다. 총 ${currentQuestions.length}문제 중 ${score}문제를 맞혔어요.`;
-      quizStatus.textContent='주제 학습이 완료되었습니다.'; nextBtn.disabled = true;
-    }
+async function logout(){ await supabase.auth.signOut(); location.href='login.html'; }
 
-    async function logout(){ await supabase.auth.signOut(); location.href='login.html'; }
-
-    document.getElementById('refreshBtn').addEventListener('click', () => location.reload());
-    document.getElementById('menuBtn').addEventListener('click', showMenu);
+document.getElementById('refreshBtn').addEventListener('click', () => location.reload());
+document.getElementById('menuBtn').addEventListener('click', showMenu);
 document.getElementById('retryBtn').addEventListener('click', () => startTopic(currentTopic));
 document.getElementById('backToMenuBtn').addEventListener('click', showMenu);
 
 failRetryBtn.addEventListener('click', () => {
-  closeFailPopup();
-  currentIndex = 0;
-  score = 0;
-  renderQuestion();
+closeFailPopup();
+currentIndex = 0;
+score = 0;
+renderQuestion();
 });
 
 failMenuBtn.addEventListener('click', () => {
-  closeFailPopup();
-  currentIndex = 0;
-  score = 0;
-  showMenu();
+closeFailPopup();
+currentIndex = 0;
+score = 0;
+showMenu();
 });
-    
-    document.getElementById('logoutBtn').addEventListener('click', logout);
-    document.getElementById('homeBtn').addEventListener('click', () => { if (role === 'admin') location.href='admin.html'; else location.href='class.html'; });
 
+document.getElementById('logoutBtn').addEventListener('click', logout);
+document.getElementById('homeBtn').addEventListener('click', () => { if (role === 'admin') location.href='admin.html'; else location.href='class.html'; });
+
+    async function init(){ const ok = await requireAuth(); if (!ok) return; await loadTopics(); }
+    init();
     async function init() {
   const ok = await requireAuth();
   if (!ok) return;
@@ -716,7 +724,7 @@ failMenuBtn.addEventListener('click', () => {
 }
 
 init();
-  </script>
+</script>
 </body>
-  
+
 </html>
