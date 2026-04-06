@@ -509,6 +509,7 @@ async function createAssignment() {
   const className = assignmentClassEl.value.trim();
   const title = assignmentTitleEl.value.trim();
   const category = assignmentCategoryEl.value;
+const isGrammar = category === 'grammar';
   const grade = assignmentGradeEl.value;
   const publisher = assignmentPublisherEl.value;
   const unit = assignmentUnitEl.value.trim();
