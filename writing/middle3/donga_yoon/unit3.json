@@ -1,0 +1,133 @@
+{
+  "grade": "middle3",
+  "publisher": "donga_yoon",
+  "unit": "unit3",
+  "title": "중3 동아(윤정미) 3과",
+  "items": [
+    {
+      "id": 1,
+      "ko": "영어는 다른 문화들이나 언어에서 단어들을 종종 빌려 왔다. 여기 재미있는 이야기를 가진 몇 개의 예가 있다.",
+      "en": "English has often borrowed words from other cultures or languages. Here are some examples with interesting stories."
+    },
+    {
+      "id": 2,
+      "ko": "shampoo라는 단어는 힌디어 단어인 chāmpo에서 왔는데, 그것은 '누르다'라는 의미이다. 인도에서 그 단어는 머리 마사지를 가리키는 데 쓰였다.",
+      "en": "The word shampoo comes from the Hindi word chāmpo, which means 'to press.' In India, the word was used for a head massage."
+    },
+    {
+      "id": 3,
+      "ko": "인도에 있던 영국 무역상들이 머리 마사지를 곁들인 목욕을 경험하고, 18세기에 그것을 영국에 소개했다.",
+      "en": "British traders in India experienced a bath with a head massage and introduced it to Britain in the 18th century."
+    },
+    {
+      "id": 4,
+      "ko": "shampoo라는 단어의 의미는 그 단어가 1762년쯤 영어에 처음 들어온 이후 몇 번 바뀌었다.",
+      "en": "The meaning of the word shampoo changed a few times after it first entered English around 1762."
+    },
+    {
+      "id": 5,
+      "ko": "19세기에 shampoo는 '머리 감기'라는 그것의 현재의 의미를 갖게 되었다.",
+      "en": "In the 19th century, shampoo got its present meaning of 'washing the hair.'"
+    },
+    {
+      "id": 6,
+      "ko": "그 후 얼마 지나지 않아, 그 단어는 머리에 사용하는 특별한 비누를 가리키는 데에도 쓰이기 시작했다.",
+      "en": "Shortly after that, the word began to be also used for a special soap for the hair."
+    },
+    {
+      "id": 7,
+      "ko": "robot이라는 단어는 희곡 'R.U.R.'에서 왔는데, 그 희곡은 1920년에 체코의 작가 Karel Čapek이 썼다.",
+      "en": "The word robot comes from the play R.U.R., which was written in 1920 by a Czech writer, Karel Čapek."
+    },
+    {
+      "id": 8,
+      "ko": "그 희곡에서 로봇들은 인간들처럼 생긴 기계이다.",
+      "en": "In the play, robots are machines that look like humans."
+    },
+    {
+      "id": 9,
+      "ko": "그것들은 인간을 위해 일하도록 설계되고, 공장에서 생산된다.",
+      "en": "They are designed to work for humans and are produced in a factory."
+    },
+    {
+      "id": 10,
+      "ko": "robot이라는 단어를 사용하려는 생각이 Karel Čapek 자신에게서 나온 게 아니었다는 것은 흥미롭다.",
+      "en": "It is interesting that the idea of using the word robot didn't come from Karel Čapek himself."
+    },
+    {
+      "id": 11,
+      "ko": "그는 원래 자신의 희곡에 등장하는 그 기계들을 '일'을 의미하는 라틴어 단어에서 온 labori라고 불렀다.",
+      "en": "He originally called the machines in his play labori from the Latin word for 'work.'"
+    },
+    {
+      "id": 12,
+      "ko": "하지만 그의 형이 roboti를 제안했는데, 그것은 체코어로 '노예 근로자들'을 의미한다.",
+      "en": "However, his brother suggested roboti, which means 'slave workers' in Czech."
+    },
+    {
+      "id": 13,
+      "ko": "Karel Čapek은 그 아이디어가 마음에 들어 roboti라는 단어를 사용하기로 결정했다.",
+      "en": "Karel Čapek liked the idea and decided to use the word roboti."
+    },
+    {
+      "id": 14,
+      "ko": "1938년에 그 희곡은 영국 TV에서 공상 과학물로 만들어졌다.",
+      "en": "In 1938, the play was made into a science fiction show on television in Britain."
+    },
+    {
+      "id": 15,
+      "ko": "hurricane이라는 단어는 스페인어 단어인 huracán에서 왔는데, 그것은 마야 신의 이름에서 유래한다.",
+      "en": "The word hurricane comes from the Spanish word huracán, which originates from the name of a Mayan god."
+    },
+    {
+      "id": 16,
+      "ko": "마야의 창조 신화에서 Huracán은 바람, 폭풍우, 그리고 불을 다스리는 날씨의 신이며, 그는 인간들을 창조한 세 명의 신들 중 한 명이다.",
+      "en": "In the Mayan creation myth, Huracán is the weather god of wind, storm, and fire, and he is one of the three gods who created humans."
+    },
+    {
+      "id": 17,
+      "ko": "하지만 최초의 인간들이 그 신들을 화나게 했고, 그래서 Huracán은 거대한 홍수를 일으켰다.",
+      "en": "However, the first humans angered the gods, so Huracán caused a great flood."
+    },
+    {
+      "id": 18,
+      "ko": "스페인이 마야 문명과 처음 했던 접촉은 1517년이었다.",
+      "en": "The first Spanish contact with the Mayan civilization was in 1517."
+    },
+    {
+      "id": 19,
+      "ko": "카리브제도를 통과해 지나가던 스페인 탐험가들이 허리케인을 겪었고, 그 지역 사람들로부터 그것을 가리키는 단어를 익히게 되었다.",
+      "en": "Spanish explorers who were passing through the Caribbean experienced a hurricane and picked up the word for it from the people in the area."
+    },
+    {
+      "id": 20,
+      "ko": "영어에서는 hurricane이 초기에 사용된 예 중 하나가 1608년에 셰익스피어가 쓴 희곡에서였다.",
+      "en": "In English, one of the early uses of hurricane was in a play written by Shakespeare in 1608."
+    },
+    {
+      "id": 21,
+      "ko": "hamburger라는 단어는 원래 독일에서 두 번째로 큰 도시인 함부르크에서 왔다.",
+      "en": "The word hamburger originally comes from Hamburg, Germany's second-largest city."
+    },
+    {
+      "id": 22,
+      "ko": "hamburger는 독일어로 '함부르크 출신의 사람 또는 사물'을 의미한다.",
+      "en": "Hamburger means 'people or things from Hamburg' in German."
+    },
+    {
+      "id": 23,
+      "ko": "최초의 햄버거의 기원은 분명하지 않다.",
+      "en": "The origin of the first hamburger is not clear."
+    },
+    {
+      "id": 24,
+      "ko": "하지만 햄버거는 1885년에서 1904년 사이의 언젠가 미국의 텍사스에 있는 작은 마을에서 발명되었다고 여겨진다.",
+      "en": "However, it is believed that the hamburger was invented in a small town in Texas, USA, sometime between 1885 and 1904."
+    },
+    {
+      "id": 25,
+      "ko": "한 요리사가 빵 두 조각 사이에 함부르크 스타일의 스테이크를 넣었고, 사람들은 그런 음식을 햄버거라고 부르기 시작했다.",
+      "en": "A cook placed a Hamburg-style steak between two slices of bread, and people started to call such food a hamburger."
+    }
+  ]
+}

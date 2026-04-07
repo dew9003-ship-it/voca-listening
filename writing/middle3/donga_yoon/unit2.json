@@ -1,0 +1,158 @@
+{
+  "grade": "middle3",
+  "publisher": "donga_yoon",
+  "unit": "unit2",
+  "title": "중3 동아(윤정미) 2과",
+  "items": [
+    {
+      "id": 1,
+      "ko": "comfort food는 여러분이 슬프거나 화가 나거나 스트레스를 받을 때 기분을 좋게 해 주는 음식이다.",
+      "en": "Comfort food is food that makes you feel good when you are sad, angry, or stressed out."
+    },
+    {
+      "id": 2,
+      "ko": "그것은 또한 여러분이 과거의 행복한 순간들을 떠올리게 할 수도 있다.",
+      "en": "It can also make you think of happy moments from the past."
+    },
+    {
+      "id": 3,
+      "ko": "그것은 위뿐만 아니라 마음도 충족해 준다.",
+      "en": "It satisfies not only the stomach but also the heart."
+    },
+    {
+      "id": 4,
+      "ko": "comfort food들은 전 세계적으로 다양하다. 세계 여러 나라의 우리 독자들은 어떤 comfort food들을 즐기는지 알아보자.",
+      "en": "Comfort foods differ around the world. Let's see what comfort foods our international readers enjoy."
+    },
+    {
+      "id": 5,
+      "ko": "나의 comfort food는 치킨 수프야. 미국에서는 그들이 감기에 걸렸을 때 이 수프를 먹어.",
+      "en": "My comfort food is chicken soup. In the USA, people eat this soup when they have a cold."
+    },
+    {
+      "id": 6,
+      "ko": "어린아이였을 때 나는 매우 심한 감기에 걸렸어.",
+      "en": "When I was a small child, I caught a very bad cold."
+    },
+    {
+      "id": 7,
+      "ko": "아버지는 내가 나을 수 있도록 치킨 수프 한 그릇을 만들어 주셨지.",
+      "en": "My father made me a bowl of chicken soup so that I could get well."
+    },
+    {
+      "id": 8,
+      "ko": "그 뜨거운 수프가 내 몸을 따뜻하게 해 주었고, 나는 서서히 몸이 나아지기 시작했어.",
+      "en": "The hot soup warmed my body, and I slowly started to feel better."
+    },
+    {
+      "id": 9,
+      "ko": "그것은 맛도 아주 좋았어. 지금도 나는 감기에 걸릴 때 치킨 수프를 먹어.",
+      "en": "It was also very tasty. Now, when I catch a cold, I eat chicken soup."
+    },
+    {
+      "id": 10,
+      "ko": "브라질에는 감자와 비슷한 채소인 카사바로 만든 요리가 많아.",
+      "en": "In Brazil, there are many dishes that are made with cassava, a vegetable similar to a potato."
+    },
+    {
+      "id": 11,
+      "ko": "나는 카사바 칩을 가장 좋아해. 언젠가 내가 학교에서 안 좋은 일이 있어서 스트레스를 받았을 때, 내 가장 친한 친구가 나에게 카사바 칩 한 봉지를 사 줬어.",
+      "en": "I love cassava chips the most. Once when I had a bad day at school and felt stressed out, my best friend bought me a bag of cassava chips."
+    },
+    {
+      "id": 12,
+      "ko": "그 칩을 먹기 시작했을 때 내 스트레스가 갑자기 사라졌어.",
+      "en": "When I started to eat the chips, my stress suddenly disappeared."
+    },
+    {
+      "id": 13,
+      "ko": "칩을 먹을 때의 바삭하는 소리는 내 기분이 더 좋아지게 만들었어.",
+      "en": "The crisp sound of eating chips made me feel better."
+    },
+    {
+      "id": 14,
+      "ko": "지금도 나는 스트레스를 받을 때마다 카사바 칩을 먹어. 그러면 기분이 다시 좋아져!",
+      "en": "Now, every time I'm stressed out, I eat cassava chips. Then I feel good again!"
+    },
+    {
+      "id": 15,
+      "ko": "나는 comfort food가 많아, 하지만 마들렌을 가장 좋아해.",
+      "en": "I have many comfort foods, but I love madeleines the most."
+    },
+    {
+      "id": 16,
+      "ko": "마들렌은 조개껍데기처럼 생긴 작은 케이크야.",
+      "en": "A madeleine is a small cake that looks like a sea shell."
+    },
+    {
+      "id": 17,
+      "ko": "프랑스의 사람들은 오후 간식으로 마들렌을 즐겨 먹어.",
+      "en": "People in France enjoy madeleines as an afternoon snack."
+    },
+    {
+      "id": 18,
+      "ko": "우리 할머니는 내가 할머니 댁에 갈 때 항상 마들렌을 만들어 주셔.",
+      "en": "My grandmother always makes madeleines for me when I visit her."
+    },
+    {
+      "id": 19,
+      "ko": "그것들은 오븐에서 막 나올 때 가장 맛있어.",
+      "en": "They taste best when they come right out of the oven."
+    },
+    {
+      "id": 20,
+      "ko": "그러면 부엌은 달콤한 냄새로 가득 차.",
+      "en": "Then the kitchen is filled with a sweet smell."
+    },
+    {
+      "id": 21,
+      "ko": "나는 특히 차 한 잔과 함께 그녀의 오렌지 마들렌을 먹는 것을 좋아해.",
+      "en": "I especially like eating her orange madeleines with a cup of tea."
+    },
+    {
+      "id": 22,
+      "ko": "나는 마들렌을 보거나 냄새를 맡을 때마다 우리 할머니가 생각나.",
+      "en": "Every time I see or smell madeleines, I think of my grandmother."
+    },
+    {
+      "id": 23,
+      "ko": "너희들도 오렌지 마들렌을 만들 수 있도록 우리 할머니의 특별한 요리법을 너희들과 공유할게.",
+      "en": "Let me share my grandmother's special recipe with you so that you can make orange madeleines, too."
+    },
+    {
+      "id": 24,
+      "ko": "아마 마들렌이 너희에게도 comfort food가 될 거야!",
+      "en": "Maybe madeleines will become a comfort food for you!"
+    },
+    {
+      "id": 25,
+      "ko": "버터를 녹여서 식히세요.",
+      "en": "Melt the butter and let it cool."
+    },
+    {
+      "id": 26,
+      "ko": "달걀, 설탕, 소금을 그릇에 넣고 휘저으세요.",
+      "en": "Put the eggs, sugar, and salt in a bowl and beat."
+    },
+    {
+      "id": 27,
+      "ko": "그 그릇에 밀가루를 넣고 섞으세요.",
+      "en": "Add the flour to the bowl and mix."
+    },
+    {
+      "id": 28,
+      "ko": "반죽에 버터와 오렌지 껍질을 넣고 섞으세요.",
+      "en": "Add the butter and orange peel to the mixture and mix."
+    },
+    {
+      "id": 29,
+      "ko": "반죽을 마들렌 팬에 부으세요.",
+      "en": "Pour the mixture into the madeleine pan."
+    },
+    {
+      "id": 30,
+      "ko": "오븐에서 10~15분 동안 구우세요.",
+      "en": "Bake in the oven for 10 to 15 minutes."
+    }
+  ]
+}

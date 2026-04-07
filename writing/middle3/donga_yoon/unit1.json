@@ -1,0 +1,143 @@
+{
+  "grade": "middle3",
+  "publisher": "donga_yoon",
+  "unit": "unit1",
+  "title": "중3 동아(윤정미) 1과",
+  "items": [
+    {
+      "id": 1,
+      "ko": "여러분, 안녕하세요. 제 이름은 David Parker이고, 저는 사진작가입니다. 오늘 저는 여러분에게 제가 어떻게 꿈을 찾고 그것을 실현했는지 이야기하려고 해요.",
+      "en": "Hello, everyone. My name is David Parker, and I'm a photographer. Today, I'm going to tell you how I found my dream and realized it."
+    },
+    {
+      "id": 2,
+      "ko": "제 이야기가 여러분에게 영감을 줄 수 있기를 바랍니다.",
+      "en": "I hope my story can inspire you."
+    },
+    {
+      "id": 3,
+      "ko": "저는 어렸을 때 별들을 사랑했어요. 또한 사진 찍는 것도 좋아했죠.",
+      "en": "When I was young, I loved stars. I also liked taking pictures."
+    },
+    {
+      "id": 4,
+      "ko": "하지만 저는 이것들이 직업으로 이어질 수 있으리라고는 전혀 생각하지 못했어요.",
+      "en": "However, I never thought these things could lead to a job."
+    },
+    {
+      "id": 5,
+      "ko": "사실 저는 아예 꿈이 없었거든요.",
+      "en": "In fact, I didn't have a dream at all."
+    },
+    {
+      "id": 6,
+      "ko": "대학에서 전공을 정해야 했을 때, 저는 공학을 선택했어요.",
+      "en": "When I had to decide on a major in college, I chose engineering."
+    },
+    {
+      "id": 7,
+      "ko": "엔지니어가 되는 것이 괜찮아 보였거든요. 대학 졸업 후에 저는 엔지니어링 회사에 취직했어요.",
+      "en": "Being an engineer looked OK. After college, I got a job at an engineering company."
+    },
+    {
+      "id": 8,
+      "ko": "그것은 안정적인 직업이었지만, 저는 제가 그 일을 정말로 즐기는지는 알 수 없었어요.",
+      "en": "It was a stable job, but I didn't know whether I really enjoyed it."
+    },
+    {
+      "id": 9,
+      "ko": "어느 겨울, 제가 아이슬란드로 휴가를 갔을 때 모든 것이 바뀌었어요.",
+      "en": "Everything changed when I went on vacation to Iceland one winter."
+    },
+    {
+      "id": 10,
+      "ko": "그곳에서 저는 오로라를 볼 기회가 있었어요.",
+      "en": "There I got a chance to see the Northern Lights."
+    },
+    {
+      "id": 11,
+      "ko": "빛들은 경이로웠고, 저는 하늘에서 춤추는 빛들의 사진을 많이 찍었어요.",
+      "en": "The lights were amazing, and I took many pictures of the dancing lights in the sky."
+    },
+    {
+      "id": 12,
+      "ko": "수년 만에 처음으로 제 심장이 빠르게 뛰고 있는 것을 느낄 수 있었어요.",
+      "en": "For the first time in many years, I could feel my heart beating fast."
+    },
+    {
+      "id": 13,
+      "ko": "돌아온 후에 저는 아이슬란드에서 찍은 사진들로 사진 경연 대회에 참가했어요.",
+      "en": "After I came back, I entered a photo contest with the pictures I took in Iceland."
+    },
+    {
+      "id": 14,
+      "ko": "놀랍게도 저는 1등 상을 받았고, 이 일은 저에게 제 인생에 대해 생각해 볼 기회를 주었어요.",
+      "en": "Surprisingly, I won first prize, and this gave me a chance to think about my life."
+    },
+    {
+      "id": 15,
+      "ko": "저는 사진을 찍는 것이 저를 행복하게 한다는 것을 깨달았어요.",
+      "en": "I realized that taking pictures made me happy."
+    },
+    {
+      "id": 16,
+      "ko": "갑자기 저는 좋은 사진작가가 되고 싶었고, 그래서 사진 촬영 기술에 대해 더 배우기 시작했어요.",
+      "en": "Suddenly, I wanted to become a good photographer, so I started to learn more about photography."
+    },
+    {
+      "id": 17,
+      "ko": "몇 년의 시행착오 끝에 저는 실력이 더 좋아졌고, 사진작가로 시간제 근무를 하기 시작했어요.",
+      "en": "After years of trial and error, I got better, and I began to do some part-time work as a photographer."
+    },
+    {
+      "id": 18,
+      "ko": "그러던 어느 날, 저는 대담한 결심을 했어요. 직장을 그만두고 생계 수단으로 사진을 찍기로 결정했죠.",
+      "en": "Then one day, I made a bold decision. I quit my job and decided to take pictures for a living."
+    },
+    {
+      "id": 19,
+      "ko": "제가 성공할 수 있을지 확신하지는 못했지만 시도해 보기로 결심했어요.",
+      "en": "I wasn't sure if I could succeed, but I decided to try."
+    },
+    {
+      "id": 20,
+      "ko": "저는 저를 행복하게 만드는 무언가를 정말로 하고 싶었거든요. 지금, 저는 전문 사진작가이고 행복합니다.",
+      "en": "I really wanted to do something that made me happy. Now, I'm a professional photographer, and I'm happy."
+    },
+    {
+      "id": 21,
+      "ko": "그렇다면 여러분은 꿈을 찾고 그 꿈을 실현하고 싶은가요? 여기 여러분을 도와줄 몇 가지 조언이 있습니다.",
+      "en": "So do you want to find a dream and realize it? Here's some advice to help you."
+    },
+    {
+      "id": 22,
+      "ko": "첫째, 여러분의 마음을 따르세요. 여러분이 무엇을 하는 것을 좋아하는지, 그리고 여러분을 행복하게 하는 것이 무엇인지 생각해 보세요.",
+      "en": "First, follow your heart. Think about what you like to do and what makes you happy."
+    },
+    {
+      "id": 23,
+      "ko": "제 경우에는, 그것이 별 사진을 찍는 것이었습니다.",
+      "en": "In my case, it was taking pictures of stars."
+    },
+    {
+      "id": 24,
+      "ko": "둘째, 열심히 노력하세요. 꿈을 추구하는 것은 쉽지 않아요. 저는 열심히 노력해서 사진작가가 되었습니다.",
+      "en": "Second, work hard. Pursuing a dream is not easy. I became a photographer through hard work."
+    },
+    {
+      "id": 25,
+      "ko": "셋째, 대담해지세요. 여러분의 인생을 바꿀 결정들을 하기 위해서는 용기가 필요합니다.",
+      "en": "Third, be bold. You need courage to make decisions that will change your life."
+    },
+    {
+      "id": 26,
+      "ko": "저는 두려웠지만 기회를 잡았어요.",
+      "en": "I was afraid but I took a chance."
+    },
+    {
+      "id": 27,
+      "ko": "저는 여러분이 꿈을 찾고, 꿈을 추구하고, 꿈을 실현할 수 있길 진심으로 바랍니다!",
+      "en": "I truly hope you can find a dream, pursue it, and live it!"
+    }
+  ]
+}
