@@ -969,7 +969,17 @@ async function requireAuth() {
             }
 
             const user = await requireAuth();
-            if (!user) return;
+if (!user) return;
+
+const { data: profileData } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('user_id', user.id)
+    .maybeSingle();
+
+if (profileData?.role) {
+    role = profileData.role;
+}
 
             const ok = confirm('현재 로그인한 계정의 듣기 학습 기록을 서버에서 초기화하시겠습니까?');
             if (!ok) return;
