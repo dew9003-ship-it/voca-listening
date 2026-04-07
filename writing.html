@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>영작 학습관</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--card:#ffffff;--line:#e5e7eb;--text:#1f2937;--muted:#6b7280;--blue:#4f8cff;--green:#4caf50;--shadow:0 10px 30px rgba(15,23,42,.08)}
+html,body{margin:0;padding:0;height:100%;font-family:Arial,sans-serif;background:linear-gradient(180deg,#eff5ff 0%,#f4f7fb 35%,#eef8f1 100%);color:var(--text)}
+.wrap{width:100%;max-width:1100px;margin:0 auto;padding:20px;min-height:100vh}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.title-box h1{margin:0;font-size:30px;font-weight:800}.title-box p{margin:8px 0 0;color:var(--muted);font-size:14px;line-height:1.5}
+.btns{display:flex;gap:8px;flex-wrap:wrap} button,select,input{border:none;border-radius:14px;font-size:14px;font-weight:700} button{cursor:pointer}
+.btn-light{background:#fff;color:#334155;border:1px solid var(--line);padding:11px 16px}
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:18px}
+.summary-card,.panel{background:var(--card);border-radius:24px;box-shadow:var(--shadow)} .summary-card{padding:18px}.summary-card .label{color:var(--muted);font-size:13px;margin-bottom:8px}.summary-card .value{font-size:28px;font-weight:800}
+.panel{padding:18px;margin-bottom:18px}.panel-head h2{margin:0;font-size:20px}.panel-head p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.5}
+.filter-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.filter-card{background:linear-gradient(180deg,#fff 0%,#fbfdff 100%);border:1px solid var(--line);border-radius:18px;padding:16px}.filter-card label{display:block;font-size:12px;color:var(--muted);margin-bottom:8px;font-weight:800}.filter-card select{width:100%;height:46px;border:1px solid var(--line);background:#fff;padding:0 12px;color:var(--text);outline:none}
+.unit-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}.unit-card{border:1px solid var(--line);background:linear-gradient(180deg,#fff 0%,#fbfdff 100%);border-radius:18px;padding:16px;min-height:160px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer}.badge{display:inline-flex;align-items:center;width:max-content;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;background:#eef4ff;color:#335ea8;margin-bottom:10px}.meta{color:var(--muted);font-size:12px;line-height:1.6}.unit-title{font-size:18px;font-weight:800;line-height:1.35;margin-bottom:10px}
+#gameView{display:none}.quiz-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:14px}.progress-pill{display:inline-flex;align-items:center;background:#eef4ff;color:#2f5da8;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:700}.progress-bar-wrap{width:100%;height:10px;background:#e5e7eb;border-radius:999px;overflow:hidden;margin-bottom:18px}.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,#4f8cff,#6fcf97);transition:width .2s ease}
+.question-card{background:linear-gradient(180deg,#fff 0%,#fafcff 100%);border:1px solid var(--line);border-radius:22px;padding:22px}.step-label{display:inline-block;padding:7px 12px;border-radius:999px;background:#fff4e8;color:#f97316;font-size:12px;font-weight:800;margin-bottom:14px}.prompt-box{padding:14px 16px;background:#eef6ff;border:1px solid #cfe1ff;border-radius:16px;font-weight:700;font-size:16px;line-height:1.6;margin-bottom:14px}.hint-box{padding:12px 14px;background:#fff;border:1px dashed #d7dbe3;border-radius:14px;font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px}
+#checkBtn{min-width:140px;background:var(--green);color:#fff;padding:13px 18px;margin-left:auto}.drop-zone{min-height:120px;border:2px dashed #93c5fd;border-radius:18px;background:#fff;display:flex;flex-wrap:wrap;gap:10px;padding:14px;align-content:flex-start;justify-content:center;margin-bottom:12px}.word-bank{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}.word-btn{padding:10px 14px;font-size:14px;border-radius:12px;background:#4f8cff;color:white;border:none;font-weight:800;cursor:pointer}#typingArea{display:none}.type-input{width:100%;min-height:64px;padding:14px 16px;font-size:18px;border:2px solid #bfdbfe;border-radius:18px;outline:none;background:#fff;color:var(--text)}
+#modalOverlay{position:fixed;inset:0;background:rgba(15,23,42,.56);display:none;justify-content:center;align-items:center;z-index:2000;padding:20px}.modal-content{background:#fff;border-radius:24px;padding:24px;width:min(92vw,380px);text-align:center;box-shadow:0 24px 60px rgba(15,23,42,.18)}.m-btn{width:100%;padding:15px;margin-top:10px;border-radius:14px;border:none;font-weight:800;font-size:16px;cursor:pointer}
+@media (max-width:640px){.wrap{padding:12px}.title-box h1{font-size:25px}.panel,.question-card{padding:14px}.word-btn{padding:8px 10px;font-size:13px}.type-input{min-height:56px;padding:12px 14px;font-size:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="title-box">
+      <h1>영작 학습관</h1>
+      <p>학년 → 출판사 → 단원을 선택한 뒤, 단어 배열과 직접 타이핑 2단계로 학습합니다.</p>
+    </div>
+    <div class="btns"><button id="homeBtn" class="btn-light" type="button">학습 홈</button></div>
+  </div>
+
+  <div id="menuView">
+    <div class="summary-grid">
+      <div class="summary-card"><div class="label">학년</div><div class="value" id="summaryGrade">중3</div></div>
+      <div class="summary-card"><div class="label">출판사</div><div class="value" id="summaryBook" style="font-size:22px;">동아(윤정미)</div></div>
+      <div class="summary-card"><div class="label">최근 학습</div><div class="value" id="recentUnit" style="font-size:22px;">-</div></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h2>카테고리 선택</h2>
+        <p>중3 동아(윤정미) 1과~3과를 먼저 연결했습니다.</p>
+      </div>
+      <div class="filter-grid">
+        <div class="filter-card"><label for="gradeSelect">학년</label><select id="gradeSelect"></select></div>
+        <div class="filter-card"><label for="bookSelect">출판사</label><select id="bookSelect"></select></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h2>단원 선택</h2>
+        <p>원하는 단원을 눌러 바로 시작하세요.</p>
+      </div>
+      <div id="unitGrid" class="unit-grid"></div>
+    </div>
+  </div>
+
+  <div id="gameView">
+    <div class="panel">
+      <div class="quiz-head">
+        <div>
+          <div class="progress-pill" id="progressText">1 / 1</div>
+          <p id="coursePath" style="margin:10px 0 0;color:var(--muted);font-size:14px;">중3 · 동아(윤정미) · 1과</p>
+        </div>
+        <div class="btns"><button class="btn-light" id="backBtn" type="button">목차</button></div>
+      </div>
+      <div class="progress-bar-wrap"><div id="progressBar" class="progress-bar"></div></div>
+      <div class="question-card">
+        <div id="stepLabel" class="step-label">Step 1 · 단어 배열</div>
+        <div id="promptBox" class="prompt-box"></div>
+        <div id="hintBox" class="hint-box"></div>
+        <div id="arrangeArea">
+          <div id="answerArea" class="drop-zone"></div>
+          <div id="wordBank" class="word-bank"></div>
+        </div>
+        <div id="typingArea"><input id="typeInput" class="type-input" type="text" placeholder="영어 문장을 입력하세요..." /></div>
+        <div style="display:flex"><button id="checkBtn" type="button">제출</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modalOverlay">
+  <div class="modal-content">
+    <h3 id="mTitle" style="margin:0 0 10px 0;">결과</h3>
+    <p id="mMsg" style="margin:0 0 20px 0; line-height:1.6;"></p>
+    <button class="m-btn" id="mYes" style="background:#4caf50;color:white;" type="button">확인</button>
+    <button class="m-btn" id="mNo" style="background:#eee;color:#333;" type="button">목차</button>
+  </div>
+</div>
+
+<script>
+const writingCatalog={"중3":{"동아(윤정미)":{"1과":{unitTitle:"꿈을 찾고 실현하기",items:[{ko:"제 이름은 David Parker이고, 저는 사진작가입니다.",en:"My name is David Parker, and I'm a photographer."},{ko:"오늘 저는 제가 어떻게 꿈을 찾고 그것을 실현했는지 이야기하려고 합니다.",en:"Today, I'm going to tell you how I found my dream and realized it."},{ko:"제 이야기가 여러분에게 영감을 줄 수 있기를 바랍니다.",en:"I hope my story can inspire you."},{ko:"저는 어렸을 때 별을 사랑했습니다.",en:"When I was young, I loved stars."},{ko:"하지만 저는 이것들이 직업으로 이어질 수 있으리라고는 생각하지 못했습니다.",en:"However, I never thought these things could lead to a job."},{ko:"사실 저는 아예 꿈이 없었습니다.",en:"In fact, I didn't have a dream at all."},{ko:"대학에서 전공을 정해야 했을 때, 저는 공학을 선택했습니다.",en:"When I had to decide on a major in college, I chose engineering."},{ko:"그것은 안정적인 직업이었지만, 저는 제가 그 일을 정말로 즐기는지 알 수 없었습니다.",en:"It was a stable job, but I didn't know whether I really enjoyed it."},{ko:"어느 겨울 아이슬란드로 휴가를 갔을 때 모든 것이 바뀌었습니다.",en:"Everything changed when I went on vacation to Iceland one winter."},{ko:"그곳에서 저는 오로라를 볼 기회가 있었습니다.",en:"There I got a chance to see the Northern Lights."}]},"2과":{unitTitle:"Comfort Food",items:[{ko:"comfort food는 여러분이 슬프거나 화가 나거나 스트레스를 받을 때 기분을 좋게 해 주는 음식이다.",en:"Comfort food is food that makes you feel good when you are sad, angry, or stressed out."},{ko:"그것은 또한 여러분이 과거의 행복한 순간들을 떠올리게 할 수도 있다.",en:"It can also make you think of happy moments from the past."},{ko:"그것은 위뿐만 아니라 마음도 충족해 준다.",en:"It satisfies not only the stomach but also the heart."},{ko:"comfort food들은 전 세계적으로 다양하다.",en:"Comfort foods differ around the world."},{ko:"나의 comfort food는 치킨 수프야.",en:"My comfort food is chicken soup."},{ko:"미국에서는 사람들이 감기에 걸렸을 때 이 수프를 먹는다.",en:"In the USA, people eat this soup when they have a cold."},{ko:"어린아이였을 때 나는 매우 심한 감기에 걸렸다.",en:"When I was a small child, I caught a very bad cold."},{ko:"아버지는 내가 나을 수 있도록 치킨 수프 한 그릇을 만들어 주셨다.",en:"My father made me a bowl of chicken soup so that I could get well."},{ko:"그 뜨거운 수프가 내 몸을 따뜻하게 해 주었고, 나는 서서히 몸이 나아지기 시작했다.",en:"The hot soup warmed my body, and I slowly started to feel better."},{ko:"지금도 나는 감기에 걸릴 때 치킨 수프를 먹는다.",en:"Now, when I catch a cold, I eat chicken soup."}]},"3과":{unitTitle:"Words and Their Stories",items:[{ko:"영어는 다른 문화들이나 언어에서 단어들을 종종 빌려 왔다.",en:"English has often borrowed words from other cultures or languages."},{ko:"여기 재미있는 이야기를 가진 몇 개의 예가 있다.",en:"Here are some examples with interesting stories."},{ko:"robot이라는 단어는 희곡 R.U.R.에서 왔다.",en:"The word robot comes from the play R.U.R."},{ko:"그것은 1920년에 체코 작가 Karel Capek에 의해 쓰였다.",en:"It was written in 1920 by a Czech writer, Karel Capek."},{ko:"그 희곡에서 로봇들은 인간들처럼 생긴 기계이다.",en:"In the play, robots are machines that look like humans."},{ko:"그것들은 인간을 위해 일하도록 설계되고, 공장에서 생산된다.",en:"They are designed to work for humans and are produced in a factory."},{ko:"hamburger라는 단어는 원래 독일의 도시 함부르크에서 왔다.",en:"The word hamburger originally comes from Hamburg, Germany's second-largest city."},{ko:"최초의 햄버거의 기원은 분명하지 않다.",en:"The origin of the first hamburger is not clear."},{ko:"하지만 햄버거는 미국 텍사스의 작은 마을에서 발명되었다고 여겨진다.",en:"However, it is believed that the hamburger was invented in a small town in Texas, USA."},{ko:"사람들은 그런 음식을 햄버거라고 부르기 시작했다.",en:"People started to call such food a hamburger."}]}}}};
+const menuView=document.getElementById('menuView'),gameView=document.getElementById('gameView'),gradeSelect=document.getElementById('gradeSelect'),bookSelect=document.getElementById('bookSelect'),unitGrid=document.getElementById('unitGrid'),summaryGrade=document.getElementById('summaryGrade'),summaryBook=document.getElementById('summaryBook'),recentUnit=document.getElementById('recentUnit'),progressText=document.getElementById('progressText'),progressBar=document.getElementById('progressBar'),coursePath=document.getElementById('coursePath'),stepLabel=document.getElementById('stepLabel'),promptBox=document.getElementById('promptBox'),hintBox=document.getElementById('hintBox'),answerArea=document.getElementById('answerArea'),wordBank=document.getElementById('wordBank'),arrangeArea=document.getElementById('arrangeArea'),typingArea=document.getElementById('typingArea'),typeInput=document.getElementById('typeInput'),checkBtn=document.getElementById('checkBtn'),modalOverlay=document.getElementById('modalOverlay'),mTitle=document.getElementById('mTitle'),mMsg=document.getElementById('mMsg'),mYes=document.getElementById('mYes'),mNo=document.getElementById('mNo');
+let currentGrade='중3',currentBook='동아(윤정미)',currentUnit=null,currentItems=[],currentIndex=0,currentStep=1;
+function storageKey(k){return `writing_progress_${k}`} function unitKey(g,b,u){return `${g}__${b}__${u}`} function getProgress(g,b,u){try{return JSON.parse(localStorage.getItem(storageKey(unitKey(g,b,u)))||'{"lastIndex":0,"completed":0}')}catch{return {lastIndex:0,completed:0}}} function setProgress(g,b,u,data){localStorage.setItem(storageKey(unitKey(g,b,u)),JSON.stringify(data));localStorage.setItem('writing_recent_unit',JSON.stringify({grade:g,book:b,unit:u,updatedAt:new Date().toISOString()}))} function getRecentUnit(){try{return JSON.parse(localStorage.getItem('writing_recent_unit')||'null')}catch{return null}}
+function shuffleWords(words){const arr=[...words];for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
+function clean(text){return String(text??'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9'\s.,?!-]/g,'').replace(/\s+/g,' ').trim()}
+function updateRecentSummary(){const recent=getRecentUnit();recentUnit.textContent=recent?`${recent.grade} ${recent.unit}`:'-'}
+function populateGrades(){const grades=Object.keys(writingCatalog);gradeSelect.innerHTML=grades.map(g=>`<option value="${g}">${g}</option>`).join('');gradeSelect.value=currentGrade}
+function populateBooks(){const books=Object.keys(writingCatalog[currentGrade]||{});bookSelect.innerHTML=books.map(b=>`<option value="${b}">${b}</option>`).join('');if(!books.includes(currentBook))currentBook=books[0];bookSelect.value=currentBook;summaryGrade.textContent=currentGrade;summaryBook.textContent=currentBook}
+function renderUnits(){const units=writingCatalog[currentGrade]?.[currentBook]||{};unitGrid.innerHTML='';for(const unit of Object.keys(units)){const data=units[unit],progress=getProgress(currentGrade,currentBook,unit),total=data.items.length,completed=Math.min(progress.completed||0,total),percent=total?Math.round(completed/total*100):0;const card=document.createElement('button');card.type='button';card.className='unit-card';card.innerHTML=`<div><div class="badge">${unit}</div><div class="unit-title">${data.unitTitle}</div></div><div class="meta">문장 수: ${total}<br>진도: ${completed} / ${total} (${percent}%)</div>`;card.addEventListener('click',()=>startUnit(unit));unitGrid.appendChild(card)}}
+function showMenu(){gameView.style.display='none';menuView.style.display='block';progressBar.style.width='0%';renderUnits();updateRecentSummary()}
+function startUnit(unit){currentUnit=unit;currentItems=writingCatalog[currentGrade][currentBook][unit].items;const progress=getProgress(currentGrade,currentBook,unit);currentIndex=Math.min(progress.lastIndex||0,Math.max(currentItems.length-1,0));currentStep=1;menuView.style.display='none';gameView.style.display='block';renderQuestion()}
+function renderQuestion(){const item=currentItems[currentIndex],total=currentItems.length;progressText.textContent=`${currentIndex+1} / ${total}`;progressBar.style.width=`${(currentIndex+1)/total*100}%`;coursePath.textContent=`${currentGrade} · ${currentBook} · ${currentUnit}`;promptBox.textContent=item.ko;hintBox.textContent=`정답 문장 길이: ${item.en.split(' ').length}단어`;if(currentStep===1){stepLabel.textContent='Step 1 · 단어 배열';arrangeArea.style.display='block';typingArea.style.display='none';answerArea.innerHTML='';wordBank.innerHTML='';shuffleWords(item.en.split(' ')).forEach(word=>{const btn=document.createElement('button');btn.type='button';btn.className='word-btn';btn.textContent=word;btn.addEventListener('click',()=>{if(btn.parentElement===wordBank)answerArea.appendChild(btn);else wordBank.appendChild(btn)});wordBank.appendChild(btn)})}else{stepLabel.textContent='Step 2 · 직접 타이핑';arrangeArea.style.display='none';typingArea.style.display='block';typeInput.value='';setTimeout(()=>typeInput.focus(),50)}}
+function openPopup(success,msg){modalOverlay.style.display='flex';mTitle.textContent=success?'정답입니다!':'오답입니다';mTitle.style.color=success?'#4caf50':'#f44336';mMsg.textContent=msg}
+function saveUnitProgress(){const total=currentItems.length,completed=Math.max(currentIndex+1,getProgress(currentGrade,currentBook,currentUnit).completed||0);setProgress(currentGrade,currentBook,currentUnit,{lastIndex:Math.min(currentIndex,total-1),completed:Math.min(completed,total)})}
+function advanceAfterCorrect(){modalOverlay.style.display='none';if(currentStep===1){currentStep=2;renderQuestion();return}saveUnitProgress();if(currentIndex<currentItems.length-1){currentIndex+=1;currentStep=1;renderQuestion()}else{setProgress(currentGrade,currentBook,currentUnit,{lastIndex:currentItems.length-1,completed:currentItems.length});alert('이 단원을 모두 완료했습니다! 🎉');showMenu()}}
+checkBtn.addEventListener('click',()=>{const answer=currentItems[currentIndex].en;let isCorrect=false;if(currentStep===1){const arranged=Array.from(answerArea.children).map(el=>el.textContent).join(' ');isCorrect=clean(arranged)===clean(answer);openPopup(isCorrect,isCorrect?'배열이 정확합니다. 이제 직접 타이핑으로 넘어갑니다.':'단어 순서를 다시 확인해 보세요.')}else{isCorrect=clean(typeInput.value)===clean(answer);openPopup(isCorrect,isCorrect?'직접 타이핑까지 완료했습니다.':`다시 입력해 보세요. 힌트: ${answer.split(' ').length}단어`)}mYes.onclick=()=>{if(isCorrect)advanceAfterCorrect();else{modalOverlay.style.display='none';if(currentStep===2)typeInput.focus()}}})
+mNo.addEventListener('click',showMenu);document.getElementById('backBtn').addEventListener('click',showMenu);document.getElementById('homeBtn').addEventListener('click',()=>alert('학습 홈 경로로 연결해 주세요.'));gradeSelect.addEventListener('change',()=>{currentGrade=gradeSelect.value;populateBooks();renderUnits()});bookSelect.addEventListener('change',()=>{currentBook=bookSelect.value;summaryBook.textContent=currentBook;renderUnits()});typeInput.addEventListener('keydown',e=>{if(e.key==='Enter')checkBtn.click()});populateGrades();populateBooks();renderUnits();updateRecentSummary();
+</script>
+</body>
+</html>
