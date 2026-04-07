@@ -47,7 +47,37 @@ const qs=s=>document.querySelector(s), menuView=qs('#menuView'), stageView=qs('#
 let currentGrade='middle3', currentBook='donga_yoon', currentUnitMeta=null, currentData=null, currentIndex=0, currentStep=1;
 const getProgress=(meta=currentUnitMeta)=>JSON.parse(localStorage.getItem(`writing_progress_${currentGrade}_${currentBook}_${meta.id}`)||'{"maxUnlockedIndex":0,"completed":[]}');
 const setProgress=(obj)=>{localStorage.setItem(`writing_progress_${currentGrade}_${currentBook}_${currentUnitMeta.id}`,JSON.stringify(obj));localStorage.setItem('writing_recent_unit',JSON.stringify({grade:catalog[currentGrade].label,unit:currentUnitMeta.label}))};
-const clean=t=>String(t||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9'\s.,?!-]/g,'').replace(/\s+/g,' ').trim();
+const clean = t => String(t || '')
+  .toLowerCase()
+  .replace(/[’']/g, "'")
+  .replace(/[.,!?"]/g, '')   // 문장부호 무시
+  .replace(/\s+/g, ' ')
+  .trim();
+
+function tokenizeForCompare(text) {
+  return clean(text).split(' ').filter(Boolean);
+}
+
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
+
+function buildDiffHtml(userInput, answer) {
+  const userTokens = tokenizeForCompare(userInput);
+  const answerTokens = tokenizeForCompare(answer);
+
+  return answerTokens.map((word, idx) => {
+    const ok = userTokens[idx] === word;
+    return ok
+      ? `<span>${escapeHtml(word)}</span>`
+      : `<span style="color:#ef4444;font-weight:800;background:#fff1f2;padding:2px 6px;border-radius:8px;">${escapeHtml(word)}</span>`;
+  }).join(' ');
+}
 const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 function updateSummary(){qs('#summaryGrade').textContent=catalog[currentGrade].label;qs('#summaryBook').textContent=catalog[currentGrade].books[currentBook].label;const r=JSON.parse(localStorage.getItem('writing_recent_unit')||'null');qs('#recentUnit').textContent=r?`${r.grade} ${r.unit}`:'-'}
 function populate(){gradeSelect.innerHTML='<option value="middle3">중3</option>';bookSelect.innerHTML='<option value="donga_yoon">동아(윤정미)</option>';updateSummary()}
@@ -58,8 +88,78 @@ function startQuestion(idx){currentIndex=idx;currentStep=1;stageView.style.displ
 function renderQuestion(){const item=currentData.items[currentIndex], total=currentData.items.length;qs('#progressText').textContent=`${currentIndex+1} / ${total}`;qs('#progressBar').style.width=`${(currentIndex+1)/total*100}%`;qs('#coursePath').textContent=`중3 · 동아(윤정미) · ${currentUnitMeta.label} · ${currentIndex+1}번`;qs('#promptBox').textContent=item.ko;qs('#hintBox').textContent=`정답 문장 길이: ${item.en.split(' ').length}단어`;if(currentStep===1){qs('#stepLabel').textContent='Step 1 · 단어 배열';qs('#arrangeArea').style.display='block';qs('#typingArea').style.display='none';qs('#answerArea').innerHTML='';qs('#wordBank').innerHTML='';shuffle(item.en.split(' ')).forEach(w=>{const b=document.createElement('button');b.className='word-btn';b.textContent=w;b.onclick=()=>b.parentElement.id==='wordBank'?qs('#answerArea').appendChild(b):qs('#wordBank').appendChild(b);qs('#wordBank').appendChild(b)})}else{qs('#stepLabel').textContent='Step 2 · 직접 타이핑';qs('#arrangeArea').style.display='none';qs('#typingArea').style.display='block';qs('#typeInput').value='';qs('#typeInput').focus()}}
 function popup(ok,msg){qs('#modalOverlay').style.display='flex';qs('#mTitle').textContent=ok?'정답입니다!':'오답입니다';qs('#mTitle').style.color=ok?'#4caf50':'#f44336';qs('#mMsg').textContent=msg}
 function complete(){const p=getProgress(), c=[...(p.completed||[])];if(!c.includes(currentIndex))c.push(currentIndex);let m=p.maxUnlockedIndex||0;if(currentIndex===m && currentIndex<currentData.items.length-1)m++;setProgress({maxUnlockedIndex:m,completed:c});renderStageGrid();stageView.style.display='block';gameView.style.display='none';qs('#modalOverlay').style.display='none';updateSummary()}
-qs('#checkBtn').onclick=()=>{const ans=currentData.items[currentIndex].en;let ok=false;if(currentStep===1){ok=clean([...qs('#answerArea').children].map(n=>n.textContent).join(' '))===clean(ans);popup(ok,ok?'배열이 정확합니다. 이제 직접 타이핑으로 넘어갑니다.':'단어 순서를 다시 확인해 보세요.')}else{ok=clean(qs('#typeInput').value)===clean(ans);popup(ok,ok?'직접 타이핑까지 완료했습니다.':'다시 입력해 보세요.')}qs('#mYes').onclick=()=>{if(ok){if(currentStep===1){currentStep=2;qs('#modalOverlay').style.display='none';renderQuestion()}else complete()}else{qs('#modalOverlay').style.display='none';if(currentStep===2)qs('#typeInput').focus()}}};
-qs('#mNo').onclick=()=>{qs('#modalOverlay').style.display='none';stageView.style.display='block';gameView.style.display='none'};qs('#backBtn').onclick=()=>{stageView.style.display='block';gameView.style.display='none'};qs('#stageBackBtn').onclick=()=>{stageView.style.display='none';menuView.style.display='block';renderUnits();updateSummary()};qs('#homeBtn').onclick=()=>alert('학습 홈 경로로 연결해 주세요.');qs('#typeInput').addEventListener('keydown',e=>{if(e.key==='Enter')qs('#checkBtn').click()});
+qs('#checkBtn').onclick = () => {
+  const ans = currentData.items[currentIndex].en;
+  let ok = false;
+
+  if (currentStep === 1) {
+    const arranged = [...qs('#answerArea').children].map(n => n.textContent).join(' ');
+    ok = clean(arranged) === clean(ans);
+
+    popup(
+      ok,
+      ok
+        ? '배열이 정확합니다. 이제 직접 타이핑으로 넘어갑니다.'
+        : '단어 순서를 다시 확인해 보세요.'
+    );
+  } else {
+    const userInput = qs('#typeInput').value;
+    ok = clean(userInput) === clean(ans);
+
+    if (ok) {
+      popup(true, '직접 타이핑까지 완료했습니다.');
+    } else {
+      const diffHtml = buildDiffHtml(userInput, ans);
+      qs('#modalOverlay').style.display = 'flex';
+      qs('#mTitle').textContent = '오답입니다';
+      qs('#mTitle').style.color = '#f44336';
+      qs('#mMsg').innerHTML = `
+        <div style="margin-bottom:10px;">틀린 단어를 확인해 보세요.</div>
+        <div style="line-height:1.9;text-align:left;border:1px solid #e5e7eb;background:#f8fafc;border-radius:14px;padding:12px 14px;">
+          ${diffHtml}
+        </div>
+      `;
+    }
+  }
+
+  qs('#mYes').onclick = () => {
+    if (ok) {
+      if (currentStep === 1) {
+        currentStep = 2;
+        qs('#modalOverlay').style.display = 'none';
+        renderQuestion();
+      } else {
+        complete();
+      }
+    } else {
+      qs('#modalOverlay').style.display = 'none';
+      if (currentStep === 2) qs('#typeInput').focus();
+    }
+  };
+};
+qs('#mNo').onclick=()=>{qs('#modalOverlay').style.display='none';stageView.style.display='block';gameView.style.display='none'};qs('#backBtn').onclick=()=>{stageView.style.display='block';gameView.style.display='none'};qs('#stageBackBtn').onclick=()=>{stageView.style.display='none';menuView.style.display='block';renderUnits();updateSummary()};qs('#homeBtn').onclick = async () => {
+  const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2');
+
+  const supabase = createClient(
+    'https://uuzhdxangctewuklvmlv.supabase.co',
+    'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
+  );
+
+  const { data, error } = await supabase.auth.getUser();
+  if (error || !data.user) {
+    location.href = 'login.html';
+    return;
+  }
+
+  const { data: profileData } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('user_id', data.user.id)
+    .maybeSingle();
+
+  if (profileData?.role === 'admin') location.href = 'admin.html';
+  else location.href = 'class.html';
+};qs('#typeInput').addEventListener('keydown',e=>{if(e.key==='Enter')qs('#checkBtn').click()});
 populate();renderUnits();updateSummary();
 </script>
 </body>
