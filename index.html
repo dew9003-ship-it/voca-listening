@@ -430,13 +430,63 @@
         }
 
         @media (max-width:640px){
-            .wrap{ padding:14px; }
+            .wrap{ padding:12px; }
             .title-box h1{ font-size:25px; }
             .summary-card .value{ font-size:24px; }
-            .question-card{ padding:16px; }
+            .panel{ padding:14px; }
+            .question-card{ padding:14px; }
             .grid-container{ grid-template-columns:repeat(4, minmax(0, 1fr)); }
-            .control-row{ flex-direction:column; }
-            #playBtn, #speedControl, #checkBtn{ width:100%; margin-left:0; }
+            .quiz-head{ margin-bottom:10px; }
+            .progress-bar-wrap{ margin-bottom:12px; }
+            .control-row{
+                display:grid;
+                grid-template-columns:1.15fr .85fr 1fr;
+                gap:8px;
+                margin-bottom:10px;
+            }
+            #playBtn, #speedControl, #checkBtn{
+                width:100%;
+                min-width:0;
+                margin-left:0;
+                height:40px;
+                padding:0 10px;
+                font-size:13px;
+                border-radius:12px;
+            }
+            #progressText{
+                padding:6px 10px;
+                font-size:12px;
+            }
+            #stepLabel{
+                margin-bottom:10px;
+                padding:6px 10px;
+                font-size:11px;
+            }
+            #meaningBox{
+                margin-bottom:10px;
+                padding:12px;
+                font-size:14px;
+            }
+            .drop-zone{
+                min-height:90px;
+                padding:10px;
+                gap:8px;
+            }
+            .word-bank{
+                gap:8px;
+                padding-top:0;
+            }
+            .word-btn{
+                padding:8px 10px;
+                font-size:13px;
+                border-radius:10px;
+            }
+            .type-input{
+                min-height:56px;
+                padding:12px 14px;
+                font-size:16px;
+                border-radius:14px;
+            }
         }
     </style>
 
