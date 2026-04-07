@@ -1,0 +1,223 @@
+{
+  "grade": "middle3",
+  "publisher": "ybm_song",
+  "unit": "unit2",
+  "title": "중3 YBM(송미정) 2과",
+  "items": [
+    {
+      "id": 1,
+      "ko": "누구나 고민은 있습니다.",
+      "en": "Everyone has worries."
+    },
+    {
+      "id": 2,
+      "ko": "여러분은 걱정되는 것이 있을 때 무엇을 하나요?",
+      "en": "When you have things you worry about, what do you do?"
+    },
+    {
+      "id": 3,
+      "ko": "여기 세 명의 청소년이 걱정하는 것들이 있습니다.",
+      "en": "Here are some things that three teenagers worry about."
+    },
+    {
+      "id": 4,
+      "ko": "소희는 하연이가 그녀의 가장 친한 친구라고 생각했지만, 지금은 하연이가 변했고 그녀를 피한다고 느낍니다.",
+      "en": "Sohui thought Hayeon was her best friend, but now, Sohui feels that Hayeon has changed and she is avoiding her."
+    },
+    {
+      "id": 5,
+      "ko": "소희: (그녀의 언니에게) 내 친구 하연이 알지, 그렇지?",
+      "en": "Sohui: (To her older sister) You know my friend Hayeon, don’t you?"
+    },
+    {
+      "id": 6,
+      "ko": "언니: 응.",
+      "en": "Sister: Yeah."
+    },
+    {
+      "id": 7,
+      "ko": "왜?",
+      "en": "Why?"
+    },
+    {
+      "id": 8,
+      "ko": "그녀가 어떤데?",
+      "en": "What about her?"
+    },
+    {
+      "id": 9,
+      "ko": "소희: 나는 그녀가 나를 피하고 있다고 느껴.",
+      "en": "Sohui: I feel she’s avoiding me."
+    },
+    {
+      "id": 10,
+      "ko": "학교에서 내가 그녀를 볼 때 그녀는 돌아서서 나로부터 멀리 걸어가.",
+      "en": "When I see her at school, she turns around and walks away from me."
+    },
+    {
+      "id": 11,
+      "ko": "언니: 그거 참 안타깝구나.",
+      "en": "Sister: I’m sorry to hear that."
+    },
+    {
+      "id": 12,
+      "ko": "너는 그녀가 왜 그렇게 하는지 아니?",
+      "en": "Do you have any idea why she does that?"
+    },
+    {
+      "id": 13,
+      "ko": "소희: 아니.",
+      "en": "Sohui: No."
+    },
+    {
+      "id": 14,
+      "ko": "나는 내가 잘못한 것이 있다고 생각하지 않아.",
+      "en": "I don’t think I’ve done anything wrong."
+    },
+    {
+      "id": 15,
+      "ko": "단지 그녀가 더 이상 나를 좋아하지 않는다고 느껴져.",
+      "en": "It just feels like she doesn’t like me anymore."
+    },
+    {
+      "id": 16,
+      "ko": "언니: 혹시 모르니 뭔가 잘못된 것이 있는지 그녀에게 물어봐.",
+      "en": "Sister: Maybe you should just ask her if there is something wrong."
+    },
+    {
+      "id": 17,
+      "ko": "소희: 아마 그래야겠어.",
+      "en": "Sohui: Maybe I should."
+    },
+    {
+      "id": 18,
+      "ko": "나는 여전히 그녀와 친구로 지내고 싶거든.",
+      "en": "I still want to be friends with her."
+    },
+    {
+      "id": 19,
+      "ko": "대호는 새 물건이 그를 더 인기 있게 만들어 줄 것이라고 생각해서 단지 친구들이 그것을 가지고 있다는 이유로 종종 새 물건을 사기를 원합니다.",
+      "en": "Daeho, thinking that new things will make him more popular, often wants new things just because his friends have them."
+    },
+    {
+      "id": 20,
+      "ko": "대호: 성진아, 내 새 운동화 봐.",
+      "en": "Daeho: Seongjin, look at my new sneakers."
+    },
+    {
+      "id": 21,
+      "ko": "어떠니?",
+      "en": "What do you think?"
+    },
+    {
+      "id": 22,
+      "ko": "성진: 멋지다.",
+      "en": "Seongjin: They’re nice."
+    },
+    {
+      "id": 23,
+      "ko": "그런데 몇 달 전에 새 운동화 사지 않았니?",
+      "en": "but didn’t you just buy new sneakers a couple of months ago?"
+    },
+    {
+      "id": 24,
+      "ko": "대호: 응, 하지만 그건 더 이상 유행이 아니야.",
+      "en": "Daeho: Yeah, but they’re no longer in style."
+    },
+    {
+      "id": 25,
+      "ko": "이걸 신으니까 더 멋져 보이지, 그렇지?",
+      "en": "I look cooler in these, right?"
+    },
+    {
+      "id": 26,
+      "ko": "성진: 대호야, 최신 유행하는 것을 입는 것이 너를 더 멋지고 더 인기 있게 만들어 주지는 않아.",
+      "en": "Seongjin: Daeho, wearing the latest fashion doesn’t make you cooler or more popular."
+    },
+    {
+      "id": 27,
+      "ko": "사람들은 네가 너이기 때문에 너를 좋아하는 것이지, 네 옷 때문이 아니야.",
+      "en": "People like you because you’re you, not because of your clothes."
+    },
+    {
+      "id": 28,
+      "ko": "대호: 그래?",
+      "en": "Daeho: Yeah?"
+    },
+    {
+      "id": 29,
+      "ko": "성진: 들어 봐.",
+      "en": "Seongjin: Listen."
+    },
+    {
+      "id": 30,
+      "ko": "너는 멋진 사람이야.",
+      "en": "you’re a great guy."
+    },
+    {
+      "id": 31,
+      "ko": "그것을 증명하기 위해 새 운동화가 필요하지 않아.",
+      "en": "You don’t need new sneakers to prove it."
+    },
+    {
+      "id": 32,
+      "ko": "최근에 민경이는 그녀의 반 남자아이에게 데이트 신청을 받았습니다.",
+      "en": "Recently, Minkyeong was asked out by a boy in her class."
+    },
+    {
+      "id": 33,
+      "ko": "그녀는 거절하고 싶지만 그의 감정을 상하게 하고 싶지는 않습니다.",
+      "en": "She wants to say no but does not want to hurt his feelings."
+    },
+    {
+      "id": 34,
+      "ko": "민경: 저는 선생님의 조언이 필요해요.",
+      "en": "Minkyeong: I need your advice."
+    },
+    {
+      "id": 35,
+      "ko": "같은 반 남자아이가 저에게 데이트 신청을 했어요.",
+      "en": "A boy in my class asked me out."
+    },
+    {
+      "id": 36,
+      "ko": "저는 그를 좋아하지만 당분간은 그와 데이트하고 싶지 않아요.",
+      "en": "I like him, but for now I don’t want to go out with him."
+    },
+    {
+      "id": 37,
+      "ko": "저는 공부에 집중해야 해요.",
+      "en": "I need to focus on my studies."
+    },
+    {
+      "id": 38,
+      "ko": "제가 어떻게 해야 할까요?",
+      "en": "What should I do?"
+    },
+    {
+      "id": 39,
+      "ko": "상담 선생님: 왜 네가 데이트를 할 수 없는지 그에게 말하는 것은 어떨까?",
+      "en": "Counselor: Why don’t you tell him why you can’t go?"
+    },
+    {
+      "id": 40,
+      "ko": "민경: 제가 그의 감정을 상하게 할까 봐 걱정돼요.",
+      "en": "Minkyeong: I’m afraid I might hurt his feelings."
+    },
+    {
+      "id": 41,
+      "ko": "상담 선생님: 네가 그에게 빨리 말하지 않으면, 그는 네 감정을 오해할 것이고, 너는 그를 더 아프게 할 수도 있단다.",
+      "en": "Counselor: If you don’t tell him soon, he will misunderstand your feelings, and you may end up hurting him even more."
+    },
+    {
+      "id": 42,
+      "ko": "민경: 선생님 말씀이 맞는 것 같아요.",
+      "en": "Minkyeong: Maybe you’re right."
+    },
+    {
+      "id": 43,
+      "ko": "조언 감사합니다.",
+      "en": "Thanks for the advice."
+    }
+  ]
+}

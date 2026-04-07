@@ -1,0 +1,128 @@
+{
+  "grade": "middle3",
+  "publisher": "ybm_song",
+  "unit": "unit3",
+  "title": "중3 YBM(송미정) 3과",
+  "items": [
+    {
+      "id": 1,
+      "ko": "여러분은 매일 햇볕 속에서 얼마나 많은 시간을 보내나요?",
+      "en": "How much time do you spend every day out in the sun?"
+    },
+    {
+      "id": 2,
+      "ko": "많지 않죠, 그렇죠?",
+      "en": "Not much, right?"
+    },
+    {
+      "id": 3,
+      "ko": "대부분의 사람들은 학교와 직장에서 너무 바빠서 많은 시간을 야외에서 보내지 못합니다.",
+      "en": "Most people are too busy at school or at work to spend much time outdoors."
+    },
+    {
+      "id": 4,
+      "ko": "그러나 햇볕은 여러분의 건강에 중요한 역할을 합니다.",
+      "en": "However, the sun plays an important role in your health."
+    },
+    {
+      "id": 5,
+      "ko": "이것은 여러분이 건강을 유지하는 데 도움을 줍니다.",
+      "en": "It helps you stay healthy."
+    },
+    {
+      "id": 6,
+      "ko": "모든 사람들은 해가 비칠 때 더 행복하게 느낍니다.",
+      "en": "Everyone feels happier when the sun shines."
+    },
+    {
+      "id": 7,
+      "ko": "이것은 몸의 행복 호르몬인 세로토닌 때문입니다.",
+      "en": "This is because of serotonin, the body's happy hormone."
+    },
+    {
+      "id": 8,
+      "ko": "여러분이 햇볕을 쬘수록 뇌는 행복 호르몬을 더 만들어 냅니다.",
+      "en": "The more sun you get, the more “happy hormone” the brain produces."
+    },
+    {
+      "id": 9,
+      "ko": "여러분의 세로토닌 수치가 높아지면, 여러분은 더 행복하고 더 건강하게 느낍니다.",
+      "en": "When your serotonin level goes up, you feel happier and stronger."
+    },
+    {
+      "id": 10,
+      "ko": "이것은 여러분이 매일의 스트레스를 이겨 내는 데 도움을 줍니다.",
+      "en": "This helps you fight everyday stress."
+    },
+    {
+      "id": 11,
+      "ko": "세로토닌은 또한 진정 효과가 있고, 여러분이 하는 일에 더 잘 집중할 수 있도록 도와줍니다.",
+      "en": "Serotonin also has a calming effect, helping you focus better on what you are doing."
+    },
+    {
+      "id": 12,
+      "ko": "게다가, 세로토닌은 뇌가 수면 호르몬을 생성하도록 도와주기 때문에 여러분이 숙면을 취하도록 해 줍니다.",
+      "en": "Moreover, serotonin helps you get a good night's sleep because it helps the brain produce a sleep hormone."
+    },
+    {
+      "id": 13,
+      "ko": "햇볕은 단지 여러분이 더 기분 좋게 느끼고 잠을 더 잘 자게 하는 것만은 아닙니다.",
+      "en": "Sunshine does not just make you feel and sleep better."
+    },
+    {
+      "id": 14,
+      "ko": "그것은 또한 튼튼한 뼈를 만드는 것을 돕습니다.",
+      "en": "It also helps build strong bones."
+    },
+    {
+      "id": 15,
+      "ko": "여러분 모두가 알다시피, 튼튼한 뼈와 치아를 만드는 것은 칼슘입니다.",
+      "en": "As you all know, it is calcium that builds strong bones and teeth."
+    },
+    {
+      "id": 16,
+      "ko": "그러나 몸이 칼슘을 적절하게 사용하기 위해서는 비타민 D가 필요합니다.",
+      "en": "However, for the body to use calcium properly, it needs vitamin D."
+    },
+    {
+      "id": 17,
+      "ko": "흥미롭게도, 피부는 햇빛이 피부에 비칠 때 비타민 D를 만들어 냅니다.",
+      "en": "Interestingly, the skin creates vitamin D when sunlight shines on it."
+    },
+    {
+      "id": 18,
+      "ko": "튼튼한 뼈를 만드는 가장 쉬운 방법은 밖으로 나가서 햇볕을 즐기는 겁니다.",
+      "en": "The easiest way to make strong bones is to go outside and enjoy the sun."
+    },
+    {
+      "id": 19,
+      "ko": "보시다시피, 햇볕은 많은 이점이 있지만, 어떻게 그것의 이점을 안전하게 즐길 수 있을까요?",
+      "en": "As you can see, sunshine has many benefits, but how can you enjoy its benefits safely?"
+    },
+    {
+      "id": 20,
+      "ko": "다행히도, 하루에 10분에서 20분 동안 피부에 직사광선을 쪼이는 것은 햇볕으로부터 이점을 얻는 데 충분합니다.",
+      "en": "Fortunately, getting direct sunlight on your skin for 10 to 20 minutes a day is enough to benefit from it."
+    },
+    {
+      "id": 21,
+      "ko": "수업 시간 사이나 점심시간에 햇볕을 쬐러 밖으로 나가서 팔과 손에 햇볕을 쬐어 보세요.",
+      "en": "Try to go out into the sun between classes or during lunch breaks and get sunshine on your arms and hands."
+    },
+    {
+      "id": 22,
+      "ko": "매일 단 몇 분 동안 햇살을 쬐며 걷는 것은 여러분의 마음과 몸 모두에 좋습니다.",
+      "en": "A walk in the sun, for just a few minutes every day, is good for both your mind and your body."
+    },
+    {
+      "id": 23,
+      "ko": "그러나 여름 절정 시간인 11시에서 3시 사이에는 햇볕을 피하고, 얼굴과 목을 보호하기 위해 자외선 차단제를 사용하세요.",
+      "en": "However, avoid the sun during peak summer hours, between 11 and 3, and use sunscreen to protect your face and neck."
+    },
+    {
+      "id": 24,
+      "ko": "태양을 안전하게 즐기고 적은 양의 햇볕이 여러분의 건강과 기분에 얼마나 큰 차이를 만들어 내는지 보세요.",
+      "en": "Enjoy the sun safely and see how a little sunshine can make a world of difference in your health and your mood."
+    }
+  ]
+}
