@@ -615,6 +615,9 @@ const supabase = createClient(
   'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
 );
 
+let me = null;
+let role = 'student';
+
 async function requireAuth() {
     const { data, error } = await supabase.auth.getUser();
     if (error || !data.user) {
@@ -622,6 +625,19 @@ async function requireAuth() {
         location.href = 'login.html';
         return null;
     }
+
+    me = data.user;
+
+    const { data: profileData } = await supabase
+        .from('profiles')
+        .select('user_id, name, role')
+        .eq('user_id', me.id)
+        .maybeSingle();
+
+    if (profileData?.role) {
+        role = profileData.role;
+    }
+
     return data.user;
 }
 
