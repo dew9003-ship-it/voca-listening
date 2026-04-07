@@ -982,8 +982,9 @@ async function requireAuth() {
         };
 
         homeBtn.onclick = () => {
-            location.href = 'home.html';
-        };
+    if (role === 'admin') location.href = 'admin.html';
+    else location.href = 'class.html';
+};
 
         logoutBtn.onclick = async () => {
             const ok = confirm('로그아웃하시겠습니까?');
