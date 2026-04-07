@@ -147,6 +147,7 @@ width: 0%;
 <button class="refresh-btn" id="refreshBtn">새로고침</button>
 <button class="home-btn" id="homeBtn">듣기 페이지</button>
 <button class="home-btn" id="grammarBtn">문법 페이지</button>
+    <button class="home-btn" id="writingBtn">영작 페이지</button>
 <button class="logout-btn" id="logoutBtn">로그아웃</button>
 </div>
 </div>
@@ -292,6 +293,9 @@ location.href = 'index.html';
 });
 document.getElementById('grammarBtn').addEventListener('click', () => {
 location.href = 'grammar.html';
+});
+    document.getElementById('writingBtn').addEventListener('click', () => {
+location.href = 'writing.html';
 });
 document.getElementById('logoutBtn').addEventListener('click', async () => {
 await supabase.auth.signOut();
