@@ -55,7 +55,7 @@ ybm_song:{label:'YBM(송미정)',units:[
 ]}
 }}};
 const qs=s=>document.querySelector(s), menuView=qs('#menuView'), stageView=qs('#stageView'), gameView=qs('#gameView'), gradeSelect=qs('#gradeSelect'), bookSelect=qs('#bookSelect'), unitGrid=qs('#unitGrid'), stageGrid=qs('#stageGrid');
-let currentGrade='middle3', currentBook='donga_yoon', currentUnitMeta=null, currentData=null, currentIndex=0, currentStep=1;
+let currentGrade='middle3', currentBook='donga_yoon', currentUnitMeta=null, currentData=null, currentIndex=0, currentStep=1, typingWrongCount=0;
 const getProgress=(meta=currentUnitMeta)=>JSON.parse(localStorage.getItem(`writing_progress_${currentGrade}_${currentBook}_${meta.id}`)||'{"maxUnlockedIndex":0,"completed":[]}');
 const setProgress=(obj)=>{localStorage.setItem(`writing_progress_${currentGrade}_${currentBook}_${currentUnitMeta.id}`,JSON.stringify(obj));localStorage.setItem('writing_recent_unit',JSON.stringify({grade:catalog[currentGrade].label,unit:currentUnitMeta.label}))};
 const clean = t => String(t || '')
@@ -89,7 +89,46 @@ function buildDiffHtml(userInput, answer) {
       : `<span style="color:#ef4444;font-weight:800;background:#fff1f2;padding:2px 6px;border-radius:8px;">${escapeHtml(word)}</span>`;
   }).join(' ');
 }
+const clean=t=>String(t||'')
+  .toLowerCase()
+  .replace(/[’']/g,"'")
+  .replace(/[.,!?"]/g,'')
+  .replace(/\s+/g,' ')
+  .trim();
+
 const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+
+function tokensOf(text){
+  return clean(text).split(' ').filter(Boolean);
+}
+
+function getWrongIndexes(userInput, answer){
+  const userTokens = tokensOf(userInput);
+  const answerTokens = tokensOf(answer);
+  const wrong = [];
+  for(let i=0;i<answerTokens.length;i++){
+    if(userTokens[i] !== answerTokens[i]) wrong.push(i);
+  }
+  return { wrong, answerTokens };
+}
+
+function buildHintMessage(userInput, answer, wrongCount){
+  const { wrong, answerTokens } = getWrongIndexes(userInput, answer);
+
+  if (!wrong.length) return '다시 확인해 보세요.';
+
+  if (wrongCount === 1) {
+    return `틀린 단어가 ${wrong.length}개 있어요.`;
+  }
+
+  if (wrongCount === 2) {
+    const posText = wrong.map(i => `${i + 1}번째`).join(', ');
+    return `${posText} 단어를 다시 확인해 보세요.`;
+  }
+
+  const hintText = wrong.map(i => `${i + 1}번째(${answerTokens[i][0]})`).join(', ');
+  return `${hintText} 단어를 다시 확인해 보세요.`;
+}
 function updateSummary(){qs('#summaryGrade').textContent=catalog[currentGrade].label;qs('#summaryBook').textContent=catalog[currentGrade].books[currentBook].label;const r=JSON.parse(localStorage.getItem('writing_recent_unit')||'null');qs('#recentUnit').textContent=r?`${r.grade} ${r.unit}`:'-'}
 function populate(){
   gradeSelect.innerHTML = '<option value="middle3">중3</option>';
@@ -108,8 +147,35 @@ function populate(){
 async function renderUnits(){unitGrid.innerHTML='';for(const unit of catalog[currentGrade].books[currentBook].units){const res=await fetch(unit.file);const data=await res.json();const p=getProgress(unit), total=data.items.length, done=(p.completed||[]).length, percent=Math.round(done/total*100);const b=document.createElement('button');b.className='unit-card';b.innerHTML=`<div><div class="badge">${unit.label}</div><div class="unit-title">${unit.title}</div></div><div class="meta">문장 수: ${total}<br>진도: ${done} / ${total} (${percent}%)</div>`;b.onclick=()=>openUnit(unit);unitGrid.appendChild(b)}}
 async function openUnit(unit){currentUnitMeta=unit;currentData=await (await fetch(unit.file)).json();menuView.style.display='none';stageView.style.display='block';gameView.style.display='none';qs('#stageTitle').textContent=`${catalog[currentGrade].label} · ${catalog[currentGrade].books[currentBook].label} · ${unit.label}`;qs('#stageDesc').textContent=`${currentData.items.length}개 문장 중 번호를 선택하세요.`;renderStageGrid()}
 function renderStageGrid(){const p=getProgress();stageGrid.innerHTML='';currentData.items.forEach((_,idx)=>{const b=document.createElement('button');const done=(p.completed||[]).includes(idx), open=idx<=p.maxUnlockedIndex;b.className='stage-btn '+(done?'stage-complete':open?'stage-unlocked':'stage-locked');b.textContent=open?idx+1:'🔒';if(open)b.onclick=()=>startQuestion(idx);stageGrid.appendChild(b)})}
-function startQuestion(idx){currentIndex=idx;currentStep=1;stageView.style.display='none';gameView.style.display='block';renderQuestion()}
-function renderQuestion(){const item=currentData.items[currentIndex], total=currentData.items.length;qs('#progressText').textContent=`${currentIndex+1} / ${total}`;qs('#progressBar').style.width=`${(currentIndex+1)/total*100}%`;qs('#coursePath').textContent=`중3 · 동아(윤정미) · ${currentUnitMeta.label} · ${currentIndex+1}번`;qs('#promptBox').textContent=item.ko;qs('#hintBox').textContent=`정답 문장 길이: ${item.en.split(' ').length}단어`;if(currentStep===1){qs('#stepLabel').textContent='Step 1 · 단어 배열';qs('#arrangeArea').style.display='block';qs('#typingArea').style.display='none';qs('#answerArea').innerHTML='';qs('#wordBank').innerHTML='';shuffle(item.en.split(' ')).forEach(w=>{const b=document.createElement('button');b.className='word-btn';b.textContent=w;b.onclick=()=>b.parentElement.id==='wordBank'?qs('#answerArea').appendChild(b):qs('#wordBank').appendChild(b);qs('#wordBank').appendChild(b)})}else{qs('#stepLabel').textContent='Step 2 · 직접 타이핑';qs('#arrangeArea').style.display='none';qs('#typingArea').style.display='block';qs('#typeInput').value='';qs('#typeInput').focus()}}
+function startQuestion(idx){
+  currentIndex=idx;
+  currentStep=1;
+  typingWrongCount=0;
+  stageView.style.display='none';
+  gameView.style.display='block';
+  renderQuestion();
+}
+function renderQuestion(){const item=currentData.items[currentIndex], total=currentData.items.length;qs('#progressText').textContent=`${currentIndex+1} / ${total}`;qs('#progressBar').style.width=`${(currentIndex+1)/total*100}%`;qs('#coursePath').textContent=`중3 · 동아(윤정미) · ${currentUnitMeta.label} · ${currentIndex+1}번`;qs('#promptBox').textContent=item.ko;qs('#hintBox').textContent=`정답 문장 길이: ${item.en.split(' ').length}단어`;if(currentStep===1){
+  qs('#stepLabel').textContent='Step 1 · 단어 배열';
+  qs('#arrangeArea').style.display='block';
+  qs('#typingArea').style.display='none';
+  qs('#answerArea').innerHTML='';
+  qs('#wordBank').innerHTML='';
+  shuffle(item.en.split(' ')).forEach(w=>{
+    const b=document.createElement('button');
+    b.className='word-btn';
+    b.textContent=w;
+    b.onclick=()=>b.parentElement.id==='wordBank'?qs('#answerArea').appendChild(b):qs('#wordBank').appendChild(b);
+    qs('#wordBank').appendChild(b);
+  });
+}else{
+  qs('#stepLabel').textContent='Step 2 · 직접 타이핑';
+  qs('#arrangeArea').style.display='none';
+  qs('#typingArea').style.display='block';
+  qs('#typeInput').value='';
+  typingWrongCount = 0;
+  qs('#typeInput').focus();
+}}
 function popup(ok,msg){qs('#modalOverlay').style.display='flex';qs('#mTitle').textContent=ok?'정답입니다!':'오답입니다';qs('#mTitle').style.color=ok?'#4caf50':'#f44336';qs('#mMsg').textContent=msg}
 function complete(){const p=getProgress(), c=[...(p.completed||[])];if(!c.includes(currentIndex))c.push(currentIndex);let m=p.maxUnlockedIndex||0;if(currentIndex===m && currentIndex<currentData.items.length-1)m++;setProgress({maxUnlockedIndex:m,completed:c});renderStageGrid();stageView.style.display='block';gameView.style.display='none';qs('#modalOverlay').style.display='none';updateSummary()}
 qs('#checkBtn').onclick = () => {
