@@ -773,27 +773,30 @@ let modalConfirmAction = null;
     }
 
     function complete() {
-      const progress = getProgress();
-      const completed = [...(progress.completed || [])];
+  const progress = getProgress();
+  const completed = [...(progress.completed || [])];
 
-      if (!completed.includes(currentIndex)) {
-        completed.push(currentIndex);
-      }
+  if (!completed.includes(currentIndex)) {
+    completed.push(currentIndex);
+  }
 
-      let maxUnlockedIndex = progress.maxUnlockedIndex || 0;
-      if (currentIndex === maxUnlockedIndex && currentIndex < currentData.items.length - 1) {
-        maxUnlockedIndex += 1;
-      }
+  let maxUnlockedIndex = progress.maxUnlockedIndex || 0;
+  if (currentIndex === maxUnlockedIndex && currentIndex < currentData.items.length - 1) {
+    maxUnlockedIndex += 1;
+  }
 
-      setProgress({ maxUnlockedIndex, completed });
-      renderStageGrid();
+  setProgress({ maxUnlockedIndex, completed });
+  renderStageGrid();
+  qs('#modalOverlay').style.display = 'none';
+  updateSummary();
 
-      stageView.style.display = 'block';
-      gameView.style.display = 'none';
-      qs('#modalOverlay').style.display = 'none';
-
-      updateSummary();
-    }
+  if (currentIndex < currentData.items.length - 1) {
+    startQuestion(currentIndex + 1);
+  } else {
+    stageView.style.display = 'block';
+    gameView.style.display = 'none';
+  }
+}
 
     qs('#checkBtn').onclick = () => {
   const answer = currentData.items[currentIndex].en;
