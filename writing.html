@@ -541,12 +541,13 @@
     const stageGrid = qs('#stageGrid');
 
     let currentGrade = 'middle3';
-    let currentBook = 'donga_yoon';
-    let currentUnitMeta = null;
-    let currentData = null;
-    let currentIndex = 0;
-    let currentStep = 1;
-    let typingWrongCount = 0;
+let currentBook = 'donga_yoon';
+let currentUnitMeta = null;
+let currentData = null;
+let currentIndex = 0;
+let currentStep = 1;
+let typingWrongCount = 0;
+let modalConfirmAction = null;
 
     function getProgress(meta = currentUnitMeta) {
       if (!meta) return { maxUnlockedIndex: 0, completed: [] };
@@ -834,7 +835,7 @@
           if (currentStep === 2) qs('#typeInput').focus();
         }
       };
-    };
+    
 
     qs('#mNo').onclick = () => {
       qs('#modalOverlay').style.display = 'none';
