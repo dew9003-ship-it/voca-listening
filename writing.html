@@ -796,49 +796,57 @@ let modalConfirmAction = null;
     }
 
     qs('#checkBtn').onclick = () => {
-      const answer = currentData.items[currentIndex].en;
-      let ok = false;
+  const answer = currentData.items[currentIndex].en;
+  let ok = false;
 
-      if (currentStep === 1) {
-        const arranged = [...qs('#answerArea').children].map(node => node.textContent).join(' ');
-        ok = clean(arranged) === clean(answer);
+  if (currentStep === 1) {
+    const arranged = [...qs('#answerArea').children]
+      .map(node => node.textContent)
+      .join(' ');
 
-        popup(
-          ok,
-          ok
-            ? '배열이 정확합니다. 이제 직접 타이핑으로 넘어갑니다.'
-            : '단어 순서를 다시 확인해 보세요.'
-        );
-      } else {
-        const userInput = qs('#typeInput').value;
-        ok = clean(userInput) === clean(answer);
+    ok = clean(arranged) === clean(answer);
 
-        if (ok) {
-          popup(true, '직접 타이핑까지 완료했습니다.');
-        } else {
-          typingWrongCount += 1;
-          popup(false, buildHintMessage(userInput, answer, typingWrongCount));
-        }
-      }
-
-      modalConfirmAction = () => {
-  if (ok) {
-    if (currentStep === 1) {
-      currentStep = 2;
-      qs('#modalOverlay').style.display = 'none';
-      renderQuestion();
-    } else {
-      complete();
-    }
+    popup(
+      ok,
+      ok
+        ? '배열이 정확합니다. 이제 직접 타이핑으로 넘어갑니다.'
+        : '단어 순서를 다시 확인해 보세요.'
+    );
   } else {
-    qs('#modalOverlay').style.display = 'none';
-    if (currentStep === 2) qs('#typeInput').focus();
+    const userInput = qs('#typeInput').value;
+    ok = clean(userInput) === clean(answer);
+
+    if (ok) {
+      popup(true, '직접 타이핑까지 완료했습니다.');
+    } else {
+      typingWrongCount += 1;
+      popup(false, buildHintMessage(userInput, answer, typingWrongCount));
+    }
+  }
+
+  modalConfirmAction = () => {
+    if (ok) {
+      if (currentStep === 1) {
+        currentStep = 2;
+        qs('#modalOverlay').style.display = 'none';
+        renderQuestion();
+      } else {
+        complete();
+      }
+    } else {
+      qs('#modalOverlay').style.display = 'none';
+      if (currentStep === 2) qs('#typeInput').focus();
+    }
+  };
+};
+    
+    qs('#mYes').onclick = () => {
+  if (typeof modalConfirmAction === 'function') {
+    modalConfirmAction();
   }
 };
-      };
-    
 
-    qs('#mNo').onclick = () => {
+qs('#mNo').onclick = () => {
       qs('#modalOverlay').style.display = 'none';
       stageView.style.display = 'block';
       gameView.style.display = 'none';
