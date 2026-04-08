@@ -821,19 +821,20 @@ let modalConfirmAction = null;
         }
       }
 
-      qs('#mYes').onclick = () => {
-        if (ok) {
-          if (currentStep === 1) {
-            currentStep = 2;
-            qs('#modalOverlay').style.display = 'none';
-            renderQuestion();
-          } else {
-            complete();
-          }
-        } else {
-          qs('#modalOverlay').style.display = 'none';
-          if (currentStep === 2) qs('#typeInput').focus();
-        }
+      modalConfirmAction = () => {
+  if (ok) {
+    if (currentStep === 1) {
+      currentStep = 2;
+      qs('#modalOverlay').style.display = 'none';
+      renderQuestion();
+    } else {
+      complete();
+    }
+  } else {
+    qs('#modalOverlay').style.display = 'none';
+    if (currentStep === 2) qs('#typeInput').focus();
+  }
+};
       };
     
 
