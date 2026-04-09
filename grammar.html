@@ -190,31 +190,26 @@ return audioCtx;
 }
 
 function playCorrectSound() {
-const ctx = getAudioCtx();
-const osc1 = ctx.createOscillator();
-const gain1 = ctx.createGain();
-const osc2 = ctx.createOscillator();
-const gain2 = ctx.createGain();
+  const ctx = getAudioCtx();
 
-osc1.type = 'sine';
-osc1.frequency.setValueAtTime(784, ctx.currentTime);
-gain1.gain.setValueAtTime(0.0001, ctx.currentTime);
-gain1.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime + 0.01);
-gain1.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.18);
+  const notes = [784, 988, 1175];
+  const start = ctx.currentTime;
 
-osc2.type = 'sine';
-osc2.frequency.setValueAtTime(1046, ctx.currentTime + 0.08);
-gain2.gain.setValueAtTime(0.0001, ctx.currentTime);
-gain2.gain.exponentialRampToValueAtTime(0.10, ctx.currentTime + 0.09);
-gain2.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.24);
+  notes.forEach((freq, i) => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
 
-osc1.connect(gain1).connect(ctx.destination);
-osc2.connect(gain2).connect(ctx.destination);
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(freq, start + i * 0.07);
 
-osc1.start();
-osc1.stop(ctx.currentTime + 0.2);
-osc2.start(ctx.currentTime + 0.08);
-osc2.stop(ctx.currentTime + 0.26);
+    gain.gain.setValueAtTime(0.0001, start + i * 0.07);
+    gain.gain.exponentialRampToValueAtTime(0.14, start + i * 0.07 + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.0001, start + i * 0.07 + 0.16);
+
+    osc.connect(gain).connect(ctx.destination);
+    osc.start(start + i * 0.07);
+    osc.stop(start + i * 0.07 + 0.18);
+  });
 }
 
 function playWrongSound() {
