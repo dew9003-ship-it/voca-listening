@@ -147,6 +147,17 @@ animation: redFlash 0.45s ease;
 <button id="backToMenuBtn" class="btn-green">목차로 돌아가기</button>
 </div>
 </div>
+    <div id="successPopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:9999; align-items:center; justify-content:center;">
+  <div style="width:min(92vw, 520px); background:rgba(10, 60, 20, 0.97); border:3px solid #4caf50; border-radius:26px; padding:28px 24px; text-align:center; box-shadow:0 18px 50px rgba(0,0,0,0.35);">
+    <h3 style="margin:0 0 18px; font-size:42px; line-height:1.1; color:#6dff8b; font-weight:900;">주제 완료 🎉</h3>
+    <p id="successPopupText" style="margin:0; font-size:22px; line-height:1.6; color:white; font-weight:700;">모든 문제를 끝냈습니다.</p>
+
+    <div style="display:flex; gap:16px; justify-content:center; margin-top:28px; flex-wrap:wrap;">
+      <button id="successRetryBtn" style="min-width:180px; padding:18px 22px; border:none; border-radius:18px; background:#4f8cff; color:white; font-size:22px; font-weight:900; cursor:pointer;">다시 풀기</button>
+      <button id="successMenuBtn" style="min-width:180px; padding:18px 22px; border:none; border-radius:18px; background:#33f15a; color:#111; font-size:22px; font-weight:900; cursor:pointer;">목차로</button>
+    </div>
+  </div>
+</div>
 <div id="failPopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:9999; align-items:center; justify-content:center;">
 <div style="width:min(92vw, 520px); background:rgba(60, 0, 0, 0.96); border:3px solid #ff5252; border-radius:26px; padding:28px 24px; text-align:center; box-shadow:0 18px 50px rgba(0,0,0,0.35);">
 <h3 style="margin:0 0 18px; font-size:54px; line-height:1; color:#ff5a5a; font-weight:900;">실패!</h3>
@@ -246,6 +257,11 @@ const failPopup = document.getElementById('failPopup');
 const failRetryBtn = document.getElementById('failRetryBtn');
 const failMenuBtn = document.getElementById('failMenuBtn');
 
+const successPopup = document.getElementById('successPopup');
+const successPopupText = document.getElementById('successPopupText');
+const successRetryBtn = document.getElementById('successRetryBtn');
+const successMenuBtn = document.getElementById('successMenuBtn');
+
 let me = null, role = 'student', topics = [], currentTopic = null, currentQuestions = [], currentIndex = 0, selectedAnswer = null, score = 0;
 
 function getProgressKey(){ return me?.id ? `voca_grammar_progress_${me.id}` : 'voca_grammar_progress_guest'; }
@@ -318,19 +334,29 @@ walk(input);
 return result;
 }
 function showMenu(){
-quizView.style.display = 'none';
-menuView.style.display = 'block';
-completeBox.style.display = 'none';
-failPopup.style.display = 'none';
-renderMenu();
+  quizView.style.display = 'none';
+  menuView.style.display = 'block';
+  completeBox.style.display = 'none';
+  failPopup.style.display = 'none';
+  successPopup.style.display = 'none';
+  renderMenu();
 }
 
 function openFailPopup() {
-failPopup.style.display = 'flex';
+  failPopup.style.display = 'flex';
 }
 
 function closeFailPopup() {
-failPopup.style.display = 'none';
+  failPopup.style.display = 'none';
+}
+
+function openSuccessPopup(message) {
+  successPopupText.textContent = message;
+  successPopup.style.display = 'flex';
+}
+
+function closeSuccessPopup() {
+  successPopup.style.display = 'none';
 }
 
 function playWrongEffect() {
@@ -498,10 +524,10 @@ renderQuestion();
 } else {
 markTopicCompleted(currentTopic.id, currentQuestions.length, score);
 progressBar.style.width = '100%';
-completeBox.style.display = 'block';
-completeText.textContent = `${currentTopic.title} 완료!`;
+completeBox.style.display = 'none';
+openSuccessPopup(`${currentTopic.title} 완료!`);
 }
-}, 600);
+}, 300);
 
 } else {
 quizStatus.textContent = '오답입니다.';
@@ -543,6 +569,19 @@ closeFailPopup();
 currentIndex = 0;
 score = 0;
 showMenu();
+});
+    successRetryBtn.addEventListener('click', () => {
+  closeSuccessPopup();
+  currentIndex = 0;
+  score = 0;
+  startTopic(currentTopic);
+});
+
+successMenuBtn.addEventListener('click', () => {
+  closeSuccessPopup();
+  currentIndex = 0;
+  score = 0;
+  showMenu();
 });
 
 document.getElementById('logoutBtn').addEventListener('click', logout);
