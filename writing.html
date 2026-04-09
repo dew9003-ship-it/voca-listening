@@ -574,13 +574,16 @@ let modalConfirmAction = null;
     }
 
     function clean(text) {
-      return String(text || '')
-        .toLowerCase()
-        .replace(/[’']/g, "'")
-        .replace(/[.,!?"]/g, '')
-        .replace(/\s+/g, ' ')
-        .trim();
-    }
+  return String(text || '')
+    .toLowerCase()
+    // 🔥 스마트 따옴표 처리 추가
+    .replace(/[“”]/g, '"')
+    .replace(/[‘’]/g, "'")
+    // 기존 처리
+    .replace(/[.,!?"]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
 
     function shuffle(arr) {
       const copied = [...arr];
