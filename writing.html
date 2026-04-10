@@ -505,7 +505,14 @@
     </div>
   </div>
 
-  <script>
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    const supabase = createClient(
+      'https://uuzhdxangctewuklvmlv.supabase.co',
+      'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
+    );
+
     const catalog = {
       middle3: {
         label: '중3',
@@ -541,25 +548,41 @@
     const stageGrid = qs('#stageGrid');
 
     let currentGrade = 'middle3';
-let currentBook = 'donga_yoon';
-let currentUnitMeta = null;
-let currentData = null;
-let currentIndex = 0;
-let currentStep = 1;
-let typingWrongCount = 0;
-let modalConfirmAction = null;
+    let currentBook = 'donga_yoon';
+    let currentUnitMeta = null;
+    let currentData = null;
+    let currentIndex = 0;
+    let currentStep = 1;
+    let typingWrongCount = 0;
+    let modalConfirmAction = null;
+    let authUserId = null;
+
+    async function ensureAuthUser() {
+      const { data, error } = await supabase.auth.getUser();
+      if (error || !data.user) {
+        location.href = 'login.html';
+        return null;
+      }
+      authUserId = data.user.id;
+      return data.user;
+    }
+
+    function getProgressStorageKey(meta = currentUnitMeta) {
+      return `writing_progress_${currentGrade}_${currentBook}_${meta.id}`;
+    }
 
     function getProgress(meta = currentUnitMeta) {
       if (!meta) return { maxUnlockedIndex: 0, completed: [] };
+
       return JSON.parse(
-        localStorage.getItem(`writing_progress_${currentGrade}_${currentBook}_${meta.id}`)
+        localStorage.getItem(getProgressStorageKey(meta))
         || '{"maxUnlockedIndex":0,"completed":[]}'
       );
     }
 
     function setProgress(obj) {
       localStorage.setItem(
-        `writing_progress_${currentGrade}_${currentBook}_${currentUnitMeta.id}`,
+        getProgressStorageKey(),
         JSON.stringify(obj)
       );
 
@@ -574,16 +597,14 @@ let modalConfirmAction = null;
     }
 
     function clean(text) {
-  return String(text || '')
-    .toLowerCase()
-    // 🔥 스마트 따옴표 처리 추가
-    .replace(/[“”]/g, '"')
-    .replace(/[‘’]/g, "'")
-    // 기존 처리
-    .replace(/[.,!?"]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
+      return String(text || '')
+        .toLowerCase()
+        .replace(/[“”]/g, '"')
+        .replace(/[‘’]/g, "'")
+        .replace(/[.,!?"]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
 
     function shuffle(arr) {
       const copied = [...arr];
@@ -636,6 +657,35 @@ let modalConfirmAction = null;
       qs('#recentUnit').textContent = recent ? `${recent.grade} ${recent.unit}` : '-';
     }
 
+    function buildWritingUnitLabel() {
+      return `${catalog[currentGrade].label} ${catalog[currentGrade].books[currentBook].label} ${currentUnitMeta.label}`;
+    }
+
+    async function syncWritingProgressToSupabase() {
+      if (!authUserId || !currentUnitMeta || !currentData?.items?.length) return;
+
+      const progress = getProgress();
+      const completedCount = Array.isArray(progress.completed) ? progress.completed.length : 0;
+      const unitTotalCount = currentData.items.length;
+      const unitLabel = buildWritingUnitLabel();
+
+      const { error } = await supabase
+        .from('writing_progress')
+        .upsert({
+          user_id: authUserId,
+          completed_count: completedCount,
+          unit_total_count: unitTotalCount,
+          unit_label: unitLabel,
+          last_completed_at: new Date().toISOString()
+        }, {
+          onConflict: 'user_id'
+        });
+
+      if (error) {
+        console.error('writing_progress 저장 실패:', error.message);
+      }
+    }
+
     function populate() {
       gradeSelect.innerHTML = '<option value="middle3">중3</option>';
 
@@ -660,7 +710,7 @@ let modalConfirmAction = null;
         const progress = getProgress(unit);
         const total = data.items.length;
         const done = (progress.completed || []).length;
-        const percent = Math.round(done / total * 100);
+        const percent = total > 0 ? Math.round(done / total * 100) : 0;
 
         const button = document.createElement('button');
         button.className = 'unit-card';
@@ -775,84 +825,85 @@ let modalConfirmAction = null;
       qs('#mMsg').textContent = message;
     }
 
-    function complete() {
-  const progress = getProgress();
-  const completed = [...(progress.completed || [])];
+    async function complete() {
+      const progress = getProgress();
+      const completed = [...(progress.completed || [])];
 
-  if (!completed.includes(currentIndex)) {
-    completed.push(currentIndex);
-  }
+      if (!completed.includes(currentIndex)) {
+        completed.push(currentIndex);
+      }
 
-  let maxUnlockedIndex = progress.maxUnlockedIndex || 0;
-  if (currentIndex === maxUnlockedIndex && currentIndex < currentData.items.length - 1) {
-    maxUnlockedIndex += 1;
-  }
+      let maxUnlockedIndex = progress.maxUnlockedIndex || 0;
+      if (currentIndex === maxUnlockedIndex && currentIndex < currentData.items.length - 1) {
+        maxUnlockedIndex += 1;
+      }
 
-  setProgress({ maxUnlockedIndex, completed });
-  renderStageGrid();
-  qs('#modalOverlay').style.display = 'none';
-  updateSummary();
+      setProgress({ maxUnlockedIndex, completed });
+      await syncWritingProgressToSupabase();
+      renderStageGrid();
+      qs('#modalOverlay').style.display = 'none';
+      updateSummary();
 
-  if (currentIndex < currentData.items.length - 1) {
-    startQuestion(currentIndex + 1);
-  } else {
-    stageView.style.display = 'block';
-    gameView.style.display = 'none';
-  }
-}
+      if (currentIndex < currentData.items.length - 1) {
+        startQuestion(currentIndex + 1);
+      } else {
+        stageView.style.display = 'block';
+        gameView.style.display = 'none';
+      }
+    }
 
     qs('#checkBtn').onclick = () => {
-  const answer = currentData.items[currentIndex].en;
-  let ok = false;
+      const answer = currentData.items[currentIndex].en;
+      let ok = false;
 
-  if (currentStep === 1) {
-    const arranged = [...qs('#answerArea').children]
-      .map(node => node.textContent)
-      .join(' ');
-
-    ok = clean(arranged) === clean(answer);
-
-    popup(
-      ok,
-      ok
-        ? '배열이 정확합니다. 이제 직접 타이핑으로 넘어갑니다.'
-        : '단어 순서를 다시 확인해 보세요.'
-    );
-  } else {
-    const userInput = qs('#typeInput').value;
-    ok = clean(userInput) === clean(answer);
-
-    if (ok) {
-      popup(true, '직접 타이핑까지 완료했습니다.');
-    } else {
-      typingWrongCount += 1;
-      popup(false, buildHintMessage(userInput, answer, typingWrongCount));
-    }
-  }
-
-  modalConfirmAction = () => {
-    if (ok) {
       if (currentStep === 1) {
-        currentStep = 2;
-        qs('#modalOverlay').style.display = 'none';
-        renderQuestion();
-      } else {
-        complete();
-      }
-    } else {
-      qs('#modalOverlay').style.display = 'none';
-      if (currentStep === 2) qs('#typeInput').focus();
-    }
-  };
-};
-    
-    qs('#mYes').onclick = () => {
-  if (typeof modalConfirmAction === 'function') {
-    modalConfirmAction();
-  }
-};
+        const arranged = [...qs('#answerArea').children]
+          .map(node => node.textContent)
+          .join(' ');
 
-qs('#mNo').onclick = () => {
+        ok = clean(arranged) === clean(answer);
+
+        popup(
+          ok,
+          ok
+            ? '배열이 정확합니다. 이제 직접 타이핑으로 넘어갑니다.'
+            : '단어 순서를 다시 확인해 보세요.'
+        );
+      } else {
+        const userInput = qs('#typeInput').value;
+        ok = clean(userInput) === clean(answer);
+
+        if (ok) {
+          popup(true, '직접 타이핑까지 완료했습니다.');
+        } else {
+          typingWrongCount += 1;
+          popup(false, buildHintMessage(userInput, answer, typingWrongCount));
+        }
+      }
+
+      modalConfirmAction = async () => {
+        if (ok) {
+          if (currentStep === 1) {
+            currentStep = 2;
+            qs('#modalOverlay').style.display = 'none';
+            renderQuestion();
+          } else {
+            await complete();
+          }
+        } else {
+          qs('#modalOverlay').style.display = 'none';
+          if (currentStep === 2) qs('#typeInput').focus();
+        }
+      };
+    };
+
+    qs('#mYes').onclick = async () => {
+      if (typeof modalConfirmAction === 'function') {
+        await modalConfirmAction();
+      }
+    };
+
+    qs('#mNo').onclick = () => {
       qs('#modalOverlay').style.display = 'none';
       stageView.style.display = 'block';
       gameView.style.display = 'none';
@@ -863,21 +914,14 @@ qs('#mNo').onclick = () => {
       gameView.style.display = 'none';
     };
 
-    qs('#stageBackBtn').onclick = () => {
+    qs('#stageBackBtn').onclick = async () => {
       stageView.style.display = 'none';
       menuView.style.display = 'block';
-      renderUnits();
+      await renderUnits();
       updateSummary();
     };
 
     qs('#homeBtn').onclick = async () => {
-      const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2');
-
-      const supabase = createClient(
-        'https://uuzhdxangctewuklvmlv.supabase.co',
-        'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
-      );
-
       const { data, error } = await supabase.auth.getUser();
       if (error || !data.user) {
         location.href = 'login.html';
@@ -895,34 +939,33 @@ qs('#mNo').onclick = () => {
     };
 
     qs('#typeInput').addEventListener('keydown', (event) => {
-  if (event.key !== 'Enter') return;
+      if (event.key !== 'Enter') return;
 
-  event.preventDefault();
-  event.stopPropagation();
+      event.preventDefault();
+      event.stopPropagation();
 
-  if (qs('#modalOverlay').style.display === 'flex') {
-    qs('#mYes').click();
-  } else {
-    qs('#checkBtn').click();
-  }
-});
+      if (qs('#modalOverlay').style.display === 'flex') {
+        qs('#mYes').click();
+      } else {
+        qs('#checkBtn').click();
+      }
+    });
 
-
-
-    gradeSelect.onchange = () => {
+    gradeSelect.onchange = async () => {
       currentGrade = gradeSelect.value;
       populate();
-      renderUnits();
+      await renderUnits();
     };
 
-    bookSelect.onchange = () => {
+    bookSelect.onchange = async () => {
       currentBook = bookSelect.value;
       updateSummary();
-      renderUnits();
+      await renderUnits();
     };
 
+    await ensureAuthUser();
     populate();
-    renderUnits();
+    await renderUnits();
     updateSummary();
   </script>
 </body>
