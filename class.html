@@ -248,12 +248,12 @@ font-size: 20px;
 <div class="card">
 <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
 <div>
-<h2 style="margin:0; font-size:20px;">내 숙제</h2>
-<div style="margin-top:6px; font-size:14px; color:#666;">우리 반에 배정된 숙제를 확인할 수 있어요.</div>
+<h2 style="margin:0; font-size:20px;">내 미션</h2>
+<div style="margin-top:6px; font-size:14px; color:#666;">우리 반에 배정된 미션를 확인할 수 있어요.</div>
 </div>
 </div>
 
-<div id="assignmentStatus" class="status">숙제를 불러오는 중...</div>
+<div id="assignmentStatus" class="status">미션를 불러오는 중...</div>
 <div id="assignmentList"></div>
 </div>
 
@@ -423,19 +423,19 @@ location.href = `${target}?assignment_id=${encodeURIComponent(assignmentId)}`;
 
 function renderAssignments(assignments) {
 if (!assignments || assignments.length === 0) {
-assignmentStatusEl.textContent = '현재 배정된 숙제가 없습니다.';
-assignmentListEl.innerHTML = '<div class="empty">아직 받은 숙제가 없습니다.</div>';
+assignmentStatusEl.textContent = '현재 배정된 미션가 없습니다.';
+assignmentListEl.innerHTML = '<div class="empty">아직 받은 미션가 없습니다.</div>';
 return;
 }
 
-assignmentStatusEl.textContent = `배정된 숙제 ${assignments.length}개가 있습니다.`;
+assignmentStatusEl.textContent = `배정된 미션 ${assignments.length}개가 있습니다.`;
 
 assignmentListEl.innerHTML = `
    <div class="assignment-list">
      ${assignments.map(row => `
        <div class="assignment-item">
          <div class="assignment-top">
-           <div class="assignment-title">${escapeHtml(row.title || '숙제')}</div>
+           <div class="assignment-title">${escapeHtml(row.title || '미션')}</div>
            <div class="assignment-badge">${escapeHtml(getCategoryLabel(row.category))}</div>
          </div>
 
@@ -453,7 +453,7 @@ assignmentListEl.innerHTML = `
              type="button"
              onclick="window.__openAssignment('${String(row.id).replaceAll("'", "\\'")}', '${String(row.category || '').replaceAll("'", "\\'")}')"
            >
-             숙제 하러 가기
+             미션 하러 가기
            </button>
          </div>
        </div>
@@ -474,8 +474,8 @@ if (!meData) return;
 const myUserId = meData.profile.user_id;
 const myClassName = meData.profile.class_name;
 
-assignmentStatusEl.textContent = '숙제를 불러오는 중...';
-assignmentListEl.innerHTML = '<div class="empty">숙제를 불러오는 중입니다...</div>';
+assignmentStatusEl.textContent = '미션를 불러오는 중...';
+assignmentListEl.innerHTML = '<div class="empty">미션를 불러오는 중입니다...</div>';
 
 const { data: assignmentRows, error: assignmentError } = await supabase
 .from('assignments')
@@ -484,7 +484,7 @@ const { data: assignmentRows, error: assignmentError } = await supabase
 .order('created_at', { ascending: false });
 
 if (assignmentError) {
-assignmentStatusEl.textContent = '숙제 조회 실패';
+assignmentStatusEl.textContent = '미션 조회 실패';
 assignmentListEl.innerHTML = `<div class="empty">${escapeHtml(assignmentError.message)}</div>`;
 } else {
 renderAssignments(assignmentRows || []);
@@ -494,7 +494,7 @@ if (!myClassName) {
 classBadge.style.display = 'none';
 statusEl.textContent = '내 반 정보가 아직 설정되지 않았습니다.';
 tableBody.innerHTML = '<tr><td colspan="6" class="empty">반 정보가 없습니다. 관리자에게 class_name 설정을 요청하세요.</td></tr>';
-assignmentStatusEl.textContent = '반 정보가 없어서 숙제를 불러올 수 없습니다.';
+assignmentStatusEl.textContent = '반 정보가 없어서 미션를 불러올 수 없습니다.';
 assignmentListEl.innerHTML = '<div class="empty">반 정보가 없습니다.</div>';
 return;
 }
