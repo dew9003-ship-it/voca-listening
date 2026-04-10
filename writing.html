@@ -848,18 +848,23 @@ unitGrid.appendChild(button);
 }
 
 async function openUnit(unit) {
-currentUnitMeta = unit;
-currentData = await (await fetch(unit.file)).json();
+  currentUnitMeta = unit;
+  currentData = await (await fetch(unit.file)).json();
 
-menuView.style.display = 'none';
-stageView.style.display = 'block';
-gameView.style.display = 'none';
+  menuView.style.display = 'none';
+  stageView.style.display = 'block';
+  gameView.style.display = 'none';
 
-qs('#stageTitle').textContent =
-`${catalog[currentGrade].label} · ${catalog[currentGrade].books[currentBook].label} · ${unit.label}`;
-qs('#stageDesc').textContent = `${currentData.items.length}개 문장 중 번호를 선택하세요.`;
+  qs('#stageTitle').textContent =
+    `${catalog[currentGrade].label} · ${catalog[currentGrade].books[currentBook].label} · ${unit.label}`;
+  qs('#stageDesc').textContent = `${currentData.items.length}개 문장 중 번호를 선택하세요.`;
 
-renderStageGrid();
+  renderStageGrid();
+
+  stageView.scrollIntoView({
+    behavior: 'auto',
+    block: 'start'
+  });
 }
 
 function renderStageGrid() {
