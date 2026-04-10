@@ -38,34 +38,35 @@
     }
 
     .topbar,
-    .panel-head,
-    .quiz-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+.panel-head,
+.quiz-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 
-    .topbar { margin-bottom: 18px; }
+.topbar {
+  margin-bottom: 18px;
+}
 
-    .title-box h1 {
-      margin: 0;
-      font-size: 30px;
-      font-weight: 800;
-    }
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 
-    .title-box p {
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
+.title-row h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+}
 
-    .btns {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+.home-inline-btn {
+  padding: 10px 16px;
+}
 
     button,
     select,
@@ -398,20 +399,12 @@
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="topbar">
-      <div class="title-box">
-        <h1>영작 학습관</h1>     <button id="homeBtn" class="btn-light">학습 홈</button>
-
-        <p>학년 → 출판사 → 단원 → 번호 선택 후 2단계로 학습합니다.</p>
-      </div>
-      <div class="btns">
-
-        
-        
-        
-      </div>
-    </div>
+  <div class="topbar">
+  <div class="title-row">
+    <h1>영작 학습관</h1>
+    <button id="homeBtn" class="btn-light home-inline-btn">학습 홈</button>
+  </div>
+</div>
 
     <div id="menuView">
       <div class="summary-grid">
