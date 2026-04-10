@@ -249,11 +249,11 @@ font-size: 20px;
 <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
 <div>
 <h2 style="margin:0; font-size:20px;">내 미션</h2>
-<div style="margin-top:6px; font-size:14px; color:#666;">우리 반에 배정된 미션를 확인할 수 있어요.</div>
+<div style="margin-top:6px; font-size:14px; color:#666;">우리 반에 배정된 미션을 확인할 수 있어요.</div>
 </div>
 </div>
 
-<div id="assignmentStatus" class="status">미션를 불러오는 중...</div>
+<div id="assignmentStatus" class="status">미션을 불러오는 중...</div>
 <div id="assignmentList"></div>
 </div>
 
@@ -474,8 +474,8 @@ if (!meData) return;
 const myUserId = meData.profile.user_id;
 const myClassName = meData.profile.class_name;
 
-assignmentStatusEl.textContent = '미션를 불러오는 중...';
-assignmentListEl.innerHTML = '<div class="empty">미션를 불러오는 중입니다...</div>';
+assignmentStatusEl.textContent = '미션을 불러오는 중...';
+assignmentListEl.innerHTML = '<div class="empty">미션을 불러오는 중입니다...</div>';
 
 const { data: assignmentRows, error: assignmentError } = await supabase
 .from('assignments')
@@ -494,7 +494,7 @@ if (!myClassName) {
 classBadge.style.display = 'none';
 statusEl.textContent = '내 반 정보가 아직 설정되지 않았습니다.';
 tableBody.innerHTML = '<tr><td colspan="6" class="empty">반 정보가 없습니다. 관리자에게 class_name 설정을 요청하세요.</td></tr>';
-assignmentStatusEl.textContent = '반 정보가 없어서 미션를 불러올 수 없습니다.';
+assignmentStatusEl.textContent = '반 정보가 없어서 미션을 불러올 수 없습니다.';
 assignmentListEl.innerHTML = '<div class="empty">반 정보가 없습니다.</div>';
 return;
 }
