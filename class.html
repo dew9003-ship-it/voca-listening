@@ -102,7 +102,7 @@ overflow-x: auto;
 table {
 width: 100%;
 border-collapse: collapse;
-min-width: 860px;
+min-width: 760px;
 background: white;
 }
 
@@ -131,8 +131,22 @@ background: #f0f9ff;
 }
 
 .progress-box {
-min-width: 120px;
-font-weight: bold;
+min-width: 180px;
+}
+
+.progress-bar {
+width: 100%;
+height: 10px;
+background: #e5e7eb;
+border-radius: 999px;
+overflow: hidden;
+margin-top: 6px;
+}
+
+.progress-fill {
+height: 100%;
+background: #4caf50;
+width: 0%;
 }
 
 .muted {
@@ -143,6 +157,63 @@ color: #888;
 text-align: center;
 padding: 30px 10px;
 color: #666;
+}
+
+.assignment-list {
+display: grid;
+gap: 12px;
+}
+
+.assignment-item {
+border: 1px solid #e5e7eb;
+border-radius: 14px;
+padding: 14px;
+background: #fff;
+}
+
+.assignment-top {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+gap: 10px;
+margin-bottom: 8px;
+flex-wrap: wrap;
+}
+
+.assignment-title {
+font-size: 16px;
+font-weight: bold;
+}
+
+.assignment-badge {
+display: inline-block;
+padding: 5px 10px;
+border-radius: 999px;
+background: #eef4ff;
+color: #355ea9;
+font-size: 12px;
+font-weight: bold;
+}
+
+.assignment-meta {
+font-size: 14px;
+color: #555;
+line-height: 1.6;
+}
+
+.assignment-actions {
+margin-top: 12px;
+}
+
+.assignment-btn {
+border: none;
+border-radius: 10px;
+padding: 10px 14px;
+font-size: 14px;
+font-weight: bold;
+cursor: pointer;
+background: #4caf50;
+color: white;
 }
 
 @media (max-width: 600px) {
@@ -168,10 +239,22 @@ font-size: 20px;
 <div class="btns">
 <button id="studyBtn" class="study-btn">듣기 학습</button>
 <button id="grammarBtn" class="study-btn">문법 학습</button>
-<button id="writingBtn" class="study-btn">영작 학습</button>
+    <button id="writingBtn" class="study-btn">영작 학습</button>
 <button id="refreshBtn" class="refresh-btn">새로고침</button>
 <button id="logoutBtn" class="logout-btn">로그아웃</button>
 </div>
+</div>
+
+<div class="card">
+<div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
+<div>
+<h2 style="margin:0; font-size:20px;">내 숙제</h2>
+<div style="margin-top:6px; font-size:14px; color:#666;">우리 반에 배정된 숙제를 확인할 수 있어요.</div>
+</div>
+</div>
+
+<div id="assignmentStatus" class="status">숙제를 불러오는 중...</div>
+<div id="assignmentList"></div>
 </div>
 
 <div class="card">
@@ -185,14 +268,13 @@ font-size: 20px;
 <th>이름</th>
 <th>듣기</th>
 <th>문법</th>
-<th>영작</th>
 <th>최근학습시간</th>
 <th>반</th>
 </tr>
 </thead>
 <tbody id="tableBody">
 <tr>
-<td colspan="7" class="empty">데이터를 불러오는 중입니다...</td>
+<td colspan="6" class="empty">데이터를 불러오는 중입니다...</td>
 </tr>
 </tbody>
 </table>
@@ -210,11 +292,12 @@ const supabase = createClient(
 
 const TOTAL_SENTENCES = 177;
 const TOTAL_GRAMMAR_TOPICS = 67;
-const TOTAL_WRITING_ITEMS = 38;
 
 const statusEl = document.getElementById('status');
 const tableBody = document.getElementById('tableBody');
 const classBadge = document.getElementById('classBadge');
+const assignmentStatusEl = document.getElementById('assignmentStatus');
+const assignmentListEl = document.getElementById('assignmentList');
 
 document.getElementById('studyBtn').addEventListener('click', () => {
 location.href = 'index.html';
@@ -224,7 +307,7 @@ document.getElementById('grammarBtn').addEventListener('click', () => {
 location.href = 'grammar.html';
 });
 
-document.getElementById('writingBtn').addEventListener('click', () => {
+    document.getElementById('writingBtn').addEventListener('click', () => {
 location.href = 'writing.html';
 });
 
@@ -259,14 +342,17 @@ const safe = Number(maxIndex);
 if (!Number.isFinite(safe) || safe < 0) {
 return {
 completed: 0,
+percent: 0,
 text: `0 / ${TOTAL_SENTENCES}`
 };
 }
 
 const completed = Math.min(safe, TOTAL_SENTENCES);
+const percent = Math.min((completed / TOTAL_SENTENCES) * 100, 100);
 
 return {
 completed,
+percent,
 text: `${completed} / ${TOTAL_SENTENCES}`
 };
 }
@@ -277,33 +363,18 @@ const safe = Number(completedTopicCount);
 if (!Number.isFinite(safe) || safe < 0) {
 return {
 completed: 0,
+percent: 0,
 text: `0 / ${TOTAL_GRAMMAR_TOPICS}`
 };
 }
 
 const completed = Math.min(safe, TOTAL_GRAMMAR_TOPICS);
+const percent = Math.min((completed / TOTAL_GRAMMAR_TOPICS) * 100, 100);
 
 return {
 completed,
+percent,
 text: `${completed} / ${TOTAL_GRAMMAR_TOPICS}`
-};
-}
-
-function calcWritingProgress(completedCount) {
-const safe = Number(completedCount);
-
-if (!Number.isFinite(safe) || safe < 0) {
-return {
-completed: 0,
-text: `0 / ${TOTAL_WRITING_ITEMS}`
-};
-}
-
-const completed = Math.min(safe, TOTAL_WRITING_ITEMS);
-
-return {
-completed,
-text: `${completed} / ${TOTAL_WRITING_ITEMS}`
 };
 }
 
@@ -339,9 +410,63 @@ profile: me
 };
 }
 
+function getCategoryLabel(category) {
+if (category === 'grammar') return '문법';
+if (category === 'exam') return '시험대비';
+return '듣기';
+}
+
+function moveToAssignmentPage(assignmentId, category) {
+const target = category === 'grammar' ? 'grammar.html' : 'index.html';
+location.href = `${target}?assignment_id=${encodeURIComponent(assignmentId)}`;
+}
+
+function renderAssignments(assignments) {
+if (!assignments || assignments.length === 0) {
+assignmentStatusEl.textContent = '현재 배정된 숙제가 없습니다.';
+assignmentListEl.innerHTML = '<div class="empty">아직 받은 숙제가 없습니다.</div>';
+return;
+}
+
+assignmentStatusEl.textContent = `배정된 숙제 ${assignments.length}개가 있습니다.`;
+
+assignmentListEl.innerHTML = `
+   <div class="assignment-list">
+     ${assignments.map(row => `
+       <div class="assignment-item">
+         <div class="assignment-top">
+           <div class="assignment-title">${escapeHtml(row.title || '숙제')}</div>
+           <div class="assignment-badge">${escapeHtml(getCategoryLabel(row.category))}</div>
+         </div>
+
+         <div class="assignment-meta">
+           <div>학년: ${escapeHtml(row.grade || '-')}</div>
+           <div>출판사: ${escapeHtml(row.publisher || '-')}</div>
+           <div>단원: ${escapeHtml(row.unit || '-')}</div>
+           <div>범위: ${escapeHtml(String(row.start_index ?? '-'))} ~ ${escapeHtml(String(row.end_index ?? '-'))}</div>
+           <div>마감일: ${escapeHtml(row.due_date || '-')}</div>
+         </div>
+
+         <div class="assignment-actions">
+           <button
+             class="assignment-btn"
+             type="button"
+             onclick="window.__openAssignment('${String(row.id).replaceAll("'", "\\'")}', '${String(row.category || '').replaceAll("'", "\\'")}')"
+           >
+             숙제 하러 가기
+           </button>
+         </div>
+       </div>
+     `).join('')}
+   </div>
+ `;
+}
+
+window.__openAssignment = moveToAssignmentPage;
+
 async function loadClassPage() {
 statusEl.textContent = '불러오는 중...';
-tableBody.innerHTML = '<tr><td colspan="7" class="empty">데이터를 불러오는 중입니다...</td></tr>';
+tableBody.innerHTML = '<tr><td colspan="6" class="empty">데이터를 불러오는 중입니다...</td></tr>';
 
 const meData = await requireStudent();
 if (!meData) return;
@@ -349,10 +474,28 @@ if (!meData) return;
 const myUserId = meData.profile.user_id;
 const myClassName = meData.profile.class_name;
 
+assignmentStatusEl.textContent = '숙제를 불러오는 중...';
+assignmentListEl.innerHTML = '<div class="empty">숙제를 불러오는 중입니다...</div>';
+
+const { data: assignmentRows, error: assignmentError } = await supabase
+.from('assignments')
+.select('id, class_name, title, category, grade, publisher, unit, start_index, end_index, due_date, created_at')
+.eq('class_name', myClassName)
+.order('created_at', { ascending: false });
+
+if (assignmentError) {
+assignmentStatusEl.textContent = '숙제 조회 실패';
+assignmentListEl.innerHTML = `<div class="empty">${escapeHtml(assignmentError.message)}</div>`;
+} else {
+renderAssignments(assignmentRows || []);
+}
+
 if (!myClassName) {
 classBadge.style.display = 'none';
 statusEl.textContent = '내 반 정보가 아직 설정되지 않았습니다.';
-tableBody.innerHTML = '<tr><td colspan="7" class="empty">반 정보가 없습니다. 관리자에게 class_name 설정을 요청하세요.</td></tr>';
+tableBody.innerHTML = '<tr><td colspan="6" class="empty">반 정보가 없습니다. 관리자에게 class_name 설정을 요청하세요.</td></tr>';
+assignmentStatusEl.textContent = '반 정보가 없어서 숙제를 불러올 수 없습니다.';
+assignmentListEl.innerHTML = '<div class="empty">반 정보가 없습니다.</div>';
 return;
 }
 
@@ -367,7 +510,7 @@ const { data: classmates, error: classmatesError } = await supabase
 
 if (classmatesError) {
 statusEl.textContent = '반 학생 목록 조회 실패';
-tableBody.innerHTML = `<tr><td colspan="7" class="empty">${escapeHtml(classmatesError.message)}</td></tr>`;
+tableBody.innerHTML = `<tr><td colspan="6" class="empty">${escapeHtml(classmatesError.message)}</td></tr>`;
 return;
 }
 
@@ -377,7 +520,7 @@ const { data: progressRows, error: progressError } = await supabase
 
 if (progressError) {
 statusEl.textContent = '듣기 진도 조회 실패';
-tableBody.innerHTML = `<tr><td colspan="7" class="empty">${escapeHtml(progressError.message)}</td></tr>`;
+tableBody.innerHTML = `<tr><td colspan="6" class="empty">${escapeHtml(progressError.message)}</td></tr>`;
 return;
 }
 
@@ -387,17 +530,7 @@ const { data: grammarRows, error: grammarError } = await supabase
 
 if (grammarError) {
 statusEl.textContent = '문법 진도 조회 실패';
-tableBody.innerHTML = `<tr><td colspan="7" class="empty">${escapeHtml(grammarError.message)}</td></tr>`;
-return;
-}
-
-const { data: writingRows, error: writingError } = await supabase
-.from('writing_progress')
-.select('user_id, completed_count, last_studied_at');
-
-if (writingError) {
-statusEl.textContent = '영작 진도 조회 실패';
-tableBody.innerHTML = `<tr><td colspan="7" class="empty">${escapeHtml(writingError.message)}</td></tr>`;
+tableBody.innerHTML = `<tr><td colspan="6" class="empty">${escapeHtml(grammarError.message)}</td></tr>`;
 return;
 }
 
@@ -411,20 +544,12 @@ for (const row of grammarRows || []) {
 grammarMap.set(row.user_id, row);
 }
 
-const writingMap = new Map();
-for (const row of writingRows || []) {
-writingMap.set(row.user_id, row);
-}
-
 const merged = (classmates || []).map(profile => {
 const progressRow = progressMap.get(profile.user_id);
 const progress = calcProgress(progressRow?.max_index);
 
 const grammarRow = grammarMap.get(profile.user_id);
 const grammar = calcGrammarProgress(grammarRow?.completed_topic_count);
-
-const writingRow = writingMap.get(profile.user_id);
-const writing = calcWritingProgress(writingRow?.completed_count);
 
 const listeningTime = progressRow?.last_studied_at
 ? new Date(progressRow.last_studied_at).getTime()
@@ -434,24 +559,17 @@ const grammarTime = grammarRow?.last_studied_at
 ? new Date(grammarRow.last_studied_at).getTime()
 : 0;
 
-const writingTime = writingRow?.last_studied_at
-? new Date(writingRow.last_studied_at).getTime()
-: 0;
-
-const latestTime = Math.max(listeningTime, grammarTime, writingTime);
-
 return {
 ...profile,
 progressCompleted: progress.completed,
+progressPercent: progress.percent,
 progressText: progress.text,
 grammarCompleted: grammar.completed,
+grammarPercent: grammar.percent,
 grammarText: grammar.text,
-writingCompleted: writing.completed,
-writingText: writing.text,
-lastStudiedAt:
-latestTime === listeningTime ? (progressRow?.last_studied_at || null) :
-latestTime === grammarTime ? (grammarRow?.last_studied_at || null) :
-(writingRow?.last_studied_at || null)
+lastStudiedAt: listeningTime >= grammarTime
+? (progressRow?.last_studied_at || null)
+: (grammarRow?.last_studied_at || null)
 };
 });
 
@@ -467,7 +585,7 @@ return bTime - aTime;
 
 if (merged.length === 0) {
 statusEl.textContent = '같은 반 학생이 없습니다.';
-tableBody.innerHTML = '<tr><td colspan="7" class="empty">같은 반 학생 데이터가 없습니다.</td></tr>';
+tableBody.innerHTML = '<tr><td colspan="6" class="empty">같은 반 학생 데이터가 없습니다.</td></tr>';
 return;
 }
 
@@ -475,19 +593,28 @@ const rowsHtml = merged.map((row, index) => {
 const isMe = row.user_id === myUserId;
 
 return `
-<tr class="${isMe ? 'me-row' : ''}">
-<td class="rank">${index + 1}</td>
-<td>
-${escapeHtml(row.name || '-')}
-${isMe ? ' <span class="muted">(나)</span>' : ''}
+        <tr class="${isMe ? 'me-row' : ''}">
+          <td class="rank">${index + 1}</td>
+          <td>
+            ${escapeHtml(row.name || '-')}
+            ${isMe ? ' <span class="muted">(나)</span>' : ''}
+          </td>
+          <td class="progress-box">
+ <div>${escapeHtml(row.progressText || `0 / ${TOTAL_SENTENCES}`)}</div>
+ <div class="progress-bar">
+   <div class="progress-fill" style="width:${Number(row.progressPercent || 0)}%"></div>
+ </div>
 </td>
-<td class="progress-box">${escapeHtml(row.progressText || `0 / ${TOTAL_SENTENCES}`)}</td>
-<td class="progress-box">${escapeHtml(row.grammarText || `0 / ${TOTAL_GRAMMAR_TOPICS}`)}</td>
-<td class="progress-box">${escapeHtml(row.writingText || `0 / ${TOTAL_WRITING_ITEMS}`)}</td>
-<td>${escapeHtml(formatDate(row.lastStudiedAt))}</td>
-<td>${escapeHtml(row.class_name || '-')}</td>
-</tr>
-`;
+<td class="progress-box">
+ <div>${escapeHtml(row.grammarText || `0 / ${TOTAL_GRAMMAR_TOPICS}`)}</div>
+ <div class="progress-bar">
+   <div class="progress-fill" style="width:${Number(row.grammarPercent || 0)}%"></div>
+ </div>
+</td>
+          <td>${escapeHtml(formatDate(row.lastStudiedAt))}</td>
+          <td>${escapeHtml(row.class_name || '-')}</td>
+        </tr>
+      `;
 }).join('');
 
 tableBody.innerHTML = rowsHtml;
