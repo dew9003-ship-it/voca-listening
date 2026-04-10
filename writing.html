@@ -330,14 +330,24 @@
     #typingArea { display: none; }
 
     .type-input {
-      width: 100%;
-      min-height: 64px;
-      padding: 14px 16px;
-      font-size: 18px;
-      border: 2px solid #bfdbfe;
-      border-radius: 18px;
-      outline: none;
-    }
+  width: 100%;
+  min-height: 64px;
+  max-height: 220px;
+  padding: 14px 16px;
+  font-size: 18px;
+  line-height: 1.5;
+  border: 2px solid #bfdbfe;
+  border-radius: 18px;
+  outline: none;
+  resize: none;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+}
+
+.type-input:focus {
+  border-color: #4f8cff;
+  box-shadow: 0 0 0 4px rgba(79,140,255,.12);
+}
 
     #checkBtn {
       min-width: 140px;
@@ -377,12 +387,14 @@
     }
 
     @media (max-width: 640px) {
-      .wrap { padding: 12px; }
-      .title-box h1 { font-size: 25px; }
-      .grid-container { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      .word-btn { padding: 8px 10px; font-size: 13px; }
-      .type-input { min-height: 56px; padding: 12px 14px; font-size: 16px; }
-    }
+  .type-input {
+    min-height: 56px;
+    padding: 12px 14px;
+    font-size: 16px;
+    line-height: 1.5;
+    border-radius: 14px;
+  }
+}
   </style>
 </head>
 <body>
@@ -485,7 +497,7 @@
           </div>
 
           <div id="typingArea">
-            <input id="typeInput" class="type-input" type="text" placeholder="영어 문장을 입력하세요..." />
+            <textarea id="typeInput" class="type-input" placeholder="영어 문장을 입력하세요..." rows="2"></textarea>
           </div>
 
           <div style="display:flex;justify-content:flex-end;margin-top:12px;">
@@ -546,6 +558,7 @@
   const bookSelect = qs('#bookSelect');
   const unitGrid = qs('#unitGrid');
   const stageGrid = qs('#stageGrid');
+    const typeInputEl = qs('#typeInput');
 
   let currentGrade = 'middle3';
   let currentBook = 'donga_yoon';
@@ -709,6 +722,12 @@
     }
     return copied;
   }
+
+    function autoResizeTextarea(el) {
+  if (!el) return;
+  el.style.height = 'auto';
+  el.style.height = `${el.scrollHeight}px`;
+}
 
   function tokensOf(text) {
     return clean(text).split(' ').filter(Boolean);
@@ -903,12 +922,14 @@
         qs('#wordBank').appendChild(button);
       });
     } else {
-      qs('#stepLabel').textContent = 'Step 2 · 직접 타이핑';
-      qs('#arrangeArea').style.display = 'none';
-      qs('#typingArea').style.display = 'block';
-      qs('#typeInput').value = '';
-      qs('#typeInput').focus();
-    }
+  qs('#stepLabel').textContent = 'Step 2 · 직접 타이핑';
+  qs('#arrangeArea').style.display = 'none';
+  qs('#typingArea').style.display = 'block';
+  typeInputEl.value = '';
+  typeInputEl.style.height = 'auto';
+  autoResizeTextarea(typeInputEl);
+  typeInputEl.focus();
+}
   }
 
   function popup(ok, message) {
@@ -1033,6 +1054,9 @@
     else location.href = 'class.html';
   };
 
+    typeInputEl.addEventListener('input', () => {
+  autoResizeTextarea(typeInputEl);
+});
   qs('#typeInput').addEventListener('keydown', (event) => {
     if (event.key !== 'Enter') return;
 
