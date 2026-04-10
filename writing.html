@@ -506,467 +506,563 @@
   </div>
 
   <script type="module">
-    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
-    const supabase = createClient(
-      'https://uuzhdxangctewuklvmlv.supabase.co',
-      'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
-    );
+  const supabase = createClient(
+    'https://uuzhdxangctewuklvmlv.supabase.co',
+    'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
+  );
 
-    const catalog = {
-      middle3: {
-        label: '중3',
-        books: {
-          donga_yoon: {
-            label: '동아(윤정미)',
-            units: [
-              { id: 'unit1', label: '1과', title: 'Lesson 1', file: 'writing/middle3/donga_yoon/unit1.json' },
-              { id: 'unit2', label: '2과', title: 'Lesson 2', file: 'writing/middle3/donga_yoon/unit2.json' },
-              { id: 'unit3', label: '3과', title: 'Lesson 3', file: 'writing/middle3/donga_yoon/unit3.json' }
-            ]
-          },
-          ybm_song: {
-            label: 'YBM(송미정)',
-            units: [
-              { id: 'unit1', label: '1과', title: 'Lesson 1', file: 'writing/middle3/ybm_song/unit1.json' },
-              { id: 'unit2', label: '2과', title: 'Lesson 2', file: 'writing/middle3/ybm_song/unit2.json' },
-              { id: 'unit3', label: '3과', title: 'Lesson 3', file: 'writing/middle3/ybm_song/unit3.json' }
-            ]
-          }
+  const catalog = {
+    middle3: {
+      label: '중3',
+      books: {
+        donga_yoon: {
+          label: '동아(윤정미)',
+          units: [
+            { id: 'unit1', label: '1과', title: 'Lesson 1', file: 'writing/middle3/donga_yoon/unit1.json' },
+            { id: 'unit2', label: '2과', title: 'Lesson 2', file: 'writing/middle3/donga_yoon/unit2.json' },
+            { id: 'unit3', label: '3과', title: 'Lesson 3', file: 'writing/middle3/donga_yoon/unit3.json' }
+          ]
+        },
+        ybm_song: {
+          label: 'YBM(송미정)',
+          units: [
+            { id: 'unit1', label: '1과', title: 'Lesson 1', file: 'writing/middle3/ybm_song/unit1.json' },
+            { id: 'unit2', label: '2과', title: 'Lesson 2', file: 'writing/middle3/ybm_song/unit2.json' },
+            { id: 'unit3', label: '3과', title: 'Lesson 3', file: 'writing/middle3/ybm_song/unit3.json' }
+          ]
         }
       }
+    }
+  };
+
+  const qs = (selector) => document.querySelector(selector);
+
+  const menuView = qs('#menuView');
+  const stageView = qs('#stageView');
+  const gameView = qs('#gameView');
+  const gradeSelect = qs('#gradeSelect');
+  const bookSelect = qs('#bookSelect');
+  const unitGrid = qs('#unitGrid');
+  const stageGrid = qs('#stageGrid');
+
+  let currentGrade = 'middle3';
+  let currentBook = 'donga_yoon';
+  let currentUnitMeta = null;
+  let currentData = null;
+  let currentIndex = 0;
+  let currentStep = 1;
+  let typingWrongCount = 0;
+  let modalConfirmAction = null;
+  let authUserId = null;
+
+  let unitProgressMap = new Map();
+  let recentUnitText = '-';
+
+  async function ensureAuthUser() {
+    const { data, error } = await supabase.auth.getUser();
+    if (error || !data.user) {
+      location.href = 'login.html';
+      return null;
+    }
+    authUserId = data.user.id;
+    return data.user;
+  }
+
+  function getUnitProgressKey(gradeKey, bookKey, unitId) {
+    return `${gradeKey}__${bookKey}__${unitId}`;
+  }
+
+  function getCurrentUnitProgressKey(meta = currentUnitMeta) {
+    if (!meta) return '';
+    return getUnitProgressKey(currentGrade, currentBook, meta.id);
+  }
+
+  function defaultProgress() {
+    return {
+      completed: [],
+      maxUnlockedIndex: 0
     };
+  }
 
-    const qs = (selector) => document.querySelector(selector);
+  function normalizeProgressRow(row) {
+    const completed = Array.isArray(row?.completed_indexes)
+      ? row.completed_indexes
+          .map(v => Number(v))
+          .filter(v => Number.isInteger(v) && v >= 0)
+      : [];
 
-    const menuView = qs('#menuView');
-    const stageView = qs('#stageView');
-    const gameView = qs('#gameView');
-    const gradeSelect = qs('#gradeSelect');
-    const bookSelect = qs('#bookSelect');
-    const unitGrid = qs('#unitGrid');
-    const stageGrid = qs('#stageGrid');
+    const uniqueCompleted = [...new Set(completed)].sort((a, b) => a - b);
+    const maxUnlockedIndex = Number.isInteger(row?.max_unlocked_index)
+      ? Math.max(0, row.max_unlocked_index)
+      : 0;
 
-    let currentGrade = 'middle3';
-    let currentBook = 'donga_yoon';
-    let currentUnitMeta = null;
-    let currentData = null;
-    let currentIndex = 0;
-    let currentStep = 1;
-    let typingWrongCount = 0;
-    let modalConfirmAction = null;
-    let authUserId = null;
+    return {
+      completed: uniqueCompleted,
+      maxUnlockedIndex
+    };
+  }
 
-    async function ensureAuthUser() {
-      const { data, error } = await supabase.auth.getUser();
-      if (error || !data.user) {
-        location.href = 'login.html';
-        return null;
-      }
-      authUserId = data.user.id;
-      return data.user;
+  async function loadAllUnitProgress() {
+    if (!authUserId) return;
+
+    const { data, error } = await supabase
+      .from('writing_unit_progress')
+      .select('grade_key, book_key, unit_id, completed_indexes, max_unlocked_index, updated_at')
+      .eq('user_id', authUserId);
+
+    if (error) {
+      console.error('writing_unit_progress 조회 실패:', error.message);
+      unitProgressMap = new Map();
+      recentUnitText = '-';
+      return;
     }
 
-    function getProgressStorageKey(meta = currentUnitMeta) {
-      return `writing_progress_${currentGrade}_${currentBook}_${meta.id}`;
-    }
+    unitProgressMap = new Map();
 
-    function getProgress(meta = currentUnitMeta) {
-      if (!meta) return { maxUnlockedIndex: 0, completed: [] };
+    let latestUpdatedAt = 0;
+    let latestLabel = '-';
 
-      return JSON.parse(
-        localStorage.getItem(getProgressStorageKey(meta))
-        || '{"maxUnlockedIndex":0,"completed":[]}'
-      );
-    }
+    for (const row of data || []) {
+      const key = getUnitProgressKey(row.grade_key, row.book_key, row.unit_id);
+      unitProgressMap.set(key, normalizeProgressRow(row));
 
-    function setProgress(obj) {
-      localStorage.setItem(
-        getProgressStorageKey(),
-        JSON.stringify(obj)
-      );
+      const updatedAt = row.updated_at ? new Date(row.updated_at).getTime() : 0;
+      if (updatedAt > latestUpdatedAt) {
+        latestUpdatedAt = updatedAt;
 
-      localStorage.setItem(
-        'writing_recent_unit',
-        JSON.stringify({
-          grade: catalog[currentGrade].label,
-          book: catalog[currentGrade].books[currentBook].label,
-          unit: currentUnitMeta.label
-        })
-      );
-    }
+        const gradeLabel = catalog[row.grade_key]?.label || row.grade_key;
+        const bookLabel = catalog[row.grade_key]?.books?.[row.book_key]?.label || row.book_key;
 
-    function clean(text) {
-      return String(text || '')
-        .toLowerCase()
-        .replace(/[“”]/g, '"')
-        .replace(/[‘’]/g, "'")
-        .replace(/[.,!?"]/g, '')
-        .replace(/\s+/g, ' ')
-        .trim();
-    }
-
-    function shuffle(arr) {
-      const copied = [...arr];
-      for (let i = copied.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [copied[i], copied[j]] = [copied[j], copied[i]];
-      }
-      return copied;
-    }
-
-    function tokensOf(text) {
-      return clean(text).split(' ').filter(Boolean);
-    }
-
-    function getWrongIndexes(userInput, answer) {
-      const userTokens = tokensOf(userInput);
-      const answerTokens = tokensOf(answer);
-      const wrong = [];
-
-      for (let i = 0; i < answerTokens.length; i++) {
-        if (userTokens[i] !== answerTokens[i]) wrong.push(i);
-      }
-
-      return { wrong, answerTokens };
-    }
-
-    function buildHintMessage(userInput, answer, wrongCount) {
-      const { wrong, answerTokens } = getWrongIndexes(userInput, answer);
-
-      if (!wrong.length) return '다시 확인해 보세요.';
-
-      if (wrongCount === 1) {
-        return `틀린 단어가 ${wrong.length}개 있어요.`;
-      }
-
-      if (wrongCount === 2) {
-        const posText = wrong.map(i => `${i + 1}번째`).join(', ');
-        return `${posText} 단어를 다시 확인해 보세요.`;
-      }
-
-      const hintText = wrong.map(i => `${i + 1}번째(${answerTokens[i][0]})`).join(', ');
-      return `${hintText} 단어를 다시 확인해 보세요.`;
-    }
-
-    function updateSummary() {
-      qs('#summaryGrade').textContent = catalog[currentGrade].label;
-      qs('#summaryBook').textContent = catalog[currentGrade].books[currentBook].label;
-
-      const recent = JSON.parse(localStorage.getItem('writing_recent_unit') || 'null');
-      qs('#recentUnit').textContent = recent ? `${recent.grade} ${recent.unit}` : '-';
-    }
-
-    function buildWritingUnitLabel() {
-      return `${catalog[currentGrade].label} ${catalog[currentGrade].books[currentBook].label} ${currentUnitMeta.label}`;
-    }
-
-    async function syncWritingProgressToSupabase() {
-      if (!authUserId || !currentUnitMeta || !currentData?.items?.length) return;
-
-      const progress = getProgress();
-      const completedCount = Array.isArray(progress.completed) ? progress.completed.length : 0;
-      const unitTotalCount = currentData.items.length;
-      const unitLabel = buildWritingUnitLabel();
-
-      const { error } = await supabase
-        .from('writing_progress')
-        .upsert({
-          user_id: authUserId,
-          completed_count: completedCount,
-          unit_total_count: unitTotalCount,
-          unit_label: unitLabel,
-          last_completed_at: new Date().toISOString()
-        }, {
-          onConflict: 'user_id'
-        });
-
-      if (error) {
-        console.error('writing_progress 저장 실패:', error.message);
-      }
-    }
-
-    function populate() {
-      gradeSelect.innerHTML = '<option value="middle3">중3</option>';
-
-      bookSelect.innerHTML = Object.entries(catalog[currentGrade].books)
-        .map(([key, value]) => `<option value="${key}">${value.label}</option>`)
-        .join('');
-
-      if (!catalog[currentGrade].books[currentBook]) {
-        currentBook = Object.keys(catalog[currentGrade].books)[0];
-      }
-
-      bookSelect.value = currentBook;
-      updateSummary();
-    }
-
-    async function renderUnits() {
-      unitGrid.innerHTML = '';
-
-      for (const unit of catalog[currentGrade].books[currentBook].units) {
-        const response = await fetch(unit.file);
-        const data = await response.json();
-        const progress = getProgress(unit);
-        const total = data.items.length;
-        const done = (progress.completed || []).length;
-        const percent = total > 0 ? Math.round(done / total * 100) : 0;
-
-        const button = document.createElement('button');
-        button.className = 'unit-card';
-        button.innerHTML = `
-          <div>
-            <div class="badge">${unit.label}</div>
-            <div class="unit-title">${unit.title}</div>
-          </div>
-          <div class="meta">
-            문장 수: ${total}<br>
-            진도: ${done} / ${total} (${percent}%)
-          </div>
-        `;
-        button.onclick = () => openUnit(unit);
-        unitGrid.appendChild(button);
-      }
-    }
-
-    async function openUnit(unit) {
-      currentUnitMeta = unit;
-      currentData = await (await fetch(unit.file)).json();
-
-      menuView.style.display = 'none';
-      stageView.style.display = 'block';
-      gameView.style.display = 'none';
-
-      qs('#stageTitle').textContent =
-        `${catalog[currentGrade].label} · ${catalog[currentGrade].books[currentBook].label} · ${unit.label}`;
-      qs('#stageDesc').textContent = `${currentData.items.length}개 문장 중 번호를 선택하세요.`;
-
-      renderStageGrid();
-    }
-
-    function renderStageGrid() {
-      const progress = getProgress();
-      stageGrid.innerHTML = '';
-
-      currentData.items.forEach((_, idx) => {
-        const button = document.createElement('button');
-        const isDone = (progress.completed || []).includes(idx);
-        const isOpen = idx <= progress.maxUnlockedIndex;
-
-        button.className = 'stage-btn ' + (
-          isDone ? 'stage-complete' : isOpen ? 'stage-unlocked' : 'stage-locked'
+        const unitMeta = catalog[row.grade_key]?.books?.[row.book_key]?.units?.find(
+          unit => unit.id === row.unit_id
         );
-        button.textContent = isOpen ? idx + 1 : '🔒';
 
-        if (isOpen) {
-          button.onclick = () => startQuestion(idx);
-        }
-
-        stageGrid.appendChild(button);
-      });
-    }
-
-    function startQuestion(idx) {
-      currentIndex = idx;
-      currentStep = 1;
-      typingWrongCount = 0;
-
-      stageView.style.display = 'none';
-      gameView.style.display = 'block';
-
-      renderQuestion();
-    }
-
-    function renderQuestion() {
-      const item = currentData.items[currentIndex];
-      const total = currentData.items.length;
-
-      qs('#progressText').textContent = `${currentIndex + 1} / ${total}`;
-      qs('#progressBar').style.width = `${((currentIndex + 1) / total) * 100}%`;
-      qs('#coursePath').textContent =
-        `${catalog[currentGrade].label} · ${catalog[currentGrade].books[currentBook].label} · ${currentUnitMeta.label} · ${currentIndex + 1}번`;
-
-      qs('#promptBox').textContent = item.ko;
-      qs('#hintBox').textContent = `정답 문장 길이: ${item.en.split(' ').length}단어`;
-
-      if (currentStep === 1) {
-        qs('#stepLabel').textContent = 'Step 1 · 단어 배열';
-        qs('#arrangeArea').style.display = 'block';
-        qs('#typingArea').style.display = 'none';
-        qs('#answerArea').innerHTML = '';
-        qs('#wordBank').innerHTML = '';
-
-        shuffle(item.en.split(' ')).forEach((word) => {
-          const button = document.createElement('button');
-          button.className = 'word-btn';
-          button.textContent = word;
-          button.onclick = () => {
-            if (button.parentElement.id === 'wordBank') {
-              qs('#answerArea').appendChild(button);
-            } else {
-              qs('#wordBank').appendChild(button);
-            }
-          };
-          qs('#wordBank').appendChild(button);
-        });
-      } else {
-        qs('#stepLabel').textContent = 'Step 2 · 직접 타이핑';
-        qs('#arrangeArea').style.display = 'none';
-        qs('#typingArea').style.display = 'block';
-        qs('#typeInput').value = '';
-        qs('#typeInput').focus();
+        const unitLabel = unitMeta?.label || row.unit_id;
+        latestLabel = `${gradeLabel} ${unitLabel}`;
       }
     }
 
-    function popup(ok, message) {
-      qs('#modalOverlay').style.display = 'flex';
-      qs('#mTitle').textContent = ok ? '정답입니다!' : '오답입니다';
-      qs('#mTitle').style.color = ok ? '#4caf50' : '#f44336';
-      qs('#mMsg').textContent = message;
-    }
+    recentUnitText = latestLabel;
+  }
 
-    async function complete() {
-      const progress = getProgress();
-      const completed = [...(progress.completed || [])];
+  function getProgress(meta = currentUnitMeta) {
+    if (!meta) return defaultProgress();
 
-      if (!completed.includes(currentIndex)) {
-        completed.push(currentIndex);
-      }
+    const key = getCurrentUnitProgressKey(meta);
+    return unitProgressMap.get(key) || defaultProgress();
+  }
 
-      let maxUnlockedIndex = progress.maxUnlockedIndex || 0;
-      if (currentIndex === maxUnlockedIndex && currentIndex < currentData.items.length - 1) {
-        maxUnlockedIndex += 1;
-      }
+  async function saveUnitProgress(progressObj) {
+    if (!authUserId || !currentUnitMeta) return;
 
-      setProgress({ maxUnlockedIndex, completed });
-      await syncWritingProgressToSupabase();
-      renderStageGrid();
-      qs('#modalOverlay').style.display = 'none';
-      updateSummary();
-
-      if (currentIndex < currentData.items.length - 1) {
-        startQuestion(currentIndex + 1);
-      } else {
-        stageView.style.display = 'block';
-        gameView.style.display = 'none';
-      }
-    }
-
-    qs('#checkBtn').onclick = () => {
-      const answer = currentData.items[currentIndex].en;
-      let ok = false;
-
-      if (currentStep === 1) {
-        const arranged = [...qs('#answerArea').children]
-          .map(node => node.textContent)
-          .join(' ');
-
-        ok = clean(arranged) === clean(answer);
-
-        popup(
-          ok,
-          ok
-            ? '배열이 정확합니다. 이제 직접 타이핑으로 넘어갑니다.'
-            : '단어 순서를 다시 확인해 보세요.'
-        );
-      } else {
-        const userInput = qs('#typeInput').value;
-        ok = clean(userInput) === clean(answer);
-
-        if (ok) {
-          popup(true, '직접 타이핑까지 완료했습니다.');
-        } else {
-          typingWrongCount += 1;
-          popup(false, buildHintMessage(userInput, answer, typingWrongCount));
-        }
-      }
-
-      modalConfirmAction = async () => {
-        if (ok) {
-          if (currentStep === 1) {
-            currentStep = 2;
-            qs('#modalOverlay').style.display = 'none';
-            renderQuestion();
-          } else {
-            await complete();
-          }
-        } else {
-          qs('#modalOverlay').style.display = 'none';
-          if (currentStep === 2) qs('#typeInput').focus();
-        }
-      };
-    };
-
-    qs('#mYes').onclick = async () => {
-      if (typeof modalConfirmAction === 'function') {
-        await modalConfirmAction();
-      }
-    };
-
-    qs('#mNo').onclick = () => {
-      qs('#modalOverlay').style.display = 'none';
-      stageView.style.display = 'block';
-      gameView.style.display = 'none';
-    };
-
-    qs('#backBtn').onclick = () => {
-      stageView.style.display = 'block';
-      gameView.style.display = 'none';
-    };
-
-    qs('#stageBackBtn').onclick = async () => {
-      stageView.style.display = 'none';
-      menuView.style.display = 'block';
-      await renderUnits();
-      updateSummary();
-    };
-
-    qs('#homeBtn').onclick = async () => {
-      const { data, error } = await supabase.auth.getUser();
-      if (error || !data.user) {
-        location.href = 'login.html';
-        return;
-      }
-
-      const { data: profileData } = await supabase
-        .from('profiles')
-        .select('role')
-        .eq('user_id', data.user.id)
-        .maybeSingle();
-
-      if (profileData?.role === 'admin') location.href = 'admin.html';
-      else location.href = 'class.html';
-    };
-
-    qs('#typeInput').addEventListener('keydown', (event) => {
-      if (event.key !== 'Enter') return;
-
-      event.preventDefault();
-      event.stopPropagation();
-
-      if (qs('#modalOverlay').style.display === 'flex') {
-        qs('#mYes').click();
-      } else {
-        qs('#checkBtn').click();
-      }
+    const normalized = normalizeProgressRow({
+      completed_indexes: progressObj.completed,
+      max_unlocked_index: progressObj.maxUnlockedIndex
     });
 
-    gradeSelect.onchange = async () => {
-      currentGrade = gradeSelect.value;
-      populate();
-      await renderUnits();
+    const payload = {
+      user_id: authUserId,
+      grade_key: currentGrade,
+      book_key: currentBook,
+      unit_id: currentUnitMeta.id,
+      completed_indexes: normalized.completed,
+      max_unlocked_index: normalized.maxUnlockedIndex,
+      updated_at: new Date().toISOString()
     };
 
-    bookSelect.onchange = async () => {
-      currentBook = bookSelect.value;
-      updateSummary();
-      await renderUnits();
-    };
+    const { error } = await supabase
+      .from('writing_unit_progress')
+      .upsert(payload, {
+        onConflict: 'user_id,grade_key,book_key,unit_id'
+      });
 
-    await ensureAuthUser();
-    populate();
+    if (error) {
+      console.error('writing_unit_progress 저장 실패:', error.message);
+      return;
+    }
+
+    unitProgressMap.set(getCurrentUnitProgressKey(), {
+      completed: normalized.completed,
+      maxUnlockedIndex: normalized.maxUnlockedIndex
+    });
+
+    recentUnitText = `${catalog[currentGrade].label} ${currentUnitMeta.label}`;
+  }
+
+  function clean(text) {
+    return String(text || '')
+      .toLowerCase()
+      .replace(/[“”]/g, '"')
+      .replace(/[‘’]/g, "'")
+      .replace(/[.,!?"]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function shuffle(arr) {
+    const copied = [...arr];
+    for (let i = copied.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copied[i], copied[j]] = [copied[j], copied[i]];
+    }
+    return copied;
+  }
+
+  function tokensOf(text) {
+    return clean(text).split(' ').filter(Boolean);
+  }
+
+  function getWrongIndexes(userInput, answer) {
+    const userTokens = tokensOf(userInput);
+    const answerTokens = tokensOf(answer);
+    const wrong = [];
+
+    for (let i = 0; i < answerTokens.length; i++) {
+      if (userTokens[i] !== answerTokens[i]) wrong.push(i);
+    }
+
+    return { wrong, answerTokens };
+  }
+
+  function buildHintMessage(userInput, answer, wrongCount) {
+    const { wrong, answerTokens } = getWrongIndexes(userInput, answer);
+
+    if (!wrong.length) return '다시 확인해 보세요.';
+
+    if (wrongCount === 1) {
+      return `틀린 단어가 ${wrong.length}개 있어요.`;
+    }
+
+    if (wrongCount === 2) {
+      const posText = wrong.map(i => `${i + 1}번째`).join(', ');
+      return `${posText} 단어를 다시 확인해 보세요.`;
+    }
+
+    const hintText = wrong.map(i => `${i + 1}번째(${answerTokens[i][0]})`).join(', ');
+    return `${hintText} 단어를 다시 확인해 보세요.`;
+  }
+
+  function updateSummary() {
+    qs('#summaryGrade').textContent = catalog[currentGrade].label;
+    qs('#summaryBook').textContent = catalog[currentGrade].books[currentBook].label;
+    qs('#recentUnit').textContent = recentUnitText || '-';
+  }
+
+  function buildWritingUnitLabel() {
+    return `${catalog[currentGrade].label} ${catalog[currentGrade].books[currentBook].label} ${currentUnitMeta.label}`;
+  }
+
+  async function syncWritingSummaryToSupabase() {
+    if (!authUserId || !currentUnitMeta || !currentData?.items?.length) return;
+
+    const progress = getProgress();
+    const completedCount = Array.isArray(progress.completed) ? progress.completed.length : 0;
+    const unitTotalCount = currentData.items.length;
+    const unitLabel = buildWritingUnitLabel();
+
+    const { error } = await supabase
+      .from('writing_progress')
+      .upsert({
+        user_id: authUserId,
+        completed_count: completedCount,
+        unit_total_count: unitTotalCount,
+        unit_label: unitLabel,
+        last_completed_at: new Date().toISOString()
+      }, {
+        onConflict: 'user_id'
+      });
+
+    if (error) {
+      console.error('writing_progress 저장 실패:', error.message);
+    }
+  }
+
+  function populate() {
+    gradeSelect.innerHTML = '<option value="middle3">중3</option>';
+
+    bookSelect.innerHTML = Object.entries(catalog[currentGrade].books)
+      .map(([key, value]) => `<option value="${key}">${value.label}</option>`)
+      .join('');
+
+    if (!catalog[currentGrade].books[currentBook]) {
+      currentBook = Object.keys(catalog[currentGrade].books)[0];
+    }
+
+    bookSelect.value = currentBook;
+    updateSummary();
+  }
+
+  async function renderUnits() {
+    unitGrid.innerHTML = '';
+
+    for (const unit of catalog[currentGrade].books[currentBook].units) {
+      const response = await fetch(unit.file);
+      const data = await response.json();
+      const progress = getProgress(unit);
+      const total = data.items.length;
+      const done = (progress.completed || []).length;
+      const percent = total > 0 ? Math.round(done / total * 100) : 0;
+
+      const button = document.createElement('button');
+      button.className = 'unit-card';
+      button.innerHTML = `
+        <div>
+          <div class="badge">${unit.label}</div>
+          <div class="unit-title">${unit.title}</div>
+        </div>
+        <div class="meta">
+          문장 수: ${total}<br>
+          진도: ${done} / ${total} (${percent}%)
+        </div>
+      `;
+      button.onclick = () => openUnit(unit);
+      unitGrid.appendChild(button);
+    }
+  }
+
+  async function openUnit(unit) {
+    currentUnitMeta = unit;
+    currentData = await (await fetch(unit.file)).json();
+
+    menuView.style.display = 'none';
+    stageView.style.display = 'block';
+    gameView.style.display = 'none';
+
+    qs('#stageTitle').textContent =
+      `${catalog[currentGrade].label} · ${catalog[currentGrade].books[currentBook].label} · ${unit.label}`;
+    qs('#stageDesc').textContent = `${currentData.items.length}개 문장 중 번호를 선택하세요.`;
+
+    renderStageGrid();
+  }
+
+  function renderStageGrid() {
+    const progress = getProgress();
+    stageGrid.innerHTML = '';
+
+    currentData.items.forEach((_, idx) => {
+      const button = document.createElement('button');
+      const isDone = (progress.completed || []).includes(idx);
+      const isOpen = idx <= progress.maxUnlockedIndex;
+
+      button.className = 'stage-btn ' + (
+        isDone ? 'stage-complete' : isOpen ? 'stage-unlocked' : 'stage-locked'
+      );
+      button.textContent = isOpen ? idx + 1 : '🔒';
+
+      if (isOpen) {
+        button.onclick = () => startQuestion(idx);
+      }
+
+      stageGrid.appendChild(button);
+    });
+  }
+
+  function startQuestion(idx) {
+    currentIndex = idx;
+    currentStep = 1;
+    typingWrongCount = 0;
+
+    stageView.style.display = 'none';
+    gameView.style.display = 'block';
+
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    const item = currentData.items[currentIndex];
+    const total = currentData.items.length;
+
+    qs('#progressText').textContent = `${currentIndex + 1} / ${total}`;
+    qs('#progressBar').style.width = `${((currentIndex + 1) / total) * 100}%`;
+    qs('#coursePath').textContent =
+      `${catalog[currentGrade].label} · ${catalog[currentGrade].books[currentBook].label} · ${currentUnitMeta.label} · ${currentIndex + 1}번`;
+
+    qs('#promptBox').textContent = item.ko;
+    qs('#hintBox').textContent = `정답 문장 길이: ${item.en.split(' ').length}단어`;
+
+    if (currentStep === 1) {
+      qs('#stepLabel').textContent = 'Step 1 · 단어 배열';
+      qs('#arrangeArea').style.display = 'block';
+      qs('#typingArea').style.display = 'none';
+      qs('#answerArea').innerHTML = '';
+      qs('#wordBank').innerHTML = '';
+
+      shuffle(item.en.split(' ')).forEach((word) => {
+        const button = document.createElement('button');
+        button.className = 'word-btn';
+        button.textContent = word;
+        button.onclick = () => {
+          if (button.parentElement.id === 'wordBank') {
+            qs('#answerArea').appendChild(button);
+          } else {
+            qs('#wordBank').appendChild(button);
+          }
+        };
+        qs('#wordBank').appendChild(button);
+      });
+    } else {
+      qs('#stepLabel').textContent = 'Step 2 · 직접 타이핑';
+      qs('#arrangeArea').style.display = 'none';
+      qs('#typingArea').style.display = 'block';
+      qs('#typeInput').value = '';
+      qs('#typeInput').focus();
+    }
+  }
+
+  function popup(ok, message) {
+    qs('#modalOverlay').style.display = 'flex';
+    qs('#mTitle').textContent = ok ? '정답입니다!' : '오답입니다';
+    qs('#mTitle').style.color = ok ? '#4caf50' : '#f44336';
+    qs('#mMsg').textContent = message;
+  }
+
+  async function complete() {
+    const progress = getProgress();
+    const completed = [...(progress.completed || [])];
+
+    if (!completed.includes(currentIndex)) {
+      completed.push(currentIndex);
+    }
+
+    let maxUnlockedIndex = progress.maxUnlockedIndex || 0;
+    if (currentIndex === maxUnlockedIndex && currentIndex < currentData.items.length - 1) {
+      maxUnlockedIndex += 1;
+    }
+
+    const nextProgress = { maxUnlockedIndex, completed };
+
+    await saveUnitProgress(nextProgress);
+    await syncWritingSummaryToSupabase();
+    renderStageGrid();
+    qs('#modalOverlay').style.display = 'none';
+    updateSummary();
+
+    if (currentIndex < currentData.items.length - 1) {
+      startQuestion(currentIndex + 1);
+    } else {
+      stageView.style.display = 'block';
+      gameView.style.display = 'none';
+    }
+  }
+
+  qs('#checkBtn').onclick = () => {
+    const answer = currentData.items[currentIndex].en;
+    let ok = false;
+
+    if (currentStep === 1) {
+      const arranged = [...qs('#answerArea').children]
+        .map(node => node.textContent)
+        .join(' ');
+
+      ok = clean(arranged) === clean(answer);
+
+      popup(
+        ok,
+        ok
+          ? '배열이 정확합니다. 이제 직접 타이핑으로 넘어갑니다.'
+          : '단어 순서를 다시 확인해 보세요.'
+      );
+    } else {
+      const userInput = qs('#typeInput').value;
+      ok = clean(userInput) === clean(answer);
+
+      if (ok) {
+        popup(true, '직접 타이핑까지 완료했습니다.');
+      } else {
+        typingWrongCount += 1;
+        popup(false, buildHintMessage(userInput, answer, typingWrongCount));
+      }
+    }
+
+    modalConfirmAction = async () => {
+      if (ok) {
+        if (currentStep === 1) {
+          currentStep = 2;
+          qs('#modalOverlay').style.display = 'none';
+          renderQuestion();
+        } else {
+          await complete();
+        }
+      } else {
+        qs('#modalOverlay').style.display = 'none';
+        if (currentStep === 2) qs('#typeInput').focus();
+      }
+    };
+  };
+
+  qs('#mYes').onclick = async () => {
+    if (typeof modalConfirmAction === 'function') {
+      await modalConfirmAction();
+    }
+  };
+
+  qs('#mNo').onclick = () => {
+    qs('#modalOverlay').style.display = 'none';
+    stageView.style.display = 'block';
+    gameView.style.display = 'none';
+  };
+
+  qs('#backBtn').onclick = () => {
+    stageView.style.display = 'block';
+    gameView.style.display = 'none';
+  };
+
+  qs('#stageBackBtn').onclick = async () => {
+    stageView.style.display = 'none';
+    menuView.style.display = 'block';
     await renderUnits();
     updateSummary();
-  </script>
+  };
+
+  qs('#homeBtn').onclick = async () => {
+    const { data, error } = await supabase.auth.getUser();
+    if (error || !data.user) {
+      location.href = 'login.html';
+      return;
+    }
+
+    const { data: profileData } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('user_id', data.user.id)
+      .maybeSingle();
+
+    if (profileData?.role === 'admin') location.href = 'admin.html';
+    else location.href = 'class.html';
+  };
+
+  qs('#typeInput').addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter') return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (qs('#modalOverlay').style.display === 'flex') {
+      qs('#mYes').click();
+    } else {
+      qs('#checkBtn').click();
+    }
+  });
+
+  gradeSelect.onchange = async () => {
+    currentGrade = gradeSelect.value;
+    populate();
+    await renderUnits();
+  };
+
+  bookSelect.onchange = async () => {
+    currentBook = bookSelect.value;
+    updateSummary();
+    await renderUnits();
+  };
+
+  await ensureAuthUser();
+  await loadAllUnitProgress();
+  populate();
+  await renderUnits();
+  updateSummary();
+</script>
 </body>
 </html>
