@@ -362,24 +362,40 @@ function makeTopicKey(partKey, topicId) {
   return `${partKey}-${topicId}`;
 }
 
-function getProgressKey(){ return me?.id ? `voca_grammar_progress_${me.id}` : 'voca_grammar_progress_guest'; }
-function getProgressStore(){ try { return JSON.parse(localStorage.getItem(getProgressKey()) || '{}'); } catch { return {}; } }
-function setProgressStore(data){ localStorage.setItem(getProgressKey(), JSON.stringify(data)); }
+async function getServerProgressStore() {
+  const { data: authData, error: authError } = await supabase.auth.getUser();
+  if (authError || !authData?.user) return {};
+
+  const { data: serverRow, error: serverError } = await supabase
+    .from('grammar_progress')
+    .select('completed_topics')
+    .eq('user_id', authData.user.id)
+    .maybeSingle();
+
+  if (serverError) {
+    console.error('grammar_progress 조회 실패:', serverError);
+    return {};
+  }
+
+  return serverRow?.completed_topics || {};
+}
 
 async function markTopicCompleted(topicId, totalCount, scoreValue) {
   const now = new Date().toISOString();
-  const topicKey = makeTopicKey(selectedPartKey, topicId);
+    const topicKey = makeTopicKey(selectedPartKey, topicId);
 
-  const store = getProgressStore();
-  store[topicKey] = {
-    completed: true,
-    total: totalCount,
-    score: scoreValue,
-    lastStudiedAt: now
+  const currentServerStore = await getServerProgressStore();
+  const nextServerStore = {
+    ...currentServerStore,
+    [topicKey]: {
+      completed: true,
+      total: totalCount,
+      score: scoreValue,
+      lastStudiedAt: now
+    }
   };
-  setProgressStore(store);
 
-  const completedTopicCount = Object.values(store).filter(v => v?.completed).length;
+  const completedTopicCount = Object.values(nextServerStore).filter(v => v?.completed).length;
 
   const currentPart = topics.find(part =>
   Array.isArray(part.topics) && part.topics.some(t => String(t.id) === String(topicId))
@@ -408,21 +424,13 @@ const unitLabel = currentTopic?.title
     console.error('grammar_progress 기존 데이터 조회 실패:', fetchError);
   }
 
-    const completedTopics = existingRow?.completed_topics || {};
-  completedTopics[topicKey] = {
-    completed: true,
-    total: totalCount,
-    score: scoreValue,
-    lastStudiedAt: now
-  };
-
-  const { error: saveError } = await supabase
+      const { error: saveError } = await supabase
     .from('grammar_progress')
     .upsert(
       {
   user_id: userId,
   completed_topic_count: completedTopicCount,
-  completed_topics: completedTopics,
+  completed_topics: nextServerStore,
   unit_total_count: unitTotalCount,
   unit_label: unitLabel,
   last_studied_at: now
@@ -543,26 +551,7 @@ async function loadTopics(){
 }
 
 async function getMergedProgressStore() {
-  let store = getProgressStore();
-
-  const { data: authData, error: authError } = await supabase.auth.getUser();
-  if (!authError && authData?.user) {
-    const { data: serverRow, error: serverError } = await supabase
-      .from('grammar_progress')
-      .select('completed_topics')
-      .eq('user_id', authData.user.id)
-      .maybeSingle();
-
-    if (!serverError && serverRow?.completed_topics) {
-      store = {
-        ...store,
-        ...serverRow.completed_topics
-      };
-      setProgressStore(store);
-    }
-  }
-
-  return store;
+  return await getServerProgressStore();
 }
 
 async function renderMenu() {
