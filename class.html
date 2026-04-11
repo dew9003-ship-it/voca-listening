@@ -275,7 +275,7 @@ const supabase = createClient(
 );
 
 const TOTAL_SENTENCES = 177;
-const TOTAL_GRAMMAR_TOPICS = 67;
+const TOTAL_GRAMMAR_TOPICS = 176;
 
 const statusEl = document.getElementById('status');
 const tableBody = document.getElementById('tableBody');
@@ -341,24 +341,41 @@ function calcProgress(maxIndex) {
   };
 }
 
+function getGrammarPartKeyFromLabel(unitLabel) {
+  const label = String(unitLabel || '').toLowerCase();
+
+  if (label.includes('part 3') || label.includes('part3')) return 'part3';
+  if (label.includes('part 2') || label.includes('part2')) return 'part2';
+  return 'part1';
+}
+
 function calcGrammarProgress(grammarRow) {
   const topics = grammarRow?.completed_topics || {};
   const unitLabel = grammarRow?.unit_label || '-';
   const total = Number(grammarRow?.unit_total_count ?? 0);
   const fallbackCompleted = Number(grammarRow?.completed_topic_count ?? 0);
-
-  const normalizedLabel = String(unitLabel).toLowerCase();
-  const isPart2 = normalizedLabel.includes('part 2') || normalizedLabel.includes('part2');
+  const targetPartKey = getGrammarPartKeyFromLabel(unitLabel);
 
   let completed = 0;
 
-  for (const key in topics) {
-    if (!topics[key]?.completed) continue;
+  for (const [key, value] of Object.entries(topics)) {
+    if (!value?.completed) continue;
 
-    if (isPart2) {
-      if (String(key).startsWith('part2-')) completed++;
-    } else {
-      if (!String(key).startsWith('part2-')) completed++;
+    const normalizedKey = String(key);
+
+    if (normalizedKey.startsWith('part1-') && targetPartKey === 'part1') {
+      completed++;
+      continue;
+    }
+
+    if (normalizedKey.startsWith('part2-') && targetPartKey === 'part2') {
+      completed++;
+      continue;
+    }
+
+    if (normalizedKey.startsWith('part3-') && targetPartKey === 'part3') {
+      completed++;
+      continue;
     }
   }
 
