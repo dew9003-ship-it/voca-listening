@@ -376,6 +376,18 @@ async function markTopicCompleted(topicId, totalCount, scoreValue) {
 
   const completedTopicCount = Object.values(store).filter(v => v?.completed).length;
 
+  const currentPart = topics.find(part =>
+  Array.isArray(part.topics) && part.topics.some(t => String(t.id) === String(topicId))
+);
+
+const unitTotalCount = Array.isArray(currentPart?.topics)
+  ? currentPart.topics.length
+  : 0;
+
+const unitLabel = currentTopic?.title
+  ? `${currentPart?.part || '문법'} · ${currentTopic.title}`
+  : (currentPart?.part || '문법');
+
   const { data, error } = await supabase.auth.getUser();
   if (error || !data.user) return;
 
@@ -403,11 +415,13 @@ async function markTopicCompleted(topicId, totalCount, scoreValue) {
     .from('grammar_progress')
     .upsert(
       {
-        user_id: userId,
-        completed_topic_count: completedTopicCount,
-        completed_topics: completedTopics,
-        last_studied_at: now
-      },
+  user_id: userId,
+  completed_topic_count: completedTopicCount,
+  completed_topics: completedTopics,
+  unit_total_count: unitTotalCount,
+  unit_label: unitLabel,
+  last_studied_at: now
+},
       {
         onConflict: 'user_id'
       }
