@@ -1,0 +1,202 @@
+[
+  {
+    "q": "나는 읽을 책이 많이 있다.",
+    "o": [
+      "1. many books to read",
+      "2. to read many books"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "뉴욕엔 볼것들이 많이 있다.",
+    "o": [
+      "1. many things to see",
+      "2. to see many things"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you have ***?",
+    "o": [
+      "1. anything to say",
+      "2. to say anything"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I need ***.",
+    "o": [
+      "1. a jacket to wear",
+      "2. to wear a jacket"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you want ***?",
+    "o": [
+      "1. to eat something",
+      "2. something to eat"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She has ***.",
+    "o": [
+      "1. to write with no pencil",
+      "2. no pencil to write with"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I don't have ***.",
+    "o": [
+      "1. to talk about anything",
+      "2. anything to talk about"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is ***.",
+    "o": [
+      "1. to put things in a box",
+      "2. a box to put things in"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I need ***.",
+    "o": [
+      "1. a note to write on",
+      "2. to write on a note"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I need a note ***.",
+    "o": [
+      "1. to write on",
+      "2. to do"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have many books ***.",
+    "o": [
+      "1. to read",
+      "2. to play"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "There are many things *** in New York.",
+    "o": [
+      "1. to do",
+      "2. to can"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you have ***?",
+    "o": [
+      "1. anything to say",
+      "2. anything to go"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I need ***.",
+    "o": [
+      "1. a jacket to wear",
+      "2. a jacket to say"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you want ***?",
+    "o": [
+      "1. water to eat",
+      "2. water to drink"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She has a pen ***.",
+    "o": [
+      "1. to write with",
+      "2. to eat"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I don't have ***.",
+    "o": [
+      "1. nothing to say",
+      "2. anything to say"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Give me ***.",
+    "o": [
+      "1. something to eat",
+      "2. something to drink"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Give me ***.",
+    "o": [
+      "1. something to eat",
+      "2. something to drink"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have much homework ***.",
+    "o": [
+      "1. to do",
+      "2. to go"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "예정을 나타내는 문장은?",
+    "o": [
+      "1. The President is to make a visit to New York next week.",
+      "2. No one was to be seen on the street."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "의무를 나타내는 문장은?",
+    "o": [
+      "1. We are to obey our parents.",
+      "2. If we are to catch that train, we have to leave now."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "의도를 나타내는 문장은?",
+    "o": [
+      "1. We are to obey our parents.",
+      "2. If we are to catch that train, we have to leave now."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "가능을 나타내는 문장은?",
+    "o": [
+      "1. The President is to make a visit to New York next week.",
+      "2. No one was to be seen on the street."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "운명을 나타내는 문장은?",
+    "o": [
+      "1. They were never to see each other again.",
+      "2. We are to obey our parents."
+    ],
+    "ans": 1
+  }
+]

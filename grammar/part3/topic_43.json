@@ -1,0 +1,274 @@
+[
+  {
+    "q": "I don't know. + Will my friend call me or not?",
+    "o": [
+      "1. I don't know whether my friend will call me or not.",
+      "2. I don't know whether will my friend call me or not."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you know? + Is Tom married?",
+    "o": [
+      "1. Do you know if Tom married?",
+      "2. Do you know if Tom is married?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I wonder. + Can I go there?",
+    "o": [
+      "1. I wonder can I go there.",
+      "2. I wonder whether I can go there."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Do you know? + What happened last night?",
+    "o": [
+      "1. Do you know what happened last night?",
+      "2. Do you know what did happen last night?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I'm not sure. + Is the rumor true or not?",
+    "o": [
+      "1. I'm not sure whether the rumor is true or not.",
+      "2. I'm not sure if the rumor is true or not."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It doesn't matter. + Will she come or not?",
+    "o": [
+      "1. Whether she will come or not doesn’t matter to me.",
+      "2. If she will come or not doesn’t matter to me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Can you tell me? + When will Jane come?",
+    "o": [
+      "1. Can you tell me when Jane will come.",
+      "2. When can you tell me Jane will come."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I doubt. + Does she love me?",
+    "o": [
+      "1. I doubt if she love me.",
+      "2. I doubt if she loves me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Do you think? + When does the movie start?",
+    "o": [
+      "1. Do you think when the movie starts?",
+      "2. When do you think the movie starts?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I wonder. + Will he win the race?",
+    "o": [
+      "1. I wonder if will he win the race.",
+      "2. I wonder if he will win the race."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I don't know. + Did he steal my pen?",
+    "o": [
+      "1. I don't know if he steal my pen.",
+      "2. I don't know if he stole my pen."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Do you know? + What did Jane do?",
+    "o": [
+      "1. Do you know what did Jane do?",
+      "2. Do you know what Jane did?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I doubt. + Did he say such a rude word?",
+    "o": [
+      "1. I doubt whether he says such a rude word.",
+      "2. I doubt whether he said such a rude word."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. I don't know if he will come or not.",
+      "2. I don't know whether he will come or not."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Do you know what is he?",
+      "2. Do you know what he is?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Do you know who am I?",
+      "2. Do you know who I am?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Do you know where is he?",
+      "2. Do you know where he is?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. I don't know where does he work.",
+      "2. I don't know where he works."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. I don't know who loves you.",
+      "2. I don't know who love you."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. I don't know what made you angry.",
+      "2. I don't know what did you make angry."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Can you tell me when we met?",
+      "2. Can you tell me when did we meet?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. I don't know who are you.",
+      "2. I don't know who you are."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Can you tell me when is your birthday?",
+      "2. Can you tell me when your birthday is?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Do you know if he did his homework?",
+      "2. Do you know if did he do his homework?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. I want to know when he will come.",
+      "2. I want to know when will he come."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. I want to know if she loves me.",
+      "2. I want to know does she love me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. I want to know if she loved me.",
+      "2. I want to know if did she love me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. It is important whether she loves me.",
+      "2. It is important if she loves me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. It is unknown who wrote the book.",
+      "2. It is unknown who did the book write."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. It is not important whether she loved me.",
+      "2. It is not important whether did she love me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. I want to know who did the book write.",
+      "2. I want to know who wrote the book."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Do you know when they left for Mokpo?",
+      "2. Do you know when did they leave for Mokpo?"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. I doubt if he did his homework.",
+      "2. I doubt if did he do his homework."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. It is important whether you will study English.",
+      "2. It is important whether will you study English."
+    ],
+    "ans": 1
+  }
+]

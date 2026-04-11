@@ -1,0 +1,402 @@
+[
+  {
+    "q": "She *** to Mokpo in 2002.",
+    "o": [
+      "1. went",
+      "2. has gone"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She *** to Mokpo twice.",
+    "o": [
+      "1. has gone",
+      "2. has been"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "When *** to the church?",
+    "o": [
+      "1. did you go",
+      "2. have you gone"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She *** to London last week.",
+    "o": [
+      "1. has gone",
+      "2. went"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Jane *** for Mokpo yesterday.",
+    "o": [
+      "1. have left",
+      "2. left"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Have you ever *** her before?",
+    "o": [
+      "1. seen",
+      "2. been"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have played the piano *** I was 7 years old.",
+    "o": [
+      "1. since",
+      "2. for"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It has been snowing *** 10 hours.",
+    "o": [
+      "1. since",
+      "2. for"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have never *** the musical cats.",
+    "o": [
+      "1. seen",
+      "2. been"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I *** there last weekend.",
+    "o": [
+      "1. have been",
+      "2. went"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "When *** repairing my car?",
+    "o": [
+      "1. have you finished",
+      "2. did you finish"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** English for five years.",
+    "o": [
+      "1. have been studying",
+      "2. have been finishing"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They have *** left for the station.",
+    "o": [
+      "1. just now",
+      "2. just"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** have you worked for the company?",
+    "o": [
+      "1. how long",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom has lived in Mokpo *** 1994.",
+    "o": [
+      "1. since",
+      "2. in"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Where is my car? Someone *** it.",
+    "o": [
+      "1. steals",
+      "2. has stolen"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I started doing this work *** I was 20 years old.",
+    "o": [
+      "1. when",
+      "2. since"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The bus *** arrived. The bus is now here.",
+    "o": [
+      "1. has",
+      "2. hasn't"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have known you *** many years.",
+    "o": [
+      "1. for",
+      "2. in"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He has been taking a shower *** an hour.",
+    "o": [
+      "1. for",
+      "2. in"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It *** last night.",
+    "o": [
+      "1. snowed",
+      "2. has been snowing"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom *** to his teacher yesterday about his grades.",
+    "o": [
+      "1. has spoken",
+      "2. spoke"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It *** four years since I saw him.",
+    "o": [
+      "1. was",
+      "2. has been"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom *** interested in the piano since he was seven years old.",
+    "o": [
+      "1. was",
+      "2. has been"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She *** in Mokpo yesterday.",
+    "o": [
+      "1. arrived",
+      "2. has arrived"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "When *** the pictures?",
+    "o": [
+      "1. have you taken",
+      "2. did you take"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** my pen last night.",
+    "o": [
+      "1. lost",
+      "2. have lost"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I *** my pen since last night.",
+    "o": [
+      "1. lost",
+      "2. have lost"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** the piano since I was five years old.",
+    "o": [
+      "1. was playing",
+      "2. have been playing"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom *** sick since last Monday.",
+    "o": [
+      "1. was",
+      "2. has been"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have just finished my homework.",
+    "o": [
+      "1. 완료",
+      "2. 계속"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She has gone to Mokpo.",
+    "o": [
+      "1. 결과",
+      "2. 계속"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We have studied English for five years.",
+    "o": [
+      "1. 완료",
+      "2. 계속"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have seen the movie four times.",
+    "o": [
+      "1. 완료",
+      "2. 경험"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He has just left the station.",
+    "o": [
+      "1. 완료",
+      "2. 계속"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Have you had your dinner yet?",
+    "o": [
+      "1. 완료",
+      "2. 계속"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have studied English for three years.",
+    "o": [
+      "1. 완료",
+      "2. 계속"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She has been to New York twice.",
+    "o": [
+      "1. 경험",
+      "2. 계속"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have never forgotten her face.",
+    "o": [
+      "1. 경험",
+      "2. 계속"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Has he already seen the movie?",
+    "o": [
+      "1. 완료",
+      "2. 계속"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We have lived in this city since 1988.",
+    "o": [
+      "1. 완료",
+      "2. 계속"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He has been sick for a week.",
+    "o": [
+      "1. 완료",
+      "2. 계속"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "We have never had a car.",
+    "o": [
+      "1. 완료",
+      "2. 경험"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He hasn't come here yet.",
+    "o": [
+      "1. 완료",
+      "2. 계속"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We have been there before.",
+    "o": [
+      "1. 완료",
+      "2. 경험"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She has just arrived here.",
+    "o": [
+      "1. 완료",
+      "2. 계속"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have not finished it yet.",
+    "o": [
+      "1. 완료",
+      "2. 계속"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He has already come home.",
+    "o": [
+      "1. 완료",
+      "2. 계속"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have never seen her before.",
+    "o": [
+      "1. 경험",
+      "2. 계속"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have already heard the news.",
+    "o": [
+      "1. 완료",
+      "2. 계속"
+    ],
+    "ans": 1
+  }
+]

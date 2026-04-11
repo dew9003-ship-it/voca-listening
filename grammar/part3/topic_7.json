@@ -1,0 +1,162 @@
+[
+  {
+    "q": "People believe him honest.",
+    "o": [
+      "1. He is believed honest.",
+      "2. People are believed honest by him."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They named their baby Cindy.",
+    "o": [
+      "1. Their baby was named Cindy by them.",
+      "2. Cindy was named their baby by them."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The teacher told me to study harder.",
+    "o": [
+      "1. I was told to study harder by the teacher.",
+      "2. I was told study harder by the teacher."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My parents don't allow me to stay out late.",
+    "o": [
+      "1. I am not allowed to stay out late by my parents.",
+      "2. I wasn't allowed to stay out late by my parents."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My mom told me to do my homework.",
+    "o": [
+      "1. I was told to do my homework by my mom.",
+      "2. I was told do my homework by my mo."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People advised me to eat more vegetables.",
+    "o": [
+      "1. I was advised eat more vegetables.",
+      "2. I was advised to eat more vegetables."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The news made her smile.",
+    "o": [
+      "1. She was made smile by the news.",
+      "2. She was made to smile by the news."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "They painted the wall green.",
+    "o": [
+      "1. The wall was painted green by them.",
+      "2. The wall was painted to green by them."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She saw Tom repair the computer.",
+    "o": [
+      "1. Tom was seen to repair the computer by her.",
+      "2. Tom was seen repair the computer by her."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I saw him standing at the door.",
+    "o": [
+      "1. He was seen to standing at the door.",
+      "2. He was seen standing at the door."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Jane saw Tom steal my pen.",
+    "o": [
+      "1. Tom was seen steal my pen by Jane.",
+      "2. Tom was seen to steal my pen by Jane."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She asked me to do her homework.",
+    "o": [
+      "1. I was asked do her homework by her.",
+      "2. I was asked to do her homework by her."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I made my father happy.",
+    "o": [
+      "1. My father was made happy by me.",
+      "2. My father was made to happy by me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom made Jane a doctor.",
+    "o": [
+      "1. Jane was made a doctor by Tom.",
+      "2. Jane was made to a doctor by Tom."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom made Jane happy.",
+    "o": [
+      "1. Jane was made to happy by Tom.",
+      "2. Jane was made happy by Tom."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "People tell us to study English.",
+    "o": [
+      "1. We are told to study English.",
+      "2. We are told study English."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People made us study English.",
+    "o": [
+      "1. We are made study English.",
+      "2. We are made to study English."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "They allowed me to play the piano.",
+    "o": [
+      "1. I was allowed play the piano.",
+      "2. I was allowed to play the piano."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "They didn't allow me to play the piano.",
+    "o": [
+      "1. I wasn't allowed to play the piano.",
+      "2. I didn't be allowed to play the piano."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They don't allow me to play the piano.",
+    "o": [
+      "1. I am not allowed to play the piano.",
+      "2. I don't allowed to play the piano."
+    ],
+    "ans": 1
+  }
+]

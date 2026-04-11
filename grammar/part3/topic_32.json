@@ -1,0 +1,578 @@
+[
+  {
+    "q": "She *** me to read many books.",
+    "o": [
+      "1. advised",
+      "2. had"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They *** me to go with him.",
+    "o": [
+      "1. wanted",
+      "2. had"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They *** her to clean the room.",
+    "o": [
+      "1. expected",
+      "2. had"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They *** us not to run against the red light.",
+    "o": [
+      "1. asked",
+      "2. had"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She *** me to buy something to eat.",
+    "o": [
+      "1. ordered",
+      "2. made"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I *** him to clear the mission.",
+    "o": [
+      "1. advised",
+      "2. made"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I *** him to be a good doctor.",
+    "o": [
+      "1. want",
+      "2. make"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom *** her to agree to my plan.",
+    "o": [
+      "1. expects",
+      "2. makes"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I *** her to succeed.",
+    "o": [
+      "1. expect",
+      "2. see"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I *** them to win the game.",
+    "o": [
+      "1. expect",
+      "2. have"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I *** him to be a good musician.",
+    "o": [
+      "1. expect",
+      "2. make"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He *** the soldier to stay in bed.",
+    "o": [
+      "1. ordered",
+      "2. made"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He *** us to keep quiet.",
+    "o": [
+      "1. ordered",
+      "2. had"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He *** me to play the guitar.",
+    "o": [
+      "1. asked",
+      "2. saw"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I *** him to clean the classroom.",
+    "o": [
+      "1. helped",
+      "2. had"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I *** him clean the classroom.",
+    "o": [
+      "1. told",
+      "2. made"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** him clean the classroom.",
+    "o": [
+      "1. asked",
+      "2. saw"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** him clean the classroom.",
+    "o": [
+      "1. wanted",
+      "2. heard"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** him clean the classroom.",
+    "o": [
+      "1. helped",
+      "2. allowed"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I *** him clean the classroom.",
+    "o": [
+      "1. told",
+      "2. made"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** him clean the classroom.",
+    "o": [
+      "1. asked",
+      "2. saw"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** him clean the classroom.",
+    "o": [
+      "1. wanted",
+      "2. heard"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** him clean the classroom.",
+    "o": [
+      "1. wanted",
+      "2. had"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She advised me *** many books.",
+    "o": [
+      "1. to read",
+      "2. read"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They wanted me *** with him.",
+    "o": [
+      "1. to go",
+      "2. go"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They expected her *** the room.",
+    "o": [
+      "1. to clean",
+      "2. clean"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They asked us not *** against the red light.",
+    "o": [
+      "1. to run",
+      "2. run"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She ordered me *** something to eat.",
+    "o": [
+      "1. to buy",
+      "2. buy"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I advised him *** the mission.",
+    "o": [
+      "1. to clear",
+      "2. clear"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I want him *** a good doctor.",
+    "o": [
+      "1. to be",
+      "2. be"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom expects her *** to my plan.",
+    "o": [
+      "1. to agree",
+      "2. agree"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I expect her ***.",
+    "o": [
+      "1. to succeed",
+      "2. succeed"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I expect them *** the game.",
+    "o": [
+      "1. to win",
+      "2. win"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I expect him *** a good musician.",
+    "o": [
+      "1. to be",
+      "2. be"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He ordered the soldier *** in bed.",
+    "o": [
+      "1. to stay",
+      "2. stay"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He ordered us *** quiet.",
+    "o": [
+      "1. to keep",
+      "2. keep"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He asked me *** the guitar.",
+    "o": [
+      "1. to play",
+      "2. play"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I will *** you to solve the math question.",
+    "o": [
+      "1. help",
+      "2. have"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Il *** you solve the math question.",
+    "o": [
+      "1. want",
+      "2. help"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My teacher *** me rewrite the report.",
+    "o": [
+      "1. advised",
+      "2. helped"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "We *** him cross the street.",
+    "o": [
+      "1. wanted",
+      "2. saw"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My teacher *** me do the homework.",
+    "o": [
+      "1. advised",
+      "2. made"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My teacher *** me go home.",
+    "o": [
+      "1. allowed",
+      "2. let"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My teacher *** me rewrite the report.",
+    "o": [
+      "1. wanted",
+      "2. had"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My teacher *** me rewrite the report.",
+    "o": [
+      "1. ordered",
+      "2. made"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** him look for his wallet.",
+    "o": [
+      "1. wanted",
+      "2. saw"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My parents *** me look after my sister.",
+    "o": [
+      "1. ordered",
+      "2. had"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** my son clean my car.",
+    "o": [
+      "1. advised",
+      "2. had"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** Tom repair my car.",
+    "o": [
+      "1. wanted",
+      "2. made"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** my son clean my car.",
+    "o": [
+      "1. encouraged",
+      "2. made"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** Tom repair my car.",
+    "o": [
+      "1. encouraged",
+      "2. had"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She *** us think about what is important in our lives.",
+    "o": [
+      "1. encouraged",
+      "2. made"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My parents didn't *** me go fishing with my friends.",
+    "o": [
+      "1. order",
+      "2. let"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I've never *** him study English.",
+    "o": [
+      "1. wanted",
+      "2. seen"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This picture *** me think of my childhood.",
+    "o": [
+      "1. allows",
+      "2. makes"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom always *** me laugh with his sense of humore.",
+    "o": [
+      "1. orders",
+      "2. makes"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "We saw him *** the street.",
+    "o": [
+      "1. to cross",
+      "2. cross"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My teacher made me *** the homework.",
+    "o": [
+      "1. to do",
+      "2. do"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My teacher let me *** home.",
+    "o": [
+      "1. to go",
+      "2. go"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My teacher had me *** the report.",
+    "o": [
+      "1. to rewrite",
+      "2. rewrite"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My teacher made me *** the report.",
+    "o": [
+      "1. to rewrite",
+      "2. rewrite"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I saw him *** his wallet.",
+    "o": [
+      "1. to look for",
+      "2. look for"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My parents had me *** my sister.",
+    "o": [
+      "1. to look after",
+      "2. look after"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I had my son *** my car.",
+    "o": [
+      "1. to clean",
+      "2. clean"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I made Tom *** my car.",
+    "o": [
+      "1. to repair",
+      "2. repair"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I made my son *** my car.",
+    "o": [
+      "1. to repair",
+      "2. repair"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I had Tom *** my car.",
+    "o": [
+      "1. to clean",
+      "2. clean"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She made us *** about what is important in our lives.",
+    "o": [
+      "1. to think",
+      "2. think"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My parents didn't let me *** fishing with my friends.",
+    "o": [
+      "1. to go",
+      "2. go"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I've never seen him *** English.",
+    "o": [
+      "1. to study",
+      "2. study"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This picture makes me *** of my childhood.",
+    "o": [
+      "1. to think",
+      "2. think"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom always makes me *** with his sense of humore.",
+    "o": [
+      "1. to laugh",
+      "2. laugh"
+    ],
+    "ans": 2
+  }
+]

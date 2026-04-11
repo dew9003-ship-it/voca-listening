@@ -1,0 +1,162 @@
+[
+  {
+    "q": "He is proud that he is a doctor.",
+    "o": [
+      "1. He is proud of being a doctor.",
+      "2. He is proud of having been a doctor."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is proud that he was a doctor.",
+    "o": [
+      "1. He is proud of being a doctor.",
+      "2. He is proud of having been a doctor."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is proud that he is rich.",
+    "o": [
+      "1. He is proud of being rich.",
+      "2. He is proud of having been rich."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is proud that he was rich.",
+    "o": [
+      "1. He is proud of being rich.",
+      "2. He is proud of having been rich."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am angry that I was not invited to the party.",
+    "o": [
+      "1. I am angry about not having been invited to the party.",
+      "2. I am angry about not being invited to the party."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I was angry that I was not invited to the party.",
+    "o": [
+      "1. I was angry about not having been invited to the party.",
+      "2. I was angry about not being invited to the party."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I don't like my opinion ***.",
+    "o": [
+      "1. being ignoring",
+      "2. being ignored"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My car needs ***.",
+    "o": [
+      "1. repairing",
+      "2. being repaired"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He wants *** like an adult.",
+    "o": [
+      "1. treating",
+      "2. being treated"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She looks forward to ***.",
+    "o": [
+      "1. promoting",
+      "2. being promoted"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am sorry that I lost your pen.",
+    "o": [
+      "1. I am sorry for losing your pen.",
+      "2. I am sorry for having lost your pen."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My teacher complained that I was late for school.",
+    "o": [
+      "1. My teacher complained about my being late for school.",
+      "2. My teacher complained about my late for school."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I was afraid that I was interviewed by the press.",
+    "o": [
+      "1. I was afraid of interviewing by the press.",
+      "2. I was afraid of being interviewed by the press."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am sure that he will succeed.",
+    "o": [
+      "1. I am sure of his succeeding.",
+      "2. I am sure of his will succeeding."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She is afraid that she is criticized for the failure.",
+    "o": [
+      "1. She is afraid of being criticized for the failure.",
+      "2. She is afraid of criticizing for the failure."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She is afraid that she is laughed at by his friends.",
+    "o": [
+      "1. She is afraid of laughing at by his friends.",
+      "2. She is afraid of being laughed at by his friends."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She denied that she had stolen the money.",
+    "o": [
+      "1. She denied having stolen the money.",
+      "2. She denied stealing the money."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She denied that she met the man.",
+    "o": [
+      "1. She denied having met the man.",
+      "2. She denied meeting the man."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She denied that she had met the man.",
+    "o": [
+      "1. She denied having met the man.",
+      "2. She denied meeting the man."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I was afraid that I was laughed at by my friends.",
+    "o": [
+      "1. I was afraid of being laughed at by my friends.",
+      "2. I was afraid of having been laughed at by my friends."
+    ],
+    "ans": 1
+  }
+]

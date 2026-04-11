@@ -1,0 +1,202 @@
+[
+  {
+    "q": "자유롭게 ~하다",
+    "o": [
+      "1. be free to v",
+      "2. be ready to v"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "~할 준비가 되다",
+    "o": [
+      "1. be free to v",
+      "2. be ready to v"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "~하는 경향이 있다",
+    "o": [
+      "1. be apt to v",
+      "2. be sure to v"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "틀림없이 ~하다",
+    "o": [
+      "1. be apt to v",
+      "2. be sure to v"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "~하기를 갈망하다",
+    "o": [
+      "1. be anxious to v",
+      "2. be likely to v"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "~할 것 같다",
+    "o": [
+      "1. be anxious to v",
+      "2. be likely to v"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "기꺼이 ~할 것이다",
+    "o": [
+      "1. be willing to v",
+      "2. to be sure"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "확실히",
+    "o": [
+      "1. be willing to v",
+      "2. to be sure"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "무엇보다도, 우선",
+    "o": [
+      "1. to begin with",
+      "2. strage to say"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "이상한 얘기지만",
+    "o": [
+      "1. to begin with",
+      "2. strange to say"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "말하자면",
+    "o": [
+      "1. so to speak",
+      "2. to be perfectly frank"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "아주 사실대로 말하면",
+    "o": [
+      "1. so to speak",
+      "2. to be perfectly frank"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "간단하게 얘기해서",
+    "o": [
+      "1. to cut a long story short",
+      "2. to tell the truth"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "사실대로 말하면",
+    "o": [
+      "1. to cut a long story short",
+      "2. to tell the truth"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "솔직히 말해서",
+    "o": [
+      "1. to be frank with you",
+      "2. to make matters worse"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "설상가상으로",
+    "o": [
+      "1. to be frank with you",
+      "2. to make matters worse"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "솔직히 말해서",
+    "o": [
+      "1. to be honest with you",
+      "2. to make matters worse"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** the truth, I didn't finish my homework.",
+    "o": [
+      "1. to tell",
+      "2. to be"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** frank with you, I knew who stole your money.",
+    "o": [
+      "1. to be",
+      "2. to tell"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** matters worse, he didn't pass the exam.",
+    "o": [
+      "1. to do",
+      "2. to make"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** honest with you, you are very pretty.",
+    "o": [
+      "1. to be",
+      "2. to tell"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** with, you should finish your homework.",
+    "o": [
+      "1. to do",
+      "2. to begin"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** a long story short, you were wrong.",
+    "o": [
+      "1. to cut",
+      "2. to be"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** sure, you were wrong.",
+    "o": [
+      "1. to do",
+      "2. to be"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "strange ***, I love you.",
+    "o": [
+      "1. to be",
+      "2. to say"
+    ],
+    "ans": 2
+  }
+]

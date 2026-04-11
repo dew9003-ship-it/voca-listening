@@ -1,0 +1,338 @@
+[
+  {
+    "q": "I like whoever says so.",
+    "o": [
+      "1. I like anyone who says so.",
+      "2. I like no matter who says so."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Whoever may say so, it is not true.",
+    "o": [
+      "1. Anyone who may say so, it is not true.",
+      "2. No matter who may say so, it is not true."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Whatever my mom cooks is delicious.",
+    "o": [
+      "1. Anything that my mom cooks is delicious.",
+      "2. No matther what my mom cooks is delicious."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Whoever comes, don't open the door.",
+    "o": [
+      "1. Anyone who comes, don't open the door.",
+      "2. No matter who comes, don't open the door."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Whoever comes first will get money.",
+    "o": [
+      "1. Anyone who comes first will get money.",
+      "2. No matter who comes first will get money."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I'll give a present to whoever studies English.",
+    "o": [
+      "1. I'll give a present to anyone who studies Englsih.",
+      "2. I'll give a present to no matter who studies English."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Whatever happens, he won't come back home.",
+    "o": [
+      "1. Anything that happens, he won't come back home.",
+      "2. No matter what happens, he won't come back home."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Whatever you say, I believe John is honest.",
+    "o": [
+      "1. Anything that you say, I believe John is honest.",
+      "2. No matter what you say, I believe John is honest."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I'd like to work with whoever is very hard-working.",
+    "o": [
+      "1. I'd like to work with anyone who is very hard-working.",
+      "2. I'd like to work with no matter who is very hard-working."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I'll go fishing with whoever wants to go.",
+    "o": [
+      "1. I'll go fishing with anyone who wants to go.",
+      "2. I'll go fishing with no matter who wants to go."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You can choose whomever you want to study with.",
+    "o": [
+      "1. You can choose anyone whom you want to study with.",
+      "2. You can choose no matter whom you want to study with."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Whatever my friends say, I'll study English.",
+    "o": [
+      "1. Anything that my friends say, I'll study English.",
+      "2. No matter what my friends say, I'll study English."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Give this book to whoever wants it in the class.",
+    "o": [
+      "1. Give this book to anyone who wants it in the class.",
+      "2. Give this book to no matter who wants it in the class."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I'll give you whatever you want.",
+    "o": [
+      "1. I'll give you anything that you want.",
+      "2. I'll give you no matter what you want."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Whatever you want, you should do your best.",
+    "o": [
+      "1. Anything that you want, you should do your best.",
+      "2. No matter what you want, you should do your best."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Whoever buys this car should have it repaired before driving it.",
+    "o": [
+      "1. Anyone who buys this car should have it repaired before driving it.",
+      "2. No matter who buys this car should have it repaired before driving it."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Whoever wins the game will receive this prize.",
+    "o": [
+      "1. Anyone who wins the game will receive this prize.",
+      "2. No matter who wins the game will receive this prize."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Whoever you are, be quiet!",
+    "o": [
+      "1. Anyone who you are, be quiet!",
+      "2. No matter who you are, be quiet!"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You can take whatever you want.",
+    "o": [
+      "1. You can take anything that you want.",
+      "2. You can take no matter what you want."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Whatever they say, never mind.",
+    "o": [
+      "1. Anything what they say, never mind.",
+      "2. No matter what they say, never mind."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I like *** says so.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** may say so, it is not true.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** my mom cooks is delicious.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** comes, don't open the door.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** comes first will get money.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I'll give a present to *** studies English.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** happens, he won't come back home.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** you say, I believe John is honest.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I'd like to work with *** is very hard-working.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I'll go fishing with *** wants to go.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You can choose *** you want to study with.",
+    "o": [
+      "1. whomever",
+      "2. whatever"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** my friends say, I'll study English.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Give this book to *** wants it in the class.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I'll give you *** you want.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** you want, you should do your best.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** buys this car should have it repaired before driving it.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** wins the game will receive this prize.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** you are, be quiet!",
+    "o": [
+      "1. whomever",
+      "2. whatever"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You can take *** you want.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** they say, never mind.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** wants to succeed in life must work hard.",
+    "o": [
+      "1. whoever",
+      "2. whatever"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I will give it to *** you like.",
+    "o": [
+      "1. whomever",
+      "2. whatever"
+    ],
+    "ans": 1
+  }
+]

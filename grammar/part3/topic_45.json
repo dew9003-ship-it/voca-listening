@@ -1,0 +1,242 @@
+[
+  {
+    "q": "난 어른이 되면, 영화배우가 될 거야.\n*** I grow up, I will be a movie star.",
+    "o": [
+      "1. when",
+      "2. after"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그가 도착하자마자, 난 여기를 떠날 것이다.\n*** he arrives, I will leave here.",
+    "o": [
+      "1. as long as",
+      "2. as soon as"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "탐은 저녁 먹은 이후에 계속 공부하고 있다.\nTom has studied English *** he ate dinner.",
+    "o": [
+      "1. since",
+      "2. before"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "탐은 저녁 먹은 후에 밖에 나갔다.\nTom went out *** he ate dinner.",
+    "o": [
+      "1. after",
+      "2. before"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "탐은 나가기 전에 저녁을 먹었다.\nTom ate dinner *** he went out.",
+    "o": [
+      "1. after",
+      "2. before"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "버스를 기다리는 동안 나는 탐을 만났다.\n*** I was waiting for the bus, I met Tom.",
+    "o": [
+      "1. during",
+      "2. while"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "성공할 때 까지 열심히 공부해라.\nStudy hard *** you succeed.",
+    "o": [
+      "1. until",
+      "2. as soon as"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "나이가 들면서 그는 더 잘생겨졌다.\n*** he grew older, he became more handsome.",
+    "o": [
+      "1. until",
+      "2. as"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "만약 내일 비가 내리면, 나는 여기 머무를 것이다.\n*** it rains tomorrow, I will stay here.",
+    "o": [
+      "1. if",
+      "2. unless"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "만약 네가 먹는 것을 멈추지 않으면, 너는 뚱뚱해 질것이다.\n*** you stop eating, you will get fat.",
+    "o": [
+      "1. if",
+      "2. unless"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "네가 날 사랑하는 한, 나는 행복 할 거야.\n*** you love me, I will be happy.",
+    "o": [
+      "1. as soon as",
+      "2. as long as"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "난 어른이 되자마자, 영화배우가 될 거야.\n*** I grow up, I will be a movie star.",
+    "o": [
+      "1. before",
+      "2. as soon as"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "그가 도착한 후에, 난 여기를 떠날 것이다.\n*** he arrives, I will leave here.",
+    "o": [
+      "1. after",
+      "2. as long as"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "탐은 저녁 먹은 후에 영어공부했다.\nTom studied English *** he ate dinner.",
+    "o": [
+      "1. after",
+      "2. before"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "탐은 저녁 먹기 전에 영어공부했다.\nTom studied English *** he ate dinner.",
+    "o": [
+      "1. after",
+      "2. before"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "탐은 나가기 전에 숙제를 끝냈다.\nTom finished his homework *** he went out.",
+    "o": [
+      "1. after",
+      "2. before"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "버스를 기다릴때 나는 탐을 만났다.\n*** I was waiting for the bus, I met Tom.",
+    "o": [
+      "1. when",
+      "2. after"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "성공하고 싶다면 열심히 공부해라.\nStudy hard *** you want to succeed.",
+    "o": [
+      "1. when",
+      "2. if"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "나이가 들었을때 그는 더 잘생겨졌다.\n*** he grew older, he became more handsome.",
+    "o": [
+      "1. when",
+      "2. if"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "네가 날 사랑한다면, 나는 행복 할 거야.\n*** you love me, I will be happy.",
+    "o": [
+      "1. when",
+      "2. if"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "탐은 숙제를 한 후에 밖에 나갔다.\nTom went out *** he finished his homework.",
+    "o": [
+      "1. after",
+      "2. before"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If it *** tomorrow, I will stay here.",
+    "o": [
+      "1. will rain",
+      "2. rains"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Unless you *** eating, you will get fat.",
+    "o": [
+      "1. stop",
+      "2. will stop"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "As long as you *** me, I will be happy.",
+    "o": [
+      "1. will love",
+      "2. love"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I'll wait for you until you *** your homework.",
+    "o": [
+      "1. finish",
+      "2. will finish"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "When I *** back home, she will arrive, too.",
+    "o": [
+      "1. come",
+      "2. will come"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If you *** right, you'll see the restaurant.",
+    "o": [
+      "1. will turn",
+      "2. turn"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If the test *** difficult, I will win a scholarship.",
+    "o": [
+      "1. will not be",
+      "2. is not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If you *** late again, I will be angry.",
+    "o": [
+      "1. are",
+      "2. will be"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "When she *** home, she will bring me pizza.",
+    "o": [
+      "1. comes",
+      "2. will come"
+    ],
+    "ans": 1
+  }
+]

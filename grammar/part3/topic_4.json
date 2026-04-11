@@ -1,0 +1,266 @@
+[
+  {
+    "q": "The movie *** by him.",
+    "o": [
+      "1. was directed",
+      "2. directed"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He *** the movie.",
+    "o": [
+      "1. was directed",
+      "2. directed"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Many plants *** by my sister.",
+    "o": [
+      "1. is grown",
+      "2. are grown"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My sister *** many plants.",
+    "o": [
+      "1. grows",
+      "2. are grown"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My father *** my desk.",
+    "o": [
+      "1. made",
+      "2. was made"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My desk *** by my father.",
+    "o": [
+      "1. made",
+      "2. was made"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "EXO *** this song.",
+    "o": [
+      "1. sang",
+      "2. was sung"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This song *** by Super Junior.",
+    "o": [
+      "1. sang",
+      "2. was sung"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The Sydney Opera House *** in 1973.",
+    "o": [
+      "1. built",
+      "2. was built"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Wine *** at that store.",
+    "o": [
+      "1. doesn't sell",
+      "2. isn't sold"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "English *** in many countries.",
+    "o": [
+      "1. speaks",
+      "2. is spoken"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "That house *** 20 years ago.",
+    "o": [
+      "1. built",
+      "2. was built"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My father *** the house 20 years ago.",
+    "o": [
+      "1. built",
+      "2. was built"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The soap *** in America.",
+    "o": [
+      "1. made",
+      "2. was made"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** this song sung by EXO last year?",
+    "o": [
+      "1. Did",
+      "2. Was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** English spoken by people in your country?",
+    "o": [
+      "1. Does",
+      "2. Is"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Many people *** computers.",
+    "o": [
+      "1. use",
+      "2. are used"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Computers *** by many people.",
+    "o": [
+      "1. use",
+      "2. are used"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The house *** by my father.",
+    "o": [
+      "1. built",
+      "2. was built"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** my homework last night.",
+    "o": [
+      "1. finished",
+      "2. was finished"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My homework was *** last night.",
+    "o": [
+      "1. finished",
+      "2. was finished"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This phone *** in Korea.",
+    "o": [
+      "1. made",
+      "2. was made"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This song *** by ICON.",
+    "o": [
+      "1. sang",
+      "2. was sung"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** the letter delivered to your sister?",
+    "o": [
+      "1. Did",
+      "2. Was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** you see the man steal my purse?",
+    "o": [
+      "1. Did",
+      "2. Was"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He *** the door.",
+    "o": [
+      "1. didn't lock",
+      "2. wasn't locked"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The door *** by him.",
+    "o": [
+      "1. didn't lock",
+      "2. wasn't locked"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The vase ***.",
+    "o": [
+      "1. breaks",
+      "2. was broken"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My watch *** last week.",
+    "o": [
+      "1. stole",
+      "2. was stolen"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mt. Halla *** every where in Jeju.",
+    "o": [
+      "1. sees",
+      "2. is seen"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The vase *** by Tom.",
+    "o": [
+      "1. broke",
+      "2. was broken"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom *** the vase in the morning.",
+    "o": [
+      "1. broke",
+      "2. was broken"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My phone *** in the library.",
+    "o": [
+      "1. stole",
+      "2. was stolen"
+    ],
+    "ans": 2
+  }
+]

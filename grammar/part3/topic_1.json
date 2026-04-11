@@ -1,0 +1,434 @@
+[
+  {
+    "q": "You *** take a taxi.",
+    "o": [
+      "1. must",
+      "2. had better"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You *** eat too much.",
+    "o": [
+      "1. had not better",
+      "2. had better not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** swim in the river when I was a child.",
+    "o": [
+      "1. could",
+      "2. used to"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "There *** be a supermarket here.",
+    "o": [
+      "1. could",
+      "2. used to"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** go home now.",
+    "o": [
+      "1. would like to",
+      "2. am able to"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It’s rush hour. I *** walk.",
+    "o": [
+      "1. must",
+      "2. would rather"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She *** be proud of her son.",
+    "o": [
+      "1. may as well",
+      "2. may well"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You *** go home with Tom.",
+    "o": [
+      "1. may as well",
+      "2. may well"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You *** a taxi.",
+    "o": [
+      "1. had better take",
+      "2. had take better"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You *** eat too much.",
+    "o": [
+      "1. had better not",
+      "2. had not better"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You *** go there.",
+    "o": [
+      "1. had better not",
+      "2. had not better"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You *** there.",
+    "o": [
+      "1. had better go",
+      "2. had go better"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "John would like to *** apples.",
+    "o": [
+      "1. eats",
+      "2. eat"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** at a fast food restaurant.",
+    "o": [
+      "1. use to work",
+      "2. used to work"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You *** off TV.",
+    "o": [
+      "1. had turn better",
+      "2. had better turn"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You had better *** the right place to park.",
+    "o": [
+      "1. finds",
+      "2. find"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My family *** to church.",
+    "o": [
+      "1. used to go",
+      "2. go used to"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He *** soccer every Sunday.",
+    "o": [
+      "1. used to plays",
+      "2. used to play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You *** a rest.",
+    "o": [
+      "1. had better take",
+      "2. had take better"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You *** chew gums studying in class.",
+    "o": [
+      "1. had better",
+      "2. had better not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You *** read magazines in class.",
+    "o": [
+      "1. had better",
+      "2. had better not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I used to *** at school.",
+    "o": [
+      "1. run",
+      "2. ran"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "A : I have a bad cold.",
+    "o": [
+      "1. B : You had better take a rest.",
+      "2. B : You had better study hard."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "A : I have a bad cold.",
+    "o": [
+      "1. B : You had better see a doctor.",
+      "2. B : You had better study hard."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "A : I'd like to get an A in the English exam.",
+    "o": [
+      "1. B : You had better not study hard.",
+      "2. B : You had better study hard."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "A : I'd like to hit Tom.",
+    "o": [
+      "1. B : You'd better hit Tom.",
+      "2. B : You'd better not hit Tom."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "A : I am very tired.",
+    "o": [
+      "1. B : You'd better take a break.",
+      "2. B : You'd better not take a break."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "~했음에 틀림없다",
+    "o": [
+      "1. must have p.p.",
+      "2. cannot have p.p."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "~해야만 했었다",
+    "o": [
+      "1. must have p.p.",
+      "2. should have p.p."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "~이었을지도 모른다",
+    "o": [
+      "1. must have p.p.",
+      "2. may have p.p."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "~이었을 리가 없다",
+    "o": [
+      "1. must have p.p.",
+      "2. cannot have p.p."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is very diligent. He *** his homework.",
+    "o": [
+      "1. must have finished",
+      "2. should have finished"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I didn't pass the exam. I *** hard.",
+    "o": [
+      "1. must have studied",
+      "2. should have studied"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is lazy. He *** his homework.",
+    "o": [
+      "1. must have finished",
+      "2. cannot have finished"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is always late for school. He *** be late today, too.",
+    "o": [
+      "1. must",
+      "2. cannot"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He was very rich. He *** a nice car.",
+    "o": [
+      "1. must have had",
+      "2. cannot have had"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom is honest. He *** the pen.",
+    "o": [
+      "1. must have stolen",
+      "2. cannot have stolen"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He likes books. He *** the book already.",
+    "o": [
+      "1. must have read",
+      "2. should have read"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He likes travels. He *** to New York.",
+    "o": [
+      "1. should have been",
+      "2. may have been"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He didn't pass the exam again. He *** hard.",
+    "o": [
+      "1. must have studied",
+      "2. cannot have studied"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is kind to only Jane. He *** like her.",
+    "o": [
+      "1. may",
+      "2. cannot"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He was kind to only Jane. He *** like her.",
+    "o": [
+      "1. may have loved",
+      "2. cannot have loved"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He likes travels. He *** to New York.",
+    "o": [
+      "1. cannot have been",
+      "2. may have been"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He can play tennis well. He *** tennis before.",
+    "o": [
+      "1. must have learned",
+      "2. should have learned"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He can play tennis well. He *** tennis before.",
+    "o": [
+      "1. may have learned",
+      "2. cannot have learned"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is good at playing the piano. He *** to play the piano.",
+    "o": [
+      "1. must have learned",
+      "2. should have learned"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is good at playing the piano. He *** to play the piano.",
+    "o": [
+      "1. may have learned",
+      "2. cannot have learned"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He can't play tennis well. He *** tennis before.",
+    "o": [
+      "1. may have learned",
+      "2. cannot have learned"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is poor at playing the piano. He *** to play the piano before.",
+    "o": [
+      "1. may have learned",
+      "2. cannot have learned"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am poor at playing the piano. I *** to play the piano before.",
+    "o": [
+      "1. must have learned",
+      "2. should have learned"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He had many cars. He *** rich.",
+    "o": [
+      "1. must have been",
+      "2. should have been"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He had many cars. He *** rich.",
+    "o": [
+      "1. must have been",
+      "2. cannot have been"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom passed English test. He *** hard.",
+    "o": [
+      "1. must have studied",
+      "2. cannot have studied"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom passed English test. He *** hard.",
+    "o": [
+      "1. may have studied",
+      "2. should have studied"
+    ],
+    "ans": 1
+  }
+]

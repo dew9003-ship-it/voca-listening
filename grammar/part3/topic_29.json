@@ -1,0 +1,242 @@
+[
+  {
+    "q": "It's not easy *** me to break the bad habit.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It is necessary *** you to exercise regularly.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It's kind *** you to carry such a heavy thing.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It's very brave *** you to rescue a child from drowning.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It's easy *** people to see koalas.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It's dangerous *** children to go there.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It's very kind *** you to say so.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It's so heavy *** you to carry.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It's difficult *** me to solve the problem.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It is easy *** Koreans to use chopsticks.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It is necessary *** him to make a final decision.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It isn`t clever *** her to waste all her money.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It is boring *** me to stay home on a rainy day.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It may be hard *** him to believe my words.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It is difficult *** him to answer the questions.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Is it important *** to learn English grammar?",
+    "o": [
+      "1. for me",
+      "2. of me"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It is good ***  to take a walk every day.",
+    "o": [
+      "1. for you",
+      "2. of you"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It is easy *** me to solve this problem.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It is important *** you to brush your teeth.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It is kind *** you to say so.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It's hard *** me to understand Mary.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It is important *** you to study hard.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It was not easy *** her to keep a pet.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It was difficult *** John to solve the math problem.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It was careless *** you to drive in such heavy rain.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It was hard *** me to remember her name.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It seems so difficult *** him to quit smoking.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It was kind *** you to send me the gift.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It is so nice *** you to take care of your brother.",
+    "o": [
+      "1. for",
+      "2. of"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It's impossible *** to solve the problem.",
+    "o": [
+      "1. for me",
+      "2. of me"
+    ],
+    "ans": 1
+  }
+]

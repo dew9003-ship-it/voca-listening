@@ -1,0 +1,306 @@
+[
+  {
+    "q": "다음 문장이 강조하는 부분은?\nIt was Tom that I met in the library yesterday.",
+    "o": [
+      "1. I",
+      "2. Tom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장이 강조하는 부분은?\nIt was I that met Tom in the library yesterday.",
+    "o": [
+      "1. I",
+      "2. Tom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장이 강조하는 부분은?\nIt was yesterday that I met Tom in the library.",
+    "o": [
+      "1. yesterday",
+      "2. in the library"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장이 강조하는 부분은?\nIt was in the library that I met Tom yesterday.",
+    "o": [
+      "1. yesterday",
+      "2. in the library"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장이 강조하는 부분은?\nIt was Jane that saw Mary at the theater last night.",
+    "o": [
+      "1. Jane",
+      "2. Mary"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장이 강조하는 부분은?\nIt was Mary that Jane saw at the theater last night.",
+    "o": [
+      "1. Jane",
+      "2. Mary"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장이 강조하는 부분은?\nIt was at the theater that Jane saw Mary last night.",
+    "o": [
+      "1. at the theather",
+      "2. last night"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장이 강조하는 부분은?\nIt was last night that Jane saw Mary at the theater.",
+    "o": [
+      "1. at the theather",
+      "2. last night"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Some rich people are happy. But others are not happy.",
+    "o": [
+      "1. The rich are not always happy.",
+      "2. The rich are always happy."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Some rich people are happy. But others are not happy.",
+    "o": [
+      "1. The rich are not always happy.",
+      "2. The rich are never happy."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "우리 둘다 숙제를 하지 않았다.",
+    "o": [
+      "1. Neither of us finished the homework.",
+      "2. Either of us finished the homework."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "모든 학생이 최고의 대학을 갈수있는건 아니다.",
+    "o": [
+      "1. Not every student can go to the best college.",
+      "2. No student can go to the best college."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "모든 사람이 널 사랑하는건 아니야.",
+    "o": [
+      "1. No one loves you.",
+      "2. Not everybody loves you."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "아무도 널 사랑하지 않아.",
+    "o": [
+      "1. Nobody loves you.",
+      "2. Nobody doesn't love you."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "많은 재산이 항상 우리에게 행복을 주는건 아니다.",
+    "o": [
+      "1. Wealth does not always bring us happiness.",
+      "2. Wealth does not bring us happiness."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그들 중 아무도 그 사실을 모른다.",
+    "o": [
+      "1. None of them know the fact.",
+      "2. All of them know the fact."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "반짝이는 모든 것이 금은 아니다.",
+    "o": [
+      "1. Nothing that glitters is not gold.",
+      "2. All that glitters is not gold."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "나는 수학 영어 둘다 좋아하지 않는다.",
+    "o": [
+      "1. I don't like either English or math.",
+      "2. I don't like both English or math."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "나는 수학 영어 둘다 좋아하는건 아니다.",
+    "o": [
+      "1. I don't like either English or math.",
+      "2. I don't like both English and math."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "나는 수학 영어 둘다 좋아하지 않는다.",
+    "o": [
+      "1. I like neither English nor math.",
+      "2. I don't like both English or math."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "아무도 나를 막을 수 없다.",
+    "o": [
+      "1. No one can stop me.",
+      "2. No one can't stop me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그는 크고 잘생기고 친절하다.",
+    "o": [
+      "1. He is big, handsome, and kind.",
+      "2. He is big, handsome, and kindly."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그는 잘생겼을 뿐만 아니라 친절하다.",
+    "o": [
+      "1. He is not only handsome but also kindly.",
+      "2. He is not only handsome but also kind."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "나뿐만 아니라 그도 너를 사랑해.",
+    "o": [
+      "1. He as well as me loves you.",
+      "2. He as well as I loves you."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "그들 둘다 시험에 합격하지 못했다.",
+    "o": [
+      "1. Neither of them passed the exam.",
+      "2. Either of them passed the exam."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그들 둘다 시험에 합격하지 못했다.",
+    "o": [
+      "1. Both of them failed in the exam.",
+      "2. Both of them passed the exam."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Some people love him. But others don't love him.",
+    "o": [
+      "1. Not everybody loves him.",
+      "2. Everybody loves him."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is not a student. I am not a student, ***.",
+    "o": [
+      "1. neither",
+      "2. either"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "리차드와 주디 둘다 파티에 오지 못했다.",
+    "o": [
+      "1. Neither Richard nor Judy could come to the party.",
+      "2. Neither Richard and Judy couldn't come to the party."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "나는 리차드와 주디 둘다 좋아하지 않는다.",
+    "o": [
+      "1. I don't like either Richard or Judy.",
+      "2. I don't like neither Richard nor Judy."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "나는 리차드와 주디 둘다 좋아하지 않는다.",
+    "o": [
+      "1. I like both Richard and Judy.",
+      "2. I like neither Richard or Judy."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "리차드와 주디 둘다 파티에 오지 못했다.",
+    "o": [
+      "1. Either Richard or Judy couldn't come to the party.",
+      "2. Both Richard and Judy could come to the party."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "우리 둘다 숙제를 하지 않았다.",
+    "o": [
+      "1. Both of us didn't finish the homework.",
+      "2. Either of us didn't finish the homework."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "우리 둘다 펜이 없다.",
+    "o": [
+      "1. Both of us don't have a pen.",
+      "2. Neither of us has a pen."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "신호등이 둘다 작동하지 않는다.",
+    "o": [
+      "1. Neither of the two traffic lights is working.",
+      "2. Either of the two traffic lights is working."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "나는 리차드와 주디 둘다 좋아한다.",
+    "o": [
+      "1. I like both Richard and Judy.",
+      "2. I like neither Richard nor Judy."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "모든 사람이 주디를 좋아하는건 아니다.",
+    "o": [
+      "1. Not all people like Judy.",
+      "2. Not all people don't like Judy."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그 사람들 중 누구도 주디를 좋아하지 않는다.",
+    "o": [
+      "1. None of the people like Judy.",
+      "2. None of the people don't like Judy."
+    ],
+    "ans": 1
+  }
+]

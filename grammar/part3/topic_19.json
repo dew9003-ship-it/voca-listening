@@ -1,0 +1,250 @@
+[
+  {
+    "q": "This is the house. He lives in the house.",
+    "o": [
+      "1. This is the house which I live.",
+      "2. This is the house which I live in."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the house. He lives in the house.",
+    "o": [
+      "1. This is the house that I live in.",
+      "2. This is the house in that I live."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the house. He lives in the house.",
+    "o": [
+      "1. This is the house I live in.",
+      "2. This is the house in I live."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the house. He lives in the house.",
+    "o": [
+      "1. This is the house in which I live.",
+      "2. This is the house in I live."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the house. He lives in the house.",
+    "o": [
+      "1. This is the house where I live.",
+      "2. This is the house in where I live."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I don't remember the store. I bought this pen in the store.",
+    "o": [
+      "1. I don't remember the store which I bought this pen.",
+      "2. I don't remember the store which I bought this pen in."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I don't remember the store. I bought this pen in the store.",
+    "o": [
+      "1. I don't remember the store that I bought this pen.",
+      "2. I don't remember the store that I bought this pen in."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I don't remember the store. I bought this pen in the store.",
+    "o": [
+      "1. I don't remember the store in that I bought this pen.",
+      "2. I don't remember the store I bought this pen in."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I don't remember the store. I bought this pen in the store.",
+    "o": [
+      "1. I don't remember the store in which I bought this pen.",
+      "2. I don't remember the store in I bought this pen."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I don't remember the store. I bought this pen in the store.",
+    "o": [
+      "1. I don't remember the store in where I bought this pen.",
+      "2. I don't remember the store where I bought this pen."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The man is Tom. She is looking for him.",
+    "o": [
+      "1. The man whom she is looking for is Tom.",
+      "2. The man for she is looking is Tom."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The man is Tom. She is looking for him.",
+    "o": [
+      "1. The man she is looking for is Tom.",
+      "2. The man for she is looking is Tom."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The man is Tom. She is looking for him.",
+    "o": [
+      "1. The man that she is looking for is Tom.",
+      "2. The man for she is looking is Tom."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The man is Tom. She is looking for him.",
+    "o": [
+      "1. The man for that she is looking is Tom.",
+      "2. The man for whom she is looking is Tom."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She is the woman. I told you about her.",
+    "o": [
+      "1. She is the woman whom I told you about.",
+      "2. She is the woman which I told you about."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She is the woman. I told you about her.",
+    "o": [
+      "1. She is the woman about whom I told you.",
+      "2. She is the woman about I told you."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She is the woman. I told you about her.",
+    "o": [
+      "1. She is the woman that I told you about.",
+      "2. She is the woman about that I told you."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She is the woman. I told you about her.",
+    "o": [
+      "1. She is the woman I told you about.",
+      "2. She is the woman I told you whom."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I don't like the music. You listen to the music.",
+    "o": [
+      "1. I don't like the music you listen to.",
+      "2. I don't like the music you listen to it."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I don't like the music. You listen to the music.",
+    "o": [
+      "1. I don't like the music which you listen to.",
+      "2. I don't like the music whom you listen to."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I don't like the music. You listen to the music.",
+    "o": [
+      "1. I don't like the music to you listen.",
+      "2. I don't like the music to which you listen."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I don't like the music. You listen to the music.",
+    "o": [
+      "1. I don't like the music that you listen.",
+      "2. I don't like the music that you listen to."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I don't like the music. You listen to the music.",
+    "o": [
+      "1. I don't like the music to that you listen.",
+      "2. I don't like the music that you listen to."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have a son. I should take care of him.",
+    "o": [
+      "1. I have a son whom I should take care of.",
+      "2. I have a son of which I should take care."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have a son. I should take care of him.",
+    "o": [
+      "1. I have a son of whom I should take care.",
+      "2. I have a son of I should take care."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have a son. I should take care of him.",
+    "o": [
+      "1. I have a son that I should take care of.",
+      "2. I have a son of that I should take care."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have a son. I should take care of him.",
+    "o": [
+      "1. I have a son I should take care of.",
+      "2. I have a son of I should take care."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The subject is English. I'm interested in it.",
+    "o": [
+      "1. The subject I'm interested in is English.",
+      "2. The subject I'm interested is English."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The subject is English. I'm interested in it.",
+    "o": [
+      "1. The subject which I'm interested is English.",
+      "2. The subject in which I'm interested is English."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The subject is English. I'm interested in it.",
+    "o": [
+      "1. The subject in that I'm interested is English.",
+      "2. The subject in which I'm interested is English."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The subject is English. I'm interested in it.",
+    "o": [
+      "1. The subject that I'm interested in is English.",
+      "2. The subject that I'm interested is English."
+    ],
+    "ans": 1
+  }
+]

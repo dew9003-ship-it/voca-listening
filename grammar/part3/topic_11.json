@@ -1,0 +1,482 @@
+[
+  {
+    "q": "올바른 비교급의 형태를 고르시오.",
+    "o": [
+      "1. taller",
+      "2. more tall"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 비교급의 형태를 고르시오.",
+    "o": [
+      "1. prettier",
+      "2. more pretty"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 비교급의 형태를 고르시오.",
+    "o": [
+      "1. beautifuler",
+      "2. more beautiful"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 비교급의 형태를 고르시오.",
+    "o": [
+      "1. easier",
+      "2. more easy"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 비교급의 형태를 고르시오.",
+    "o": [
+      "1. hoter",
+      "2. hotter"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 비교급의 형태를 고르시오.",
+    "o": [
+      "1. famouser",
+      "2. more famous"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 비교급의 형태를 고르시오.",
+    "o": [
+      "1. good",
+      "2. better"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 비교급의 형태를 고르시오.",
+    "o": [
+      "1. well",
+      "2. better"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 비교급의 형태를 고르시오.",
+    "o": [
+      "1. bad",
+      "2. worse"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 비교급의 형태를 고르시오.",
+    "o": [
+      "1. ill",
+      "2. worse"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 비교급의 형태를 고르시오.",
+    "o": [
+      "1. many",
+      "2. more"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 비교급의 형태를 고르시오.",
+    "o": [
+      "1. much",
+      "2. more"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 비교급의 형태를 고르시오.",
+    "o": [
+      "1. little",
+      "2. less"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 최상급의 형태를 고르시오.",
+    "o": [
+      "1. tallest",
+      "2. more tall"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 최상급의 형태를 고르시오.",
+    "o": [
+      "1. prettiest",
+      "2. more pretty"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 최상급의 형태를 고르시오.",
+    "o": [
+      "1. most beautiful",
+      "2. more beautiful"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 최상급의 형태를 고르시오.",
+    "o": [
+      "1. easier",
+      "2. easiest"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 최상급의 형태를 고르시오.",
+    "o": [
+      "1. hottest",
+      "2. hotest"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 최상급의 형태를 고르시오.",
+    "o": [
+      "1. most famous",
+      "2. famousest"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 최상급의 형태를 고르시오.",
+    "o": [
+      "1. best",
+      "2. better"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 최상급의 형태를 고르시오.",
+    "o": [
+      "1. well",
+      "2. best"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 최상급의 형태를 고르시오.",
+    "o": [
+      "1. bad",
+      "2. worst"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 최상급의 형태를 고르시오.",
+    "o": [
+      "1. ill",
+      "2. worst"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 최상급의 형태를 고르시오.",
+    "o": [
+      "1. many",
+      "2. most"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 최상급의 형태를 고르시오.",
+    "o": [
+      "1. much",
+      "2. most"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 최상급의 형태를 고르시오.",
+    "o": [
+      "1. little",
+      "2. least"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 비교급의 형태를 고르시오.",
+    "o": [
+      "1. happier",
+      "2. happyer"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 비교급의 형태를 고르시오.",
+    "o": [
+      "1. stronger",
+      "2. more strong"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 비교급의 형태를 고르시오.",
+    "o": [
+      "1. fast",
+      "2. faster"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 최상급의 형태를 고르시오.",
+    "o": [
+      "1. happiest",
+      "2. happyer"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 최상급의 형태를 고르시오.",
+    "o": [
+      "1. strongest",
+      "2. most strong"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 최상급의 형태를 고르시오.",
+    "o": [
+      "1. fastest",
+      "2. faster"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is as tall *** Tom.",
+    "o": [
+      "1. as",
+      "2. than"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom can run as fast *** Mary.",
+    "o": [
+      "1. as",
+      "2. than"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is as tall *** Tom.",
+    "o": [
+      "1. as",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom can run as fast *** Mary.",
+    "o": [
+      "1. as",
+      "2. in"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is taller *** Tom.",
+    "o": [
+      "1. as",
+      "2. than"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom is smarter *** Jane.",
+    "o": [
+      "1. as",
+      "2. than"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom is more famous *** Jane.",
+    "o": [
+      "1. than",
+      "2. of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom is more famous *** Jane.",
+    "o": [
+      "1. as",
+      "2. than"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom is more famous *** Jane.",
+    "o": [
+      "1. than",
+      "2. in"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mary is the most beautiful girl *** my friends.",
+    "o": [
+      "1. than",
+      "2. of"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mary is the most beautiful girl *** my friends.",
+    "o": [
+      "1. of",
+      "2. as"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mary is the most beautiful girl *** my friends.",
+    "o": [
+      "1. in",
+      "2. of"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mary is as *** as Jane.",
+    "o": [
+      "1. pretty",
+      "2. prettier"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom can run as *** as Mary.",
+    "o": [
+      "1. fast",
+      "2. faster"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mary is as *** as Jane.",
+    "o": [
+      "1. pretty",
+      "2. prettiest"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom can run as *** as Mary.",
+    "o": [
+      "1. fast",
+      "2. fastest"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mary is *** than Jane.",
+    "o": [
+      "1. pretty",
+      "2. prettier"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom can run *** than Mary.",
+    "o": [
+      "1. fast",
+      "2. faster"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mary is as *** as Jane.",
+    "o": [
+      "1. strong",
+      "2. stronger"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom can run *** than Mary.",
+    "o": [
+      "1. fastest",
+      "2. faster"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mary is as *** as Jane.",
+    "o": [
+      "1. happier",
+      "2. happy"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mary is *** than Jane.",
+    "o": [
+      "1. strong",
+      "2. stronger"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mary is *** stronger than Jane.",
+    "o": [
+      "1. much",
+      "2. very"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mary is *** stronger than Jane.",
+    "o": [
+      "1. far",
+      "2. very"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mary is *** stronger than Jane.",
+    "o": [
+      "1. even",
+      "2. very"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mary is *** stronger than Jane.",
+    "o": [
+      "1. still",
+      "2. very"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mary is *** stronger than Jane.",
+    "o": [
+      "1. a lot",
+      "2. very"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mary is *** strong.",
+    "o": [
+      "1. a lot",
+      "2. very"
+    ],
+    "ans": 2
+  }
+]

@@ -1,0 +1,242 @@
+[
+  {
+    "q": "*** I you, I would buy the house.",
+    "o": [
+      "1. was",
+      "2. were"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** I had money, I could have bought the house.",
+    "o": [
+      "1. if",
+      "2. had"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "But for you, I couldn't be alive.",
+    "o": [
+      "1. If it were not for you, I couldn't be alive.",
+      "2. If it had not been for you, I couldn't be alive."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** you, I couldn't be alive.",
+    "o": [
+      "1. with",
+      "2. without"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "But for you, I couldn't have been alive.",
+    "o": [
+      "1. If it were not for you, I couldn't have been alive.",
+      "2. If it had not been for you, I couldn't have been alive."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Without you, I couldn't be alive.",
+    "o": [
+      "1. If it were not for you, I couldn't be alive.",
+      "2. If it had not been for you, I couldn't be alive."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Without you, I couldn't have been alive.",
+    "o": [
+      "1. If it were not for you, I couldn't have been alive.",
+      "2. If it had not been for you, I couldn't have been alive."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Without your help, I couldn't finish my homework.",
+    "o": [
+      "1. If it were not for your help,  I couldn't finish my homework.",
+      "2. If it had not been for your help, I couldn't finish my homework."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "But for your help, I couldn't finish my homework.",
+    "o": [
+      "1.Were it not for your help,  I couldn't finish my homework.",
+      "2. Had it not been for your help, I couldn't finish my homework."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Without your help, I couldn't have finished my homework.",
+    "o": [
+      "1.Were it not for your help, I couldn't have finished my homework.",
+      "2. Had it not been for your help, I couldn't have finished my homework."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "But for your help, I couldn't have finished my homework.",
+    "o": [
+      "1. If it were not for your help, I couldn't have finished my homework.",
+      "2. If it had not been for your help, I couldn't have finished my homework."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** your help, I couldn't finish my homework.",
+    "o": [
+      "1. but",
+      "2. but for"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** your help, I couldn't have finished my homework.",
+    "o": [
+      "1. without",
+      "2. but"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** your help, I couldn't have finished my homework.",
+    "o": [
+      "1. If it were not for",
+      "2. If it had not been for"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** your help,  I couldn't finish my homework.",
+    "o": [
+      "1. If it was not for",
+      "2. If it were not for"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If it had not been for your help, I couldn't have finished my homework.",
+    "o": [
+      "1.Were it not for your help, I couldn't have finished my homework.",
+      "2. Had it not been for your help, I couldn't have finished my homework."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I had brought a swimsuit, I would have gone swimming.",
+    "o": [
+      "1. Had I brought a swimsuit, I would have gone swimming.",
+      "2. Did I brought a swimsuit, I would have gone swimming."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** it were true, what would you say to him?",
+    "o": [
+      "1. suppose",
+      "2. supposed"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** you were rich, what would you do?",
+    "o": [
+      "1. supposing",
+      "2. supposed"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You have to get up early, *** you would be late for school.",
+    "o": [
+      "1. unless",
+      "2. otherwise"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** it would stop snowing.",
+    "o": [
+      "1. If only",
+      "2. without"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** you love me, I will be with you.",
+    "o": [
+      "1. as soon as",
+      "2. as long as"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I will be with you *** that you love me.",
+    "o": [
+      "1. provided",
+      "2. provide"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I will be with you *** that you love me.",
+    "o": [
+      "1. providing",
+      "2. provide"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** that it is true, you are still in the wrong.",
+    "o": [
+      "1. grant",
+      "2. granting"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** you are late, please call me.",
+    "o": [
+      "1. in case",
+      "2. in case of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** I a bird, I would fly to you.",
+    "o": [
+      "1. if",
+      "2. were"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** I a bird, I would fly to you.",
+    "o": [
+      "1. was",
+      "2. were"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** I been a bird, I would have flied to you.",
+    "o": [
+      "1. if",
+      "2. had"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** I been a bird, I would have flied to you.",
+    "o": [
+      "1. were",
+      "2. had"
+    ],
+    "ans": 2
+  }
+]

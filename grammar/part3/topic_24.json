@@ -1,0 +1,322 @@
+[
+  {
+    "q": "*** much money you spend, nobody likes you.",
+    "o": [
+      "1. whenever",
+      "2. however"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I'll be with you *** you go.",
+    "o": [
+      "1. wherever",
+      "2. however"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He goes fishing *** he is free.",
+    "o": [
+      "1. whenever",
+      "2. however"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I'll follow you *** you go.",
+    "o": [
+      "1. wherever",
+      "2. however"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** you are, I will find you.",
+    "o": [
+      "1. wherever",
+      "2. however"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** cold it is, he always goes fishing.",
+    "o": [
+      "1. wherever",
+      "2. however"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** difficult it is, you should do it.",
+    "o": [
+      "1. whenever",
+      "2. however"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** you come to our hotel, the room will be ready.",
+    "o": [
+      "1. whenever",
+      "2. however"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** pretty she is, I don't like her.",
+    "o": [
+      "1. whenever",
+      "2. however"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** Tom goes out, he takes his dog with him.",
+    "o": [
+      "1. whenever",
+      "2. however"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** tired you are, you must finish your homework.",
+    "o": [
+      "1. whenever",
+      "2. however"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** fast you run, you can't catch him.",
+    "o": [
+      "1. whenever",
+      "2. however"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** you go, I'll be here waiting for you.",
+    "o": [
+      "1. wherever",
+      "2. however"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** old we become, we can learn.",
+    "o": [
+      "1. whenever",
+      "2. however"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** you need my help, please call me.",
+    "o": [
+      "1. whenever",
+      "2. however"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** smart he is, he's still only a child.",
+    "o": [
+      "1. whenever",
+      "2. however"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** I am sad, I listen to music.",
+    "o": [
+      "1. whenever",
+      "2. however"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** wise he is, he doesn't know everything.",
+    "o": [
+      "1. whenever",
+      "2. however"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** fast you may run, you cannot catch the train.",
+    "o": [
+      "1. whenever",
+      "2. however"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** hot it is, I don't go swimming.",
+    "o": [
+      "1. whenever",
+      "2. however"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** much money you spend, nobody likes you.",
+    "o": [
+      "1. no matter how",
+      "2. no matter when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I'll be with you *** you go.",
+    "o": [
+      "1. no matter how",
+      "2. at any place where"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom was welcomed *** he went.",
+    "o": [
+      "1. no matter how",
+      "2. at any place where"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He goes fishing *** he is free.",
+    "o": [
+      "1. at any place where",
+      "2. at any time when"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** you are, I will find you.",
+    "o": [
+      "1. no matter how",
+      "2. no matter where"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** cold it is, he always goes fishing.",
+    "o": [
+      "1. no matter how",
+      "2. no matter when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** difficult it is, you should do it.",
+    "o": [
+      "1. no matter how",
+      "2. no matter when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** you come to our hotel, the room will be ready.",
+    "o": [
+      "1. at any place where",
+      "2. at any time when"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** pretty she is, I don't like her.",
+    "o": [
+      "1. no matter how",
+      "2. no matter when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** Tom goes out, he takes his dog with him.",
+    "o": [
+      "1. no matter how",
+      "2. at any time when"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** tired you are, you must finish your homework.",
+    "o": [
+      "1. no matter how",
+      "2. no matter when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** fast you run, you can't catch him.",
+    "o": [
+      "1. no matter how",
+      "2. at any time when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** you go, I'll be here waiting for you.",
+    "o": [
+      "1. no matter how",
+      "2. no matter where"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** old we become, we can learn.",
+    "o": [
+      "1. no matter how",
+      "2. no matter where"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** you need my help, please call me.",
+    "o": [
+      "1. no matter how",
+      "2. at any time when"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** smart he is, he's still only a child.",
+    "o": [
+      "1. no matter how",
+      "2. no matter where"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** I am sad, I listen to music.",
+    "o": [
+      "1. no matter how",
+      "2. at any time when"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** wise he is, he doesn't know everything.",
+    "o": [
+      "1. no matter how",
+      "2. no matter where"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** fast you may run, you cannot catch the train.",
+    "o": [
+      "1. no matter how",
+      "2. no matter where"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** hot it is, I don't go swimming.",
+    "o": [
+      "1. no matter how",
+      "2. no matter where"
+    ],
+    "ans": 1
+  }
+]

@@ -1,0 +1,242 @@
+[
+  {
+    "q": "Because I left my cell phone at home, I can't call him.",
+    "o": [
+      "1. Having left my cell phone at home, I can't call him.",
+      "2. leaving my cell phone at home, I can't call him."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "As I lost my pen, I have to borrow Tom's.",
+    "o": [
+      "1. Lost my pen, I have to borrow Tom's.",
+      "2. Having lost my pen, I have to borrow Tom's."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "As I saw the news yesterday, I know about the accident.",
+    "o": [
+      "1. Seeing the news yesterday, I know about the accident.",
+      "2. Having seen the news yesterday, I know about the accident."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "As the building was built in haste, it has lots of problems.",
+    "o": [
+      "1. Built in haste, the building has lots of problems.",
+      "2. Built in haste, it has lots of problems."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Although I met her twice before, I don't remember her name.",
+    "o": [
+      "1. Having met her twice before, I don't remember her name.",
+      "2. Having been met her twice before, I don't remember her name."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "As Tom has been to Korea, he knows much about the nation.",
+    "o": [
+      "1. Having been to Korea, Tom knows much about the nation.",
+      "2. Having been to Korea, Tom knew much about the nation."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Because he studied English hard, He can answer the questions with confidence.",
+    "o": [
+      "1. Having studied English hard, He can answer the questions with confidence.",
+      "2. Studying English hard, He can answer the questions with confidence."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "After he had finished the project, he went out to meet Jane.",
+    "o": [
+      "1. Finished the project, he went out to meet Jane.",
+      "2. Having finished the project, he went out to meet Jane."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "After he had had dinner, he met Jane.",
+    "o": [
+      "1. Having had dinner, he met Jane.",
+      "2. Having had dinner, he meets Jane."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Though the apartment was built in 1980, it is still in use.",
+    "o": [
+      "1. Though built in 1980, the apartment is still in use.",
+      "2. Though having built in 1980, the apartment is still in use."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Because I had a meal 10 hours ago, I am very hungry.",
+    "o": [
+      "1. Having had a meal 10 hours ago, I am very hungry.",
+      "2. Having a meal 10 hours ago, I am very hungry."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "As I lived here, I don't need a navigation.",
+    "o": [
+      "1. Having lived here, I don't need a navigation.",
+      "2. Lived here, I don't need a navigation."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "After he had failed twice, she gave up.",
+    "o": [
+      "1. Having failed twice, she gave up.",
+      "2. Having been failed twice, she gave up."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Because he lived near the sea, he can swim well.",
+    "o": [
+      "1. Living near the sea, he can swim well.",
+      "2. Having lived near the sea, he can swim well."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Because he studied hard last night, he can answer the question.",
+    "o": [
+      "1. Studied hard last night, he can answer the question.",
+      "2. Having studied hard last night, he can answer the question."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "As she didn't pass the test, she has to try again.",
+    "o": [
+      "1. Not having passed the test, she has to try again.",
+      "2. Not having been passed the test, she has to try again."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "After I waited for you in cold weather, I have a cold.",
+    "o": [
+      "1. Waiting for you in cold weather, I have a cold.",
+      "2. Having waited for you in cold weather, I have a cold."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "As I finished my homework, I am playing computer games.",
+    "o": [
+      "1. Having been finished my homework, I am playing computer games.",
+      "2. Having finished my homework, I am playing computer games."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Because I didn't study hard last night, I can't answer the question.",
+    "o": [
+      "1. Not having studied hard last night, I can't answer the question.",
+      "2. Not having been studied hard last night, I can't answer the question."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "As I didn't finish my homework, I can't go out.",
+    "o": [
+      "1. Not having been finished my homework, I can't go out.",
+      "2. Not having finished my homework, I can't go out."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Because Tom was born in Japan, he speaks Japanese very well.",
+    "o": [
+      "1. Born in Japan, Tom speaks Japanese very well.",
+      "2. Born in Japan, he speaks Japanese very well."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "As I was asked to make a speech, I became nervous.",
+    "o": [
+      "1. Asked to make a speech, I became nervous.",
+      "2. Having asked to make a speech, I became nervous."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Because I was shocked at the bike accident, I don't want to ride a bike.",
+    "o": [
+      "1. Shocked at the bike accident, I don't want to ride a bike.",
+      "2. Having shocked at the bike accident, I don't want to ride a bike."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Because I was bitten by the dog, I am afraid of it.",
+    "o": [
+      "1. Having bitten by the dog, I am afraid of it.",
+      "2. Bitten by the dog, I am afraid of it."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Because the actress was loved much, she wants to donate money to charity.",
+    "o": [
+      "1. Loving much, the actress wants to donate money to charity.",
+      "2. Loved much, the actress wants to donate money to charity."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "As they were excited to see the game, they didn't sleep a wink.",
+    "o": [
+      "1. Excited to see the game, they didn't sleep a wink.",
+      "2. Having excited to see the game, they didn't sleep a wink."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Though I was told to do the homework, I can't do it.",
+    "o": [
+      "1. Told to do the homework, I can't do it.",
+      "2. telling to do the homework, I can't do it."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Because I wasn't invited to the party, I was angry.",
+    "o": [
+      "1. Not invited to the party, I was angry.",
+      "2. Not having invited to the party, I was angry."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Though I wasn't invited to the party, I wasn't angry.",
+    "o": [
+      "1. Not invited to the party, I wasn't angry.",
+      "2. Not having invited to the party, I wasn't angry."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Though I wasn't given any present by her, I gave her a present.",
+    "o": [
+      "1. Though not given any present by her, I gave her a present.",
+      "2. Though not having been given any present by her, I gave her a present."
+    ],
+    "ans": 1
+  }
+]

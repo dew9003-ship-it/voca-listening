@@ -1,0 +1,242 @@
+[
+  {
+    "q": "The man *** soccer there is my uncle.",
+    "o": [
+      "1. playing",
+      "2. played"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The movie was very *** .",
+    "o": [
+      "1. interesting",
+      "2. interested"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The book  ***  in French is hers.",
+    "o": [
+      "1. writing",
+      "2. written"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Do you like the *** boy?",
+    "o": [
+      "1. dancing",
+      "2. danced"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "There are some birds *** in the tree.",
+    "o": [
+      "1. singing",
+      "2. sung"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The man *** a newspaper is my father.",
+    "o": [
+      "1. reading",
+      "2. read"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I bought a small radio *** in Korea.",
+    "o": [
+      "1. making",
+      "2. made"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The young king in the country came *** at the news.",
+    "o": [
+      "1. surprising",
+      "2. surprised"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The man *** a book is my friend.",
+    "o": [
+      "1. reading",
+      "2. read"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The people *** at the news came here.",
+    "o": [
+      "1. exciting",
+      "2. excited"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He received a letter *** in English.",
+    "o": [
+      "1. writing",
+      "2. written"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The girl *** a big hat came to me.",
+    "o": [
+      "1. wearing",
+      "2. wore"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He sat *** to music.",
+    "o": [
+      "1. listening",
+      "2. listened"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I heard the song *** by Tom.",
+    "o": [
+      "1. playing",
+      "2. played"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He saw a woman *** to a man.",
+    "o": [
+      "1. running",
+      "2. ran"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Jane is *** because her job is boring.",
+    "o": [
+      "1. boring",
+      "2. bored"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Don't wake up the baby *** on the sofa.",
+    "o": [
+      "1. sleeping",
+      "2. slept"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The *** man waved his hand at me.",
+    "o": [
+      "1. exciting",
+      "2. excited"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "That *** bird is a sparrow.",
+    "o": [
+      "1. singing",
+      "2. sung"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He told her the *** news.",
+    "o": [
+      "1. surprising",
+      "2. surprised"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The boy *** up trash is my son.",
+    "o": [
+      "1. picking",
+      "2. picked"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The money *** for Christmas is too much.",
+    "o": [
+      "1. spending",
+      "2. spent"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Who is that woman *** her hand toward you?",
+    "o": [
+      "1. waving",
+      "2. waved"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom was *** the wall when I went to see him.",
+    "o": [
+      "1. painting",
+      "2. painted"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Isn't the *** cat so cute?",
+    "o": [
+      "1. sleeping",
+      "2. slept"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The *** picnic was over.",
+    "o": [
+      "1. exciting",
+      "2. excited"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The man *** books is my uncle.",
+    "o": [
+      "1. carrying",
+      "2. carried"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The street is covered with *** leaves.",
+    "o": [
+      "1. falling",
+      "2. fallen"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom was *** a letter.",
+    "o": [
+      "1. writing",
+      "2. written"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I saw Tom *** the street.",
+    "o": [
+      "1. crossing",
+      "2. crossed"
+    ],
+    "ans": 1
+  }
+]

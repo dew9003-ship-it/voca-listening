@@ -1,0 +1,242 @@
+[
+  {
+    "q": "Tom *** at the station when I got there.",
+    "o": [
+      "1. has arrived",
+      "2. had arrived"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** in Mokpo before I moved here.",
+    "o": [
+      "1. has lived",
+      "2. had lived"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She found that she *** her key.",
+    "o": [
+      "1. has lost",
+      "2. had lost"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I found the key that I *** before.",
+    "o": [
+      "1. have lost",
+      "2. had lost"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** my homework when she came.",
+    "o": [
+      "1. have just finished",
+      "2. had just finished"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The train *** when he got to the station.",
+    "o": [
+      "1. have just left",
+      "2. had just left"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I didn't tell him at first for I *** him before.",
+    "o": [
+      "1. have never seen",
+      "2. had never seen"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom *** in Mokpo since 1994.",
+    "o": [
+      "1. has lived",
+      "2. had lived"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She *** anything since lunch.",
+    "o": [
+      "1. haven't eaten",
+      "2. hadn't eaten"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "When *** the pictures?",
+    "o": [
+      "1. did you take",
+      "2. had you taken"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She *** at the station for an hour when the train arrived.",
+    "o": [
+      "1. had been",
+      "2. will have been"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She *** in Seoul by this time tomorrow.",
+    "o": [
+      "1. had arrived",
+      "2. will have arrived"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** the book last month.",
+    "o": [
+      "1. bought",
+      "2. had bought"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "When she got to the station, all her friends ***.",
+    "o": [
+      "1. have already left",
+      "2. had already left"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I didn't know who he was. I *** him before.",
+    "o": [
+      "1. have never seen",
+      "2. had never seen"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I didn't know that she *** the exam.",
+    "o": [
+      "1. have passed",
+      "2. had passed"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** my homework by next Monday.",
+    "o": [
+      "1. will have finished",
+      "2. had finished"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She *** to France twice before she was ten years old.",
+    "o": [
+      "1. will have been",
+      "2. had been"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "When I called on her, she *** ill for two weeks.",
+    "o": [
+      "1. will have been",
+      "2. had been"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I found that I *** my watch.",
+    "o": [
+      "1. will have lost",
+      "2. had lost"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My mother bought me a new watch, for I *** my old one.",
+    "o": [
+      "1. will have lost",
+      "2. had lost"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom *** phone games for an hour when his mom came home.",
+    "o": [
+      "1. have played",
+      "2. had been playing"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** my homework by next week.",
+    "o": [
+      "1. will have finished",
+      "2. have finished"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If he goes to England once more, he *** there three times.",
+    "o": [
+      "1. will have been",
+      "2. had been"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I stay here two months more, I *** here for two years.",
+    "o": [
+      "1. will have been",
+      "2. had been"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "By this time tomorrow she *** her home.",
+    "o": [
+      "1. will have left",
+      "2. had left"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I *** English for 6 years next month.",
+    "o": [
+      "1. will have been studying",
+      "2. had been studying"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom *** as a teacher for 10 years next year.",
+    "o": [
+      "1. will have been working",
+      "2. have worked"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I *** my homework before I play computer games.",
+    "o": [
+      "1. will have finished",
+      "2. had finished"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It *** last night.",
+    "o": [
+      "1. snowed",
+      "2. had snowed"
+    ],
+    "ans": 1
+  }
+]

@@ -1,0 +1,162 @@
+[
+  {
+    "q": "관계부사의 역할은?",
+    "o": [
+      "1. 선행사 + 관계대명사",
+      "2. 접속사 + 부사"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "관계부사는?",
+    "o": [
+      "1. 접속사 + 관계대명사",
+      "2. 전치사 + 관계대명사"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "관계부사절의 역할은?",
+    "o": [
+      "1. 형용사",
+      "2. 부사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "관계부사의 개수는?",
+    "o": [
+      "1. 3개",
+      "2. 4개"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "선행사가 장소를 나타내면?",
+    "o": [
+      "1. when",
+      "2. where"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "선행사가 시간을 나타내면?",
+    "o": [
+      "1. when",
+      "2. where"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "선행사가 이유를 나타내면?",
+    "o": [
+      "1. how",
+      "2. why"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "선행사가 방법을 나타내면?",
+    "o": [
+      "1. how",
+      "2. why"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the house *** he lives.",
+    "o": [
+      "1. when",
+      "2. where"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 관계부사절은?",
+    "o": [
+      "1. He still lives in the house",
+      "2. where he was born"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 관계부사절은?",
+    "o": [
+      "1. Did you see the bag",
+      "2. where I put my clothes"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 관계부사절은?",
+    "o": [
+      "1. Is this the room",
+      "2. where he studied"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 관계부사절은?",
+    "o": [
+      "1. There are many reasons",
+      "2. why I came here"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 관계부사절은?",
+    "o": [
+      "1. I'm looking for a place",
+      "2. where I can stay tonight"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 관계부사절은?",
+    "o": [
+      "1. This is the month",
+      "2. when he is going to come back."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 관계부사절은?",
+    "o": [
+      "1. The river was deep",
+      "2. where I swam"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 관계부사절은?",
+    "o": [
+      "1. This is the country",
+      "2. where I grew up"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 관계부사절은?",
+    "o": [
+      "1. I know the time",
+      "2. when he will start"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 관계부사절은?",
+    "o": [
+      "1. I know the reason",
+      "2. why he wants to go there alone"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 관계부사절은?",
+    "o": [
+      "1. Sunday is the day",
+      "2. when we go to church."
+    ],
+    "ans": 2
+  }
+]

@@ -1,0 +1,258 @@
+[
+  {
+    "q": "I think water is the most important thing in the world.",
+    "o": [
+      "1. I think nothing in the world is as important as water.",
+      "2. I think anything in the world is as important as water."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I think water is the most important thing in the world.",
+    "o": [
+      "1. I think nothing in the world is as important as water.",
+      "2. I think nothing in the world is more important as water."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I think water is the most important thing in the world.",
+    "o": [
+      "1. I think nothing in the world isn't as important as water.",
+      "2. I think nothing in the world is as important as water."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I think water is the most important thing in the world.",
+    "o": [
+      "1. I think water in the world is as important as nothing.",
+      "2. I think nothing in the world is as important as water."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I think water is the most important thing in the world.",
+    "o": [
+      "1. I think nothing in the world is more than important water.",
+      "2. I think nothing in the world is more important than water."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I think water is the most important thing in the world.",
+    "o": [
+      "1. I think water is more important than any other thing in the world.",
+      "2. I think water is most important than any other thing in the world."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I think water is the most important thing in the world.",
+    "o": [
+      "1. I think water is more important than all the other thing in the world.",
+      "2. I think water is more important than all the other things in the world."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I think water is the most important thing in the world.",
+    "o": [
+      "1. I think water is more important than any other thing in the world.",
+      "2. I think water is more important than all the other thing in the world."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I think water is the most important thing in the world.",
+    "o": [
+      "1. I think water is most important than any other things in the world.",
+      "2. I think water is more important than all the other things in the world."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I think water is the most important thing in the world.",
+    "o": [
+      "1. I think nothing in the world is as important as water.",
+      "2. I think water is more important than all the other thing in the world."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tim is the tallest boy in the class.",
+    "o": [
+      "1. No other boy in the class is as tall as Tim.",
+      "2. No other boy in the class is taller as Tim."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tim is the tallest boy in the class.",
+    "o": [
+      "1. No other boy in the class is taller than Tim.",
+      "2. No other boy in the class is more tall than Tim."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tim is the tallest boy in the class.",
+    "o": [
+      "1. Tim is taller than any other boy in the class.",
+      "2. Tim is taller than any other boys in the class."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tim is the tallest boy in the class.",
+    "o": [
+      "1. Tim is taller than all the other boy in the class.",
+      "2. Tim is taller than all the other boys in the class."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tim is the tallest boy in the class.",
+    "o": [
+      "1. Tim is taller than any other boys in the class.",
+      "2. Tim is taller than all the other boys in the class."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tim is the tallest boy in the class.",
+    "o": [
+      "1. Tim is taller than any other boy in the class.",
+      "2. Tim is taller than all the other boy in the class."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "MT. Everest is the tallest mountain in the world.",
+    "o": [
+      "1. No other mountain in the world is as tall MT. Everest.",
+      "2. No other mountain in the world is as tall as MT. Everest."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "MT. Everest is the tallest mountain in the world.",
+    "o": [
+      "1. No other mountain in the world is taller than MT. Everest.",
+      "2. No other mountain in the world is more taller than MT. Everest."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "MT. Everest is the tallest mountain in the world.",
+    "o": [
+      "1. MT. Everest is taller than any other mountain in the world.",
+      "1. MT. Everest is taller than any other mountains in the world."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "MT. Everest is the tallest mountain in the world.",
+    "o": [
+      "1. MT. Everest is taller than all the other mountains in the world.",
+      "2. MT. Everest is taller than all the other mountain in the world."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "MT. Everest is the tallest mountain in the world.",
+    "o": [
+      "1. MT. Everest is taller than any other mountain in the world.",
+      "2. MT. Everest is taller than all the other mountain in the world."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "MT. Everest is the tallest mountain in the world.",
+    "o": [
+      "1. MT. Everest is taller than all the other mountains in the world.",
+      "1. MT. Everest is taller than any other mountains in the world."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Health is the most precious in the world.",
+    "o": [
+      "1. Nothing is as precious as health in the world.",
+      "2. Nothing is more precious health in the world."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Health is the most precious in the world.",
+    "o": [
+      "1. Nothing is more precious than health in the world.",
+      "2. Nothing is preciouser than health in the world."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Health is the most precious in the world.",
+    "o": [
+      "1. Health is more precious than any other thing in the world.",
+      "2. Health is more precious than any other things in the wrold."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Health is the most precious in the world.",
+    "o": [
+      "1. Health is more precious than all the other thing in the wrold.",
+      "2. Health is more precious than all the other things in the wrold."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom studied English hardest in the class.",
+    "o": [
+      "1. No other student studied English as hard as Tom in the class.",
+      "2. No other student studied English more hard than Tom in the class."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom studied English hardest in the class.",
+    "o": [
+      "1. No other student studied English harder than Tom in the class.",
+      "2. No other student studied English more hard than Tom in the class."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom studied English hardest in the class.",
+    "o": [
+      "1. Tom studied English harder than any other student in the class.",
+      "2. Tom studied English harder than any other students in the class."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom studied English hardest in the class.",
+    "o": [
+      "1. Tom studied English harder than all the other student in the class.",
+      "1. Tom studied English harder than all the other students in the class."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom studied English hardest in the class.",
+    "o": [
+      "1. Tom studied English harder than any other student in the class.",
+      "2. Tom studied English harder than all the other student in the class."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom studied English hardest in the class.",
+    "o": [
+      "1. Tom studied English harder than any other students in the class.",
+      "1. Tom studied English harder than all the other students in the class."
+    ],
+    "ans": 2
+  }
+]

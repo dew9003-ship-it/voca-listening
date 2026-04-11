@@ -1,0 +1,322 @@
+[
+  {
+    "q": "I couldn't go to school, *** I caught a cold.",
+    "o": [
+      "1. because",
+      "2. though"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He was not happy *** he didn't enjoy his work.",
+    "o": [
+      "1. since",
+      "2. althoug"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** you look tired, go to bed early.",
+    "o": [
+      "1. as",
+      "2. even if"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** I caught a bad cold, I went to school on foot.",
+    "o": [
+      "1. because",
+      "2. though"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** I caught a bad cold, I went to school on foot.",
+    "o": [
+      "1. because",
+      "2. although"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** I caught a bad cold, I went to school on foot.",
+    "o": [
+      "1. because",
+      "2. even though"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** I caught a bad cold, I went to school on foot.",
+    "o": [
+      "1. because",
+      "2. even if"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** he is poor, he is very happy.",
+    "o": [
+      "1. because",
+      "2. though"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** he is poor, he is very happy.",
+    "o": [
+      "1. because",
+      "2. although"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** he is poor, he is very happy.",
+    "o": [
+      "1. because",
+      "2. even though"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** he is poor, he is very happy.",
+    "o": [
+      "1. because",
+      "2. even if"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** Tom was very rich, he wasn't happy.",
+    "o": [
+      "1. because",
+      "2. even though"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** Tom was very rich, he wasn't happy.",
+    "o": [
+      "1. because",
+      "2. even if"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "We couldn't go camping *** it rained.",
+    "o": [
+      "1. because",
+      "2. because of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He turned the heater off *** it was very hot.",
+    "o": [
+      "1. because",
+      "2. because of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I was late for school again *** you.",
+    "o": [
+      "1. because",
+      "2. because of"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** you are here, I'll give you the book.",
+    "o": [
+      "1. because of",
+      "2. since"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** she didn't study hard, he passed the test.",
+    "o": [
+      "1. because",
+      "2. even though"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** she didn't study hard, he passed the test.",
+    "o": [
+      "1. because",
+      "2. though"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** she didn't study hard, he passed the test.",
+    "o": [
+      "1. because",
+      "2. although"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** she didn't study hard, he passed the test.",
+    "o": [
+      "1. because",
+      "2. even if"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** you look tired, go to bed early.",
+    "o": [
+      "1. since",
+      "2. although"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** you look tired, go to bed early.",
+    "o": [
+      "1. as",
+      "2. although"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nI couldn't go to school, because I caught a cold.",
+    "o": [
+      "1. I couldn't go to school",
+      "2. because I caught a cold"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nHe was not happy since he didn`t enjoy his work.",
+    "o": [
+      "1. He was not happy",
+      "2. since he didn't enjoy his work."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nAs you look tired, go to bed early.",
+    "o": [
+      "1. As you look tired",
+      "2. go to bed early"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nThough I caught a bad cold, I went to school on foot.",
+    "o": [
+      "1. Though I caught a bad cold",
+      "2. I went to school on foot"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nAlthough I caught a bad cold, I went to school on foot.",
+    "o": [
+      "1. Although I caught a bad cold",
+      "2. I went to school on foot."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nEven though I caught a bad cold, I went to school on foot.",
+    "o": [
+      "1. Even though I caught a bad cold",
+      "2. I went to school on foot."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nEven if I caught a bad cold, I went to school on foot.",
+    "o": [
+      "1. Even if I caught a bad cold",
+      "2. I went to school on foot."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nThough he is poor, he is very happy.",
+    "o": [
+      "1. Though he is poor",
+      "2. he is very happy"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nAlthough he is poor, he is very happy.",
+    "o": [
+      "1. Although he is poor",
+      "2. he is very happy"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nEven though he is poor, he is very happy.",
+    "o": [
+      "1. Even though he is poor",
+      "2. he is very happy"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nEven if he is poor, he is very happy.",
+    "o": [
+      "1. Even if he is poor",
+      "2. he is very happy"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nThough Tom was very rich, he wasn't happy.",
+    "o": [
+      "1. Though Tom was very rich",
+      "2. he wasn't happy"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nAlthough Tom was very rich, he wasn't happy.",
+    "o": [
+      "1. Although Tom was very rich",
+      "2. he wasn't happy"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nWe couldn't go camping because it rained.",
+    "o": [
+      "1. We couldn't go camping",
+      "2. because it rained"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nHe turned the heater off because it was very hot.",
+    "o": [
+      "1. He turned the heater off",
+      "2. because it was very hot"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nSince it rained, I was late for school again.",
+    "o": [
+      "1. Since it rained",
+      "2. I was late for school again"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?\nSince you are here, I'll give you the book.",
+    "o": [
+      "1. Since you are here",
+      "2. I'll give you the book"
+    ],
+    "ans": 1
+  }
+]

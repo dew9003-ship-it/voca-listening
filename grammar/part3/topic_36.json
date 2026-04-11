@@ -1,0 +1,170 @@
+[
+  {
+    "q": "He doesn't like *** staying up late.",
+    "o": [
+      "1. my",
+      "2. I"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He doesn't like *** staying up late.",
+    "o": [
+      "1. mine",
+      "2. me"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He insisted on his father's *** the bus.",
+    "o": [
+      "1. not taking",
+      "2. taking not"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I don't like my *** being ignored.",
+    "o": [
+      "1. opinion",
+      "2. opinion's"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I can't imagine *** becoming a doctor.",
+    "o": [
+      "1. your",
+      "2. he"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Would you mind *** asking some questions?",
+    "o": [
+      "1. my",
+      "2. I"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I am sure of *** coming here.",
+    "o": [
+      "1. his",
+      "2. he"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She insisted on *** going there.",
+    "o": [
+      "1. I",
+      "2. my"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She regrets *** the truth.",
+    "o": [
+      "1. telling not",
+      "2. not telling"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I regret *** the proposal.",
+    "o": [
+      "1. accepting not",
+      "2. not accepting"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My teacher complained about *** being late for school.",
+    "o": [
+      "1. we",
+      "2. our"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am sorry for *** making the same mistake again.",
+    "o": [
+      "1. her",
+      "2. she"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I was sorry for *** you up last night.",
+    "o": [
+      "1. not waking",
+      "2. waking not"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I'm sorry for *** your letter before.",
+    "o": [
+      "1. answering not",
+      "2. not answering"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Would you mind *** joining our club?",
+    "o": [
+      "1. he",
+      "2. him"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Do you mind *** turning off the TV.",
+    "o": [
+      "1. I",
+      "2. my"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I remember *** talking about his childhood.",
+    "o": [
+      "1. he",
+      "2. Tom's"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I was angry about *** saying such a rude word.",
+    "o": [
+      "1. she",
+      "2. her"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am proud of *** winning a scholarship.",
+    "o": [
+      "1. she",
+      "2. her"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Jane was angry about *** to the party.",
+    "o": [
+      "1. not being invited",
+      "2. being not invited"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Jane looks forward to *** being promoted.",
+    "o": [
+      "1. he",
+      "2. his"
+    ],
+    "ans": 2
+  }
+]

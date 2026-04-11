@@ -1,0 +1,282 @@
+[
+  {
+    "q": "People say that the book is worth reading.",
+    "o": [
+      "1. It is said that the book is worth reading.",
+      "2. It was said that the book is worth reading."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People say that the book is worth reading.",
+    "o": [
+      "1. It is said that the book is worth reading.",
+      "2. It is said that the book was worth reading."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People say that the book is worth reading.",
+    "o": [
+      "1. The book is said to be worth reading.",
+      "2. It is said the book to be worth reading."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People say that the smartphone has made our lives busy.",
+    "o": [
+      "1. It is said that the smartphone has made our lives busy.",
+      "2. It is said that the smartphone had made our lives busy."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People say that the company has a hard time making a new product.",
+    "o": [
+      "1. It is said that the company has a hard time making a new product.",
+      "2. It is said that the company had a hard time making a new product."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People say that the company has a hard time making a new product.",
+    "o": [
+      "1. The company is said to has a hard time making a new product.",
+      "2. The company is said to have a hard time making a new product."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "People say that the book is worth reading.",
+    "o": [
+      "1. is said",
+      "2. was said"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People say that the book is worth reading.",
+    "o": [
+      "1. is",
+      "2. was"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People say that the book is worth reading.",
+    "o": [
+      "1. to be",
+      "2. to have been"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People say that the book was worth reading.",
+    "o": [
+      "1. to be",
+      "2. to have been"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "People say that the smartphone has made our lives busy.",
+    "o": [
+      "1. is",
+      "2. was"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People say that the company has a hard time making a new product.",
+    "o": [
+      "1. to have",
+      "2. to have had"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People said that the company had a hard time making a new product.",
+    "o": [
+      "1. is said",
+      "2. was said"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "People say that the company had a hard time making a new product.",
+    "o": [
+      "1. to have",
+      "2. to have had"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "People said that the company had a hard time making a new product.",
+    "o": [
+      "1. to have",
+      "2. to have had"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People say that he is a great man.",
+    "o": [
+      "1. People are said that he is a great man.",
+      "2. It is said that he is a great man."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "People say that he is a great man.",
+    "o": [
+      "1. He is said to be a great man.",
+      "2. People are said to be a great man."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People say that he is a great man.",
+    "o": [
+      "1. is said",
+      "2. said"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People say that he is a great man.",
+    "o": [
+      "1. to be",
+      "2. to have been"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People say that he was a great man.",
+    "o": [
+      "1. It is said that he was a great man.",
+      "2. It was said that he was a great man."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People say that he was a great man.",
+    "o": [
+      "1. He was said to be a great man.",
+      "2. He is said to have been a great man."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "People say that he was a great man.",
+    "o": [
+      "1. was said",
+      "2. is said"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "People say that he was a great man.",
+    "o": [
+      "1. to be",
+      "2. to have been"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "People said that he was a great man.",
+    "o": [
+      "1. It is said that he was a great man.",
+      "2. It was said that he was a great man."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "People said that he was a great man.",
+    "o": [
+      "1. He is said to be a great man.",
+      "2. He was said to be a great man."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "People said that he was a great man.",
+    "o": [
+      "1. is said",
+      "2. was said"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "People said that he was a great man.",
+    "o": [
+      "1. is said",
+      "2. was said"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "People said that he was a great man.",
+    "o": [
+      "1. to be",
+      "2. to have been"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People believe that the earth is round.",
+    "o": [
+      "1. is believed",
+      "2. are believed"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People believe that the earth is round.",
+    "o": [
+      "1. to be",
+      "2. to have been"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People *** that the earth was flat.",
+    "o": [
+      "1. believed",
+      "2. were believed"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People believed that the earth was flat.",
+    "o": [
+      "1. It was believed that the earth was flat.",
+      "2. It is believed that the earth was flat."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People believed that the earth was flat.",
+    "o": [
+      "1. The earth was believed to be flat.",
+      "2. The earth were believed to be flat."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People believed that the earth was flat.",
+    "o": [
+      "1. is",
+      "2. was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "People believed that the earth was flat.",
+    "o": [
+      "1. to be",
+      "2. to have been"
+    ],
+    "ans": 1
+  }
+]

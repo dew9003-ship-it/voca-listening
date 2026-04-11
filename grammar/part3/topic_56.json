@@ -1,0 +1,242 @@
+[
+  {
+    "q": "Not a word *** all day long.",
+    "o": [
+      "1. he said",
+      "2. did he say"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She likes Tom, so ***.",
+    "o": [
+      "1. do I",
+      "2. did I"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She likes Tom, so ***.",
+    "o": [
+      "1. do I",
+      "2. I do"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He doen't have any homework, ***.",
+    "o": [
+      "1. so do I",
+      "2. neither do I"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She likes Tom, ***.",
+    "o": [
+      "1. so do I",
+      "2. neither do I"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Little *** that she had done it.",
+    "o": [
+      "1. I dreamed",
+      "2. did I dream"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Little *** that she had done it.",
+    "o": [
+      "1. did I dreamed",
+      "2. did I dream"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Here comes the bus.",
+      "2. Here is it."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Here the bus comes.",
+      "2. Here it is."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Never I have said such a rude word.",
+      "2. Never have I said such a rude word."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Hardly I expected him to pass the exam.",
+      "2. Hardly did I expect him to pass the exam."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Only then did I realize that I was wrong.",
+      "2. Only then I realized that I was wrong."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Not a single word could he say.",
+      "2. Not a single word he could say."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Little did I dream that I should never see her again.",
+      "2. Little I dreamed that I should never see her again."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Here are you.",
+      "2. Here you are."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Little does he know how many problems he has caused.",
+      "2. Little he knows how many problems he has caused."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Away ran the girl.",
+      "2. Away the girl ran."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Away ran she.",
+      "2. Away she ran."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Here your change is.",
+      "2. Here is your change."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Here comes my mom.",
+      "2. Here my mom comes."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "올바른 문장을 고르시오.",
+    "o": [
+      "1. Here she comes.",
+      "2. Here comes she."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 생략 가능한 부분을 고르시오.\nLook at the pictures which were taken in the museum.",
+    "o": [
+      "1. the pictures",
+      "2. which were"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 생략 가능한 부분을 고르시오.\nLook at the pictures which were taken in the museum.",
+    "o": [
+      "1. which were taken",
+      "2. which were"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 생략 가능한 부분을 고르시오.\nThe man who is waiting for my father is Tom.",
+    "o": [
+      "1. The man",
+      "2. who is"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 생략 가능한 부분을 고르시오.\nThe man who is waiting for my father is Tom.",
+    "o": [
+      "1. waiting",
+      "2. who is"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 생략 가능한 부분을 고르시오.\nDid you read the letter which was written by John?",
+    "o": [
+      "1. the letter",
+      "2. which was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 생략 가능한 부분을 고르시오.\nThe man who is running on the street is my uncle.",
+    "o": [
+      "1. who is",
+      "2. who is running"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 생략 가능한 부분을 고르시오.\nI like the library which was built in 1881.",
+    "o": [
+      "1. which was",
+      "2. which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 생략 가능한 부분을 고르시오.\nThe boy who is standing by the tree seems hungry.",
+    "o": [
+      "1. who is",
+      "2. who"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 생략 가능한 부분을 고르시오.\nDid you see the man that I met in the library?",
+    "o": [
+      "1. that",
+      "2. the man"
+    ],
+    "ans": 1
+  }
+]

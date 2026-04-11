@@ -1,0 +1,258 @@
+[
+  {
+    "q": "Both my mother *** my father love me.",
+    "o": [
+      "1. and",
+      "2. or"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Both Jane and Alice *** me.",
+    "o": [
+      "1. love",
+      "2. loves"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Both my mother and my father *** me.",
+    "o": [
+      "1. love",
+      "2. loves"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Both Jane *** Alice love me.",
+    "o": [
+      "1. and",
+      "2. or"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Both Tom *** John love me.",
+    "o": [
+      "1. and",
+      "2. or"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Both Tom and John *** me.",
+    "o": [
+      "1. love",
+      "2. loves"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Both the movie *** the book are interesting.",
+    "o": [
+      "1. and",
+      "2. or"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Both the movie and the book *** interesting.",
+    "o": [
+      "1. is",
+      "2. are"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "그는 의사가 아니라 간호사이다.",
+    "o": [
+      "1. He is not a doctor but a nurse.",
+      "2. He is not a nurse but a doctor."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그는 학생이 아니라 선생님이다.",
+    "o": [
+      "1. He is not a teacher but a student.",
+      "2. He is not a student but a teacher."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "그는 행복하지 않고 슬프다.",
+    "o": [
+      "1. He is not sad but happy.",
+      "2. He is not happy but sad."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "내가 사랑하는 건 네가 아니라 돈이다.",
+    "o": [
+      "1. What I love is not you but money.",
+      "2. What I love is not money but you."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "내 개는 검은색이 아니라 흰색이다.",
+    "o": [
+      "1. My dog is not black but white.",
+      "2. My dog is not white but black."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Not only you but also he *** invited.",
+    "o": [
+      "1. were",
+      "2. was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He as well as you *** invited.",
+    "o": [
+      "1. were",
+      "2. was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Not only we but also he *** you.",
+    "o": [
+      "1. love",
+      "2. loves"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He as well as we *** you.",
+    "o": [
+      "1. love",
+      "2. loves"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Not only you but also he *** satisfied with the results.",
+    "o": [
+      "1. was",
+      "2. were"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He as well as you *** satisfied with the results.",
+    "o": [
+      "1. was",
+      "2. were"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Either Jane *** Alice is my family.",
+    "o": [
+      "1. and",
+      "2. or"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Either Jane *** Alice is my family.",
+    "o": [
+      "1. but",
+      "2. or"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Either Jane *** Alice is my family.",
+    "o": [
+      "1. nor",
+      "2. or"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Either Jane *** Alice is my family.",
+    "o": [
+      "1. for",
+      "2. or"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Either Jane or Alice *** my family.",
+    "o": [
+      "1. are",
+      "2. is"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have neither a brother *** a sister.",
+    "o": [
+      "1. or",
+      "2. nor"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** Jane or Mary is my family.",
+    "o": [
+      "1. neither",
+      "2. either"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** Jane or Mary is my family.",
+    "o": [
+      "1. both",
+      "2. either"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have neither a brother *** a sister.",
+    "o": [
+      "1. and",
+      "2. nor"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have neither a brother *** a sister.",
+    "o": [
+      "nor",
+      "but"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have neither a brother *** a sister.",
+    "o": [
+      "1. but also",
+      "2. nor"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have *** a brother nor a sister.",
+    "o": [
+      "1. either",
+      "2. neither"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have *** a brother nor a sister.",
+    "o": [
+      "1. neither",
+      "2. both"
+    ],
+    "ans": 1
+  }
+]

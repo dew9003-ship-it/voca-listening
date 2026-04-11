@@ -1,0 +1,378 @@
+[
+  {
+    "q": "내게 컴퓨터가 있으면 좋을텐데.",
+    "o": [
+      "1. I wish I had a computer.",
+      "2. I wish I had had a computer."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "내게 컴퓨터가 있었다면 좋았을텐데.",
+    "o": [
+      "1. I wish I had a computer.",
+      "2. I wish I had had a computer."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "눈이 영원히 있다면 좋을텐데.",
+    "o": [
+      "1. I wish the snow would stay forever.",
+      "2. I wish the snow would have stayed forever."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "눈이 영원히 있었다면 좋았을텐데.",
+    "o": [
+      "1. I wish the snow would stay forever.",
+      "2. I wish the snow would have stayed forever."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "지금 이걸 알면 좋을텐데.",
+    "o": [
+      "1. I wish I had found this then.",
+      "2. I wish I found this now."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "그때 이걸 알았다면 좋았을텐데.",
+    "o": [
+      "1. I wish I had found this then.",
+      "2. I wish I found this now."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그가 나와 함께 있다면 좋을텐데.",
+    "o": [
+      "1. I wish he had been with me.",
+      "2. I wish he were here with me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "그가 나와 함께 있었다면 좋았을텐데.",
+    "o": [
+      "1. I wish he had been with me.",
+      "2. I wish he were here with me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "지금 보다 더 크면 좋을텐데.",
+    "o": [
+      "1. I wish I were a little taller than now.",
+      "2. I wish I had been a little taller then."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그때 더 컸다면 좋았을텐데.",
+    "o": [
+      "1. I wish I were a little taller than now.",
+      "2. I wish I had been a little taller then."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "어제밤에 너와 함께 영화를 봤다면 좋았을텐데.",
+    "o": [
+      "1. I wish I had seen the movie with you last night.",
+      "2. I wish I saw the movie with you tonight."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "오늘밤 너와 함께 영화를 보면 좋을텐데.",
+    "o": [
+      "1. I wish I had seen the movie with you last night.",
+      "2. I wish I saw the movie with you tonight."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "지금 보다 더 크면 좋을텐데.",
+    "o": [
+      "1. I wish I were a little taller than now.",
+      "2. I wish I was a little taller than now."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그는 도서관에 모든책을 읽는것 처럼 말한다.",
+    "o": [
+      "1. He talks as if he read all the books in the library.",
+      "2. He talks as if he had read all the books in the library."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그는 도서관에 모든책을 읽었던것 처럼 말한다.",
+    "o": [
+      "1. He talks as if he read all the books in the library.",
+      "2. He talks as if he had read all the books in the library."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "그는 도서관에 모든책을 읽은것 처럼 말한다.",
+    "o": [
+      "1. He talks as if he read all the books in the library.",
+      "2. He talks as if he reads all the books in the library."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그녀는 마치 수퍼모델인것 처럼 말한다.",
+    "o": [
+      "1. She talks as if she were a supermodel.",
+      "2. She talks as if she was a supermodel."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그녀는 마치 수퍼모델이었던것 처럼 말한다.",
+    "o": [
+      "1. She talks as if she were a supermodel.",
+      "2. She talks as if she had been a supermodel."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "그녀는 마치 수퍼모델인것 처럼 말한다.",
+    "o": [
+      "1. She talks as if she were a supermodel.",
+      "2. She talks as if she is a supermodel."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "시간이 충분히 있다면 좋을텐데.",
+    "o": [
+      "1. I wish I had enough time now.",
+      "2. I wish I have enough time now."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I am sorry I don't have a computer.",
+    "o": [
+      "1. I wish I had a computer.",
+      "2. I wish I had had a computer."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I am sorry I didn't have a computer.",
+    "o": [
+      "1. I wish I had a computer.",
+      "2. I wish I had had a computer."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am sorry the snow won't stay forever.",
+    "o": [
+      "1. I wish the snow would stay forever.",
+      "2. I wish the snow would have stayed forever."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I am sorry the snow wouldn't stay forever.",
+    "o": [
+      "1. I wish the snow would stay forever.",
+      "2. I wish the snow would have stayed forever."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am sorry that I don't find this now.",
+    "o": [
+      "1. I wish I had found this then.",
+      "2. I wish I found this now."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am sorry that I didn't find this then.",
+    "o": [
+      "1. I wish I had found this then.",
+      "2. I wish I found this now."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I am sorry that he isn't with me.",
+    "o": [
+      "1. I wish he had been with me.",
+      "2. I wish he were here with me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am sorry that he wasn't with me.",
+    "o": [
+      "1. I wish he had been with me.",
+      "2. I wish he were here with me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I am sorry that I am not a little taller than now.",
+    "o": [
+      "1. I wish I were a little taller than now.",
+      "2. I wish I had been a little taller then."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I am sorry that I wasn't a little taller then.",
+    "o": [
+      "1. I wish I were a little taller than now.",
+      "2. I wish I had been a little taller then."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am sorry that I didn't see the movie with you last night..",
+    "o": [
+      "1. I wish I had seen the movie with you last night.",
+      "2. I wish I saw the movie with you tonight."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I am sorry that I don't see the movie with you tonight.",
+    "o": [
+      "1. I wish I had seen the movie with you last night.",
+      "2. I wish I saw the movie with you tonight."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "In fact, he doesn't read all the books in the library.",
+    "o": [
+      "1. He talks as if he read all the books in the library.",
+      "2. He talks as if he had read all the books in the library."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "In fact, he didn't read all the books in the library.",
+    "o": [
+      "1. He talks as if he read all the books in the library.",
+      "2. He talks as if he had read all the books in the library."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "In fact, she isn't a supermodel.",
+    "o": [
+      "1. She talks as if she were a supermodel.",
+      "2. She talks as if she was a supermodel."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "In fact, she wasn't a supermodel.",
+    "o": [
+      "1. She talks as if she were a supermodel.",
+      "2. She talks as if she had been a supermodel."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am sorry I don't have enough time now.",
+    "o": [
+      "1. I wish I had enough time now.",
+      "2. I wish I have enough time now."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It's time you *** your homework.",
+    "o": [
+      "1. finish",
+      "2. finished"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It's time for you to *** your homework.",
+    "o": [
+      "1. finish",
+      "2. finished"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It's about time for you to *** to school.",
+    "o": [
+      "1. go",
+      "2. went"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It's about time you *** to school.",
+    "o": [
+      "1. go",
+      "2. went"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It's high time you *** home.",
+    "o": [
+      "1. go",
+      "2. went"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It's time for you to *** home.",
+    "o": [
+      "1. go",
+      "2. went"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It's time you *** playing computer games.",
+    "o": [
+      "1. stop",
+      "2. stopped"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It's time for you to *** playing computer games.",
+    "o": [
+      "1. stop",
+      "2. stopped"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It's time you *** to bed. It's too late.",
+    "o": [
+      "1. go",
+      "2. went"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It's time for you to *** to bed. It's too late.",
+    "o": [
+      "1. go",
+      "2. went"
+    ],
+    "ans": 1
+  }
+]

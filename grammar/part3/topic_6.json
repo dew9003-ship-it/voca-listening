@@ -1,0 +1,162 @@
+[
+  {
+    "q": "He gave me a watch.",
+    "o": [
+      "1. I was given to a watch by him.",
+      "2. I was given a watch by him."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He gave me a watch.",
+    "o": [
+      "1. A watch was given to me by him.",
+      "2. A watch was given me by him."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom teaches us English.",
+    "o": [
+      "1. We are taught English by Tom.",
+      "2. We are taught to English by Tom."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom teaches us English.",
+    "o": [
+      "1. English is taught us by Tom.",
+      "2. English is taught to us by Tom."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He sent me an email.",
+    "o": [
+      "1. An email was sent to me by him.",
+      "2. An email was sent me by him."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She told me the fact.",
+    "o": [
+      "1. I was told the fact by her.",
+      "2. I was told to the fact by her."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She told me the fact.",
+    "o": [
+      "1. The fact was told to me by her.",
+      "2. The fact was told me by her."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He gave me some money.",
+    "o": [
+      "1. I was given to some money by him.",
+      "2. I was given some money by him."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He gave me some money.",
+    "o": [
+      "1. Some money was given to me by him.",
+      "2. Some money was given me by him."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom asked me a question.",
+    "o": [
+      "1. I was asked a question by Tom.",
+      "2. I was asked of a question by Tom."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom asked me a question.",
+    "o": [
+      "1. A question was asked of me by Tom.",
+      "2. A question was asked to me by Tom."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My mother bought me a bag.",
+    "o": [
+      "1. A bag was bought for me by my mother.",
+      "2. A bag was bought me by my mother."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She sent me a present.",
+    "o": [
+      "1. A present was sent to me by her.",
+      "2. A present was sent me by her."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He found her a pen.",
+    "o": [
+      "1. She was found a pen by him.",
+      "2. She was found for a pen by him."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He found her a pen.",
+    "o": [
+      "1. A pen was found for her by him.",
+      "2. A pen was found to her by him."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He gave me a watch.",
+    "o": [
+      "1. I was given to a watch by him.",
+      "2. I was given a watch by him."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He gave me a watch.",
+    "o": [
+      "1. A watch was given to me by him.",
+      "2. A watch was given me by him."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom taught us English.",
+    "o": [
+      "1. We were taught English by Tom.",
+      "2. We were taught to English by Tom."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom taught us English.",
+    "o": [
+      "1. English was taught to us by Tom.",
+      "2. English was taught us by Tom."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My father made me a desk.",
+    "o": [
+      "1. A desk was made to me by My father.",
+      "2. A desk was made for me by My father."
+    ],
+    "ans": 2
+  }
+]

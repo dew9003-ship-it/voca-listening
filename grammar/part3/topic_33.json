@@ -1,0 +1,210 @@
+[
+  {
+    "q": "다음 중 바른 문장을 고르시오.",
+    "o": [
+      "1. Playing computer games is exciting.",
+      "2. Play computer games is exciting."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 바른 문장을 고르시오.",
+    "o": [
+      "1. I like playing computer games.",
+      "2. I like play computer games."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 바른 문장을 고르시오.",
+    "o": [
+      "1. My hobby is playing computer games.",
+      "2. My hobby is play computer games."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 바른 문장을 고르시오.",
+    "o": [
+      "1. He stopped playing computer games.",
+      "2. He stopped play computer games."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 동명사가 쓰인 문장을 고르시오.",
+    "o": [
+      "1. My hobby is playing computer games.",
+      "2. He is playing computer games."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "동명사의 형태가 바른것은?",
+    "o": [
+      "1. beginning",
+      "2. begining"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "동명사의 형태가 바른것은?",
+    "o": [
+      "1. forgeting",
+      "2. forgetting"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "동명사의 형태가 바른것은?",
+    "o": [
+      "1. making",
+      "2. makeing"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "동명사의 형태가 바른것은?",
+    "o": [
+      "1. studying",
+      "2. studing"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "동명사의 형태가 바른것은?",
+    "o": [
+      "1. lieing",
+      "2. lying"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "동명사의 형태가 바른것은?",
+    "o": [
+      "1. dieing",
+      "2. dying"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "동명사의 형태가 바른것은?",
+    "o": [
+      "1. swimming",
+      "2. swiming"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "동명사의 형태가 바른것은?",
+    "o": [
+      "1. running",
+      "2. runing"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "동명사의 형태가 바른것은?",
+    "o": [
+      "1. ising",
+      "2. being"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "동명사의 형태가 바른것은?",
+    "o": [
+      "1. aming",
+      "2. being"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "동명사의 형태가 바른것은?",
+    "o": [
+      "1. areing",
+      "2. being"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 주어로 쓰인 동명사는?",
+    "o": [
+      "1. Playing computer games is exciting.",
+      "2. I like playing computer games."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 목적어로 쓰인 동명사는?",
+    "o": [
+      "1. My hobby is playing computer games.",
+      "2. I like playing the piano."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 주어로 쓰인 동명사는?",
+    "o": [
+      "1. My hobby is playing computer games.",
+      "2. Playing the piano is my hobby."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 목적어로 쓰인 동명사는?",
+    "o": [
+      "1. He stopped playing computer games.",
+      "2. My hobby is collecting stamps."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 주어로 쓰인 동명사는?",
+    "o": [
+      "1. Watching a soccer game is exciting.",
+      "2. I like watching a soccer game."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 목적어로 쓰인 동명사는?",
+    "o": [
+      "1. Playing computer games is exciting.",
+      "2. I like playing computer games."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 보어로 쓰인 동명사는?",
+    "o": [
+      "1. My hobby is playing computer games.",
+      "2. I like playing the piano."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 보어로 쓰인 동명사는?",
+    "o": [
+      "1. My hobby is playing computer games.",
+      "2. Playing the piano is my hobby."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 보어로 쓰인 동명사는?",
+    "o": [
+      "1. He stopped playing computer games.",
+      "2. My hobby is collecting stamps."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 목적어로 쓰인 동명사는?",
+    "o": [
+      "1. Watching a soccer game is exciting.",
+      "2. I like watching a soccer game."
+    ],
+    "ans": 2
+  }
+]

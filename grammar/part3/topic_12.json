@@ -1,0 +1,354 @@
+[
+  {
+    "q": "It's one of the most famous stories ***.",
+    "o": [
+      "1. in the world",
+      "2. than the world"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "What can run *** of all animals?",
+    "o": [
+      "1. faster",
+      "2. fastest"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "What can run fastest ***?",
+    "o": [
+      "1. in all animals",
+      "2. of all animals"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Jejudo is one of *** islands in Korea.",
+    "o": [
+      "1. larger",
+      "2. the largest"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It's one of *** famous stories in the world.",
+    "o": [
+      "1. more",
+      "2. the most"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Jejudo is one of the largest islands ***.",
+    "o": [
+      "1. in Korea",
+      "2. of Korea"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My homework is *** as much as yours.",
+    "o": [
+      "1. two",
+      "2. twice"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My homework is *** as much as yours.",
+    "o": [
+      "1. three",
+      "2. three times"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Her eyes are twice as *** as yours.",
+    "o": [
+      "1. big",
+      "2. bigger"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Her eyes are twice *** than yours.",
+    "o": [
+      "1. big",
+      "2. bigger"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My smartphone is twice as big *** yours.",
+    "o": [
+      "1. as",
+      "2. than"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My smartphone is twice as *** as yours.",
+    "o": [
+      "1. big",
+      "2. bigger"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It's *** of the most famous stories in the world.",
+    "o": [
+      "1. one",
+      "2. two"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It's one of the most famous *** in the world.",
+    "o": [
+      "1. story",
+      "2. stories"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It's one of the most famous *** in the world.",
+    "o": [
+      "1. storys",
+      "2. stories"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Seoul is five times *** than mokpo.",
+    "o": [
+      "1. big",
+      "2. bigger"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Seoul is *** bigger than mokpo.",
+    "o": [
+      "1. five",
+      "2. five times"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Which do you like ***, pizza or chicken?",
+    "o": [
+      "1. better",
+      "2. best"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom is *** of the most famous writers in the world.",
+    "o": [
+      "1. one",
+      "2. more"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom is one of the *** famous writers in the world.",
+    "o": [
+      "1. most",
+      "2. more"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom is one of the most famous *** in the world.",
+    "o": [
+      "1. writer",
+      "2. writers"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom is one of the most famous writers ***.",
+    "o": [
+      "1. in the world",
+      "2. of the world"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Your bike is twice heavier *** mine.",
+    "o": [
+      "1. as",
+      "2. than"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Your bike is twice as heavy *** mine.",
+    "o": [
+      "1. as",
+      "2. than"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The fish grows bigger and ***.",
+    "o": [
+      "1. big",
+      "2. bigger"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He ran to the finish line as fast as ***.",
+    "o": [
+      "1. possible",
+      "2. more possible"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He ran to the finish line *** possible.",
+    "o": [
+      "1. as fast as",
+      "2. faster than"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He ran to the finish line as fast as ***.",
+    "o": [
+      "1. he can",
+      "2. he could"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He studies as hard as ***.",
+    "o": [
+      "1. he can",
+      "2. he could"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The more I see him, *** I like him.",
+    "o": [
+      "1. more",
+      "2. the more"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The more pizza you order, *** coupons you'll get.",
+    "o": [
+      "the more",
+      "more"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The bigger the box is, *** it is.",
+    "o": [
+      "the more",
+      "the better"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The harder you work, *** grade you will get.",
+    "o": [
+      "the better",
+      "the more"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** you go up, the more you can see.",
+    "o": [
+      "the higher",
+      "the more"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Her eyes are *** big than yours.",
+    "o": [
+      "1. less",
+      "2. more"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Her eyes are *** pretty than yours.",
+    "o": [
+      "1. less",
+      "2. more"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Jane is *** pretty than Mary.",
+    "o": [
+      "1. less",
+      "2. more"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Who is ***, Jane or Mary?",
+    "o": [
+      "1. pretty",
+      "2. prettier"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Which do you like ***, pizza or chicken?",
+    "o": [
+      "1. better",
+      "2. much"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is the *** handsome man that I have ever seen.",
+    "o": [
+      "1. more",
+      "2. most"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The game is the *** exciting one that I have ever played.",
+    "o": [
+      "1. more",
+      "2. most"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She is the *** beautiful girl that I have ever met.",
+    "o": [
+      "1. more",
+      "2. most"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** man in the world died in 2007.",
+    "o": [
+      "1. the taller",
+      "2. the tallest"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Which one is your *** favorite pen?",
+    "o": [
+      "1. the most",
+      "2. most"
+    ],
+    "ans": 2
+  }
+]

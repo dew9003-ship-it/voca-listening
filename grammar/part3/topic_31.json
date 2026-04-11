@@ -1,0 +1,162 @@
+[
+  {
+    "q": "He seems to work hard.",
+    "o": [
+      "1. It seems that he works hard.",
+      "2. It seems that he worked hard."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He seemed to work hard.",
+    "o": [
+      "1. It seemed that he worked hard.",
+      "2. It seemed that he works hard."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He seems to have worked hard.",
+    "o": [
+      "1. It seemed that he worked hard.",
+      "2. It seems that he worked hard."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am sorry that I made the same mistake again.",
+    "o": [
+      "1. I am sorry to have made the same mistake again.",
+      "2. I am sorry to make the same mistake again."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I was sorry that I made the same mistake again.",
+    "o": [
+      "1. I am sorry to have made the same mistake again.",
+      "2. I was sorry to make the same mistake again."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am happy that I was invited to the party.",
+    "o": [
+      "1. I am happy to have been invited to the party.",
+      "2. I am happy to be invited to the party."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I was happy that I was invited to the party.",
+    "o": [
+      "1. I was happy to have been invited to the party.",
+      "2. I was happy to be invited to the party."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am lucky that I was chosen a leader.",
+    "o": [
+      "1. I am lucky to be chosen a leader.",
+      "2. I am lucky to have been chosen a leader."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It seems that he is a doctor.",
+    "o": [
+      "1. He seems to be a doctor.",
+      "2. He seems to have been a doctor."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It seems that he was a doctor.",
+    "o": [
+      "1. He seems to be a doctor.",
+      "2. He seems to have been a doctor."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It seemed that he was a doctor.",
+    "o": [
+      "1. He seemed to be a doctor.",
+      "2. He seemsed to have been a doctor."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It seemed that he had been a doctor.",
+    "o": [
+      "1. He seemed to be a doctor.",
+      "2. He seemsed to have been a doctor."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It seems that he is rich.",
+    "o": [
+      "1. He seems to be rich.",
+      "2. He seems to have been rich."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It seems that he was rich.",
+    "o": [
+      "1. He seems to be rich.",
+      "2. He seems to have been rich."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It seemed that he was rich.",
+    "o": [
+      "1. He seemed to be rich.",
+      "2. He seemed to have been rich."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It seems that he is waiting for me now.",
+    "o": [
+      "1. He seems to be waiting for me now.",
+      "2. He seems to is wating for me now."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It seems that he waited for me.",
+    "o": [
+      "1. He seems to have waited for me.",
+      "2. He seems to wait for me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It seems that Tim is sick.",
+    "o": [
+      "1. Tim seems to be sick.",
+      "2. Tim seems to have been sick."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It seems that Tim was sick.",
+    "o": [
+      "1. Tim seems to be sick.",
+      "2. Tim seems to have been sick."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It seemed that Tim was sick.",
+    "o": [
+      "1. Tim seemed to be sick.",
+      "2. Tim seems to have been sick."
+    ],
+    "ans": 1
+  }
+]

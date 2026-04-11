@@ -1,0 +1,162 @@
+[
+  {
+    "q": "As it was fine, I went for a walk.",
+    "o": [
+      "1. It being fine, I went for a walk.",
+      "2. It wasing fine, I went for a walk."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "When Jane cleans the room, her sister washes the dishes.",
+    "o": [
+      "1. Jane cleaning the room, her sister washes the dishes.",
+      "2. Cleaning the room, her sister washes the dishes."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "As it snowed a lot, we have to walk to school.",
+    "o": [
+      "1. It snowing a lot, we have to walk to school.",
+      "2. It having snowed a lot, we have to walk to school."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "As it is Christmas, all the people are joyful.",
+    "o": [
+      "1. It being Christmas, all the people are joyful.",
+      "2. It is been Christmas, all the people are joyful."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Though I studied hard last night, I can’t answer the question.",
+    "o": [
+      "1. Though having studied hard last night, I can’t answer the question.",
+      "2. Though studying hard last night, I can’t answer the question."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She studies English with her MP3 ***.",
+    "o": [
+      "1. turning on",
+      "2. turned on"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He fell asleep on the sofa with the TV ***.",
+    "o": [
+      "1. turning on",
+      "2. turned on"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He takes a walk with his dog *** him.",
+    "o": [
+      "1. followed",
+      "2. following"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He was studying English with his friend *** a book.",
+    "o": [
+      "1. reading",
+      "2. read"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She cooked dinner, with her baby ***.",
+    "o": [
+      "1. sleeping",
+      "2. slept"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Don't speak with your mouth ***.",
+    "o": [
+      "1. full",
+      "2. fully"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "generally speaking",
+    "o": [
+      "1. 일반적으로 말하자면",
+      "2. 솔직히 말하자면"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "frankly speaking",
+    "o": [
+      "1. 일반적으로 말하자면",
+      "2. 솔직히 말하자면"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "judging from",
+    "o": [
+      "1. ~로 판단하건데",
+      "2. ~을 감안한다면"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "considering that",
+    "o": [
+      "1. ~로 판단하건데",
+      "2. ~을 감안한다면"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "strictly speaking",
+    "o": [
+      "1. 엄격히 말하자면",
+      "2. 대강 말하자면"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "roughly speaking",
+    "o": [
+      "1. 엄격히 말하자면",
+      "2. 대강 말하자면"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "talking of",
+    "o": [
+      "1. ~의 이야기가 나왔으니 말인데",
+      "2. ~와 비교해보면"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "compared with",
+    "o": [
+      "1. ~의 이야기가 나왔으니 말인데",
+      "2. ~와 비교해보면"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "As there are lots of homework, he can't watch TV.",
+    "o": [
+      "1. There being lots of homework, he can't watch TV.",
+      "2. Being lots of homework, he can't watch TV."
+    ],
+    "ans": 1
+  }
+]

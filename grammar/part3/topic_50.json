@@ -1,0 +1,242 @@
+[
+  {
+    "q": "*** of them is studying English.",
+    "o": [
+      "1. all",
+      "2. each"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** of them are studying English.",
+    "o": [
+      "1. all",
+      "2. every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** of them are studying English.",
+    "o": [
+      "1. both",
+      "2. every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** of us were very happy.",
+    "o": [
+      "1. both",
+      "2. every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** child was smart and pretty.",
+    "o": [
+      "1. both",
+      "2. every"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** child was smart and pretty.",
+    "o": [
+      "1. both",
+      "2. each"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** country has its own culture.",
+    "o": [
+      "1. both",
+      "2. every"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** of them passed the test.",
+    "o": [
+      "1. each",
+      "2. every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** of them passed the test.",
+    "o": [
+      "1. all",
+      "2. every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** of them passed the test.",
+    "o": [
+      "1. both",
+      "2. every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** were satisfied with the results.",
+    "o": [
+      "1. every",
+      "2. both"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** were surprised at the news.",
+    "o": [
+      "1. every",
+      "2. both"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Every man *** a car.",
+    "o": [
+      "1. has",
+      "2. have"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Something *** wrong with my car.",
+    "o": [
+      "1. is",
+      "2. are"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Ten years *** not a long time to wait.",
+    "o": [
+      "1. is",
+      "2. are"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mathematics *** not easy to learn.",
+    "o": [
+      "1. is",
+      "2. are"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Studying English *** not difficult.",
+    "o": [
+      "1. is",
+      "2. are"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The number of people waiting for a bus *** increasing.",
+    "o": [
+      "1. is",
+      "2. are"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The number of newborns *** growing.",
+    "o": [
+      "1. is",
+      "2. are"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "A number of people *** waiting for the bus.",
+    "o": [
+      "1. is",
+      "2. are"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Both Tom and Mark *** Jane.",
+    "o": [
+      "1. loves",
+      "2. love"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The rich *** not always happy.",
+    "o": [
+      "1. is",
+      "2. are"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Time and tide *** for no man.",
+    "o": [
+      "1. waits",
+      "2. wait"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Slow and steady *** the race.",
+    "o": [
+      "1. wins",
+      "2. win"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Bread and butter *** always my breakfast.",
+    "o": [
+      "1. is",
+      "2. are"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Curry and rice *** my usual lunch.",
+    "o": [
+      "1. is",
+      "2. are"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The poor *** not always unhappy.",
+    "o": [
+      "1. is",
+      "2. are"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Both the children *** watching TV.",
+    "o": [
+      "1. is",
+      "2. are"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "All the students *** playing soccer.",
+    "o": [
+      "1. is",
+      "2. are"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "All the boys *** wearing school uniforms.",
+    "o": [
+      "1. is",
+      "2. are"
+    ],
+    "ans": 2
+  }
+]

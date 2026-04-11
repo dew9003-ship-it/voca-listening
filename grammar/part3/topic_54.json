@@ -1,0 +1,178 @@
+[
+  {
+    "q": "The teacher said to us, \"Be quiet in the classroom.\"",
+    "o": [
+      "1. The teacher told us to be quiet in the classroom.",
+      "2. The teacher said us to be quiet in the classroom."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He said to me, \"Please close the window.\"",
+    "o": [
+      "1. He asked me to close the window.",
+      "2. He asked me close the window."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The office said to them, \"Don‘t go out.\"",
+    "o": [
+      "1. The officer ordered us not to go out.",
+      "2. The officer ordered them not to go out."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The doctor said to him, \"Don‘t smoke too much.\"",
+    "o": [
+      "1. The doctor advised him not smoke too much.",
+      "2. The doctor advised him not to smoke too much."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He said to the students, \"Don't run in the classroom.\"",
+    "o": [
+      "1. He ordered the students not to run in the classroom.",
+      "2. He ordered the students don't run in the classroom."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mom said to me, \"Be honest all the time.\"",
+    "o": [
+      "1. Mom told me to be honest all the time.",
+      "2. Mom told me be honest all the time."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The doctor said to me, \"Take a walk for 30 minutes a day.\"",
+    "o": [
+      "1. The doctor told me take a walk for 30 minutes a day.",
+      "2. The doctor told me to take a walk for 30 minutes a day."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He said to me, \"Do not take pictures in the museum.\"",
+    "o": [
+      "1. He ordered me to not take pictures in the museum.",
+      "2. He ordered me not to take pictures in the museum."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My teacher said to me, \"Don't be late for school.\"",
+    "o": [
+      "1. My teacher ordered me not to be late for school.",
+      "2. My teacher ordered me to be not late for school."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She said to me, \"Take care of my baby.\"",
+    "o": [
+      "1. She asked me to take care of my baby.",
+      "2. She asked me to take care of her baby."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The general said to the soldiers, \"Fire!\"",
+    "o": [
+      "1. The general ordered the soldiers to fire.",
+      "2. The general ordered the soldiers fire."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She said to me, \"Don't leave me, please.\"",
+    "o": [
+      "1. She asked me not to leave her.",
+      "2. She asked me not to leave me."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mom said to me, \"Play with your friends.\"",
+    "o": [
+      "1. Mom told me playing with my friends.",
+      "2. Mom told me to play with my friends."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The dentist said to me, \"Don't eat too much sugar.\"",
+    "o": [
+      "1. The dentist advised me not to eat too much sugar.",
+      "2. The dentist advised me to not eat too much sugar."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The woman said to me, \"Turn right at the corner.\"",
+    "o": [
+      "1. The woman told me turn right at the corner.",
+      "2. The woman told me to turn right at the corner."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The doctor said to him, \"Don't eat too much fatty food.\"",
+    "o": [
+      "1. The doctor advised him not to eat too much fatty food.",
+      "2. The doctor advised him to eat too much fatty food."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The doctor said to her, \"Don't work too hard.\"",
+    "o": [
+      "1. His doctor told him not to work too hard.",
+      "2. His doctor told him not work too hard."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He said to us, \"Stop making a noise.\"",
+    "o": [
+      "1. He told us to stop making a noise.",
+      "2. He told us stop making a noise."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mother said to me, \"Don't study too much.\"",
+    "o": [
+      "1. Mother told me to study too much.",
+      "2. Mother told me not to study too much."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mother said to me, \"Don't watch TV.\"",
+    "o": [
+      "1. Mother told me not to watch TV.",
+      "2. Mother told me to not watch TV."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "John said to us, \"Let's go to the movies.\"",
+    "o": [
+      "1. John suggested that we should go to the movies.",
+      "2. John said that we should go to the movies."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Jane said to us, \"Let's go fihsing on Saturday.\"",
+    "o": [
+      "1. Jane suggested that we should have gone fishing on Saturday.",
+      "2. Jane suggested that we should go fishing on Saturday."
+    ],
+    "ans": 2
+  }
+]

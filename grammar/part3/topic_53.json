@@ -1,0 +1,266 @@
+[
+  {
+    "q": "I said to him, \"How can you play so well?\"",
+    "o": [
+      "1. I asked him how could he play so well.",
+      "2. I asked him how he could play so well."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I said to him, \"How can you play so well?\"",
+    "o": [
+      "1. I asked him how you could play so well.",
+      "2. I asked him how he could play so well."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He said to me, \"How can you play so well?\"",
+    "o": [
+      "1. He asked me how I could play so well.",
+      "2. He asked me how you could play so well."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He said to me, \"How can you play so well?\"",
+    "o": [
+      "1. He asked me how I could play so well.",
+      "2. He asked me how he could play so well."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I said to him, \"Do you like music?\"",
+    "o": [
+      "1. I asked him if he liked music.",
+      "2. I asked him if you liked music."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I said to him, \"Do you like music?\"",
+    "o": [
+      "1. I asked him if he liked music.",
+      "2. I asked him if did he like music."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I said to him, \"Can you play the piano?\"",
+    "o": [
+      "1. I asked him if he could play the piano.",
+      "2. I asked him if could he play the piano."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I said to him, \"Can you play the piano?\"",
+    "o": [
+      "1. I asked him if he could play the piano.",
+      "2. I asked him if you could play the piano."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I said to her, \"Where do you live?\"",
+    "o": [
+      "1. I asked her where do you live.",
+      "2. I asked her where she lived."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I said to her, \"Where do you live?\"",
+    "o": [
+      "1. I asked her where she lives.",
+      "2. I asked her where she lived."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She said to me, \"Where do you live?\"",
+    "o": [
+      "1. She asked me where I lived.",
+      "2. She asked me where did I live."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She said to me, \"Where do you live?\"",
+    "o": [
+      "1. She asked me where I lived.",
+      "2. She asked me where you lived."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She said to me, \"Which bag will you use?\"",
+    "o": [
+      "1. She asked me which bag I would use.",
+      "2. She asked me which I would use bag."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She said to me, \"Which bag will you use?\"",
+    "o": [
+      "1. She asked me which bag I would use.",
+      "2. She asked me which bag I will use."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She said to her brother, \"Did you use my cell phone?\"",
+    "o": [
+      "1. She asked her brother if he had used her cell phone.",
+      "2. She asked her brother if you had used her cell phone."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She said to her brother, \"Did you use my cell phone?\"",
+    "o": [
+      "1. She asked her brother if he had used her cell phone.",
+      "2. She asked her brother if he used her cell phone."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She said to me, \"Did you use my cell phone?\"",
+    "o": [
+      "1. She asked me if I used her cell phone.",
+      "2. She asked me if I had used her cell phone."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She said to me, \"Did you use my cell phone?\"",
+    "o": [
+      "1. She asked me if had I used her cell phone.",
+      "2. She asked me if I had used her cell phone."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She said to me, \"Will you sell your car?\"",
+    "o": [
+      "1. She asked me would I sell my car.",
+      "2. She asked me if I would sell my car."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She said to me, \"Will you sell your car?\"",
+    "o": [
+      "1. She asked me if I will sell my car.",
+      "2. She asked me if I would sell my car."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I said to him, \"How can you play so well?\"",
+    "o": [
+      "1. I told him how he could play so well.",
+      "2. I asked him how he could play so well."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He said to me, \"How can you play so well?\"",
+    "o": [
+      "1. He asked me how I could play so well.",
+      "2. He told me how I could play so well."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I said to him, \"Do you like music?\"",
+    "o": [
+      "1. I asked him if he liked music.",
+      "2. I told him if he liked music."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I said to him, \"Can you play the piano?\"",
+    "o": [
+      "1. I asked him if he could play the piano.",
+      "2. I told him if he could play the piano."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I said to her, \"Where do you live?\"",
+    "o": [
+      "1. I told her where she lived.",
+      "2. I asked her where she lived."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He said to me, \"Do you like the present?\"",
+    "o": [
+      "1. He asked me if I liked the present.",
+      "2. He told me if I liked the present."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He said to me, \"Do you like the present?\"",
+    "o": [
+      "1. He asked me if I liked the present.",
+      "2. He asked me if I like the present."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He said to me, \"Did you like the present?\"",
+    "o": [
+      "1. He asked me if I liked the present.",
+      "2. He asked me if I had liked the present."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He said to me, \"Did you like the present?\"",
+    "o": [
+      "1. He told me if I had liked the present.",
+      "2. He asked me if I had liked the present."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The reporter said to her, \"When did you start acting?\"",
+    "o": [
+      "1. The reporter asked her when she had started acting.",
+      "2. The reporter told her when she had started acting."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The reporter said to her, \"When did you start acting?\"",
+    "o": [
+      "1. The reporter asked her when she started acting.",
+      "2. The reporter asked her when she had started acting."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He said to me, \"Can I borrow the book?\"",
+    "o": [
+      "1. He asked me if he could borrow the book.",
+      "2. He told me if he could borrow the book."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He said to me, \"Can I borrow the book?\"",
+    "o": [
+      "1. He asked me if he could borrow the book.",
+      "2. He asked me if could he borrow the book."
+    ],
+    "ans": 1
+  }
+]

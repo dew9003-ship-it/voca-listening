@@ -1,0 +1,250 @@
+[
+  {
+    "q": "I need a place *** children can play safely.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He still lives in the house *** he was born.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Did you see the bag *** I put my clothes?",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Is this the room *** he studied?",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I'm looking for a place *** I can stay tonight.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the month *** he is going to come back.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The river *** I swam was deep.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the country *** I grew up.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I know the time *** he will start.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Sunday is the day *** we go to church.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I will never forget the day *** he was born.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the house *** I live.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I remember the days *** we were young.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He arrived at the small city *** his father lived.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you know the time *** he is going to leave?",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the park *** I first met him.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They go to places such as city parks *** they can skate.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I went to the place *** we met for the first time.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I like the country *** we traveled last year.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you know the playground *** he likes to go?",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They went down to the shore *** they met for the first time.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the house *** I was born.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you remember the park *** we first met?",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you remember the day *** we first met?",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom works in the city *** I live.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I remember the store *** I bought this bag.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the building *** my mom works.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It was last night *** my friend visited me.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Do you know the city *** the writer was born?",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Sunday is the day *** we don't go to school.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He returned to the room *** the man was.",
+    "o": [
+      "1. where",
+      "2. when"
+    ],
+    "ans": 1
+  }
+]
