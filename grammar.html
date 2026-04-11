@@ -175,7 +175,7 @@ animation: redFlash 0.45s ease;
 <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 const supabase = createClient('https://uuzhdxangctewuklvmlv.supabase.co','sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F');
-const TOTAL_FALLBACK = 67;
+const TOTAL_FALLBACK = 120;
 
 let audioCtx = null;
 
@@ -441,7 +441,6 @@ renderMenu();
         <div class="topic-title">${escapeHtml(topic.title || `주제 ${topic.id}`)}</div>
       </div>
       <div class="topic-meta">
-        ID: ${escapeHtml(topic.id)}<br>
         ${completed && progress?.lastStudiedAt
           ? `최근 학습: ${new Date(progress.lastStudiedAt).toLocaleDateString('ko-KR')}`
           : '문제를 눌러 시작'}
