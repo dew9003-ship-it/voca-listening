@@ -1,0 +1,250 @@
+[
+  {
+    "q": "I have two dogs. One is black, and *** is white.",
+    "o": [
+      "other",
+      "the other"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have three dogs. One is black, *** is white, and the other is yellow.",
+    "o": [
+      "other",
+      "another"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have three dogs. *** is black, another is white, and the other is yellow.",
+    "o": [
+      "one",
+      "other"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have three dogs. One is black, another is white, and *** is yellow.",
+    "o": [
+      "other",
+      "the other"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I like *** people.",
+    "o": [
+      "another",
+      "other"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I want to eat ***",
+    "o": [
+      "another",
+      "other"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have two dogs. *** is black, and the other is white.",
+    "o": [
+      "one",
+      "some"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** like baseball and others like football.",
+    "o": [
+      "one",
+      "some"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Some like baseball and *** like football.",
+    "o": [
+      "another",
+      "others"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Some play the violin and *** play the piano.",
+    "o": [
+      "other",
+      "others"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** play the violin and others play the piano.",
+    "o": [
+      "one",
+      "some"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "There are three students. One likes Jane, another likes Mary, and *** likes Tom.",
+    "o": [
+      "another",
+      "the other"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "There are three students. One likes Jane, *** likes Mary, and the other likes Tom.",
+    "o": [
+      "another",
+      "the other"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "There are three students. *** likes Jane, another likes Mary, and the other likes Tom.",
+    "o": [
+      "one",
+      "some"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "There are two students. *** is Tom and the other is Jack.",
+    "o": [
+      "one",
+      "some"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "There are two students. One is Tom and *** is Jack.",
+    "o": [
+      "another",
+      "the other"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom and Mary love ***",
+    "o": [
+      "each other",
+      "one another"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He has three dogs. *** is black and the others are white.",
+    "o": [
+      "one",
+      "another"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He has three dogs. One is black and *** are white.",
+    "o": [
+      "others",
+      "the others"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He has three dogs. One is black and *** are white.",
+    "o": [
+      "anothers",
+      "the others"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He has three dogs. One is black and *** are white.",
+    "o": [
+      "the other",
+      "the others"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "There are ten students. *** study English and the others study math.",
+    "o": [
+      "one",
+      "some"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "There are ten students. some study English and *** study math.",
+    "o": [
+      "others",
+      "the others"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "There are ten students. *** studies English and the others study math.",
+    "o": [
+      "one",
+      "some"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have two friends. *** is a teacher and the other is a doctor.",
+    "o": [
+      "one",
+      "some"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have two friends. One is a teacher and *** is a doctor.",
+    "o": [
+      "another",
+      "the other"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have two friends. One is a teacher and *** is a doctor.",
+    "o": [
+      "the other",
+      "other"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I don't want this pen. Can you show me ***?",
+    "o": [
+      "one",
+      "another"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have three pens. One is black, another is red, and *** is blue.",
+    "o": [
+      "other",
+      "the other"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have three pens. *** is black, another is red, and the other is blue.",
+    "o": [
+      "some",
+      "one"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have three pens. One is black, *** is red, and the other is blue.",
+    "o": [
+      "other",
+      "another"
+    ],
+    "ans": 2
+  }
+]

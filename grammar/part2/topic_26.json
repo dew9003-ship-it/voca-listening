@@ -1,0 +1,802 @@
+[
+  {
+    "q": "I have a friend *** is a doctor.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the man *** I saw last night.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I met a girl *** hair is blond.",
+    "o": [
+      "who",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I know a boy *** can speak English well.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She has two sons *** are doctors.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is the boy *** broke the window.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I saw a girl *** hair comes down to   her waist.",
+    "o": [
+      "whose",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "A nurse is a person *** looks after sick.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I need a woman *** can take care of my baby.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I know a boy *** eyes are green.",
+    "o": [
+      "who",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I met the man *** invited me to dinner.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The girl *** is standing next to the window is my cousin.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have a friend *** lives in Tokyo.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have a friend *** father is a teacher.",
+    "o": [
+      "who",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom is the man *** wife is a famous writer.",
+    "o": [
+      "who",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is the teacher *** we love best.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I found the girl *** hair was black.",
+    "o": [
+      "who",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom is a pitcher *** can hit a home run.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom was a handsome boy *** lived next door.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you know that girl *** wears a pink sweater?",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is the man *** broke the window.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I remember the kind nurses *** took care of me.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have a friend *** lives in Seoul.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She has two daughters *** are studying music.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I met a boy *** could speak English well.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have a friend *** name is Tom.",
+    "o": [
+      "who",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I`m taking care of a niece *** parents live in Paris.",
+    "o": [
+      "whose",
+      "who"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The girl *** I saw in the park lives nearby.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "There are many people *** enjoy extreme sports.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "There are people *** make noises in public places.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The tall man *** you met at the party came from Italy.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The boy *** is under the tree is my brother.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Look at the girl *** he is talking to.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is a singer *** I like a lot.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Do you know the girl *** has red hair?",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "There is a lady *** wants to see you.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Look at the big man *** we call Big Mouth.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the man *** gave me the book.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I know the man *** sent me the e-mail.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Terry is the girl *** went there alone.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She is the woman *** I first loved.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "That is the boy *** broke my toys.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is the scientist *** invented this car.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The lady *** is wearing a coat is my aunt.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Look at the boy *** hair is brown.",
+    "o": [
+      "whose",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have a friend *** can dance very well.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The lady *** is in the store is my sister.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mike is a boy *** everyone likes.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The friend *** I met here is Jane.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The boy *** I met on the street is Mr. Kim's son.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Do you know the girl *** is chatting in the room?",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Look at the woman *** is baking cakes.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Did you see the man *** just left?",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the man *** you have to meet.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the girl *** uses magic.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you know the girl *** Mike likes?",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He has two sons *** became scientists.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mary is the girl *** I like best.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom is a student *** is good at science.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is the man *** wife is a doctor.",
+    "o": [
+      "who",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The man *** gave me candies is Mr. White.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mr. Brown is a teacher *** everybody likes.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She is the lady *** teaches us English.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is the man *** I play tennis with on weekends.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I don`t know the person *** is talking over there.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I will meet my cousin *** is coming from New York.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is a doctor *** I often visit.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Look at that boy *** has blue eyes.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The people *** I met in Hawaii were very nice.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "There was a farmer *** son was clever.",
+    "o": [
+      "whose",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you know the girl *** is walking with a dog?",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "People *** like to play sports are healthy.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is the man *** I met yesterday.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She is the girl *** helped me before.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you know the girl *** is talking to Jane?",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I know the girl *** mother is an actress.",
+    "o": [
+      "who",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the boy *** I spoke of a few days ago.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I like people *** smile a lot.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is a person *** lives nearby.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you know that guy *** is standing at the gate?",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Look at the man *** dog is following him.",
+    "o": [
+      "who",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I don't know the woman *** is wearing sunglasses.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I knew the girl *** was passing by me.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The boy *** is carrying a big bag is my brother.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you like that boy *** you met yesterday?",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mary *** lives in this house is my aunt.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I met the girl *** name was Alice.",
+    "o": [
+      "whose",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "There are many people *** work for us.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Zoo doctors are the people *** take care of animals' health.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The farmer *** was working there looked at us.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have a daughter *** is 15 years old.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is the man *** stole Mary's bag.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I met a boy *** can speak three languages.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The woman *** you met yesterday is Ms. Brown.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Did you see the man *** I saw?",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She is thinking about her younger sister *** lives in America.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I know a girl *** sister is a pianist.",
+    "o": [
+      "whose",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Look at the boy *** is skating on the lake.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you remember the girl *** I met last week?",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The man *** is reading a newspaper is Tom.",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  }
+]

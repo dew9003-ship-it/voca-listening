@@ -1,0 +1,178 @@
+[
+  {
+    "q": "You *** a taxi.",
+    "o": [
+      "had better take",
+      "had take better"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You *** eat too much.",
+    "o": [
+      "had better not",
+      "had not better"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You *** go there.",
+    "o": [
+      "had better not",
+      "had not better"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You *** there.",
+    "o": [
+      "had better go",
+      "had go better"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "John would like to *** apples.",
+    "o": [
+      "eats",
+      "eat"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** at a fast food restaurant.",
+    "o": [
+      "use to work",
+      "used to work"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You *** off TV.",
+    "o": [
+      "had turn better",
+      "had better turn"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You had better *** the right place to park.",
+    "o": [
+      "finds",
+      "find"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My family *** to church.",
+    "o": [
+      "used to go",
+      "go used to"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He *** soccer every Sunday.",
+    "o": [
+      "used to plays",
+      "used to play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You *** a rest.",
+    "o": [
+      "had better take",
+      "had take better"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You *** chew gums studying in class.",
+    "o": [
+      "had better",
+      "had not better"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You *** read magazines in class.",
+    "o": [
+      "had better",
+      "had not better"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I used to *** at school.",
+    "o": [
+      "run",
+      "ran"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "A : I have a bad cold.",
+    "o": [
+      "B : You had better take a rest.",
+      "B : You had better study hard."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "A : I have a bad cold.",
+    "o": [
+      "B : You had better see a doctor.",
+      "B : You had better study hard."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "A : I have a bad cold.",
+    "o": [
+      "B : You had better take some medicine.",
+      "B : You had better go out to play."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "A : I have a bad cold.",
+    "o": [
+      "B : You'd better drink warm water.",
+      "B : You'd better drink cold water."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "A : I have a bad cold.",
+    "o": [
+      "B : You'd better drink cold water.",
+      "B : You'd better not drink cold water."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "A : I'd like to get an A in the English exam.",
+    "o": [
+      "B : You had better not study hard.",
+      "B : You had better study hard."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "A : I'd like to hit Tom.",
+    "o": [
+      "B : You'd better hit Tom.",
+      "B : You'd better not hit Tom."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "A : I am very tired.",
+    "o": [
+      "B : You'd better take a break.",
+      "B : You'd better not take a break."
+    ],
+    "ans": 1
+  }
+]

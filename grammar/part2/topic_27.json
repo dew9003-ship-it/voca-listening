@@ -1,0 +1,842 @@
+[
+  {
+    "q": "The river *** flows through London is the Thames.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the book *** he was looking for.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the bike *** I want to buy.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I bought a bicycle *** was made in Korea.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the umbrella *** I lost.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mt. Halla is the mountain *** is in Jejudo.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The fish *** I caught yesterday is still alive.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have lost the watch *** my father bought for me.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The cat *** I keep is cute.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I will take the book *** is on the table.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have a house *** garden is very large.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the ship *** was made in Korea.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The book *** is on the desk is mine.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the novel *** was written by Mr. Park.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We went to Kings Restaurant *** was famous for its fish.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is a carpet *** was made in India.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Look at the church *** was on the hill.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My uncle lives in a house *** is near the river.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He gave me a book *** was very interesting.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The pen *** is in your hand is mine.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the book *** I borrowed from Tom.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He has a camera *** is better than mine.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The house *** he lived in was very nice.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She lives in a house *** has seven bedrooms.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I read a letter *** was written in French.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He has a dog *** has brown eyes.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is wearing the sweater *** I made for him.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Summer is the season *** comes after spring.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "There are animals *** live in the water.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the book *** Minsu liked.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Look at the bird *** is singing in the tree.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the dog *** my mother bought for me.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have a cat *** name is Emily.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The pictures *** we looked at are famous.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the pen *** John bought.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have a box *** is made of wood.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I like the dress *** Anna is wearing.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the story *** my father wrote.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the table *** John made.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I bought a book *** I wanted to read.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the doll *** my mother made.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the picture *** Sumi painted.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Here is the book *** you gave me.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The dog *** is sleeping on the sofa is mine.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I love this house *** is built by my father.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I like story books *** have a lot of pictures.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Here is the picture *** I painted.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I am reading the book *** you gave me.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Look at the huge house *** stands on the hill.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I`m looking for the watch *** I lost yesterday.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Look at the dog *** tail is blue.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom made a table *** color is red.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom has a house *** roof is blue.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom lives in a house *** windows are pretty.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom lives in a house *** garden is beautiful.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom has a cat *** fur is all gray.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Look at the book *** cover is blue.",
+    "o": [
+      "which",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The river *** flows through London is the Thames.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the book *** he was looking for.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the bike *** I want to buy.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I bought a bicycle *** was made in Korea.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the umbrella *** I lost.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mt. Halla is the mountain *** is in Jejudo.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The fish *** I caught yesterday is still alive.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have lost the watch *** my father bought for me.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The cat *** I keep is cute.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I will take the book *** is on the table.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the ship *** was made in Korea.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The book *** is on the desk is mine.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the novel *** was written by Mr. Park.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We went to Kings Restaurant *** was famous for its fish.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is a carpet *** was made in India.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Look at the church *** was on the hill.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My uncle lives in a house *** is near the river.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He gave me a book *** was very interesting.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The pen *** is in your hand is mine.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the book *** I borrowed from Tom.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He has a camera *** is better than mine.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The house *** he lived in was very nice.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She lives in a house *** has seven bedrooms.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I read a letter *** was written in French.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He has a dog *** has brown eyes.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is wearing the sweater *** I made for him.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Summer is the season *** comes after spring.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "There are animals *** live in the water.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the book *** Minsu liked.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Look at the bird *** is singing in the tree.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the dog *** my mother bought me.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The pictures *** we looked at are famous.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the pen *** John bought.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have a box *** is made of wood.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I like the dress *** Anna is wearing.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the story *** my father wrote.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the table *** John made.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I bought a book *** I wanted to read.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the doll *** my mother made.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the picture *** Sumi painted.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Here is the book *** you gave me.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The dog *** is sleeping on the sofa is mine.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I love this house *** is built by my father.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I like story books *** have a lot of pictures.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Here is the picture *** I painted.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am reading the book *** you gave me.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Look at the huge house *** stands on the hill.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I`m looking for the watch *** I lost yesterday.",
+    "o": [
+      "주격 which",
+      "목적격 which"
+    ],
+    "ans": 2
+  }
+]

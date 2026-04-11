@@ -1,0 +1,170 @@
+[
+  {
+    "q": "동명사 인가요 현재분사인가요?\nDo you know that singing girl?",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\na sleeping bag",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\na sleeping baby",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\na smoking man",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\na smoking room",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\na dancing girl",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\na dancing room",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\nShe is teaching English.",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\nHer job is teaching English.",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\na swimming pool",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\na swimming boy",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\nDo you know that crying boy?",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\nShe is crying in the room.",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\nHe finished watering the flowers.",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\nThe woman waiting for the bus is my ant.",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\nI heard the shocking news in the morning.",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\nI like taking a walk with my dog.",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\nHe enjoys reading newspaper in the morning.",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\nMy job is driving a bus.",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\nDo you mind opening the window?",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "동명사 인가요 현재분사인가요?\nHe is studying English.",
+    "o": [
+      "동명사",
+      "현재분사"
+    ],
+    "ans": 2
+  }
+]

@@ -1,0 +1,407 @@
+[
+  {
+    "q": "Hurry up, and you will not be late for school.",
+    "o": [
+      "If you hurry up, you will not be late for school."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Hurry up, *** you will not be late for school.",
+    "o": [
+      "but",
+      "and"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Hurry up, and you *** late for school.",
+    "o": [
+      "will not be",
+      "will be"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Hurry up, and you *** late for school.",
+    "o": [
+      "are not",
+      "will not be"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Hurry up, or you will be late.",
+    "o": [
+      "If you don't hurry up, you will be late.",
+      "If you hurry up, you will be late."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Hurry up, *** you will be late.",
+    "o": [
+      "but",
+      "or"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Hurry up, or you will be late.",
+    "o": [
+      "Unless you hurry up, you will be late."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Work hard, and you will succeed.",
+    "o": [
+      "If you work hard, you will succeed."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If you don't work hard, you will fail.",
+    "o": [
+      "Unless you work hard, you will fail."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Work hard, or you will fail.",
+    "o": [
+      "Unless you work hard, you will fail."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Help her, and she will do her homework.",
+    "o": [
+      "If you help her, she will do her homework."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Help her, or she won't do her homework.",
+    "o": [
+      "If you don't help her, she will do her homework."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Help her, *** she will do her homework.",
+    "o": [
+      "and",
+      "but"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Help her, *** she won't do her homework.",
+    "o": [
+      "or",
+      "but"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tell her the truth, and she will forgive you.",
+    "o": [
+      "If you tell her the truth, she will not forgive you."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tell her the truth, or she won't forgive you.",
+    "o": [
+      "If you don't tell her the truth, she won't forgive you."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tell her the truth, or she won't forgive you.",
+    "o": [
+      "Unless you tell her the truth, she won't forgive you."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tell her the truth, *** she will forgive you.",
+    "o": [
+      "and",
+      "but"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tell her the truth, *** she won't forgive you.",
+    "o": [
+      "or",
+      "but"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Get up early, and you will be healthy.",
+    "o": [
+      "If you get up early, you will be healthy."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Both my mother *** my father love me.",
+    "o": [
+      "and",
+      "or"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Both Jane and Alice *** me.",
+    "o": [
+      "love",
+      "loves"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Both my mother and my father *** me.",
+    "o": [
+      "love",
+      "loves"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Both Jane *** Alice love me.",
+    "o": [
+      "and",
+      "or"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Both Tom *** John love me.",
+    "o": [
+      "and",
+      "or"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Both Tom and John *** me.",
+    "o": [
+      "love",
+      "loves"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Both the movie *** the book are interesting.",
+    "o": [
+      "and",
+      "or"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Both the movie and the book *** interesting.",
+    "o": [
+      "is",
+      "are"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "그는 의사가 아니라 간호사이다.",
+    "o": [
+      "He is not a doctor but a nurse.",
+      "He is not a nurse but a doctor."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그는 학생이 아니라 선생님이다.",
+    "o": [
+      "He is not a teacher but a student.",
+      "He is not a student but a teacher."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "그는 행복하지 않고 슬프다.",
+    "o": [
+      "He is not sad but happy.",
+      "He is not happy but sad."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "내가 사랑하는 건 네가 아니라 돈이다.",
+    "o": [
+      "What I love is not you but money.",
+      "What I love is not money but you."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "내 개는 검은색이 아니라 흰색이다.",
+    "o": [
+      "My dog is not black but white.",
+      "My dog is not white but black."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Not only you but also he *** invited.",
+    "o": [
+      "were",
+      "was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He as well as you *** invited.",
+    "o": [
+      "were",
+      "was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Not only we but also he *** you.",
+    "o": [
+      "love",
+      "loves"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He as well as we *** you.",
+    "o": [
+      "love",
+      "loves"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Not only you but also he *** satisfied with the results.",
+    "o": [
+      "was",
+      "were"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He as well as you *** satisfied with the results.",
+    "o": [
+      "was",
+      "were"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Either Jane *** Alice is my family.",
+    "o": [
+      "and",
+      "or"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Either Jane *** Alice is my family.",
+    "o": [
+      "but",
+      "or"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Either Jane *** Alice is my family.",
+    "o": [
+      "nor",
+      "or"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Either Jane *** Alice is my family.",
+    "o": [
+      "for",
+      "or"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Either Jane or Alice *** my family.",
+    "o": [
+      "are",
+      "is"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have neither a brother *** a sister.",
+    "o": [
+      "or",
+      "nor"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** Jane or Mary is my family.",
+    "o": [
+      "neither",
+      "either"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** Jane or Mary is my family.",
+    "o": [
+      "both",
+      "either"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have neither a brother *** a sister.",
+    "o": [
+      "and",
+      "nor"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have neither a brother *** a sister.",
+    "o": [
+      "nor",
+      "but"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have neither a brother *** a sister.",
+    "o": [
+      "but also",
+      "nor"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have *** a brother nor a sister.",
+    "o": [
+      "either",
+      "neither"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have *** a brother nor a sister.",
+    "o": [
+      "neither",
+      "both"
+    ],
+    "ans": 1
+  }
+]

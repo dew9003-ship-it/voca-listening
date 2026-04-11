@@ -1,0 +1,162 @@
+[
+  {
+    "q": "As I listened to music, I studied English.",
+    "o": [
+      "Listening to music, I studied English.",
+      "Listened to music, I studied English."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "As I listened to music, I studied English.",
+    "o": [
+      "Listening to music, I studied English.",
+      "Having listened to music, I studied English."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "While you surf the Internet, you can take a trip around the world.",
+    "o": [
+      "Surfing the Internet, you can take a trip around the world.",
+      "Playing the Internet, you can take a trip around the world."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I like to study as I listen to pop music.",
+    "o": [
+      "I like to study, listening to pop music.",
+      "We like to study, listening to pop music."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If you drink lots of water, you will get health.",
+    "o": [
+      "Drinking lots of water, you will get health.",
+      "Drunking lots of water, you will get health."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Though I was sick, I had to take the test.",
+    "o": [
+      "Being sick, I had to take the test.",
+      "Wasing sick, I had to take the test."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Because I had no money, I had to go home on foot.",
+    "o": [
+      "Having no money, I had to go home on foot.",
+      "Having had no money, I had to go home on foot."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "As Rick didn't feel hungry, Rick didn't have lunch.",
+    "o": [
+      "Feeling hungry, Rick didn't have lunch.",
+      "Not feeling hungry, Rick didn't have lunch."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "When you don't play computer games, you can study English.",
+    "o": [
+      "Playing computer games, you can study English.",
+      "Not playing computer games, you can study English."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "When I walked down the street, I happened to  meet Tony.",
+    "o": [
+      "Walking down the street, I happened to  meet Tony.",
+      "Walked down the street, I happened to  meet Tony."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Because I didn't have any money, I had to go home on foot.",
+    "o": [
+      "Having any money, I had to go home on foot.",
+      "Not having any money, I had to go home on foot."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Though he is very rich, he never helps the poor.",
+    "o": [
+      "Being very rich, he never helps the poor.",
+      "Not being very rich, he never helps the poor."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Though he isn't very rich, he always helps the poor.",
+    "o": [
+      "Being very rich, he never helps the poor.",
+      "Not being very rich, he always helps the poor."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "When he saw a policeman, he ran away.",
+    "o": [
+      "Seeing a policeman, he ran away.",
+      "Sawing a policeman, he ran away."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "As he felt hungry, he ate apples.",
+    "o": [
+      "Feeling hungry, he ate apples.",
+      "Felting hungry, he ate apples."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Though he didn't feel hungry, he ate apples.",
+    "o": [
+      "Feeling hungry, he ate apples.",
+      "Not feeling hungry, he ate apples."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "As I was ill, I could not go out.",
+    "o": [
+      "Being ill, I could not go out.",
+      "Wasing ill, I could not go out."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If you take this bus, you'll get there on time.",
+    "o": [
+      "Taking this bus, you'll get there on time.",
+      "Being this bus, you'll get there on time."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Although I live near the sea, I cannot swim.",
+    "o": [
+      "Living near the sea, I cannot swim.",
+      "Not living near the sea, I cannot swim."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Although I don't live near the sea, I can swim.",
+    "o": [
+      "Living near the sea, I cannot swim.",
+      "Not living near the sea, I can swim."
+    ],
+    "ans": 2
+  }
+]

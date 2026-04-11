@@ -1,0 +1,202 @@
+[
+  {
+    "q": "We learned that water *** at 100°C.",
+    "o": [
+      "boils",
+      "boiled"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He said that he *** anything to eat.",
+    "o": [
+      "doesn't want",
+      "didn't want"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He remembered that his mother *** him about a special herb.",
+    "o": [
+      "told",
+      "had told"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She told us that Columbus *** America in 1492.",
+    "o": [
+      "had discovered",
+      "discovered"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She thought that Tom ***.",
+    "o": [
+      "will succeed",
+      "would succeed"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "People say that the earth *** round.",
+    "o": [
+      "was",
+      "is"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He told me that he *** go there with me.",
+    "o": [
+      "can",
+      "could"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I believed that our team *** win the game.",
+    "o": [
+      "will",
+      "would"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Our teacher told us that the Korean War *** over in 1953.",
+    "o": [
+      "had been",
+      "was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She told me that she *** a shower every day.",
+    "o": [
+      "takes",
+      "took"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She couldn't speak because she *** so excited.",
+    "o": [
+      "is",
+      "was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "We learned that light *** faster than sound.",
+    "o": [
+      "is",
+      "was"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My teacher told us that everything in space *** weightless.",
+    "o": [
+      "is",
+      "was"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Jane said that she *** watch TV.",
+    "o": [
+      "will",
+      "would"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She told me that she *** my father there.",
+    "o": [
+      "will meet",
+      "would meet"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She told me that she *** my father there.",
+    "o": [
+      "meets",
+      "had met"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom said he *** go home.",
+    "o": [
+      "will",
+      "would"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "We thought that she *** succeed.",
+    "o": [
+      "will",
+      "would"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Our teacher told us that the earth *** round the sun.",
+    "o": [
+      "goes",
+      "went"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I believe that she *** for Mokpo.",
+    "o": [
+      "will leave",
+      "had left"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He said that he *** up early every day.",
+    "o": [
+      "will get",
+      "gets"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She said that the honesty *** the best policy.",
+    "o": [
+      "is",
+      "will be"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He said that the Korean War *** out in 1950.",
+    "o": [
+      "had broken",
+      "broke"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I think that she *** it.",
+    "o": [
+      "do",
+      "does"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I think that she *** it.",
+    "o": [
+      "did",
+      "done"
+    ],
+    "ans": 1
+  }
+]

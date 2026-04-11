@@ -1,0 +1,162 @@
+[
+  {
+    "q": "관계대명사의 역할은?",
+    "o": [
+      "전치사 + 명사",
+      "접속사 + 대명사"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "관계대명사절의 역할은?",
+    "o": [
+      "명사",
+      "형용사"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "관계대명사절의 수식을 받는 명사를?",
+    "o": [
+      "선행사",
+      "대명사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "선행사가 사람일때 주격 관계대명사는?",
+    "o": [
+      "who",
+      "whom"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "선행사가 사람일때 목적격 관계대명사는?",
+    "o": [
+      "whom",
+      "whose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "선행사가 사람일때 소유격 관계대명사는?",
+    "o": [
+      "whom",
+      "whose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "선행사가 사물일때 주격 관계대명사는?",
+    "o": [
+      "who",
+      "which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "선행사가 사물일때 목적격 관계대명사는?",
+    "o": [
+      "who",
+      "which"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "선행사에 관계없이 쓸수 있는 관계대명사는?",
+    "o": [
+      "who",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "선행사를 포함한 관계대명사는?",
+    "o": [
+      "that",
+      "what"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I like Mike. He is our math teacher.",
+    "o": [
+      "I like Mike who is our math teacher.",
+      "I like Mike whom is our math teacher."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I know a boy. He can speak English well.",
+    "o": [
+      "I know a boy who can speak English well.",
+      "I know a boy whom can speak English well."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have a friend. He is a doctor.",
+    "o": [
+      "I have a friend who is a doctor.",
+      "I have a friend whom is a doctor."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the man. I saw him last night.",
+    "o": [
+      "This is the man who saw him last night.",
+      "This is the man whom I saw last night."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I met a girl. Her hair is blond.",
+    "o": [
+      "I met a girl who hair is blond.",
+      "I met a girl whose hair is blond."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have a dog. It always follows me.",
+    "o": [
+      "I have a dog who always follows me.",
+      "I have a dog which always follows me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the novel. Tom wrote it.",
+    "o": [
+      "This is the novel which he wrote.",
+      "This is the novel who wrote it."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the man. He said so.",
+    "o": [
+      "This is the man whom said so.",
+      "This is the man that said so."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The house is old. He lives in the house.",
+    "o": [
+      "The house who lives in is old.",
+      "The house that he lives in is old."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The house is old. He lives in the house.",
+    "o": [
+      "The house who lives in is old.",
+      "The house which he lives in is old."
+    ],
+    "ans": 2
+  }
+]

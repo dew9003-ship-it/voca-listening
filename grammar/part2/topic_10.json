@@ -1,0 +1,182 @@
+[
+  {
+    "q": "I will play the piano.\n같은 뜻의 문장을 고르시오.",
+    "o": [
+      "I am going to play the piano.",
+      "I are going to play the piano.",
+      "I is going to play the piano."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I will play the piano.",
+    "o": [
+      "나는 피아노를 칠것이다.",
+      "나는 피아노를 칠지도 모른다.",
+      "나는 피아노를 칠수있다."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I *** the piano.",
+    "o": [
+      "not will play",
+      "will not play",
+      "will play not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She *** the piano.",
+    "o": [
+      "not wills play",
+      "wills not play",
+      "will not play"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "She *** the piano.",
+    "o": [
+      "wills play",
+      "will plays",
+      "will play"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He *** the piano.",
+    "o": [
+      "wills play",
+      "will plays",
+      "will play"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He *** the piano.",
+    "o": [
+      "not is going to play",
+      "is not going to play",
+      "is going to not play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She will *** to school alone.",
+    "o": [
+      "goes",
+      "went",
+      "go"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He will *** tennis.",
+    "o": [
+      "plays",
+      "play",
+      "played"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Will he *** tennis?",
+    "o": [
+      "plays",
+      "play",
+      "played"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Will she *** tennis?",
+    "o": [
+      "plays",
+      "play",
+      "played"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Will they *** tennis?",
+    "o": [
+      "plays",
+      "play",
+      "played"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Is she *** to play tennis?",
+    "o": [
+      "will",
+      "going",
+      "wills"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom *** play tennis.",
+    "o": [
+      "wills not",
+      "not will",
+      "will not"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Will you play tennis?",
+    "o": [
+      "Yes, I do.",
+      "Yes, you will.",
+      "Yes, I will."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "I'm tired, but I *** study English.",
+    "o": [
+      "will",
+      "won't",
+      "not will"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She is smart, but she *** solve the problem.",
+    "o": [
+      "will",
+      "wills",
+      "won't"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "조동사 다음에 오는 동사는 반드시 *** 이어야한다.",
+    "o": [
+      "동사원형",
+      "이어동사",
+      "감각동사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He *** pizza.",
+    "o": [
+      "wills makes",
+      "will makes",
+      "will make"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "What *** for you?",
+    "o": [
+      "I will do",
+      "will do I",
+      "will I do"
+    ],
+    "ans": 3
+  }
+]

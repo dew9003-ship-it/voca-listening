@@ -1,0 +1,938 @@
+[
+  {
+    "q": "I saw a man and his dog *** were running.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** I said is true.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is *** I like.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He spent *** he had earned.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is the man *** said so.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The house *** he lives in is old.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the longest bridge *** I have ever seen.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She is the very writer *** wrote this novel.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is the only man *** I can trust.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is the last man *** arrived here.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Look at the boy *** is skating on the lake.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Do you remember the girl *** I met last week?",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The man *** is reading a newspaper is Tom.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "There are many people *** work for us.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Zoo doctors are the people *** take care of animals' health.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The farmer *** was working there looked at us.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have a daughter *** is 15 years old.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is the man *** stole Mary's bag.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I met a boy *** can speak three languages.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The woman *** you met yesterday is Ms. Brown.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Did you see the man *** I saw?",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She is thinking about her younger sister *** lives in America.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have a friend *** can dance very well.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The lady *** is in the store is my sister.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mike is a boy *** everyone likes.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The friend *** I met here is Jane.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The boy *** I met on the street is Mr. Kim's son.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Do you know the girl *** is chatting in the room?",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Look at the woman *** is baking cakes.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Did you see the man *** just left?",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the man *** you have to meet.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the girl *** uses magic.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Do you know the girl *** Mike likes?",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He has two sons *** became scientists.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mary is the girl *** I like best.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom is a student *** is good at science.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The river *** flows through London is the Thames.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the book *** he was looking for.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the bike *** I want to buy.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I bought a bicycle *** was made in Korea.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the umbrella *** I lost.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mt. Halla is the mountain *** is in Jejudo.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The fish *** I caught yesterday is still alive.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have lost the watch *** my father bought for me.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The cat *** I keep is cute.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I will take the book *** is on the table.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the ship *** was made in Korea.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The book *** is on the desk is mine.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the novel *** was written by Mr. Park.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "We went to Kings Restaurant *** was famous for its fish.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is a carpet *** was made in India.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Look at the church *** was on the hill.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My uncle lives in a house *** is near the river.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He gave me a book *** was very interesting.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The pen *** is in your hand is mine.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the book *** I borrowed from Tom.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He has a camera *** is better than mine.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The house *** he lived in was very nice.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She lives in a house *** has seven bedrooms.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I read a letter *** was written in French.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He has a dog *** has brown eyes.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is wearing the sweater *** I made for him.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Summer is the season *** comes after spring.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "There are animals *** live in the water.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the book *** Minsu liked.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Look at the bird *** is singing in the tree.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the dog *** my mother bought for me.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The pictures *** we looked at are famous.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the pen *** John bought.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have a box *** is made of wood.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I like the dress *** Anna is wearing.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the story *** my father wrote.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the table *** John made.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I bought a book *** I wanted to read.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the doll *** my mother made.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the picture *** Sumi painted.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Here is the book *** you gave me.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The dog *** is sleeping on the sofa is mine.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I love this house *** is built by my father.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I like story books *** have a lot of pictures.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Here is the picture *** I painted.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am reading the book *** you gave me.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Look at the huge house *** stands on the hill.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I`m looking for the watch *** I lost yesterday.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I didn't hear *** you just said.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Studying English is *** I like best.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** is important in my life is my family.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is *** I bought for my mom.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** she wants for Christmas is a car.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I cannot understand *** he says.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is *** I don't understand well.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Love is *** makes people happy.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "That is *** I lost yesterday.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** she has done has nothing to do with us.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They want to know *** they can do to help us.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** I should do first is to think what makes my parents happy.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** I think more important is friendship.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** I need is a new dictionary.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** she is eating is not good for health.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Listen carefully to *** I'm saying.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** she told me was a lie.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She always knows *** I want.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** I like most is singing and dancing.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Give me *** you bought yesterday.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I will do *** I can do from now on.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Show me *** you bought at this shop.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is *** I made yesterday.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is not *** I want.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I can't believe *** you said.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I've thought about *** you said.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Could you show me *** you bought yesterday?",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "***  I want is just a cup of coffee.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "That's *** I think.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This is *** I want to have.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We thank you for *** you did.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I don't want to eat ***  I don't like.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tell me *** you want.",
+    "o": [
+      "what",
+      "that"
+    ],
+    "ans": 1
+  }
+]

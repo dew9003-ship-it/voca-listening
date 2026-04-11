@@ -1,0 +1,221 @@
+[
+  {
+    "q": "난 어른이 되면, 영화배우가 될 거야.",
+    "o": [
+      "when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그가 도착하자마자, 난 여기를 떠날 것이다.",
+    "o": [
+      "as long as"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "탐은 저녁 먹은 이후에 계속 공부하고 있다.",
+    "o": [
+      "since"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "탐은 저녁 먹은 후에 밖에 나갔다.",
+    "o": [
+      "after"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "탐은 나가기 전에 저녁을 먹었다.",
+    "o": [
+      "after"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "버스를 기다리는 동안 나는 탐을 만났다.",
+    "o": [
+      "during"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "성공할 때 까지 열심히 공부해라.",
+    "o": [
+      "until"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "나이가 들면서 그는 더 잘생겨졌다.",
+    "o": [
+      "until"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "만약 내일 비가 내리면, 나는 여기 머무를 것이다.",
+    "o": [
+      "if"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "만약 네가 먹는 것을 멈추지 않으면, 너는 뚱뚱해 질것이다.",
+    "o": [
+      "if"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "네가 날 사랑하는 한, 나는 행복 할 거야.",
+    "o": [
+      "as soon as"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "난 어른이 되자마자, 영화배우가 될 거야.",
+    "o": [
+      "before"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "그가 도착한 후에, 난 여기를 떠날 것이다.",
+    "o": [
+      "after"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "탐은 저녁 먹은 후에 영어공부했다.",
+    "o": [
+      "after"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "탐은 저녁 먹기 전에 영어공부했다.",
+    "o": [
+      "after"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "탐은 나가기 전에 숙제를 끝냈다.",
+    "o": [
+      "after"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "버스를 기다릴때 나는 탐을 만났다.",
+    "o": [
+      "when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "성공하고 싶다면 열심히 공부해라.",
+    "o": [
+      "when"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "나이가 들었을때 그는 더 잘생겨졌다.",
+    "o": [
+      "when"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "네가 날 사랑한다면, 나는 행복 할 거야.",
+    "o": [
+      "when"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "탐은 숙제를 한 후에 밖에 나갔다.",
+    "o": [
+      "after"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If it *** tomorrow, I will stay here.",
+    "o": [
+      "will rain",
+      "rains"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Unless you *** eating, you will get fat.",
+    "o": [
+      "stop",
+      "will stop"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "As long as you *** me, I will be happy.",
+    "o": [
+      "will love",
+      "love"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I'll wait for you until you *** your homework.",
+    "o": [
+      "finish",
+      "will finish"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "When I *** back home, she will arrive, too.",
+    "o": [
+      "come",
+      "will come"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If you *** right, you'll see the restaurant.",
+    "o": [
+      "will turn",
+      "turn"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If the test *** difficult, I will win a scholarship.",
+    "o": [
+      "will not be",
+      "is not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If you *** late again, I will be angry.",
+    "o": [
+      "are",
+      "will be"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "When she *** home, she will bring me pizza.",
+    "o": [
+      "comes",
+      "will come"
+    ],
+    "ans": 1
+  }
+]

@@ -1,0 +1,322 @@
+[
+  {
+    "q": "I want you *** right now.",
+    "o": [
+      "leave",
+      "to leave"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He told me *** the room.",
+    "o": [
+      "clean",
+      "to clean"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My mom gets me *** breakfast every day.",
+    "o": [
+      "have",
+      "to have"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I'll let you *** when it is finished.",
+    "o": [
+      "go",
+      "to go"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Jane had me *** with her baby yesterday.",
+    "o": [
+      "stay",
+      "to stay"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He always makes me ***.",
+    "o": [
+      "laugh",
+      "to laugh"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It will help you *** the rule.",
+    "o": [
+      "remembering",
+      "remember"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It will help you *** the rule.",
+    "o": [
+      "remembering",
+      "to remember"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Did you have them *** here?",
+    "o": [
+      "come",
+      "to come"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My teacher encouraged me *** an interest in paintings.",
+    "o": [
+      "having",
+      "to have"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She asked us *** over to her house the other day.",
+    "o": [
+      "come",
+      "to come"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I will get him *** camping tomorrow.",
+    "o": [
+      "go",
+      "to go"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The police want him *** everything about the crime.",
+    "o": [
+      "to confess",
+      "confessing"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The man allowed the students *** to the haunted house.",
+    "o": [
+      "go",
+      "to go"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mom told me *** rid of stains on the wall.",
+    "o": [
+      "get",
+      "to get"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Let me *** you fix the computer.",
+    "o": [
+      "help",
+      "to help"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The man helped his guests *** their bags.",
+    "o": [
+      "deliver",
+      "delivering"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Jim made the team *** the goal.",
+    "o": [
+      "reach",
+      "to reach"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She tried to do everything to make her husband ***.",
+    "o": [
+      "succeed",
+      "to succeed"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Ms. Smith let her son *** all that he wanted.",
+    "o": [
+      "buy",
+      "bought"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Dad had me *** to clean the garage instead of being punished.",
+    "o": [
+      "come",
+      "to come"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Those rules helped the town *** kept clean.",
+    "o": [
+      "to be",
+      "being"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Mina saw a man *** delicious cakes.",
+    "o": [
+      "to bake",
+      "baking"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I heard the children *** all together.",
+    "o": [
+      "sing",
+      "to sing"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Did you see the people *** the street at the red light?",
+    "o": [
+      "to cross",
+      "crossing"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I heard people *** in the cafe.",
+    "o": [
+      "to shout",
+      "shouting"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Did you see Mary *** those trees?",
+    "o": [
+      "plant",
+      "to plant"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Did you hear the teenagers *** each other last night?",
+    "o": [
+      "fighting",
+      "fought"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I felt the chair *** back little by little.",
+    "o": [
+      "to move",
+      "moving"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You should see our baby *** by himself.",
+    "o": [
+      "walk",
+      "to walk"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I feel something *** my arm.",
+    "o": [
+      "touch",
+      "to touch"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We watched the full moon *** yesterday evening.",
+    "o": [
+      "to rise",
+      "rising"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I made my dad ***.",
+    "o": [
+      "angry",
+      "angrily"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "you should keep it ***.",
+    "o": [
+      "cool",
+      "cooly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This scarf will keep you ***.",
+    "o": [
+      "warm",
+      "warmly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I found the bag ***.",
+    "o": [
+      "heavy",
+      "heavily"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Why don't you keep the kids ***?",
+    "o": [
+      "quiet",
+      "quietly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She always makes me ***.",
+    "o": [
+      "happy",
+      "happily"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The music makes me ***.",
+    "o": [
+      "sad",
+      "sadly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This shirt makes you ***.",
+    "o": [
+      "nice",
+      "nicely"
+    ],
+    "ans": 1
+  }
+]

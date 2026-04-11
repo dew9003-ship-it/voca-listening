@@ -1,0 +1,386 @@
+[
+  {
+    "q": "If I had enough time, I *** fast food.",
+    "o": [
+      "will not eat",
+      "would not eat"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I had enough time, I *** fast food.",
+    "o": [
+      "didn't eat",
+      "would not eat"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I *** enough time, I would not eat fast food.",
+    "o": [
+      "have",
+      "had"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I *** enough time, I would not eat fast food.",
+    "o": [
+      "were",
+      "had"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I had enough time, I would not eat a lot of fast food.",
+    "o": [
+      "As I don't have enough time, I eat a lot of fast food.",
+      "As I didn't have enough time, I ate a lot of fast food."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I brought a swimsuit, I *** swimming.",
+    "o": [
+      "will go",
+      "would go"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I brought a swimsuit, I *** swimming.",
+    "o": [
+      "went",
+      "would go"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I *** a swimsuit, I would go swimming.",
+    "o": [
+      "brought",
+      "bring"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I *** a swimsuit, I would go swimming.",
+    "o": [
+      "brought",
+      "were"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I brought a swimsuit, I could go swimming.",
+    "o": [
+      "As I don't bring a swimsuit, I can't go swimming.",
+      "As I didn't bring a swimsuit, I couldn't go swimming."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I had time, I *** to the movie.",
+    "o": [
+      "could go",
+      "can go"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I had time, I *** to the movie.",
+    "o": [
+      "went",
+      "could go"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I *** time, I could go to the movie.",
+    "o": [
+      "had",
+      "have"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I *** time, I could go to the movie.",
+    "o": [
+      "were",
+      "had"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I had time, I could go to the movie.",
+    "o": [
+      "As I don't have time, I can't go to the movie.",
+      "As I didn't have time, I couldn't go to the movie."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I were a bird, I *** to you.",
+    "o": [
+      "flied",
+      "would fly"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I were a bird, I *** to you.",
+    "o": [
+      "would fly",
+      "fly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I *** a bird, I would fly to you.",
+    "o": [
+      "was",
+      "were"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I *** a bird, I would fly to you.",
+    "o": [
+      "had",
+      "were"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I were a bird, I could fly to you.",
+    "o": [
+      "As I am not a bird, I can't fly to you.",
+      "As I wasn't a bird, I couldn't fly to you."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I had had enough time, I *** fast food.",
+    "o": [
+      "wouldn't have eaten",
+      "wouldn't eat"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I had had enough time, I *** fast food.",
+    "o": [
+      "wouldn't be eaten",
+      "wouldn't have eaten"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I *** enough time, I wouldn't have eaten fast food.",
+    "o": [
+      "had",
+      "had had"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I *** enough time, I wouldn't have eaten fast food.",
+    "o": [
+      "were",
+      "had had"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I had had enough time, I wouldn't have eaten fast food.",
+    "o": [
+      "As I don't have enough time, I eat a lot of fast food.",
+      "As I didn't have enough time, I ate a lot of fast food."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I had brought a swimsuit, I *** swimming.",
+    "o": [
+      "wouldn't have gone",
+      "would have gone"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I had brought a swimsuit, I *** swimming.",
+    "o": [
+      "would have gone",
+      "would go"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I *** a swimsuit, I would have gone swimming.",
+    "o": [
+      "had brought",
+      "brought"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I *** a swimsuit, I would have gone swimming.",
+    "o": [
+      "had brought",
+      "have brought"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I had brought a swimsuit, I could have gone swimming.",
+    "o": [
+      "As I don't bring a swimsuit, I can't go swimming.",
+      "As I didn't bring a swimsuit, I couldn't go swimming."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I had had time, I *** to the movie.",
+    "o": [
+      "could have gone",
+      "could go"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I had had time, I *** to the movie.",
+    "o": [
+      "could have gone",
+      "had gone"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I *** time, I could have gone to the movie.",
+    "o": [
+      "had had",
+      "have had"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I *** time, I could have gone to the movie.",
+    "o": [
+      "have been",
+      "had had"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I had had time, I could have gone to the movie.",
+    "o": [
+      "As I don't have time, I can't go to the movie.",
+      "As I didn't have time, I couldn't go to the movie."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I had been a bird, I *** to you.",
+    "o": [
+      "could have flied",
+      "could fly"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I had been a bird, I *** to you.",
+    "o": [
+      "had flied",
+      "could have flied"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I *** a bird, I could have flied to you.",
+    "o": [
+      "had been",
+      "were"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "If I *** a bird, I could have flied to you.",
+    "o": [
+      "was",
+      "had been"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "If I had been a bird, I could have flied to you.",
+    "o": [
+      "As I am not a bird, I can't fly to you.",
+      "As I wasn't a bird, I couldn't fly to you."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "충분한 시간이 있다면, 나는 많은 패스트푸드를 먹지 않을텐데.",
+    "o": [
+      "If I had enough time, I would not eat a lot of fast food.",
+      "If I had had enough time, I wouldn't have eaten fast food."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "충분한 시간이 있었다면, 나는 많은 패스트푸드를 먹지 않았을텐데.",
+    "o": [
+      "If I had enough time, I would not eat a lot of fast food.",
+      "If I had had enough time, I wouldn't have eaten fast food."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "수영복을 가져왔다면, 수영하러 갈텐데.",
+    "o": [
+      "If I brought a swimsuit, I would go swimming.",
+      "If I had brought a swimsuit, I would have gone swimming."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "수영복을 가져왔었다면, 수영하러 갔을텐데.",
+    "o": [
+      "If I brought a swimsuit, I would go swimming.",
+      "If I had brought a swimsuit, I would have gone swimming."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "내가 새라면, 너에게 날아갈텐데.",
+    "o": [
+      "If I were a bird, I would fly to you.",
+      "If I had been a bird, I could have flied to you."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "내가 새였다면, 너에게 날아갔을텐데.",
+    "o": [
+      "If I were a bird, I would fly to you.",
+      "If I had been a bird, I would have flied to you."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "시간이 있다면, 영화보러 갈텐데.",
+    "o": [
+      "If I had had time, I would have gone to the movie.",
+      "If I had time, I would go to the movie."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "시간이 있었다면, 영화보러 갔을텐데.",
+    "o": [
+      "If I had had time, I would have gone to the movie.",
+      "If I had time, I would go to the movie."
+    ],
+    "ans": 1
+  }
+]

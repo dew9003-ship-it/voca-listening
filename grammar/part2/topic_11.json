@@ -1,0 +1,182 @@
+[
+  {
+    "q": "She is very pretty. She *** an actress.",
+    "o": [
+      "may not be",
+      "may be",
+      "is may"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She may play the piano.",
+    "o": [
+      "그녀는 피아노를 칠것이다.",
+      "그녀는 피아노를 칠지도 모른다.",
+      "그녀는 피아노를 쳐야만 한다."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She *** a teacher.",
+    "o": [
+      "not may be",
+      "may not be",
+      "may be not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He *** a teacher.",
+    "o": [
+      "not may be",
+      "may not be",
+      "may be not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom *** a teacher.",
+    "o": [
+      "not may be",
+      "may not be",
+      "mays be not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Jane *** a teacher.",
+    "o": [
+      "not may be",
+      "may not be",
+      "may be not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "They ***  teachers.",
+    "o": [
+      "not may be",
+      "may not be",
+      "may be not"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She may *** to school alone.",
+    "o": [
+      "goes",
+      "went",
+      "go"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He may *** tennis.",
+    "o": [
+      "plays",
+      "play",
+      "played"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "May he *** tennis?",
+    "o": [
+      "plays",
+      "play",
+      "played"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "May she *** tennis?",
+    "o": [
+      "plays",
+      "play",
+      "played"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "May they *** tennis?",
+    "o": [
+      "plays",
+      "play",
+      "played"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "May I play tennis?",
+    "o": [
+      "Yes, I do",
+      "Yes, I may.",
+      "Yes, you may."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "May I use your computer?",
+    "o": [
+      "Yes, you do.",
+      "Yes, you are.",
+      "Yes, you may."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "May I use your computer?",
+    "o": [
+      "Yes, you do.",
+      "Yes, I may.",
+      "No, you must not."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "I'm tired, but I *** study English.",
+    "o": [
+      "may",
+      "may not",
+      "not may"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She is smart, but she *** solve the problem.",
+    "o": [
+      "may",
+      "may not",
+      "not may"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "조동사 다음에 오는 동사는 반드시 *** 이어야한다.",
+    "o": [
+      "동사원형",
+      "이어동사",
+      "감각동사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He *** pizza.",
+    "o": [
+      "mays makes",
+      "may makes",
+      "may make"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "May I go out now?",
+    "o": [
+      "Yes, you do.",
+      "No, you may.",
+      "No, you may not."
+    ],
+    "ans": 3
+  }
+]

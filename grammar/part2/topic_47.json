@@ -1,0 +1,258 @@
+[
+  {
+    "q": "The police couldn't catch up with him.",
+    "o": [
+      "He couldn't be caught up with by the police.",
+      "He couldn't be caught up with the police."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The volunteer workers looked after the old people in the town.",
+    "o": [
+      "The old people in the town were looked after by the volunteer workers.",
+      "The old people in the town were looked after the volunteer workers."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He looks down on weak and poor people.",
+    "o": [
+      "Weak and poor people are looked down on by him.",
+      "Weak and poor people are looked down on him."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We can't put off the meeting.",
+    "o": [
+      "The meeting can't be put off us.",
+      "The meeting can't be put off."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Jane takes care of her grandma.",
+    "o": [
+      "Her grandma is taken care Jane of.",
+      "Her grandma is taken care of by Jane."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The bus ran over him.",
+    "o": [
+      "He was run over by the bus.",
+      "He was run over the bus."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Parents bring up children.",
+    "o": [
+      "Children are brought up parents.",
+      "Children are brought up by parents."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "His friends laughed at him.",
+    "o": [
+      "He is laughed at by his friends.",
+      "He was laughed at by his friends."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He laughed at his friends.",
+    "o": [
+      "His friends are laughed at by him.",
+      "His friends were laughed at by him."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The police couldn't catch up with him.",
+    "o": [
+      "He couldn't be caught up with by the police.",
+      "He couldn't be caught up by the police."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The volunteer workers looked after the old people in the town.",
+    "o": [
+      "The old people in the town were looked after by the volunteer workers.",
+      "The old people in the town were looked by the volunteer workers."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He looks down on weak and poor people.",
+    "o": [
+      "Weak and poor people are looked down on by him.",
+      "Weak and poor people are looked down by him."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We can't put off the meeting.",
+    "o": [
+      "The meeting can't be put by us.",
+      "The meeting can't be put off."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mary takes care of her grandma.",
+    "o": [
+      "Her grandma is taken care Mary by.",
+      "Her grandma is taken care of by Mary."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The bus ran over him.",
+    "o": [
+      "He was run over by the bus.",
+      "He was run by the bus."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Parents bring up children.",
+    "o": [
+      "Children are brought by parents.",
+      "Children are brought up by parents."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "His friends laughed at him.",
+    "o": [
+      "He was laughed by his friends.",
+      "He was laughed at by his friends."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He laughed at his friends.",
+    "o": [
+      "His friends were laughed by him.",
+      "His friends were laughed at by him."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "People will play the piano.",
+    "o": [
+      "The piano will play by people.",
+      "The piano will be played."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "They will prepare a lot of food.",
+    "o": [
+      "A lot of food will prepared by them.",
+      "A lot of food will be prepared by them."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She must finish her homework on time.",
+    "o": [
+      "Her homework must finished by her.",
+      "Her homework must be finished by her."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "They can deliver the food.",
+    "o": [
+      "The food can be delivered.",
+      "The food can have delivered."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Sam will open the door.",
+    "o": [
+      "The door will open by Sam.",
+      "The door will be opened by Sam."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "They are building the house.",
+    "o": [
+      "The house is being built by them.",
+      "The house is built by them."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We are destroying the earth.",
+    "o": [
+      "The earth is being destroyed.",
+      "The earth is destroyed."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We are repairing the computer.",
+    "o": [
+      "The computer is being repaired.",
+      "The computer is repaired."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is playing the piano.",
+    "o": [
+      "The piano is being played.",
+      "The piano is played."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They are building the house.",
+    "o": [
+      "The house is being built by them.",
+      "The house being built by them."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We are destroying the earth.",
+    "o": [
+      "The earth is being destroyed.",
+      "The earth being destroyed."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We are repairing the computer.",
+    "o": [
+      "The computer is being repaired.",
+      "The computer being repaired."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is playing the piano.",
+    "o": [
+      "The piano is being played.",
+      "The piano being played."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We can see many stars at night.",
+    "o": [
+      "Many stars can seen at night.",
+      "Many stars can be seen at night."
+    ],
+    "ans": 2
+  }
+]

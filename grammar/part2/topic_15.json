@@ -1,0 +1,802 @@
+[
+  {
+    "q": "다음중 주어 역할 하는 to 부정사는?",
+    "o": [
+      "it is exciting to play computer games.",
+      "I like to play computer games."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 주어 역할 하는 to 부정사는?",
+    "o": [
+      "To play computer games is exciting.",
+      "I like to play computer games."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 주어 역할 하는 to 부정사는?",
+    "o": [
+      "To talk is easier than to act.",
+      "I like to act than to talk."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 주어 역할 하는 to 부정사는?",
+    "o": [
+      "To learn Chinese is not easy.",
+      "I want to learn Chinese."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 주어 역할 하는 to 부정사는?",
+    "o": [
+      "It is easy to learn English.",
+      "I like to learn English."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "it is exciting to play computer games.",
+      "I like to play computer games."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "To play computer games is exciting.",
+      "I like to play computer games."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "To talk is easier than to act.",
+      "I like to act than to talk."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "To learn Chinese is not easy.",
+      "I want to learn Chinese."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "It is easy to learn English.",
+      "I like to learn English."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "My hobby is to collect stamps.",
+      "I like to play computer games."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "My hobby is to play computer games.",
+      "I like to play computer games."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "My hobby is to learan English.",
+      "I like to act than to talk."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "My dream is to be a teacher.",
+      "I want to learn Chinese."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "My hobby is to collect stamps.",
+      "I like to learn English."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "it is exciting to play computer games.",
+      "My hobby is to play computer games."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "My hobby is to learan English.",
+      "I like to play computer games."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "My dream is to be a teacher.",
+      "I like to act than to talk."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "His job is to guide travelers.",
+      "I want to learn Chinese."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "It is easy to learn English.",
+      "His job is to guide travelers."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "it is exciting to play computer games.",
+      "My job is to drive a taxi."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "My hobby is to play computer games.",
+      "To play computer games is exciting."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "My hobby is to learan English.",
+      "To talk is easier than to act."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "My dream is to be a teacher.",
+      "To learn Chinese is not easy."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "His job is to guide travelers.",
+      "It is easy to learn English."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 주어 역할 하는 to 부정사는?",
+    "o": [
+      "It is easy to learn English.",
+      "His job is to guide travelers."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 주어 역할 하는 to 부정사는?",
+    "o": [
+      "it is exciting to play computer games.",
+      "My job is to drive a taxi."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 주어 역할 하는 to 부정사는?",
+    "o": [
+      "My hobby is to play computer games.",
+      "To play computer games is exciting."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 주어 역할 하는 to 부정사는?",
+    "o": [
+      "My hobby is to learan English.",
+      "To talk is easier than to act."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 주어 역할 하는 to 부정사는?",
+    "o": [
+      "My dream is to be a teacher.",
+      "To learn Chinese is not easy."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 주어 역할 하는 to 부정사는?",
+    "o": [
+      "His job is to guide travelers.",
+      "It is easy to learn English."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 주어 역할 하는 to 부정사는?",
+    "o": [
+      "It is fun to read books.",
+      "His job is to write books."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 주어 역할 하는 to 부정사는?",
+    "o": [
+      "It is important to read books.",
+      "His job is to sell cars."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 주어 역할 하는 to 부정사는?",
+    "o": [
+      "It is hard to run for 2 hours.",
+      "Her job is to teach students English."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 주어 역할 하는 to 부정사는?",
+    "o": [
+      "It is difficult to study math.",
+      "Her job is to drive a bus."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 주어 역할 하는 to 부정사는?",
+    "o": [
+      "To study math is difficult.",
+      "My hobby is to play games."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "It is fun to read books.",
+      "I decided to study English."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "It is important to read books.",
+      "I want to play tennis."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "It is hard to run for 2 hours.",
+      "I want to go out for dinner."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "It is difficult to study math.",
+      "I want to go shopping."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "To study math is difficult.",
+      "I planned to meet Mary."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "I decided to study English.",
+      "His job is to write books."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "I want to play tennis.",
+      "His job is to sell cars."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "I want to go out for dinner.",
+      "Her job is to teach students English."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "I want to go shopping.",
+      "Her job is to drive a bus."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 목적어 역할 하는 to 부정사는?",
+    "o": [
+      "I planned to meet Mary.",
+      "My hobby is to play games."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "It is fun to read books.",
+      "His job is to write books."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "It is important to read books.",
+      "His job is to sell cars."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "It is hard to run for 2 hours.",
+      "Her job is to teach students English."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "It is difficult to study math.",
+      "Her job is to drive a bus."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "To study math is difficult.",
+      "My hobby is to play games."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "I decided to study English.",
+      "His job is to write books."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "I want to play tennis.",
+      "His job is to sell cars."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "I want to go out for dinner.",
+      "Her job is to teach students English."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "I want to go shopping.",
+      "Her job is to drive a bus."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음중 보어 역할 하는 to 부정사는?",
+    "o": [
+      "I planned to meet Mary.",
+      "My hobby is to play games."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "나는 그녀에게 무엇을 먼저 해야할지를 물었다.\nI asked her *** first.",
+    "o": [
+      "what to do",
+      "when to do"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "나는 그녀에게 무엇을 먼저 해야할지를 물었다.\nI asked her *** first.",
+    "o": [
+      "what I should do",
+      "what you should do"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "나는 춤추는 법을 모른다.\nI don't know ***.",
+    "o": [
+      "how to dance",
+      "why to dance"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "나는 춤추는 법을 모른다.\nI don't know ***.",
+    "o": [
+      "how I should dance",
+      "how you should dance"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "너는 좋은 책을 선택하는 법을 알 필요가 있다.\nYou need to know *** good books.",
+    "o": [
+      "how to choose",
+      "where to choose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "너는 좋은 책을 선택하는 법을 알 필요가 있다.\nYou need to know *** good books.",
+    "o": [
+      "how I should choose",
+      "how you should choose"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "나는 언제 떠나야 하는지 알고 싶어.\nI'd like to know ***.",
+    "o": [
+      "how to leave",
+      "when to leave"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "나는 언제 떠나야 하는지 알고 싶어.\nI'd like to know ***.",
+    "o": [
+      "when you should leave",
+      "when I should leave"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "나는 누구를 선택해야할지 알아.\nI know ***.",
+    "o": [
+      "who to choose",
+      "what to choose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "나는 누구를 선택해야할지 알아.\nI know ***.",
+    "o": [
+      "who I should choose",
+      "what I should choose"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "나는 그 문제를 푸는법을 알아.\nI know *** the problem.",
+    "o": [
+      "how to solve",
+      "where to solve"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "나는 그 문제를 푸는법을 알아.\nI know *** the problem.",
+    "o": [
+      "how I should solve",
+      "how she should solve"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "어디로 가야할지 우리에게 말해주세요.\nPlease tell us ***.",
+    "o": [
+      "where to go",
+      "where to goes"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "어디로 가야할지 우리에게 말해주세요.\nPlease tell us ***.",
+    "o": [
+      "where I should go",
+      "where we should go"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "어떻게 공항으로 가는지 말해 줄래?\nCould you tell me *** to the airport?",
+    "o": [
+      "how to get",
+      "where to get"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "어떻게 공항으로 가는지 말해 줄래?\nCould you tell me *** to the airport?",
+    "o": [
+      "how I should get",
+      "how you should get"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "뚜껑을 여는 법을 말해주겠니?\nCan you tell me *** the cover?",
+    "o": [
+      "how to open",
+      "how to opens"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "뚜껑을 여는 법을 말해주겠니?\nCan you tell me *** the cover?",
+    "o": [
+      "how I should open",
+      "how you should open"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그는 나에게 그 책을 어디서 사야 하는지 물어봤다.\nHe asked me *** the book.",
+    "o": [
+      "where to buy",
+      "when to buy"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "그는 나에게 그 책을 어디서 사야 하는지 물어봤다.\nHe asked me *** the book.",
+    "o": [
+      "where you should buy",
+      "where he should buy"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "농부는 무슨 말을 해야 할지 몰랐다.\nThe farmer didn't know ***.",
+    "o": [
+      "what to say",
+      "where to say"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "농부는 무슨 말을 해야 할지 몰랐다.\nThe farmer didn't know ***.",
+    "o": [
+      "what I should say",
+      "what he should say"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "To finish the work by tomorrow is impossible.",
+    "o": [
+      "It is impossible to finish the work by tomorrow.",
+      "It is impossible finish the work by tomorrow."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "컴퓨터 게임하는 것은 신난다.",
+    "o": [
+      "it is exciting to play computer games.",
+      "I like to play computer games."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "행동하는 것보다 말하는것이 더 쉽다.",
+    "o": [
+      "It is easier to talk than to act.",
+      "I like to act than to talk."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "중국어를 배우는것은 쉽지 않다.",
+    "o": [
+      "It is not easy to learn Chinese.",
+      "I want to learn Chinese."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "영어를 배우는 것은 쉽다.",
+    "o": [
+      "It is easy to learn English.",
+      "I like to learn English."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "책 읽는 것은 재미있다.",
+    "o": [
+      "It is fun to read books.",
+      "It is to read books fun."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "책 읽는 것은 중요하다.",
+    "o": [
+      "It is important to read books.",
+      "It is important read books."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "두시간 동안 달리는것은 힘들다.",
+    "o": [
+      "It is hard to run for 2 hours.",
+      "It is hard run for 2 hours."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "수학 공부하는것은 어렵다.",
+    "o": [
+      "It is difficult to study math.",
+      "It is to study math difficult."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "나는 수학 공부하는 것이 어렵다고 생각해.",
+    "o": [
+      "I think difficult to study math.",
+      "I think it difficult to study math."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "나는 수학 공부하는 것이 어렵다고 생각해.",
+    "o": [
+      "I think to study math difficult.",
+      "I think it difficult to study math."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "나쁜 습관을 고치는 건 쉽지 않다.",
+    "o": [
+      "It is not easy break a bad habit.",
+      "It is not easy to break a bad habit."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "나는 일찍 일어나는것을 규칙으로 한다.",
+    "o": [
+      "I make it a rule to get up early in the morning.",
+      "I make a rule to get up early in the morning."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "나는 일찍 일어나는것을 규칙으로 한다.",
+    "o": [
+      "I make it a rule to get up early in the morning.",
+      "I make to get up early in the morning a rule."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "스마트폰은 정보를 얻는걸 쉽게 만든다.",
+    "o": [
+      "The smartphone makes it easy to get information.",
+      "The smarphone makes easy to get information."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "스마트폰은 정보를 얻는걸 쉽게 만든다.",
+    "o": [
+      "The smartphone makes it easy to get information.",
+      "The smarphone makes to get information easy."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "나는 내일까지 거기 가는게 불가능하다고 생각해.",
+    "o": [
+      "I think it possible to go there by tomorrow.",
+      "I think it impossible to go there by tomorrow."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "나는 내일까지 거기 가는게 불가능하다고 생각해.",
+    "o": [
+      "I think impossible to go there by tomorrow.",
+      "I think it impossible to go there by tomorrow."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "나는 내일까지 거기 가는게 불가능하다고 생각해.",
+    "o": [
+      "I think to go there by tomorrow impossible.",
+      "I think it impossible to go there by tomorrow."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "나는 내일까지 거기 가는게 불가능하다고 생각해.",
+    "o": [
+      "It is impossible to go there by tomorrow.",
+      "I think it impossible to go there by tomorrow."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "나는 영어를 마스터하는게 어렵다고 생각해.",
+    "o": [
+      "I think it difficult to master English.",
+      "I think to master English difficult."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "나는 영어를 마스터하는게 어렵다고 생각해.",
+    "o": [
+      "I think it difficult to master English.",
+      "I think difficult to master English."
+    ],
+    "ans": 1
+  }
+]

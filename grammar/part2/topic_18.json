@@ -1,0 +1,258 @@
+[
+  {
+    "q": "I decided *** there.",
+    "o": [
+      "to not go",
+      "not to go"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She asked me *** out alone.",
+    "o": [
+      "never to go",
+      "to never go"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Be careful *** the same mistakes.",
+    "o": [
+      "not to make",
+      "to not make"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I make it a rule *** before going to bed.",
+    "o": [
+      "not to eat",
+      "to not eat"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I make it a rule *** a smartphone in the school.",
+    "o": [
+      "to not use",
+      "not to use"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She told me *** computer games.",
+    "o": [
+      "to not play",
+      "not to play"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She was kind enough to show me the way.",
+    "o": [
+      "She was so kind that she can show me the way.",
+      "She was kind so that she can show me the way."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is so skillful that he can manage the project by himself.",
+    "o": [
+      "He is skillful enough to manage the project by himself.",
+      "He is skillful to manage enough the project by himself."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The nation is small *** travel anywhere in one day.",
+    "o": [
+      "to enough",
+      "enough to"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The boy is so strong that he *** all those bricks at a time.",
+    "o": [
+      "can carry",
+      "can't carry"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My son is *** that he can decide what he wants to be in the future.",
+    "o": [
+      "too smart",
+      "so smart"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is *** that he can reach the shelf.",
+    "o": [
+      "tall enough",
+      "so tall"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is rich enough to live in such a big house.",
+    "o": [
+      "He is so rich that he can live in such a big house.",
+      "He is so rich that he can't live in such a big house."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is so small that he can't reach the shelf.",
+    "o": [
+      "He is too small to reach the shelf.",
+      "He is small enough to reach the shelf."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The boy is so weak that he can't carry the books.",
+    "o": [
+      "The boy is weak enough to carry the books",
+      "The boy is too weak to carry the books."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The table is too heavy for me to move.",
+    "o": [
+      "The table is so heavy that I can't move it.",
+      "The table is so heavy that I can move it."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The questions are too difficult for me to answer.",
+    "o": [
+      "The questions are so difficult that I can answer them.",
+      "The questions are so difficult that I can't answer them."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The table is so light that I can move it.",
+    "o": [
+      "The table is too light to move.",
+      "The table is light enough for me to move."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The questions are easy enough for me to answer.",
+    "o": [
+      "The questions are so easy that I can answer them.",
+      "The questions are so easy that I can't answer them."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We were so tired that we couldn't go to the party.",
+    "o": [
+      "We were too tired to go to the party.",
+      "We were tired enough to go to the party."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The nation is small enough for me to travel anywhere in one day.",
+    "o": [
+      "The nation is so small that I can travel anywhere in one day.",
+      "The nation is so small that I can't travel anywhere in one day."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The boy is *** that he can carry all those bricks at a time.",
+    "o": [
+      "so strong",
+      "strong enough"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My son is *** that he can decide what he wants to be in the future.",
+    "o": [
+      "so smart",
+      "too smart"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is so tall that he *** reach the shelf.",
+    "o": [
+      "can",
+      "can't"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is *** to live in such a big house.",
+    "o": [
+      "enough rich",
+      "rich enough"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is *** small that he can't reach the shelf.",
+    "o": [
+      "so",
+      "too"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The boy is so weak that he *** carry the books.",
+    "o": [
+      "can",
+      "can't"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The table is *** for me to move.",
+    "o": [
+      "too heavy",
+      "heavy too"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The questions are *** for me to answer.",
+    "o": [
+      "too difficult",
+      "difficult enough"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The table is *** that I can move it.",
+    "o": [
+      "so light",
+      "too light"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The questions are *** to answer.",
+    "o": [
+      "enough easy",
+      "easy enough"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "We were so tired that we *** go to the party.",
+    "o": [
+      "could",
+      "couldn't"
+    ],
+    "ans": 2
+  }
+]

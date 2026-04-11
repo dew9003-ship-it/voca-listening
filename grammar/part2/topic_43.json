@@ -1,0 +1,266 @@
+[
+  {
+    "q": "The movie *** by him.",
+    "o": [
+      "was directed",
+      "directed"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He *** the movie.",
+    "o": [
+      "was directed",
+      "directed"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Many plants *** by my sister.",
+    "o": [
+      "is grown",
+      "are grown"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My sister *** many plants.",
+    "o": [
+      "grows",
+      "are grown"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My father *** my desk.",
+    "o": [
+      "made",
+      "was made"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My desk *** by my father.",
+    "o": [
+      "made",
+      "was made"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "EXO *** this song.",
+    "o": [
+      "sang",
+      "was sung"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This song *** by Super Junior.",
+    "o": [
+      "sang",
+      "was sung"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The Sydney Opera House *** in 1973.",
+    "o": [
+      "built",
+      "was built"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Wine *** at that store.",
+    "o": [
+      "doesn't sell",
+      "isn't sold"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "English *** in many countries.",
+    "o": [
+      "speaks",
+      "is spoken"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "That house *** 20 years ago.",
+    "o": [
+      "built",
+      "was built"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My father *** the house 20 years ago.",
+    "o": [
+      "built",
+      "was built"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The soap *** in America.",
+    "o": [
+      "made",
+      "was made"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** this song sung by EXO last year?",
+    "o": [
+      "Did",
+      "Was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** English spoken by people in your country?",
+    "o": [
+      "Does",
+      "Is"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Many people *** computers.",
+    "o": [
+      "use",
+      "are used"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Computers *** by many people.",
+    "o": [
+      "use",
+      "are used"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The house *** by my father.",
+    "o": [
+      "built",
+      "was built"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** my homework last night.",
+    "o": [
+      "finished",
+      "was finished"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My homework was *** last night.",
+    "o": [
+      "finished",
+      "was finished"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This phone *** in Korea.",
+    "o": [
+      "made",
+      "was made"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This song *** by ICON.",
+    "o": [
+      "sang",
+      "was sung"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** the letter delivered to your sister?",
+    "o": [
+      "Did",
+      "Was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** you see the man steal my purse?",
+    "o": [
+      "Did",
+      "Was"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He *** the door.",
+    "o": [
+      "didn't lock",
+      "wasn't locked"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The door *** by him.",
+    "o": [
+      "didn't lock",
+      "wasn't locked"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The vase ***.",
+    "o": [
+      "breaks",
+      "was broken"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My watch *** last week.",
+    "o": [
+      "stole",
+      "was stolen"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Mt. Halla *** every where in Jeju.",
+    "o": [
+      "sees",
+      "is seen"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The vase *** by Tom.",
+    "o": [
+      "broke",
+      "was broken"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom *** the vase in the morning.",
+    "o": [
+      "broke",
+      "was broken"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My phone *** in the library.",
+    "o": [
+      "stole",
+      "was stolen"
+    ],
+    "ans": 2
+  }
+]

@@ -1,0 +1,242 @@
+[
+  {
+    "q": "He said, \"I am very happy now.\"",
+    "o": [
+      "He said that he was very happy then.",
+      "He said that I was very happy then."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She said to me, \"I met your father here.\"",
+    "o": [
+      "She told me that she had met my father there.",
+      "She told me that I had met my father there."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He said to me, \"I will make a cake.\"",
+    "o": [
+      "He said to me that he would make a cake.",
+      "He told me that he would make a cake."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom said to me, \"I want to go shopping with you.\"",
+    "o": [
+      "Tom said to me that he wanted to go shopping with me.",
+      "Tom told me that he wanted to go shopping with me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She said, \"I want to study English with Tom.\"",
+    "o": [
+      "She said that she wanted to study English with Tom.",
+      "She said that I wanted to study English with Tom."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He said to me, \"I am very tired.\"",
+    "o": [
+      "He told me (that) he was very tired.",
+      "He said to me that he was very tired."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He said, \"I am thirsty.\"",
+    "o": [
+      "He said that he was thirsty.",
+      "He told that he was thirsty."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He said to me, \"you are too rude.\"",
+    "o": [
+      "He told me that you were too rude.",
+      "He told me that I was too rude."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He said to me, \"I love you.\"",
+    "o": [
+      "He told me that he loved me.",
+      "He told me that I loved him."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "David said to us, \"I will have a party tomorrow.\"",
+    "o": [
+      "David told us he would have a party the following day.",
+      "David told us he will have a party the following day."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He said, \"I did my homework.\"",
+    "o": [
+      "He said that he had done his homework.",
+      "He said that he did his homework."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom said to me, \"I will call you tomorrow.\"",
+    "o": [
+      "Tom told me that he would call me the next day.",
+      "Tom told me that I would call you the next day."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "John said to me, \"I bought this cap yesterday.\"",
+    "o": [
+      "John told me that he had bought that cap the day before.",
+      "John told me that he bought that cap the day before."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You said, \"I am busy today.\"",
+    "o": [
+      "You said that you were busy that day.\"",
+      "You said that I was busy that day."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tony said to me, \"I will meet your uncle tomorrow.\"",
+    "o": [
+      "Tony told me that he would meet his uncle the next day.",
+      "Tony told me that he would meet my uncle the next day."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Jane said, \"I am tired.\"",
+    "o": [
+      "Jane said that I was tired.",
+      "Jane said that she was tired."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Our teacher said to us, \"the Korean War was over in 1953.\"",
+    "o": [
+      "Our teacher told us that the Korean War was over in 1953.",
+      "Our teacher said to us that the Korean War was over in 1953."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He said, \"I am going to be late.\"",
+    "o": [
+      "He said he was going to be late.",
+      "He said I was going to be late."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My father said to us, \"It is time to go.\"",
+    "o": [
+      "My father told us that it is time to go.",
+      "My father told us that it was time to go."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Bob said, \"I have an appointment tomorrow.\"",
+    "o": [
+      "Bob said that he had had an appointment the next day.",
+      "Bob said that he had an appointment the next day."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom said, \"I will go home.\"",
+    "o": [
+      "Tom said he will go home.",
+      "Tom said he would go home."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom and Jane said, \"We are going to an English camp tomorrow.\"",
+    "o": [
+      "Tom and Jane said that they are going to an English camp the next day.",
+      "Tom and Jane said that they were going to an English camp the next day."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Jane said, \"My sister is doing fine.\"",
+    "o": [
+      "Jane said that my sister was doing fine.",
+      "Jane said that her sister was doing fine."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He said, \"I don't like a cat.\"",
+    "o": [
+      "He said that she doesn't like a cat.",
+      "He said that he didn't like a cat."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He said to me, \"I bought a cell phone.\"",
+    "o": [
+      "He told me that he would buy a cell phone.",
+      "He told me that he had bought a cell phone."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He said to me, \"I will buy a cell phone today.\"",
+    "o": [
+      "He told me that he would buy a cell phone that day.",
+      "He told me that he had bought a cell phone that day."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He said, \"There's nothing I can do.\"",
+    "o": [
+      "He said that there was nothing he can do.",
+      "He said that there was nothing he could do."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Ann said to me, \"I'm going to leave tomorrow.\"",
+    "o": [
+      "Ann told me that she was going to leave  tomorrow.",
+      "Ann told me that she was going to leave the next day."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He said to me, \"I can help you.\"",
+    "o": [
+      "He said to me that he could help me.",
+      "He told me that he could help me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Jane said, \"I will watch TV tonight.\"",
+    "o": [
+      "Jane said that she will watch TV that night.",
+      "Jane said that she would watch TV that night."
+    ],
+    "ans": 2
+  }
+]

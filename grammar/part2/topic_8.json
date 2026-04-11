@@ -1,0 +1,322 @@
+[
+  {
+    "q": "I have just finished my homework.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She has gone to Mokpo.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "We have studied English for five years.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have seen the movie four times.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He has just left the station.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Have you had your dinner yet?",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have studied English for three years.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She has been to New York twice.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "I have never forgotten her face.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Has he already seen the movie?",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We have lived in this city since 1988.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He has been sick for a week.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "We have never had a car.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He hasn't come here yet.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We have been here before.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "She has just arrived here.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have not finished it yet.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He has already come home.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have never seen her before.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "I have already heard the news.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She has played the piano for 3 years.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She hasn't visited us yet.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have lost my watch.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "She has gone to Mokpo.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "They have gone to Mokpo.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "She has been sick since last week.",
+    "o": [
+      "완료",
+      "계속",
+      "경험",
+      "결과"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She *** to Mokpo in 2002.",
+    "o": [
+      "has gone",
+      "went",
+      "gone",
+      "goes"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She *** to Mokpo twice.",
+    "o": [
+      "has been",
+      "went",
+      "gone",
+      "goes"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "When *** to the church?",
+    "o": [
+      "have you gone",
+      "has you gone",
+      "went you",
+      "did you go"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "She *** to London last week.",
+    "o": [
+      "has gone",
+      "goes",
+      "go",
+      "went"
+    ],
+    "ans": 4
+  },
+  {
+    "q": "Jane *** for Mokpo yesterday.",
+    "o": [
+      "has left",
+      "left",
+      "leave",
+      "leaves"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Have you ever *** her before?",
+    "o": [
+      "seen",
+      "saw",
+      "see",
+      "sees"
+    ],
+    "ans": 1
+  }
+]

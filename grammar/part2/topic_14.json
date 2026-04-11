@@ -1,0 +1,130 @@
+[
+  {
+    "q": "두단어 이상이 명사 역할을 하면?",
+    "o": [
+      "명사",
+      "명사구"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "두단어 이상이 명사 역할을 하면?",
+    "o": [
+      "명사",
+      "명사절"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "두단어 이상이 형용사 역할을 하면?",
+    "o": [
+      "형용사",
+      "형용사구"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "두단어 이상이 형용사 역할을 하면?",
+    "o": [
+      "형용사",
+      "형용사절"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "두단어 이상이 부사 역할을 하면?",
+    "o": [
+      "부사",
+      "부사구"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "두단어 이상이 부사 역할을 하면?",
+    "o": [
+      "부사",
+      "부사절"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 명사구가 있는 문장은?",
+    "o": [
+      "I like a cat.",
+      "I like to play with a cat."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 명사구가 있는 문장은?",
+    "o": [
+      "My hobby is to play computer games.",
+      "I know that Tom is very honest."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 명사구가 있는 문장은?",
+    "o": [
+      "To play computer games is my hobby.",
+      "That Tom is very honest is true."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 명사구가 있는 문장은?",
+    "o": [
+      "I want to go out.",
+      "When I was 9 years old, I was very smart."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 명사절이 있는 문장은?",
+    "o": [
+      "My hobby is to play computer games.",
+      "I know that Tom is very honest."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 명사절이 있는 문장은?",
+    "o": [
+      "To play computer games is my hobby.",
+      "That Tom is very honest is true."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 부사절이 있는 문장은?",
+    "o": [
+      "To play computer games is my hobby.",
+      "When I was 9 years old, I was very smart."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "문장이 명사 역할을 하면?",
+    "o": [
+      "명사",
+      "명사절"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "문장이 형용사 역할을 하면?",
+    "o": [
+      "형용사절",
+      "형용사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "문장이 부사 역할을 하면?",
+    "o": [
+      "부사절",
+      "부사"
+    ],
+    "ans": 1
+  }
+]

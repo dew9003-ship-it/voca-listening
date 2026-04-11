@@ -1,0 +1,305 @@
+[
+  {
+    "q": "I couldn't go to school, *** I caught a cold.",
+    "o": [
+      "because",
+      "though"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He was not happy *** he didn't enjoy his work.",
+    "o": [
+      "since",
+      "althoug"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** you look tired, go to bed early.",
+    "o": [
+      "as",
+      "even if"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** I caught a bad cold, I went to school on foot.",
+    "o": [
+      "because",
+      "though"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** I caught a bad cold, I went to school on foot.",
+    "o": [
+      "because",
+      "although"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** I caught a bad cold, I went to school on foot.",
+    "o": [
+      "because",
+      "even though"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** I caught a bad cold, I went to school on foot.",
+    "o": [
+      "because",
+      "even if"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** he is poor, he is very happy.",
+    "o": [
+      "because",
+      "though"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** he is poor, he is very happy.",
+    "o": [
+      "because",
+      "although"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** he is poor, he is very happy.",
+    "o": [
+      "because",
+      "even though"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** he is poor, he is very happy.",
+    "o": [
+      "because",
+      "even if"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** Tom was very rich, he wasn't happy.",
+    "o": [
+      "because",
+      "even though"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** Tom was very rich, he wasn't happy.",
+    "o": [
+      "because",
+      "even if"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "We couldn't go camping *** it rained.",
+    "o": [
+      "because",
+      "because of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He turned the heater off *** it was very hot.",
+    "o": [
+      "because",
+      "because of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I was late for school again *** you.",
+    "o": [
+      "because",
+      "because of"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** you are here, I'll give you the book.",
+    "o": [
+      "because of",
+      "since"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** she didn't study hard, he passed the test.",
+    "o": [
+      "because",
+      "even though"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** she didn't study hard, he passed the test.",
+    "o": [
+      "because",
+      "though"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** she didn't study hard, he passed the test.",
+    "o": [
+      "because",
+      "although"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** she didn't study hard, he passed the test.",
+    "o": [
+      "because",
+      "even if"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** you look tired, go to bed early.",
+    "o": [
+      "since",
+      "although"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** you look tired, go to bed early.",
+    "o": [
+      "as",
+      "although"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "I couldn't go to school"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "He was not happy"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "As you look tired"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "Though I caught a bad cold"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "Although I caught a bad cold"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "Even though I caught a bad cold"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "Even if I caught a bad cold"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "Though he is poor"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "Although he is poor"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "Even though he is poor"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "Even if he is poor"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "Though Tom was very rich"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "Although Tom was very rich"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "We couldn't go camping"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "He turned the heater off"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "Since it rained"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 문장에서 부사절은?",
+    "o": [
+      "Since you are here"
+    ],
+    "ans": 1
+  }
+]

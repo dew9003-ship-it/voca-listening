@@ -1,0 +1,398 @@
+[
+  {
+    "q": "She is very pretty. She*** an actress.",
+    "o": [
+      "must not be",
+      "must be",
+      "must is"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She must play the piano.",
+    "o": [
+      "그녀는 피아노를 칠것이다.",
+      "그녀는 피아노를 칠지도 모른다.",
+      "그녀는 피아노를 쳐야만 한다."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "She *** a teacher.",
+    "o": [
+      "cannot be",
+      "not must be",
+      "must be not"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He *** a teacher.",
+    "o": [
+      "must be",
+      "must is",
+      "is must"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom *** a teacher.",
+    "o": [
+      "must be",
+      "must is",
+      "is must"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Jane *** a teacher.",
+    "o": [
+      "cannot be",
+      "not must be",
+      "must be not"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They ***  teachers.",
+    "o": [
+      "cannot be",
+      "not must be",
+      "must be not"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She must *** to school alone.",
+    "o": [
+      "goes",
+      "have",
+      "go"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "He must *** tennis.",
+    "o": [
+      "plays",
+      "played",
+      "play"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Must he *** to school?",
+    "o": [
+      "goes",
+      "went",
+      "go"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Must she *** to school?",
+    "o": [
+      "goes",
+      "has",
+      "go"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Must they *** to school?",
+    "o": [
+      "goes",
+      "have",
+      "go"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Must he study English?",
+    "o": [
+      "Yes, you must.",
+      "Yes, I must.",
+      "Yes, he must."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "Must I study English?",
+    "o": [
+      "Yes, I must.",
+      "Yes, you are.",
+      "Yes, you must."
+    ],
+    "ans": 3
+  },
+  {
+    "q": "I'm tired, but I *** study English.",
+    "o": [
+      "must not",
+      "must",
+      "don't have to"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "It's Sunday, so I *** go to school.",
+    "o": [
+      "don't have to",
+      "must",
+      "must not"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "조동사 다음에 오는 동사는 반드시 *** 이어야한다.",
+    "o": [
+      "동사원형",
+      "이어동사",
+      "감각동사"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It's Sunday, but I *** go to church.",
+    "o": [
+      "not must",
+      "don't have to",
+      "should be"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Must I go out now?",
+    "o": [
+      "Yes, you must.",
+      "No, you must.",
+      "Yes, I must."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It's Sunday, but I *** go to church.",
+    "o": [
+      "must not",
+      "have not to",
+      "should be"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "It's Sunday, but I *** go to church.",
+    "o": [
+      "must be",
+      "should not",
+      "not should"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I'm tired, but I *** study English.",
+    "o": [
+      "must not",
+      "should",
+      "don't have to"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I'm tired, but I *** study English.",
+    "o": [
+      "must not",
+      "have to",
+      "don't have to"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Do I *** study English now?",
+    "o": [
+      "must",
+      "should",
+      "have to"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "*** she have to go home now?",
+    "o": [
+      "must",
+      "should",
+      "does"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "*** he have to go home now?",
+    "o": [
+      "must",
+      "should",
+      "does"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "*** they have to go home now?",
+    "o": [
+      "must",
+      "should",
+      "do"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "She *** to go home now.",
+    "o": [
+      "must",
+      "should",
+      "has"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "She *** to go home now.",
+    "o": [
+      "must",
+      "have",
+      "has"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "I *** to go home now.",
+    "o": [
+      "must",
+      "have",
+      "has"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He *** to go home now.",
+    "o": [
+      "must",
+      "have",
+      "has"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "They *** to go home now.",
+    "o": [
+      "must",
+      "have",
+      "has"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He *** to go home now.",
+    "o": [
+      "must",
+      "don't have",
+      "doesn't have"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "She *** to go home now.",
+    "o": [
+      "must",
+      "don't have",
+      "doesn't have"
+    ],
+    "ans": 3
+  },
+  {
+    "q": "They *** to go home now.",
+    "o": [
+      "must",
+      "don't have",
+      "doesn't have"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "We *** to go home now.",
+    "o": [
+      "must",
+      "don't have",
+      "doesn't have"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I *** to go home now.",
+    "o": [
+      "must",
+      "don't have",
+      "doesn't have"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You *** to go home now.",
+    "o": [
+      "must",
+      "don't have",
+      "doesn't have"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "You *** go home now.",
+    "o": [
+      "must",
+      "don't have",
+      "doesn't have"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You *** go home now.",
+    "o": [
+      "should",
+      "don't have",
+      "doesn't have"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You *** go home now.",
+    "o": [
+      "should",
+      "have",
+      "has"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "You *** go home now.",
+    "o": [
+      "should",
+      "don't have",
+      "doesn't have"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She *** go home now.",
+    "o": [
+      "must",
+      "don't have",
+      "doesn't have"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He *** go home now.",
+    "o": [
+      "should",
+      "don't have",
+      "doesn't have"
+    ],
+    "ans": 1
+  }
+]

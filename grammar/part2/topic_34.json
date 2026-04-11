@@ -1,0 +1,234 @@
+[
+  {
+    "q": "*** that glitters is not gold.",
+    "o": [
+      "all",
+      "every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** I want is love.",
+    "o": [
+      "all",
+      "every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** I want for Christmas is you.",
+    "o": [
+      "all",
+      "every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** were satisfied with the results.",
+    "o": [
+      "all",
+      "every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** were surprised at the news.",
+    "o": [
+      "all",
+      "every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** the people were surprised at the news.",
+    "o": [
+      "all",
+      "every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** man has his dream.",
+    "o": [
+      "all",
+      "every"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** man has his dream.",
+    "o": [
+      "all",
+      "each"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** the children have gone home.",
+    "o": [
+      "all",
+      "each"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** dog has its day.",
+    "o": [
+      "all",
+      "every"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** student has a bike.",
+    "o": [
+      "all",
+      "every"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** students have bikes.",
+    "o": [
+      "all",
+      "every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** student has a bike.",
+    "o": [
+      "all",
+      "each"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have finished *** the homework.",
+    "o": [
+      "all",
+      "every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I want to buy *** item in this store.",
+    "o": [
+      "all",
+      "every"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I want to buy *** the items in this store.",
+    "o": [
+      "all",
+      "every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** of them is studying English.",
+    "o": [
+      "all",
+      "each"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** of them are studying English.",
+    "o": [
+      "all",
+      "every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** of them are studying English.",
+    "o": [
+      "both",
+      "every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** of us were very happy.",
+    "o": [
+      "both",
+      "every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** child was smart and pretty.",
+    "o": [
+      "both",
+      "every"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** child was smart and pretty.",
+    "o": [
+      "both",
+      "each"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** country has its own culture.",
+    "o": [
+      "both",
+      "every"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** of them passed the test.",
+    "o": [
+      "neither",
+      "every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** of them passed the test.",
+    "o": [
+      "each",
+      "every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** of them passed the test.",
+    "o": [
+      "all",
+      "every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** of them passed the test.",
+    "o": [
+      "both",
+      "every"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** were satisfied with the results.",
+    "o": [
+      "every",
+      "both"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** were surprised at the news.",
+    "o": [
+      "every",
+      "both"
+    ],
+    "ans": 2
+  }
+]

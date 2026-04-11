@@ -1,0 +1,162 @@
+[
+  {
+    "q": "I have small animals.",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I was satisfied with my grades.",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He was killed in the Korean War.",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I was playing computer games.",
+    "o": [
+      "진행형",
+      "수동태"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is seven years old.",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is loved.",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is my friend.",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is laughed at by Tom.",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Many people use computers.",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Computers are used by many people.",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I was playing computer games.",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He was smiling at me.",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is not sleeping.",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Computers aren't used by many people.",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Are you listening to music?",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Were the door painted by him?",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Is he painting the door?",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Was he eating ice cream?",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "We are waiting for the bus.",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tom was loved by Mary.",
+    "o": [
+      "능동태",
+      "수동태"
+    ],
+    "ans": 2
+  }
+]

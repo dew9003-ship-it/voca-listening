@@ -1,0 +1,258 @@
+[
+  {
+    "q": "The house is built by him.",
+    "o": [
+      "현재시제",
+      "과거시제"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The house was built by him.",
+    "o": [
+      "현재시제",
+      "과거시제"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The house will be built by him.",
+    "o": [
+      "현재시제",
+      "미래시제"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The house is being built by him.",
+    "o": [
+      "현재진행",
+      "과거진행"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The house has been built by him.",
+    "o": [
+      "현재시제",
+      "현재완료"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The piano is played by Tom.",
+    "o": [
+      "현재시제",
+      "과거시제"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The piano was played by Tom.",
+    "o": [
+      "현재시제",
+      "과거시제"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The piano is being played by Tom.",
+    "o": [
+      "현재진행",
+      "과거진행"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The piano will be played by Tom.",
+    "o": [
+      "미래진행",
+      "미래시제"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The piano has been played by Tom.",
+    "o": [
+      "현재시제",
+      "현재완료"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The pen is used by Tom.",
+    "o": [
+      "현재시제",
+      "과거시제"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The pen was used by Tom.",
+    "o": [
+      "과거진행",
+      "과거시제"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The pen will be used by Tom.",
+    "o": [
+      "현재시제",
+      "미래시제"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The pen is being used by Tom.",
+    "o": [
+      "현재진행",
+      "과거진행"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The pen has been used by Tom.",
+    "o": [
+      "현재시제",
+      "현재완료"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My homework is done by Tom.",
+    "o": [
+      "현재시제",
+      "과거시제"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My homework was done by Tom.",
+    "o": [
+      "현재시제",
+      "과거시제"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My homework will be done by Tom.",
+    "o": [
+      "현재시제",
+      "미래시제"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My homework is being done by Tom.",
+    "o": [
+      "현재진행",
+      "과거진행"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "My homework has been done by Tom.",
+    "o": [
+      "현재시제",
+      "현재완료"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My homework *** done by Tom last night.",
+    "o": [
+      "is",
+      "was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "When I was young, My favorite toy car *** broken.",
+    "o": [
+      "is",
+      "was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "My project *** finished by next Monday.",
+    "o": [
+      "was",
+      "will be"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The house *** built 20 years ago.",
+    "o": [
+      "was",
+      "will be"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The Sydney Opera House *** built in 1973.",
+    "o": [
+      "is",
+      "was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** the house built 20 years ago?",
+    "o": [
+      "is",
+      "was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** the Sydney Opera House  built in 1973.",
+    "o": [
+      "is",
+      "was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** the computer being repaired now?",
+    "o": [
+      "is",
+      "was"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "*** the pen stolen by John?",
+    "o": [
+      "will",
+      "was"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** John steal the pen?",
+    "o": [
+      "was",
+      "did"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** they steal the pen?",
+    "o": [
+      "were",
+      "did"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He *** the pen.",
+    "o": [
+      "stole",
+      "was stolen"
+    ],
+    "ans": 1
+  }
+]

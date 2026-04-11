@@ -1,0 +1,242 @@
+[
+  {
+    "q": "He was surprised *** the news.",
+    "o": [
+      "with",
+      "at"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I was satisfied *** my greades.",
+    "o": [
+      "with",
+      "at"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The mountain is covered *** snow.",
+    "o": [
+      "with",
+      "at"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I was surprised  *** my weight.",
+    "o": [
+      "with",
+      "at"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is interested *** music.",
+    "o": [
+      "in",
+      "of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The chair is made *** wood.",
+    "o": [
+      "in",
+      "of"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Was John surprised *** the result?",
+    "o": [
+      "with",
+      "at"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The top of the mountain was covered *** snow.",
+    "o": [
+      "with",
+      "at"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The museum is filled *** many pictures",
+    "o": [
+      "with",
+      "at"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Wine is made *** grapes.",
+    "o": [
+      "in",
+      "from"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I am interested *** music.",
+    "o": [
+      "in",
+      "of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She was surprised *** the news.",
+    "o": [
+      "with",
+      "at"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "The mountain is covered *** snow.",
+    "o": [
+      "with",
+      "at"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He was pleased *** your present.",
+    "o": [
+      "with",
+      "at"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The box was filled *** many stones.",
+    "o": [
+      "with",
+      "at"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The mountain was covered *** snow.",
+    "o": [
+      "with",
+      "at"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Are you satisfied *** your income?",
+    "o": [
+      "with",
+      "at"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "This city is known *** its beautiful beach.",
+    "o": [
+      "with",
+      "for"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tom is interested *** painting.",
+    "o": [
+      "in",
+      "of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "They were pleased *** their son's grades.",
+    "o": [
+      "with",
+      "at"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The zoo was filled *** many animals.",
+    "o": [
+      "with",
+      "at"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He was married *** Jane.",
+    "o": [
+      "of",
+      "to"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Jane will be married *** Tom.",
+    "o": [
+      "in",
+      "to"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "*** you interested in music?",
+    "o": [
+      "Do",
+      "Are"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Are you interested *** music?",
+    "o": [
+      "in",
+      "of"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "The news will be known *** all the students.",
+    "o": [
+      "with",
+      "to"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I was tired *** playing the piano.",
+    "o": [
+      "in",
+      "of"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I was tired *** studying math.",
+    "o": [
+      "in",
+      "of"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I was disappointed *** myself.",
+    "o": [
+      "with",
+      "to"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I was tired *** studying math.",
+    "o": [
+      "with",
+      "to"
+    ],
+    "ans": 1
+  }
+]

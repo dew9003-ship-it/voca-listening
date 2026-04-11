@@ -1,0 +1,322 @@
+[
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "Look at that boy who has blue eyes.",
+      "He likes the car that he bought yesterday."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "Where is the house in which your family lives?",
+      "Where is the house which your family lives in?"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "I will take the book which is on the table.",
+      "I don't like people who tell a lie."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "This is the ship which was made in Korea.",
+      "This is a shop which sells many kinds of fruit."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "The book which is on the desk is mine.",
+      "This is what I like."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "This is the novel which was written by Mr. Park.",
+      "Tom lives in a house whose windows are pretty."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "Look at the dog whose tail is blue.",
+      "I bought a book which I wanted to read."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "Tom made a table whose color is red.",
+      "This is the doll which my mother made."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "Tom has a house whose roof is blue.",
+      "This is the picture which Sumi painted."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "Tom lives in a house whose windows are pretty.",
+      "Here is the book which you gave me."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "Tom lives in a house whose garden is beautiful.",
+      "The dog which is sleeping on the sofa is mine."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "Tom has a cat whose fur is all gray.",
+      "I love this house which is built by my father."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "The woman whom you met yesterday is Ms. Brown.",
+      "I know a boy who can speak English well."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "Did you see the man that I saw?",
+      "She has two sons who are doctors."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "He is the man that I met yesterday.",
+      "He is the boy who broke the window."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "The people that I met in Hawaii were very nice.",
+      "I saw a girl whose hair comes down to   her waist."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "Mary is the girl that I like best.",
+      "A nurse is a person who looks after sick."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "Do you know the girl that Mike likes?",
+      "I need a woman who can take care of my baby."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "Mike is a boy that everyone likes.",
+      "I know a boy whose eyes are green."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "The friend whom I met here is Jane.",
+      "What is important in my life is my family."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "The boy whom I met on the street is Mr. Kim's son.",
+      "This is what I bought for my mom."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "Do you know the girl who is chatting in the room?",
+      "What she wants for Christmas is a car."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "Look at the woman who is baking cakes.",
+      "I cannot understand what he says."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "Look at the bird which is singing in the tree.",
+      "This is what I don't understand well."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "This is the dog which my mother bought me.",
+      "Love is what makes people happy."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "The pictures which we looked at are famous.",
+      "That is what I lost yesterday."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "This is the pen that John bought.",
+      "What she has done has nothing to do with us."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "I have a box which is made of wood.",
+      "There are animals that live in the water."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "I like the dress which Anna is wearing.",
+      "He has a dog that has brown eyes."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "생략할수 있는 부분이 있는 문장은?",
+    "o": [
+      "This is the ship that was made in Korea.",
+      "I know the man who loves Jane."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She lives in a house which has seven bedrooms.",
+    "o": [
+      "한정적용법",
+      "계속적용법"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I read a letter which was written in French.",
+    "o": [
+      "한정적용법",
+      "계속적용법"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He has a dog which has brown eyes.",
+    "o": [
+      "한정적용법",
+      "계속적용법"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "He is wearing the sweater which I made for him.",
+    "o": [
+      "한정적용법",
+      "계속적용법"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She lives in a house, which has seven bedrooms.",
+    "o": [
+      "한정적용법",
+      "계속적용법"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I read a letter, which was written in French.",
+    "o": [
+      "한정적용법",
+      "계속적용법"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He has a dog, which has brown eyes.",
+    "o": [
+      "한정적용법",
+      "계속적용법"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He is wearing the sweater, which I made for him.",
+    "o": [
+      "한정적용법",
+      "계속적용법"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I met Mr. Brown, who invited me to the party.",
+    "o": [
+      "한정적용법",
+      "계속적용법"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I met Mr. Brown who had invited me to the party.",
+    "o": [
+      "한정적용법",
+      "계속적용법"
+    ],
+    "ans": 1
+  }
+]

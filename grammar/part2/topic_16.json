@@ -1,0 +1,202 @@
+[
+  {
+    "q": "나는 읽을 책이 많이 있다.\nI have ***.",
+    "o": [
+      "many books to read",
+      "to read many books"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "뉴욕엔 볼것들이 많이 있다.\nThere are *** in New York.",
+    "o": [
+      "many things to see",
+      "to see many things"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you have ***?\n말할 것이 있니?",
+    "o": [
+      "anything to say",
+      "to say anything"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I need ***.\n나는 입을 재킷이 필요하다.",
+    "o": [
+      "a jacket to wear",
+      "to wear a jacket"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you want ***?\n너는 먹을 것을 원하니?",
+    "o": [
+      "to eat something",
+      "something to eat"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She has ***.\n그녀는 쓸 연필이 없다.",
+    "o": [
+      "to write with no pencil",
+      "no pencil to write with"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I don't have ***.\n나는 말할 것이 없다.",
+    "o": [
+      "to talk about anything",
+      "anything to talk about"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is ***.\n이것은 물건을 넣어두는 상자이다.",
+    "o": [
+      "to put things in a box",
+      "a box to put things in"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I need ***.\n나는 쓸 노트가 필요하다.",
+    "o": [
+      "a note to write on",
+      "to write on a note"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I need a note ***.",
+    "o": [
+      "to write on",
+      "to do"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I have many books ***.",
+    "o": [
+      "to read",
+      "to play"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "There are many things *** in New York.",
+    "o": [
+      "to do",
+      "to can"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you have ***?",
+    "o": [
+      "anything to say",
+      "anything to go"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I need ***.",
+    "o": [
+      "a jacket to wear",
+      "a jacket to say"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you want ***?",
+    "o": [
+      "water to eat",
+      "water to drink"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She has a pen ***.",
+    "o": [
+      "to write with",
+      "to eat"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I don't have ***.",
+    "o": [
+      "nothing to say",
+      "anything to say"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Give me ***.\n먹을것좀 주세요.",
+    "o": [
+      "something to eat",
+      "something to drink"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Give me ***.\n마실것좀 주세요.",
+    "o": [
+      "something to eat",
+      "something to drink"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have much homework ***.",
+    "o": [
+      "to do",
+      "to go"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "예정을 나타내는 문장은?",
+    "o": [
+      "The President is to make a visit to New York next week.",
+      "No one was to be seen on the street."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "의무를 나타내는 문장은?",
+    "o": [
+      "We are to obey our parents.",
+      "If we are to catch that train, we have to leave now."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "의도를 나타내는 문장은?",
+    "o": [
+      "We are to obey our parents.",
+      "If we are to catch that train, we have to leave now."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "가능을 나타내는 문장은?",
+    "o": [
+      "The President is to make a visit to New York next week.",
+      "No one was to be seen on the street."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "운명을 나타내는 문장은?",
+    "o": [
+      "They were never to see each other again.",
+      "We are to obey our parents."
+    ],
+    "ans": 1
+  }
+]

@@ -1,0 +1,242 @@
+[
+  {
+    "q": "That is *** she makes salad.",
+    "o": [
+      "what",
+      "how"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I don`t know the reason *** she left.",
+    "o": [
+      "why",
+      "how"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Show me *** you did it.",
+    "o": [
+      "what",
+      "how"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the way *** I cook fish.",
+    "o": [
+      "how",
+      "넣지않음"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Tell me the way *** you made it.",
+    "o": [
+      "why",
+      "넣지않음"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the reason *** he came here.",
+    "o": [
+      "why",
+      "넣지않음"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you know *** he was late for school?",
+    "o": [
+      "why",
+      "the way"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Tell me *** you learned English.",
+    "o": [
+      "what",
+      "how"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "This is the reason *** the accident took place.",
+    "o": [
+      "why",
+      "how"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I remember the way *** I studied English.",
+    "o": [
+      "why",
+      "넣지않음"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I remember the reason *** I studied English.",
+    "o": [
+      "why",
+      "넣지않음"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She asked the reason *** I was late for school.",
+    "o": [
+      "why",
+      "the way"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She asked the way *** I went to the park alone.",
+    "o": [
+      "why",
+      "넣지않음"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "She asked the reason *** I went to the park alone.",
+    "o": [
+      "why",
+      "the way"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Did you know the reason *** I went to the park alone.",
+    "o": [
+      "why",
+      "넣지않음"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you know the way *** I went to the park alone.",
+    "o": [
+      "how",
+      "넣지않음"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I like the way *** you study English.",
+    "o": [
+      "why",
+      "넣지않음"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I know the way *** you study English.",
+    "o": [
+      "why",
+      "넣지않음"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I want to know the way *** you study English.",
+    "o": [
+      "how",
+      "넣지않음"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I want to know the reason *** you study English.",
+    "o": [
+      "why",
+      "how"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "Do you know the way how I went to the park alone.",
+      "Do you know the way I went to the park alone."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "I like the way you study English.",
+      "I like the way how you study English."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "I know the way how you study English.",
+      "I know the way you study English."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "I want to know the way how you study English.",
+      "I want to know the way you study English."
+    ],
+    "ans": 2
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "Do you know how I went to the park alone.",
+      "Do you know the way how I went to the park alone."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "I don't know how you study English.",
+      "I don't know the way how you study English."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "I know how you study English.",
+      "I know the way how you study English."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "I want to know how you study English.",
+      "I want to know the way how you study English."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "I like the way she laughs.",
+      "I like the way how she laughs."
+    ],
+    "ans": 1
+  },
+  {
+    "q": "다음 중 올바른 문장을 고르시오.",
+    "o": [
+      "I don't know the way how you study English.",
+      "I want to know how you study English."
+    ],
+    "ans": 2
+  }
+]

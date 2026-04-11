@@ -1,0 +1,170 @@
+[
+  {
+    "q": "I don't mind *** early in the morning.",
+    "o": [
+      "to get up",
+      "getting up"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I want *** a Korean restaurant.",
+    "o": [
+      "to run",
+      "running"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I enjoy *** TV every evening.",
+    "o": [
+      "to watch",
+      "watching"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He finished *** the flowers.",
+    "o": [
+      "to water",
+      "watering"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I decided *** to the party.",
+    "o": [
+      "to go",
+      "going"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I remember *** her tomorrow.",
+    "o": [
+      "to see",
+      "seeing"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "I remember *** her beofore.",
+    "o": [
+      "to see",
+      "seeing"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Stop *** and listen to me.",
+    "o": [
+      "to talk",
+      "talking"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He decided *** up early in the morning.",
+    "o": [
+      "to get",
+      "getting"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Don't forget *** the letter by tomorrow.",
+    "o": [
+      "to answer",
+      "answering"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you mind *** the window?",
+    "o": [
+      "to open",
+      "opening"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I plan *** a trip to Italy.",
+    "o": [
+      "to make",
+      "making"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "She is good at *** English.",
+    "o": [
+      "to speak",
+      "speaking"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "How about *** English?",
+    "o": [
+      "to study",
+      "studying"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "He enjoys *** newspaper in the morning.",
+    "o": [
+      "to read",
+      "reading"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I hope *** New York someday.",
+    "o": [
+      "to visit",
+      "visiting"
+    ],
+    "ans": 1
+  },
+  {
+    "q": "Do you mind *** your cell phone off?",
+    "o": [
+      "to turn",
+      "turning"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "We enjoy *** Italian food.",
+    "o": [
+      "to eat",
+      "eating"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "How about *** the Internet?",
+    "o": [
+      "to use",
+      "using"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "I have finished *** my homework.",
+    "o": [
+      "to do",
+      "doing"
+    ],
+    "ans": 2
+  },
+  {
+    "q": "Remember *** me up at six.",
+    "o": [
+      "to wake",
+      "waking"
+    ],
+    "ans": 1
+  }
+]
