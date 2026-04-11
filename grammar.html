@@ -386,16 +386,26 @@ currentNameEl.textContent = profileData?.name || me.email || '사용자';
 return true;
 }
 
-async function loadTopics(){
-menuLoading.style.display='block'; topicGrid.innerHTML='';
-try {
-const res = await fetch('grammar_list.json');
-const list = await res.json();
-topics = Array.isArray(list) ? list : [];
-} catch(e) { console.error(e); topics = []; }
-totalTopicsEl.textContent = topics.length || TOTAL_FALLBACK;
-menuLoading.style.display='none';
-renderMenu();
+async function loadTopics() {
+  menuLoading.style.display = 'block';
+  topicGrid.innerHTML = '';
+
+  try {
+    const res = await fetch('grammar_list.json');
+    const list = await res.json();
+    topics = Array.isArray(list) ? list : [];
+  } catch (e) {
+    console.error(e);
+    topics = [];
+  }
+
+  const totalTopicCount = topics.reduce((sum, part) => {
+    return sum + (Array.isArray(part.topics) ? part.topics.length : 0);
+  }, 0);
+
+  totalTopicsEl.textContent = totalTopicCount || TOTAL_FALLBACK;
+  menuLoading.style.display = 'none';
+  renderMenu();
 }
 
     async function renderMenu() {
@@ -428,25 +438,54 @@ renderMenu();
     return;
   }
 
-  for (const topic of topics) {
-    const progress = store[String(topic.id)] || store[topic.id];
-    const completed = !!progress?.completed;
+  for (const part of topics) {
+    const partTopics = Array.isArray(part.topics) ? part.topics : [];
+    const partCompletedCount = partTopics.filter(topic => {
+      const progress = store[String(topic.id)] || store[topic.id];
+      return !!progress?.completed;
+    }).length;
 
-    const card = document.createElement('button');
-    card.type = 'button';
-    card.className = `topic-card ${completed ? 'completed' : ''}`;
-    card.innerHTML = `
-      <div>
-        <div class="badge">${completed ? '완료' : '학습 가능'}</div>
-        <div class="topic-title">${escapeHtml(topic.title || `주제 ${topic.id}`)}</div>
+    const section = document.createElement('div');
+    section.style.gridColumn = '1 / -1';
+    section.style.marginBottom = '18px';
+
+    section.innerHTML = `
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; flex-wrap:wrap;">
+        <div>
+          <div style="font-size:22px; font-weight:900;">${escapeHtml(part.part || '파트')}</div>
+          <div style="font-size:13px; color:#6b7280; margin-top:6px;">
+            ${partTopics.length}개 주제 · 완료 ${partCompletedCount}개
+          </div>
+        </div>
       </div>
-      <div class="topic-meta">
-        ${completed && progress?.lastStudiedAt
-          ? `최근 학습: ${new Date(progress.lastStudiedAt).toLocaleDateString('ko-KR')}`
-          : '문제를 눌러 시작'}
-      </div>`;
-    card.addEventListener('click', () => startTopic(topic));
-    topicGrid.appendChild(card);
+      <div class="topic-grid"></div>
+    `;
+
+    const innerGrid = section.querySelector('.topic-grid');
+
+    for (const topic of partTopics) {
+      const progress = store[String(topic.id)] || store[topic.id];
+      const completed = !!progress?.completed;
+
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = `topic-card ${completed ? 'completed' : ''}`;
+      card.innerHTML = `
+        <div>
+          <div class="badge">${completed ? '완료' : '학습 가능'}</div>
+          <div class="topic-title">${escapeHtml(topic.title || `주제 ${topic.id}`)}</div>
+        </div>
+        <div class="topic-meta">
+          ${completed && progress?.lastStudiedAt
+            ? `최근 학습: ${new Date(progress.lastStudiedAt).toLocaleDateString('ko-KR')}`
+            : '문제를 눌러 시작'}
+        </div>
+      `;
+      card.addEventListener('click', () => startTopic(topic));
+      innerGrid.appendChild(card);
+    }
+
+    topicGrid.appendChild(section);
   }
 }
 
