@@ -342,7 +342,38 @@ function calcProgress(maxIndex) {
 }
 
 function calcGrammarProgress(grammarRow) {
-  const completed = Number(grammarRow?.completed_topic_count ?? 0);
+  function calcGrammarProgress(grammarRow) {
+  const topics = grammarRow?.completed_topics || {};
+  const unitLabel = grammarRow?.unit_label || '-';
+  const total = Number(grammarRow?.unit_total_count ?? 0);
+
+  // 🔥 현재 파트 판별
+  let isPart2 = false;
+
+  if (unitLabel.includes('Part 2')) {
+    isPart2 = true;
+  }
+
+  // 🔥 파트별 완료 개수 계산
+  let completed = 0;
+
+  for (const key in topics) {
+    if (!topics[key]?.completed) continue;
+
+    if (isPart2) {
+      if (String(key).startsWith('part2-')) completed++;
+    } else {
+      if (!String(key).startsWith('part2-')) completed++;
+    }
+  }
+
+  return {
+    completed,
+    total,
+    text: total > 0 ? `${completed} / ${total}` : '-',
+    unitLabel
+  };
+}
   const total = Number(grammarRow?.unit_total_count ?? 0);
   const unitLabel = grammarRow?.unit_label || '-';
 
