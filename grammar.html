@@ -679,7 +679,7 @@ function renderQuestion(){
   topicDesc.textContent = `총 ${currentQuestions.length}문제 · 현재 맞힌 문제 ${score}개`;
   progressBar.style.width = `${progressPercent}%`;
   questionLabel.textContent = `문제 ${currentIndex + 1} / ${currentQuestions.length}`;
-  questionText.textContent = item.q;
+  questionText.textContent = String(item.q || '').replace(/\*{3,}/g, '________');
   quizStatus.textContent = '정답을 선택해 주세요.';
 
   resultBox.className='result-box';
