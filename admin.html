@@ -289,7 +289,7 @@ const supabase = createClient(
 );
 
 const TOTAL_SENTENCES = 177;
-const TOTAL_GRAMMAR_TOPICS = 67;
+const TOTAL_GRAMMAR_TOPICS = 176;
 
 const statusEl = document.getElementById('status');
 const tbody = document.getElementById('studentTableBody');
@@ -371,40 +371,63 @@ function calcProgress(maxIndex) {
   };
 }
 
+function getGrammarPartKeyFromLabel(unitLabel) {
+  const label = String(unitLabel || '').toLowerCase();
+
+  if (label.includes('part 3') || label.includes('part3')) return 'part3';
+  if (label.includes('part 2') || label.includes('part2')) return 'part2';
+  return 'part1';
+}
+
 function calcGrammarProgress(grammarRow) {
   const topics = grammarRow?.completed_topics || {};
   const unitLabel = grammarRow?.unit_label || '-';
   const total = Number(grammarRow?.unit_total_count ?? 0);
+  const fallbackCompleted = Number(grammarRow?.completed_topic_count ?? 0);
+  const targetPartKey = getGrammarPartKeyFromLabel(unitLabel);
 
-  // 현재 표시해야 할 파트 판별
-  const isPart2 = unitLabel.includes('Part 2');
-
-  // 현재 파트에서 완료한 topic 수만 계산
   let completed = 0;
 
-  for (const key in topics) {
-    if (!topics[key]?.completed) continue;
+  for (const [key, value] of Object.entries(topics)) {
+    if (!value?.completed) continue;
 
-    if (isPart2) {
-      if (String(key).startsWith('part2-')) completed++;
-    } else {
-      if (!String(key).startsWith('part2-')) completed++;
+    const normalizedKey = String(key);
+
+    if (normalizedKey.startsWith('part1-') && targetPartKey === 'part1') {
+      completed++;
+      continue;
     }
+
+    if (normalizedKey.startsWith('part2-') && targetPartKey === 'part2') {
+      completed++;
+      continue;
+    }
+
+    if (normalizedKey.startsWith('part3-') && targetPartKey === 'part3') {
+      completed++;
+      continue;
+    }
+  }
+
+  if (completed <= 0 && Number.isFinite(fallbackCompleted) && fallbackCompleted > 0) {
+    completed = fallbackCompleted;
   }
 
   if (!Number.isFinite(total) || total <= 0) {
     return {
-      completed: 0,
+      completed: Math.max(0, completed),
       total: 0,
-      text: '-',
+      text: completed > 0 ? `${completed}` : '-',
       unitLabel
     };
   }
 
+  const safeCompleted = Math.min(Math.max(0, completed), total);
+
   return {
-    completed,
+    completed: safeCompleted,
     total,
-    text: `${completed} / ${total}`,
+    text: `${safeCompleted} / ${total}`,
     unitLabel
   };
 }
