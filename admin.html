@@ -372,19 +372,14 @@ function calcProgress(maxIndex) {
 }
 
 function calcGrammarProgress(grammarRow) {
-  function calcGrammarProgress(grammarRow) {
   const topics = grammarRow?.completed_topics || {};
   const unitLabel = grammarRow?.unit_label || '-';
   const total = Number(grammarRow?.unit_total_count ?? 0);
 
-  // 🔥 현재 파트 판별
-  let isPart2 = false;
+  // 현재 표시해야 할 파트 판별
+  const isPart2 = unitLabel.includes('Part 2');
 
-  if (unitLabel.includes('Part 2')) {
-    isPart2 = true;
-  }
-
-  // 🔥 파트별 완료 개수 계산
+  // 현재 파트에서 완료한 topic 수만 계산
   let completed = 0;
 
   for (const key in topics) {
@@ -397,10 +392,19 @@ function calcGrammarProgress(grammarRow) {
     }
   }
 
+  if (!Number.isFinite(total) || total <= 0) {
+    return {
+      completed: 0,
+      total: 0,
+      text: '-',
+      unitLabel
+    };
+  }
+
   return {
     completed,
     total,
-    text: total > 0 ? `${completed} / ${total}` : '-',
+    text: `${completed} / ${total}`,
     unitLabel
   };
 }
