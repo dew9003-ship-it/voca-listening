@@ -345,6 +345,7 @@ function calcGrammarProgress(grammarRow) {
   const topics = grammarRow?.completed_topics || {};
   const unitLabel = grammarRow?.unit_label || '-';
   const total = Number(grammarRow?.unit_total_count ?? 0);
+  const fallbackCompleted = Number(grammarRow?.completed_topic_count ?? 0);
 
   const normalizedLabel = String(unitLabel).toLowerCase();
   const isPart2 = normalizedLabel.includes('part 2') || normalizedLabel.includes('part2');
@@ -361,19 +362,25 @@ function calcGrammarProgress(grammarRow) {
     }
   }
 
+  if (completed <= 0 && Number.isFinite(fallbackCompleted) && fallbackCompleted > 0) {
+    completed = fallbackCompleted;
+  }
+
   if (!Number.isFinite(total) || total <= 0) {
     return {
-      completed: 0,
+      completed: Math.max(0, completed),
       total: 0,
-      text: '-',
+      text: completed > 0 ? `${completed}` : '-',
       unitLabel
     };
   }
 
+  const safeCompleted = Math.min(Math.max(0, completed), total);
+
   return {
-    completed,
+    completed: safeCompleted,
     total,
-    text: `${completed} / ${total}`,
+    text: `${safeCompleted} / ${total}`,
     unitLabel
   };
 }
@@ -383,11 +390,20 @@ function calcWritingProgress(writingRow) {
   const total = Number(writingRow?.unit_total_count ?? 0);
   const unitLabel = writingRow?.unit_label || '-';
 
-  if (!Number.isFinite(completed) || completed < 0 || !Number.isFinite(total) || total <= 0) {
+  if (!Number.isFinite(completed) || completed < 0) {
     return {
       completed: 0,
-      total: 0,
+      total: Number.isFinite(total) && total > 0 ? total : 0,
       text: '-',
+      unitLabel
+    };
+  }
+
+  if (!Number.isFinite(total) || total <= 0) {
+    return {
+      completed,
+      total: 0,
+      text: completed > 0 ? `${completed}` : '-',
       unitLabel
     };
   }
@@ -400,6 +416,40 @@ function calcWritingProgress(writingRow) {
     text: `${safeCompleted} / ${total}`,
     unitLabel
   };
+}
+
+function getLatestStudyTime(progressRow, grammarRow, writingRow) {
+  const listeningTime = progressRow?.last_studied_at
+    ? new Date(progressRow.last_studied_at).getTime()
+    : 0;
+
+  const grammarTime = grammarRow?.last_studied_at
+    ? new Date(grammarRow.last_studied_at).getTime()
+    : 0;
+
+  const writingTime = writingRow?.last_completed_at
+    ? new Date(writingRow.last_completed_at).getTime()
+    : 0;
+
+  let lastStudiedAt = null;
+  let latestTime = 0;
+
+  if (listeningTime > latestTime) {
+    latestTime = listeningTime;
+    lastStudiedAt = progressRow?.last_studied_at || null;
+  }
+
+  if (grammarTime > latestTime) {
+    latestTime = grammarTime;
+    lastStudiedAt = grammarRow?.last_studied_at || null;
+  }
+
+  if (writingTime > latestTime) {
+    latestTime = writingTime;
+    lastStudiedAt = writingRow?.last_completed_at || null;
+  }
+
+  return lastStudiedAt;
 }
 
 async function requireStudent() {
@@ -546,9 +596,14 @@ async function loadClassPage() {
     return;
   }
 
+  const classmateUserIds = (classmates || [])
+    .map(row => row?.user_id)
+    .filter(Boolean);
+
   const { data: progressRows, error: progressError } = await supabase
     .from('listening_progress')
-    .select('user_id, max_index, last_studied_at');
+    .select('user_id, max_index, last_studied_at')
+    .in('user_id', classmateUserIds);
 
   if (progressError) {
     statusEl.textContent = '듣기 진도 조회 실패';
@@ -556,24 +611,38 @@ async function loadClassPage() {
     return;
   }
 
-  const { data: grammarRows, error: grammarError } = await supabase
-  .from('grammar_progress')
-  .select('user_id, completed_topic_count, completed_topics, unit_total_count, unit_label, last_studied_at');
+  let grammarRows = [];
+  let grammarWarning = '';
 
-  if (grammarError) {
-    statusEl.textContent = '문법 진도 조회 실패';
-    tableBody.innerHTML = `<tr><td colspan="7" class="empty">${escapeHtml(grammarError.message)}</td></tr>`;
-    return;
+  if (classmateUserIds.length > 0) {
+    const grammarResult = await supabase
+      .from('grammar_progress')
+      .select('user_id, completed_topic_count, completed_topics, unit_total_count, unit_label, last_studied_at')
+      .in('user_id', classmateUserIds);
+
+    if (grammarResult.error) {
+      console.warn('grammar_progress 조회 실패:', grammarResult.error.message);
+      grammarWarning = '문법 진도를 일부 불러오지 못했습니다.';
+    } else {
+      grammarRows = grammarResult.data || [];
+    }
   }
 
-  const { data: writingRows, error: writingError } = await supabase
-    .from('writing_progress')
-    .select('user_id, completed_count, unit_total_count, unit_label, last_completed_at');
+  let writingRows = [];
+  let writingWarning = '';
 
-  if (writingError) {
-    statusEl.textContent = '영작 진도 조회 실패';
-    tableBody.innerHTML = `<tr><td colspan="7" class="empty">${escapeHtml(writingError.message)}</td></tr>`;
-    return;
+  if (classmateUserIds.length > 0) {
+    const writingResult = await supabase
+      .from('writing_progress')
+      .select('user_id, completed_count, unit_total_count, unit_label, last_completed_at')
+      .in('user_id', classmateUserIds);
+
+    if (writingResult.error) {
+      console.warn('writing_progress 조회 실패:', writingResult.error.message);
+      writingWarning = '영작 진도를 일부 불러오지 못했습니다.';
+    } else {
+      writingRows = writingResult.data || [];
+    }
   }
 
   const progressMap = new Map();
@@ -601,36 +670,6 @@ async function loadClassPage() {
     const writingRow = writingMap.get(profile.user_id);
     const writing = calcWritingProgress(writingRow);
 
-    const listeningTime = progressRow?.last_studied_at
-      ? new Date(progressRow.last_studied_at).getTime()
-      : 0;
-
-    const grammarTime = grammarRow?.last_studied_at
-      ? new Date(grammarRow.last_studied_at).getTime()
-      : 0;
-
-    const writingTime = writingRow?.last_completed_at
-      ? new Date(writingRow.last_completed_at).getTime()
-      : 0;
-
-    let lastStudiedAt = null;
-    let latestTime = 0;
-
-    if (listeningTime > latestTime) {
-      latestTime = listeningTime;
-      lastStudiedAt = progressRow?.last_studied_at || null;
-    }
-
-    if (grammarTime > latestTime) {
-      latestTime = grammarTime;
-      lastStudiedAt = grammarRow?.last_studied_at || null;
-    }
-
-    if (writingTime > latestTime) {
-      latestTime = writingTime;
-      lastStudiedAt = writingRow?.last_completed_at || null;
-    }
-
     return {
   ...profile,
   progressCompleted: progress.completed,
@@ -642,7 +681,7 @@ async function loadClassPage() {
   writingTotal: writing.total,
   writingText: writing.text,
   writingUnitLabel: writing.unitLabel,
-  lastStudiedAt
+  lastStudiedAt: getLatestStudyTime(progressRow, grammarRow, writingRow)
 };
   });
 
@@ -694,7 +733,15 @@ async function loadClassPage() {
   }).join('');
 
   tableBody.innerHTML = rowsHtml;
-  statusEl.textContent = `${escapeHtml(myClassName)} 반 학생 ${merged.length}명의 진도를 표시합니다.`;
+
+  const warnings = [];
+  if (grammarWarning) warnings.push(grammarWarning);
+  if (writingWarning) warnings.push(writingWarning);
+
+  const baseStatus = `${escapeHtml(myClassName)} 반 학생 ${merged.length}명의 진도를 표시합니다.`;
+  statusEl.textContent = warnings.length > 0
+    ? `${baseStatus} (${warnings.join(' / ')})`
+    : baseStatus;
 }
 
 loadClassPage();
