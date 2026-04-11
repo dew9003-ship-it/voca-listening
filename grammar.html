@@ -358,15 +358,20 @@ let currentIndex = 0;
 let selectedAnswer = null;
 let score = 0;
 
+function makeTopicKey(partKey, topicId) {
+  return `${partKey}-${topicId}`;
+}
+
 function getProgressKey(){ return me?.id ? `voca_grammar_progress_${me.id}` : 'voca_grammar_progress_guest'; }
 function getProgressStore(){ try { return JSON.parse(localStorage.getItem(getProgressKey()) || '{}'); } catch { return {}; } }
 function setProgressStore(data){ localStorage.setItem(getProgressKey(), JSON.stringify(data)); }
 
 async function markTopicCompleted(topicId, totalCount, scoreValue) {
   const now = new Date().toISOString();
+  const topicKey = makeTopicKey(selectedPartKey, topicId);
 
   const store = getProgressStore();
-  store[topicId] = {
+  store[topicKey] = {
     completed: true,
     total: totalCount,
     score: scoreValue,
@@ -403,8 +408,8 @@ const unitLabel = currentTopic?.title
     console.error('grammar_progress 기존 데이터 조회 실패:', fetchError);
   }
 
-  const completedTopics = existingRow?.completed_topics || {};
-  completedTopics[String(topicId)] = {
+    const completedTopics = existingRow?.completed_topics || {};
+  completedTopics[topicKey] = {
     completed: true,
     total: totalCount,
     score: scoreValue,
@@ -522,7 +527,7 @@ async function loadTopics(){
   topicGrid.innerHTML='';
 
   try {
-    const res = await fetch('grammar_list.json');
+    const res = await fetch(`grammar_list.json?v=${Date.now()}`);
     const list = await res.json();
     topics = Array.isArray(list) ? list : [];
   } catch(e) {
@@ -578,15 +583,16 @@ async function renderMenu() {
 
   if (!selectedPartKey) {
     menuTitle.textContent = '문법 파트 선택';
-    menuSubtitle.textContent = 'Part 1 또는 Part 2를 선택하세요.';
+        menuSubtitle.textContent = 'Part 1, Part 2, Part 3 중 선택하세요.';
     partBackBtn.style.display = 'none';
     partGrid.style.display = 'grid';
     topicGrid.style.display = 'none';
 
     for (const part of topics) {
       const partTopics = Array.isArray(part.topics) ? part.topics : [];
-      const partCompletedCount = partTopics.filter(topic => {
-        const progress = store[String(topic.id)] || store[topic.id];
+            const partCompletedCount = partTopics.filter(topic => {
+        const topicKey = makeTopicKey(part.key, topic.id);
+        const progress = store[topicKey];
         return !!progress?.completed;
       }).length;
 
@@ -629,8 +635,9 @@ async function renderMenu() {
 
   const currentTopics = Array.isArray(currentPart.topics) ? currentPart.topics : [];
 
-  for (const topic of currentTopics) {
-    const progress = store[String(topic.id)] || store[topic.id];
+    for (const topic of currentTopics) {
+    const topicKey = makeTopicKey(currentPart.key, topic.id);
+    const progress = store[topicKey];
     const completed = !!progress?.completed;
 
     const card = document.createElement('button');
