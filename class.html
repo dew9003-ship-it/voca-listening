@@ -341,24 +341,27 @@ function calcProgress(maxIndex) {
   };
 }
 
-function calcGrammarProgress(completedTopicCount) {
-  const safe = Number(completedTopicCount);
+function calcGrammarProgress(grammarRow) {
+  const completed = Number(grammarRow?.completed_topic_count ?? 0);
+  const total = Number(grammarRow?.unit_total_count ?? 0);
+  const unitLabel = grammarRow?.unit_label || '-';
 
-  if (!Number.isFinite(safe) || safe < 0) {
+  if (!Number.isFinite(completed) || completed < 0 || !Number.isFinite(total) || total <= 0) {
     return {
       completed: 0,
-      percent: 0,
-      text: `0 / ${TOTAL_GRAMMAR_TOPICS}`
+      total: 0,
+      text: '-',
+      unitLabel
     };
   }
 
-  const completed = Math.min(safe, TOTAL_GRAMMAR_TOPICS);
-  const percent = Math.min((completed / TOTAL_GRAMMAR_TOPICS) * 100, 100);
+  const safeCompleted = Math.min(completed, total);
 
   return {
-    completed,
-    percent,
-    text: `${completed} / ${TOTAL_GRAMMAR_TOPICS}`
+    completed: safeCompleted,
+    total,
+    text: `${safeCompleted} / ${total}`,
+    unitLabel
   };
 }
 
@@ -541,8 +544,8 @@ async function loadClassPage() {
   }
 
   const { data: grammarRows, error: grammarError } = await supabase
-    .from('grammar_progress')
-    .select('user_id, completed_topic_count, last_studied_at');
+  .from('grammar_progress')
+  .select('user_id, completed_topic_count, unit_total_count, unit_label, last_studied_at');
 
   if (grammarError) {
     statusEl.textContent = '문법 진도 조회 실패';
@@ -580,7 +583,7 @@ async function loadClassPage() {
     const progress = calcProgress(progressRow?.max_index);
 
     const grammarRow = grammarMap.get(profile.user_id);
-    const grammar = calcGrammarProgress(grammarRow?.completed_topic_count);
+    const grammar = calcGrammarProgress(grammarRow);
 
     const writingRow = writingMap.get(profile.user_id);
     const writing = calcWritingProgress(writingRow);
@@ -616,17 +619,18 @@ async function loadClassPage() {
     }
 
     return {
-      ...profile,
-      progressCompleted: progress.completed,
-      progressText: progress.text,
-      grammarCompleted: grammar.completed,
-      grammarText: grammar.text,
-      writingCompleted: writing.completed,
-      writingTotal: writing.total,
-      writingText: writing.text,
-      writingUnitLabel: writing.unitLabel,
-      lastStudiedAt
-    };
+  ...profile,
+  progressCompleted: progress.completed,
+  progressText: progress.text,
+  grammarCompleted: grammar.completed,
+  grammarText: grammar.text,
+  grammarUnitLabel: grammar.unitLabel,
+  writingCompleted: writing.completed,
+  writingTotal: writing.total,
+  writingText: writing.text,
+  writingUnitLabel: writing.unitLabel,
+  lastStudiedAt
+};
   });
 
   merged.sort((a, b) => {
@@ -656,7 +660,13 @@ async function loadClassPage() {
           ${isMe ? ' <span class="muted">(나)</span>' : ''}
         </td>
         <td>${escapeHtml(row.progressText || `0 / ${TOTAL_SENTENCES}`)}</td>
-        <td>${escapeHtml(row.grammarText || `0 / ${TOTAL_GRAMMAR_TOPICS}`)}</td>
+        <td>
+  ${escapeHtml(row.grammarText || '-')}
+  ${row.grammarUnitLabel && row.grammarUnitLabel !== '-'
+    ? `<div class="muted">${escapeHtml(row.grammarUnitLabel)}</div>`
+    : ''
+  }
+</td>
         <td>
           ${escapeHtml(row.writingText || '-')}
           ${row.writingUnitLabel && row.writingUnitLabel !== '-'
