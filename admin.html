@@ -408,27 +408,7 @@ function calcGrammarProgress(grammarRow) {
     unitLabel
   };
 }
-  const total = Number(grammarRow?.unit_total_count ?? 0);
-  const unitLabel = grammarRow?.unit_label || '-';
-
-  if (!Number.isFinite(completed) || completed < 0 || !Number.isFinite(total) || total <= 0) {
-    return {
-      completed: 0,
-      total: 0,
-      text: '-',
-      unitLabel
-    };
-  }
-
-  const safeCompleted = Math.min(completed, total);
-
-  return {
-    completed: safeCompleted,
-    total,
-    text: `${safeCompleted} / ${total}`,
-    unitLabel
-  };
-}
+  
 
 function calcWritingProgress(writingRow) {
   const completed = Number(writingRow?.completed_count ?? 0);
