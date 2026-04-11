@@ -576,8 +576,6 @@ async function loadClassPage() {
 
   const { data: grammarRows, error: grammarError } = await supabase
   .from('grammar_progress')
-  const { data: grammarRows, error: grammarError } = await supabase
-  .from('grammar_progress')
   .select('user_id, completed_topic_count, completed_topics, unit_total_count, unit_label, last_studied_at');
 
   if (grammarError) {
