@@ -83,7 +83,7 @@
       </div>
 
       <div id="completeBox" class="empty" style="display:none;">
-        오늘 단어 카드 학습을 모두 끝냈습니다.<br />
+        오늘 1차·2차 단어 카드 학습을 모두 끝냈습니다.<br />
         <div class="footer-actions" style="margin-top:18px;">
           <button id="restartBtn" class="btn-blue" type="button">처음부터 다시 보기</button>
           <button id="goSelectBtn" class="btn-light" type="button">단어장 선택으로</button>
@@ -116,7 +116,8 @@
     let me = null;
     let role = 'student';
     let currentWords = [];
-    let currentIndex = 0;
+let currentIndex = 0;
+let studyPhase = 'word_to_meaning';
 
     function setStatus(message, isError = false) {
       statusEl.textContent = message || '';
@@ -149,29 +150,50 @@
     }
 
     function renderCard() {
-      if (!currentWords.length) return;
-      if (currentIndex >= currentWords.length) {
-        studyBox.style.display = 'none';
-        completeBox.style.display = 'block';
-        progressBar.style.width = '100%';
-        currentStepText.textContent = `${currentWords.length} / ${currentWords.length}`;
-        setStatus('오늘 단어 카드 학습 완료');
-        return;
-      }
-      const item = currentWords[currentIndex];
-      const total = currentWords.length;
-      const progress = total > 0 ? (currentIndex / total) * 100 : 0;
-      wordText.textContent = item.word || '-';
-      meaningText.textContent = item.primary_meaning_ko || '뜻 미입력';
-      revealBox.classList.add('hidden');
-      totalCountText.textContent = String(total);
-      currentStepText.textContent = `${currentIndex + 1} / ${total}`;
-      progressBar.style.width = `${progress}%`;
-      studyBox.style.display = 'block';
-      completeBox.style.display = 'none';
-      speakWord(item.tts_text || item.word || '');
-      setStatus('단어 카드를 보고 뜻을 확인하세요.');
+  if (!currentWords.length) return;
+
+  if (currentIndex >= currentWords.length) {
+    if (studyPhase === 'word_to_meaning') {
+      studyPhase = 'meaning_to_word';
+      currentIndex = 0;
+      renderCard();
+      return;
     }
+
+    studyBox.style.display = 'none';
+    completeBox.style.display = 'block';
+    progressBar.style.width = '100%';
+    currentStepText.textContent = `${currentWords.length} / ${currentWords.length}`;
+    setStatus('오늘 단어 카드 학습 완료');
+    return;
+  }
+
+  const item = currentWords[currentIndex];
+  const total = currentWords.length;
+  const baseProgress = studyPhase === 'word_to_meaning' ? 0 : 50;
+  const progress = total > 0 ? baseProgress + ((currentIndex / total) * 50) : 0;
+
+  if (studyPhase === 'word_to_meaning') {
+    document.querySelector('.pill').textContent = '영단어 카드';
+    wordText.textContent = item.word || '-';
+    meaningText.textContent = item.primary_meaning_ko || '뜻 미입력';
+    revealBox.classList.add('hidden');
+    speakWord(item.tts_text || item.word || '');
+    setStatus('1차 학습: 영단어를 보고 뜻을 확인하세요.');
+  } else {
+    document.querySelector('.pill').textContent = '뜻 카드';
+    wordText.textContent = item.primary_meaning_ko || '뜻 미입력';
+    meaningText.textContent = item.word || '-';
+    revealBox.classList.add('hidden');
+    setStatus('2차 학습: 뜻을 보고 영단어를 확인하세요.');
+  }
+
+  totalCountText.textContent = String(total);
+  currentStepText.textContent = `${currentIndex + 1} / ${total}`;
+  progressBar.style.width = `${progress}%`;
+  studyBox.style.display = 'block';
+  completeBox.style.display = 'none';
+}
 
     async function loadTodaySet() {
       loadingBox.style.display = 'block';
@@ -230,8 +252,9 @@
         return;
       }
 
-      currentIndex = 0;
-      renderCard();
+      studyPhase = 'word_to_meaning';
+currentIndex = 0;
+renderCard();
     }
 
     document.getElementById('revealBtn').addEventListener('click', () => {
@@ -245,7 +268,11 @@
       setStatus('발음을 다시 재생했습니다.');
     });
     document.getElementById('nextBtn').addEventListener('click', () => { currentIndex += 1; renderCard(); });
-    document.getElementById('restartBtn').addEventListener('click', () => { currentIndex = 0; renderCard(); });
+    document.getElementById('restartBtn').addEventListener('click', () => {
+  studyPhase = 'word_to_meaning';
+  currentIndex = 0;
+  renderCard();
+});
     document.getElementById('goSelectBtn').addEventListener('click', () => { location.href = 'vocab.html'; });
     document.getElementById('backBtn').addEventListener('click', () => { location.href = 'vocab.html'; });
     document.getElementById('refreshBtn').addEventListener('click', () => location.reload());
