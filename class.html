@@ -220,12 +220,13 @@ th {
     </div>
 
     <div class="btns">
-      <button id="studyBtn" class="study-btn">듣기 학습</button>
-      <button id="grammarBtn" class="study-btn">문법 학습</button>
-      <button id="writingBtn" class="study-btn">영작 학습</button>
-      <button id="refreshBtn" class="refresh-btn">새로고침</button>
-      <button id="logoutBtn" class="logout-btn">로그아웃</button>
-    </div>
+  <button id="studyBtn" class="study-btn">듣기 학습</button>
+  <button id="grammarBtn" class="study-btn">문법 학습</button>
+  <button id="writingBtn" class="study-btn">영작 학습</button>
+  <button id="vocabBtn" class="study-btn">단어 학습</button>
+  <button id="refreshBtn" class="refresh-btn">새로고침</button>
+  <button id="logoutBtn" class="logout-btn">로그아웃</button>
+</div>
   </div>
 
   <div class="card">
@@ -293,6 +294,10 @@ document.getElementById('grammarBtn').addEventListener('click', () => {
 
 document.getElementById('writingBtn').addEventListener('click', () => {
   location.href = 'writing.html';
+});
+
+document.getElementById('vocabBtn').addEventListener('click', () => {
+  location.href = 'vocab.html';
 });
 
 document.getElementById('refreshBtn').addEventListener('click', () => {
