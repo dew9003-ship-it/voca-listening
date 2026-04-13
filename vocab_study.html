@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>보카엔딩 단어 학습</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root{ --bg:#f4f7fb; --card:#ffffff; --line:#e5e7eb; --text:#1f2937; --muted:#6b7280; --blue:#4f8cff; --green:#4caf50; --shadow:0 10px 30px rgba(15,23,42,.08); }
+    body{ margin:0; font-family:Arial,sans-serif; background:linear-gradient(180deg,#eff5ff 0%,#f4f7fb 35%,#eef8f1 100%); color:var(--text); }
+    .wrap{ max-width:900px; margin:0 auto; padding:20px; min-height:100vh; }
+    .topbar{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; flex-wrap:wrap; }
+    .title-box h1{ margin:0; font-size:30px; font-weight:800; }
+    .title-box p{ margin:8px 0 0; color:var(--muted); font-size:14px; line-height:1.6; }
+    .btns{ display:flex; gap:8px; flex-wrap:wrap; }
+    button{ border:none; border-radius:14px; padding:11px 16px; font-size:14px; font-weight:700; cursor:pointer; }
+    .btn-blue{ background:var(--blue); color:#fff; }
+    .btn-green{ background:var(--green); color:#fff; }
+    .btn-slate{ background:#607d8b; color:#fff; }
+    .btn-light{ background:#fff; color:#334155; border:1px solid var(--line); }
+    .summary-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-bottom:18px; }
+    .summary-card,.panel{ background:var(--card); border-radius:24px; box-shadow:var(--shadow); }
+    .summary-card{ padding:18px; }
+    .summary-card .label{ color:var(--muted); font-size:13px; margin-bottom:8px; }
+    .summary-card .value{ font-size:28px; font-weight:800; }
+    .panel{ padding:18px; margin-bottom:18px; }
+    .progress-wrap{ width:100%; height:10px; background:#e5e7eb; border-radius:999px; overflow:hidden; margin-bottom:18px; }
+    .progress-bar{ height:100%; width:0%; background:linear-gradient(90deg,#4f8cff,#6fcf97); transition:width .2s ease; }
+    .word-card{ border:1px solid var(--line); background:linear-gradient(180deg,#fff 0%,#fbfdff 100%); border-radius:22px; padding:24px; text-align:center; min-height:360px; display:flex; flex-direction:column; justify-content:center; gap:16px; }
+    .pill{ display:inline-flex; align-items:center; justify-content:center; padding:7px 12px; border-radius:999px; background:#eef4ff; color:#355ea9; font-size:12px; font-weight:800; width:max-content; margin:0 auto; }
+    .word-text{ font-size:48px; font-weight:900; line-height:1.15; word-break:break-word; }
+    .sub-text{ color:var(--muted); font-size:14px; line-height:1.7; }
+    .reveal-box{ border:2px dashed #bfd5ff; background:#f8fbff; border-radius:20px; padding:22px 18px; min-height:120px; display:flex; align-items:center; justify-content:center; }
+    .reveal-box.hidden .meaning-text{ filter: blur(12px); user-select:none; }
+    .meaning-text{ font-size:28px; font-weight:800; line-height:1.5; transition:filter .18s ease; text-align:center; }
+    .hint{ color:var(--muted); font-size:13px; margin-top:6px; text-align:center; }
+    .footer-actions{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:16px; }
+    .status{ margin-top:14px; min-height:24px; color:#334155; font-size:14px; text-align:center; }
+    .empty,.loading{ padding:36px 14px; text-align:center; color:var(--muted); font-weight:700; }
+    @media (max-width:640px){ .wrap{ padding:14px; } .title-box h1{ font-size:25px; } .word-text{ font-size:38px; } .meaning-text{ font-size:24px; } .footer-actions button{ width:100%; } .word-card{ min-height:320px; padding:18px; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="title-box">
+        <h1>오늘의 단어 학습</h1>
+        <p>영단어를 보고 발음을 들은 뒤 뜻을 확인해요. 1차 버전은 카드 학습만 먼저 연결했습니다.</p>
+      </div>
+      <div class="btns">
+        <button id="backBtn" class="btn-light" type="button">단어장 선택</button>
+        <button id="refreshBtn" class="btn-blue" type="button">새로고침</button>
+        <button id="logoutBtn" class="btn-slate" type="button">로그아웃</button>
+      </div>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-card"><div class="label">오늘 학습 단어 수</div><div class="value" id="totalCountText">-</div></div>
+      <div class="summary-card"><div class="label">현재 카드</div><div class="value" id="currentStepText">-</div></div>
+      <div class="summary-card"><div class="label">현재 사용자</div><div class="value" id="currentName" style="font-size:22px;">-</div></div>
+    </div>
+
+    <div class="panel">
+      <h2 id="bookTitle">단어 학습</h2>
+      <p id="bookDesc" class="sub-text">오늘 생성된 학습 세트를 불러옵니다.</p>
+      <div class="progress-wrap"><div id="progressBar" class="progress-bar"></div></div>
+      <div id="loadingBox" class="loading">오늘 학습 세트를 불러오는 중입니다...</div>
+      <div id="emptyBox" class="empty" style="display:none;">오늘 학습 세트가 없습니다. 먼저 단어장과 플랜을 선택해 주세요.</div>
+
+      <div id="studyBox" style="display:none;">
+        <div class="word-card">
+          <div class="pill">영단어 카드</div>
+          <div id="wordText" class="word-text">word</div>
+          <div class="sub-text">단어가 보일 때 발음도 함께 재생됩니다.</div>
+          <div id="revealBox" class="reveal-box hidden"><div id="meaningText" class="meaning-text">뜻</div></div>
+          <div class="hint">처음에는 흐리게 보이고, 아래 버튼으로 뜻을 확인할 수 있어요.</div>
+          <div class="footer-actions">
+            <button id="speakBtn" class="btn-light" type="button">발음 다시 듣기</button>
+            <button id="revealBtn" class="btn-blue" type="button">뜻 확인</button>
+            <button id="nextBtn" class="btn-green" type="button">다음 카드</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="completeBox" class="empty" style="display:none;">
+        오늘 단어 카드 학습을 모두 끝냈습니다.<br />
+        <div class="footer-actions" style="margin-top:18px;">
+          <button id="restartBtn" class="btn-blue" type="button">처음부터 다시 보기</button>
+          <button id="goSelectBtn" class="btn-light" type="button">단어장 선택으로</button>
+        </div>
+      </div>
+
+      <div id="status" class="status"></div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+    const supabase = createClient('https://uuzhdxangctewuklvmlv.supabase.co','sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F');
+
+    const currentNameEl = document.getElementById('currentName');
+    const totalCountText = document.getElementById('totalCountText');
+    const currentStepText = document.getElementById('currentStepText');
+    const bookTitle = document.getElementById('bookTitle');
+    const bookDesc = document.getElementById('bookDesc');
+    const progressBar = document.getElementById('progressBar');
+    const loadingBox = document.getElementById('loadingBox');
+    const emptyBox = document.getElementById('emptyBox');
+    const studyBox = document.getElementById('studyBox');
+    const completeBox = document.getElementById('completeBox');
+    const wordText = document.getElementById('wordText');
+    const revealBox = document.getElementById('revealBox');
+    const meaningText = document.getElementById('meaningText');
+    const statusEl = document.getElementById('status');
+
+    let me = null;
+    let role = 'student';
+    let currentWords = [];
+    let currentIndex = 0;
+
+    function setStatus(message, isError = false) {
+      statusEl.textContent = message || '';
+      statusEl.style.color = isError ? '#b42318' : '#334155';
+    }
+
+    async function requireAuth() {
+      const { data: authData, error: authError } = await supabase.auth.getUser();
+      if (authError || !authData.user) {
+        alert('로그인이 필요합니다.');
+        location.href = 'login.html';
+        return false;
+      }
+      me = authData.user;
+      const { data: profileData } = await supabase.from('profiles').select('user_id, name, role').eq('user_id', me.id).maybeSingle();
+      if (profileData?.role) role = profileData.role;
+      currentNameEl.textContent = profileData?.name || me.email || '사용자';
+      return true;
+    }
+
+    function speakWord(text) {
+      if (!text) return;
+      try {
+        speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'en-US';
+        u.rate = 0.9;
+        speechSynthesis.speak(u);
+      } catch (e) { console.error(e); }
+    }
+
+    function renderCard() {
+      if (!currentWords.length) return;
+      if (currentIndex >= currentWords.length) {
+        studyBox.style.display = 'none';
+        completeBox.style.display = 'block';
+        progressBar.style.width = '100%';
+        currentStepText.textContent = `${currentWords.length} / ${currentWords.length}`;
+        setStatus('오늘 단어 카드 학습 완료');
+        return;
+      }
+      const item = currentWords[currentIndex];
+      const total = currentWords.length;
+      const progress = total > 0 ? (currentIndex / total) * 100 : 0;
+      wordText.textContent = item.word || '-';
+      meaningText.textContent = item.primary_meaning_ko || '뜻 미입력';
+      revealBox.classList.add('hidden');
+      totalCountText.textContent = String(total);
+      currentStepText.textContent = `${currentIndex + 1} / ${total}`;
+      progressBar.style.width = `${progress}%`;
+      studyBox.style.display = 'block';
+      completeBox.style.display = 'none';
+      speakWord(item.tts_text || item.word || '');
+      setStatus('단어 카드를 보고 뜻을 확인하세요.');
+    }
+
+    async function loadTodaySet() {
+      loadingBox.style.display = 'block';
+      emptyBox.style.display = 'none';
+      studyBox.style.display = 'none';
+      completeBox.style.display = 'none';
+      const today = new Date().toISOString().slice(0,10);
+
+      const { data: setRow, error: setError } = await supabase
+        .from('user_vocab_daily_sets')
+        .select('id, book_id, study_date, total_words')
+        .eq('user_id', me.id)
+        .eq('study_date', today)
+        .maybeSingle();
+
+      if (setError || !setRow) {
+        console.error(setError);
+        loadingBox.style.display = 'none';
+        emptyBox.style.display = 'block';
+        setStatus('오늘 학습 세트를 불러오지 못했습니다.', true);
+        return;
+      }
+
+      const { data: bookRow } = await supabase.from('vocab_books').select('title, description').eq('id', setRow.book_id).maybeSingle();
+      bookTitle.textContent = bookRow?.title || '오늘의 단어 학습';
+      bookDesc.textContent = bookRow?.description || '오늘 생성된 학습 세트';
+
+      const wordIds = Array.isArray(setRow.total_words) ? setRow.total_words : [];
+      if (!wordIds.length) {
+        loadingBox.style.display = 'none';
+        emptyBox.style.display = 'block';
+        setStatus('오늘 세트에 단어가 없습니다.', true);
+        return;
+      }
+
+      const { data: wordRows, error: wordError } = await supabase
+        .from('vocab_words')
+        .select('id, word, tts_text, primary_meaning_ko')
+        .in('id', wordIds);
+
+      loadingBox.style.display = 'none';
+
+      if (wordError) {
+        console.error(wordError);
+        emptyBox.style.display = 'block';
+        setStatus('단어 상세 정보를 불러오지 못했습니다.', true);
+        return;
+      }
+
+      const orderMap = new Map(wordIds.map((id, idx) => [id, idx]));
+      currentWords = (wordRows || []).slice().sort((a, b) => (orderMap.get(a.id) ?? 9999) - (orderMap.get(b.id) ?? 9999));
+
+      if (!currentWords.length) {
+        emptyBox.style.display = 'block';
+        setStatus('오늘 세트 단어를 표시할 수 없습니다.', true);
+        return;
+      }
+
+      currentIndex = 0;
+      renderCard();
+    }
+
+    document.getElementById('revealBtn').addEventListener('click', () => {
+      revealBox.classList.remove('hidden');
+      setStatus('뜻을 확인했습니다.');
+    });
+    document.getElementById('speakBtn').addEventListener('click', () => {
+      if (!currentWords.length) return;
+      const item = currentWords[currentIndex];
+      speakWord(item.tts_text || item.word || '');
+      setStatus('발음을 다시 재생했습니다.');
+    });
+    document.getElementById('nextBtn').addEventListener('click', () => { currentIndex += 1; renderCard(); });
+    document.getElementById('restartBtn').addEventListener('click', () => { currentIndex = 0; renderCard(); });
+    document.getElementById('goSelectBtn').addEventListener('click', () => { location.href = 'vocab.html'; });
+    document.getElementById('backBtn').addEventListener('click', () => { location.href = 'vocab.html'; });
+    document.getElementById('refreshBtn').addEventListener('click', () => location.reload());
+    document.getElementById('logoutBtn').addEventListener('click', async () => { await supabase.auth.signOut(); location.href = 'login.html'; });
+
+    async function init() {
+      const ok = await requireAuth();
+      if (!ok) return;
+      await loadTodaySet();
+    }
+    init();
+  </script>
+</body>
+</html>
