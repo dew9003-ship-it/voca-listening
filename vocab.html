@@ -357,43 +357,62 @@
       }
     }
 
-    async function createTodaySet(bookId, plan) {
-  const today = new Date().toISOString().slice(0,10);
+    async function createTodaySet(enrollmentId, bookId, planId, plan) {
+  const today = new Date().toISOString().slice(0, 10);
 
-  // 이미 오늘 생성됐는지 확인
-  const { data: existing } = await supabase
+  const { data: existing, error: existingError } = await supabase
     .from('user_vocab_daily_sets')
-    .select('*')
+    .select('id')
     .eq('user_id', me.id)
+    .eq('book_id', bookId)
     .eq('study_date', today)
     .maybeSingle();
 
+  if (existingError) {
+    console.error(existingError);
+    throw new Error('오늘 학습 세트 확인 실패');
+  }
+
   if (existing) return;
 
-  // 단어 가져오기
-  const { data: words } = await supabase
+  const { data: words, error: wordsError } = await supabase
     .from('vocab_book_words')
     .select('word_id, book_order')
     .eq('book_id', bookId)
     .order('book_order', { ascending: true })
     .limit(plan.daily_new_count);
 
+  if (wordsError) {
+    console.error(wordsError);
+    throw new Error('단어 불러오기 실패');
+  }
+
   if (!words || words.length === 0) {
-    alert('단어를 불러올 수 없습니다.');
-    return;
+    throw new Error('단어를 불러올 수 없습니다.');
   }
 
   const wordIds = words.map(w => w.word_id);
 
-  // 오늘 세트 생성
-  await supabase.from('user_vocab_daily_sets').insert({
-    user_id: me.id,
-    book_id: bookId,
-    study_date: today,
-    word_ids: wordIds,
-    total_count: wordIds.length,
-    completed_count: 0
-  });
+  const { error: insertError } = await supabase
+    .from('user_vocab_daily_sets')
+    .insert({
+      enrollment_id: enrollmentId,
+      user_id: me.id,
+      book_id: bookId,
+      plan_id: planId,
+      day_no: 1,
+      study_date: today,
+      new_words: wordIds,
+      review_words: [],
+      total_words: wordIds,
+      heart_count: plan.heart_count,
+      is_completed: false
+    });
+
+  if (insertError) {
+    console.error(insertError);
+    throw new Error('오늘 학습 세트 생성 실패');
+  }
 }
 
     async function startEnrollment() {
@@ -419,18 +438,38 @@
       };
 
       const { error } = await supabase
-        .from('user_vocab_enrollments')
-        .upsert(payload, { onConflict: 'user_id,book_id' });
+  .from('user_vocab_enrollments')
+  .upsert(payload, { onConflict: 'user_id,book_id' });
 
-      if (error) {
-        console.error(error);
-        setStatus('학습 등록 저장 실패: ' + error.message, true);
-        return;
-      }
+if (error) {
+  console.error(error);
+  setStatus('학습 등록 저장 실패: ' + error.message, true);
+  return;
+}
 
-      await createTodaySet(selectedBookId, selectedPlan);
+const { data: savedEnrollment, error: enrollmentFetchError } = await supabase
+  .from('user_vocab_enrollments')
+  .select('id')
+  .eq('user_id', me.id)
+  .eq('book_id', selectedBookId)
+  .maybeSingle();
 
-alert('오늘 학습이 생성되었습니다. 이제 학습 화면으로 이동합니다.');
+if (enrollmentFetchError || !savedEnrollment) {
+  console.error(enrollmentFetchError);
+  setStatus('학습 등록 확인 실패', true);
+  return;
+}
+
+try {
+  await createTodaySet(savedEnrollment.id, selectedBookId, selectedPlanId, selectedPlan);
+} catch (createError) {
+  console.error(createError);
+  setStatus(createError.message || '오늘 학습 생성 실패', true);
+  return;
+}
+
+setStatus(`시작 준비 완료: ${selectedBook?.title || ''} / ${selectedPlan?.title || ''}`);
+alert('단어장과 플랜이 저장되었고, 오늘 학습 세트도 생성되었습니다.');
 location.href = 'vocab_study.html';
     }
 
