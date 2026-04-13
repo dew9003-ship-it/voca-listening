@@ -177,67 +177,47 @@
     }
 
     .scratch-card{
-      position:relative;
-      width:100%;
-      min-height:140px;
-      border-radius:22px;
-      overflow:hidden;
-      border:2px dashed #bfd5ff;
-      background:#f8fbff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-    }
+  position:relative;
+  width:100%;
+  min-height:140px;
+  height:140px;
+  border-radius:22px;
+  overflow:hidden;
+  border:2px dashed #bfd5ff;
+  background:#f8fbff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
 
-    .scratch-answer{
-      position:relative;
-      z-index:1;
-      font-size:34px;
-      font-weight:800;
-      line-height:1.5;
-      text-align:center;
-      word-break:keep-all;
-      padding:10px;
-    }
+.scratch-answer{
+  position:relative;
+  z-index:1;
+  font-size:34px;
+  font-weight:800;
+  line-height:1.5;
+  text-align:center;
+  word-break:keep-all;
+  padding:10px;
+}
 
-    .scratch-cover{
-      position:absolute;
-      inset:0;
-      z-index:2;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,0)),
-        repeating-linear-gradient(
-          135deg,
-          #dfe6ef 0px,
-          #dfe6ef 12px,
-          #d4dde8 12px,
-          #d4dde8 24px
-        );
-      transition:opacity .25s ease, transform .25s ease;
-      cursor:pointer;
-    }
+.scratch-canvas{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  width:100%;
+  height:100%;
+  display:block;
+  cursor:grab;
+  touch-action:none;
+}
 
-    .scratch-cover::after{
-      content:'긁어서 확인';
-      position:absolute;
-      top:50%;
-      left:50%;
-      transform:translate(-50%,-50%);
-      background:rgba(255,255,255,.9);
-      color:#334155;
-      font-size:13px;
-      font-weight:800;
-      padding:10px 14px;
-      border-radius:999px;
-      box-shadow:0 4px 10px rgba(0,0,0,.08);
-    }
-
-    .scratch-card.revealed .scratch-cover{
-      opacity:0;
-      transform:scale(1.02);
-      pointer-events:none;
-    }
+.scratch-card.revealed .scratch-canvas{
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s ease;
+}
 
     .footer-actions{
       display:flex;
@@ -320,12 +300,12 @@
           <div id="cardGuide" class="sub-text">단어가 보일 때 발음도 함께 재생됩니다.</div>
 
           <div class="scratch-wrap">
-            <div id="scratchLabel" class="scratch-label">아래 영역을 눌러 정답을 확인하세요.</div>
-            <div id="scratchCard" class="scratch-card">
-              <div id="scratchAnswer" class="scratch-answer">뜻</div>
-              <div id="scratchCover" class="scratch-cover"></div>
-            </div>
-          </div>
+  <div id="scratchLabel" class="scratch-label">아래 영역을 직접 긁어서 정답을 확인하세요.</div>
+  <div id="scratchCard" class="scratch-card">
+    <div id="scratchAnswer" class="scratch-answer">뜻</div>
+    <canvas id="scratchCanvas" class="scratch-canvas"></canvas>
+  </div>
+</div>
 
           <div class="footer-actions">
             <button id="speakBtn" class="btn-light" type="button">발음 다시 듣기</button>
@@ -369,10 +349,10 @@
     const phaseBadge = document.getElementById('phaseBadge');
     const cardGuide = document.getElementById('cardGuide');
     const scratchLabel = document.getElementById('scratchLabel');
-    const scratchCard = document.getElementById('scratchCard');
-    const scratchAnswer = document.getElementById('scratchAnswer');
-    const scratchCover = document.getElementById('scratchCover');
-    const statusEl = document.getElementById('status');
+const scratchCard = document.getElementById('scratchCard');
+const scratchAnswer = document.getElementById('scratchAnswer');
+const scratchCanvas = document.getElementById('scratchCanvas');
+const statusEl = document.getElementById('status');
 
     let me = null;
     let role = 'student';
@@ -385,13 +365,107 @@
       statusEl.style.color = isError ? '#b42318' : '#334155';
     }
 
-    function resetScratch() {
-      scratchCard.classList.remove('revealed');
-    }
+    let scratchCtx = null;
+let isScratching = false;
+let scratchReady = false;
 
-    function revealScratch() {
-      scratchCard.classList.add('revealed');
-    }
+function setupScratchCanvas() {
+  const rect = scratchCard.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+
+  scratchCanvas.width = Math.floor(rect.width * dpr);
+  scratchCanvas.height = Math.floor(rect.height * dpr);
+  scratchCanvas.style.width = rect.width + 'px';
+  scratchCanvas.style.height = rect.height + 'px';
+
+  scratchCtx = scratchCanvas.getContext('2d');
+  scratchCtx.setTransform(1, 0, 0, 1, 0, 0);
+  scratchCtx.scale(dpr, dpr);
+
+  scratchCtx.clearRect(0, 0, rect.width, rect.height);
+
+  scratchCtx.fillStyle = '#dfe6ef';
+  scratchCtx.fillRect(0, 0, rect.width, rect.height);
+
+  const grad = scratchCtx.createLinearGradient(0, 0, rect.width, rect.height);
+  grad.addColorStop(0, 'rgba(255,255,255,.22)');
+  grad.addColorStop(1, 'rgba(255,255,255,0)');
+  scratchCtx.fillStyle = grad;
+  scratchCtx.fillRect(0, 0, rect.width, rect.height);
+
+  scratchCtx.fillStyle = 'rgba(255,255,255,.92)';
+  roundRect(scratchCtx, rect.width / 2 - 62, rect.height / 2 - 18, 124, 36, 18);
+  scratchCtx.fill();
+
+  scratchCtx.fillStyle = '#334155';
+  scratchCtx.font = '800 13px Arial';
+  scratchCtx.textAlign = 'center';
+  scratchCtx.textBaseline = 'middle';
+  scratchCtx.fillText('긁어서 확인', rect.width / 2, rect.height / 2);
+
+  scratchCard.classList.remove('revealed');
+  scratchReady = true;
+}
+
+function roundRect(ctx, x, y, width, height, radius) {
+  ctx.beginPath();
+  ctx.moveTo(x + radius, y);
+  ctx.lineTo(x + width - radius, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+  ctx.lineTo(x + width, y + height - radius);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+  ctx.lineTo(x + radius, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+  ctx.lineTo(x, y + radius);
+  ctx.quadraticCurveTo(x, y, x + radius, y);
+  ctx.closePath();
+}
+
+function resetScratch() {
+  requestAnimationFrame(() => {
+    setupScratchCanvas();
+  });
+}
+
+function revealScratch() {
+  scratchCard.classList.add('revealed');
+}
+
+function scratchAt(clientX, clientY) {
+  if (!scratchCtx || !scratchReady) return;
+
+  const rect = scratchCanvas.getBoundingClientRect();
+  const x = clientX - rect.left;
+  const y = clientY - rect.top;
+
+  scratchCtx.globalCompositeOperation = 'destination-out';
+  scratchCtx.beginPath();
+  scratchCtx.arc(x, y, 22, 0, Math.PI * 2);
+  scratchCtx.fill();
+
+  checkScratchPercent();
+}
+
+function checkScratchPercent() {
+  if (!scratchCtx || scratchCard.classList.contains('revealed')) return;
+
+  const rect = scratchCanvas.getBoundingClientRect();
+  const imageData = scratchCtx.getImageData(0, 0, Math.floor(rect.width), Math.floor(rect.height));
+  const pixels = imageData.data;
+  let transparentCount = 0;
+
+  for (let i = 3; i < pixels.length; i += 4) {
+    if (pixels[i] < 20) transparentCount++;
+  }
+
+  const totalPixels = pixels.length / 4;
+  const percent = transparentCount / totalPixels;
+
+  if (percent > 0.45) {
+    revealScratch();
+    setStatus('정답을 확인했습니다.');
+  }
+}
 
     async function requireAuth() {
       const { data: authData, error: authError } = await supabase.auth.getUser();
@@ -422,6 +496,7 @@
         utterance.lang = 'en-US';
         utterance.rate = 0.9;
         window.speechSynthesis.speak(utterance);
+        
       } catch (error) {
         console.error(error);
       }
@@ -547,15 +622,29 @@
       renderCard();
     }
 
-    scratchCover.addEventListener('click', () => {
-      revealScratch();
-      setStatus('정답을 확인했습니다.');
-    });
+    scratchCanvas.addEventListener('pointerdown', (e) => {
+  isScratching = true;
+  scratchCanvas.setPointerCapture(e.pointerId);
+  scratchAt(e.clientX, e.clientY);
+});
 
-    document.getElementById('revealBtn').addEventListener('click', () => {
-      revealScratch();
-      setStatus('정답을 확인했습니다.');
-    });
+scratchCanvas.addEventListener('pointermove', (e) => {
+  if (!isScratching) return;
+  scratchAt(e.clientX, e.clientY);
+});
+
+scratchCanvas.addEventListener('pointerup', () => {
+  isScratching = false;
+});
+
+scratchCanvas.addEventListener('pointercancel', () => {
+  isScratching = false;
+});
+
+document.getElementById('revealBtn').addEventListener('click', () => {
+  revealScratch();
+  setStatus('정답을 확인했습니다.');
+});
 
     document.getElementById('speakBtn').addEventListener('click', () => {
       if (!currentWords.length) return;
