@@ -15,6 +15,7 @@
       --muted:#6b7280;
       --blue:#4f8cff;
       --green:#4caf50;
+      --red:#ef4444;
       --shadow:0 10px 30px rgba(15,23,42,.08);
     }
 
@@ -69,14 +70,20 @@
       cursor:pointer;
     }
 
+    button:disabled{
+      opacity:.55;
+      cursor:not-allowed;
+    }
+
     .btn-blue{ background:var(--blue); color:#fff; }
     .btn-green{ background:var(--green); color:#fff; }
+    .btn-red{ background:var(--red); color:#fff; }
     .btn-slate{ background:#607d8b; color:#fff; }
     .btn-light{ background:#fff; color:#334155; border:1px solid var(--line); }
 
     .summary-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
       gap:12px;
       margin-bottom:18px;
     }
@@ -87,7 +94,9 @@
       box-shadow:var(--shadow);
     }
 
-    .summary-card{ padding:18px; }
+    .summary-card{
+      padding:18px;
+    }
 
     .summary-card .label{
       color:var(--muted);
@@ -96,7 +105,7 @@
     }
 
     .summary-card .value{
-      font-size:28px;
+      font-size:26px;
       font-weight:800;
     }
 
@@ -127,7 +136,7 @@
       border-radius:22px;
       padding:24px;
       text-align:center;
-      min-height:420px;
+      min-height:430px;
       display:flex;
       flex-direction:column;
       justify-content:center;
@@ -177,47 +186,71 @@
     }
 
     .scratch-card{
-  position:relative;
-  width:100%;
-  min-height:140px;
-  height:140px;
-  border-radius:22px;
-  overflow:hidden;
-  border:2px dashed #bfd5ff;
-  background:#f8fbff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
+      position:relative;
+      width:100%;
+      min-height:140px;
+      height:140px;
+      border-radius:22px;
+      overflow:hidden;
+      border:2px dashed #bfd5ff;
+      background:#f8fbff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
 
-.scratch-answer{
-  position:relative;
-  z-index:1;
-  font-size:34px;
-  font-weight:800;
-  line-height:1.5;
-  text-align:center;
-  word-break:keep-all;
-  padding:10px;
-}
+    .scratch-answer{
+      position:relative;
+      z-index:1;
+      font-size:34px;
+      font-weight:800;
+      line-height:1.5;
+      text-align:center;
+      word-break:keep-all;
+      padding:10px;
+    }
 
-.scratch-canvas{
-  position:absolute;
-  inset:0;
-  z-index:2;
-  width:100%;
-  height:100%;
-  display:block;
-  cursor:grab;
-  touch-action:none;
-}
+    .scratch-canvas{
+      position:absolute;
+      inset:0;
+      z-index:2;
+      width:100%;
+      height:100%;
+      display:block;
+      cursor:grab;
+      touch-action:none;
+    }
 
-.scratch-card.revealed .scratch-canvas{
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .25s ease;
-}
+    .scratch-card.revealed .scratch-canvas{
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s ease;
+    }
+
+    .choice-wrap{
+      display:grid;
+      gap:10px;
+      width:100%;
+      max-width:560px;
+      margin:0 auto;
+    }
+
+    .choice-btn{
+      width:100%;
+      text-align:center;
+      background:#fff;
+      color:#334155;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px 16px;
+      font-size:16px;
+      font-weight:700;
+    }
+
+    .choice-btn:hover{
+      background:#f8fbff;
+    }
 
     .footer-actions{
       display:flex;
@@ -249,7 +282,7 @@
       .scratch-answer{ font-size:26px; }
       .footer-actions button{ width:100%; }
       .word-card{ min-height:360px; padding:18px; }
-      .scratch-card{ min-height:120px; }
+      .scratch-card{ min-height:120px; height:120px; }
     }
   </style>
 </head>
@@ -258,7 +291,7 @@
     <div class="topbar">
       <div class="title-box">
         <h1>오늘의 단어 학습</h1>
-        <p>영단어를 보고 발음을 들은 뒤 뜻을 확인해요. 1차 카드와 2차 카드를 모두 학습합니다.</p>
+        <p>카드 학습 2단계 후 테스트 1로 이어집니다.</p>
       </div>
       <div class="btns">
         <button id="backBtn" class="btn-light" type="button">단어장 선택</button>
@@ -280,6 +313,10 @@
         <div class="label">현재 사용자</div>
         <div class="value" id="currentName" style="font-size:22px;">-</div>
       </div>
+      <div class="summary-card">
+        <div class="label">하트</div>
+        <div class="value" id="heartText" style="font-size:22px;">-</div>
+      </div>
     </div>
 
     <div class="panel">
@@ -300,23 +337,32 @@
           <div id="cardGuide" class="sub-text">단어가 보일 때 발음도 함께 재생됩니다.</div>
 
           <div class="scratch-wrap">
-  <div id="scratchLabel" class="scratch-label">아래 영역을 직접 긁어서 정답을 확인하세요.</div>
-  <div id="scratchCard" class="scratch-card">
-    <div id="scratchAnswer" class="scratch-answer">뜻</div>
-    <canvas id="scratchCanvas" class="scratch-canvas"></canvas>
-  </div>
-</div>
+            <div id="scratchLabel" class="scratch-label">아래 영역을 직접 긁어서 정답을 확인하세요.</div>
+            <div id="scratchCard" class="scratch-card">
+              <div id="scratchAnswer" class="scratch-answer">뜻</div>
+              <canvas id="scratchCanvas" class="scratch-canvas"></canvas>
+            </div>
+          </div>
 
           <div class="footer-actions">
             <button id="speakBtn" class="btn-light" type="button">발음 다시 듣기</button>
-            <button id="revealBtn" class="btn-blue" type="button">뜻 확인</button>
+            <button id="revealBtn" class="btn-blue" type="button">전부 공개</button>
             <button id="nextBtn" class="btn-green" type="button">다음 카드</button>
           </div>
         </div>
       </div>
 
+      <div id="testBox" style="display:none;">
+        <div class="word-card">
+          <div class="pill">테스트 1</div>
+          <div id="testQuestion" class="word-text">word</div>
+          <div class="sub-text">영단어에 맞는 뜻을 고르세요.</div>
+          <div id="choiceWrap" class="choice-wrap"></div>
+        </div>
+      </div>
+
       <div id="completeBox" class="empty" style="display:none;">
-        오늘 1차·2차 단어 카드 학습을 모두 끝냈습니다.<br />
+        오늘 카드 학습과 테스트 1을 모두 끝냈습니다.<br />
         <div class="footer-actions" style="margin-top:18px;">
           <button id="restartBtn" class="btn-blue" type="button">처음부터 다시 보기</button>
           <button id="goSelectBtn" class="btn-light" type="button">단어장 선택으로</button>
@@ -338,134 +384,46 @@
     const currentNameEl = document.getElementById('currentName');
     const totalCountText = document.getElementById('totalCountText');
     const currentStepText = document.getElementById('currentStepText');
+    const heartText = document.getElementById('heartText');
     const bookTitle = document.getElementById('bookTitle');
     const bookDesc = document.getElementById('bookDesc');
     const progressBar = document.getElementById('progressBar');
     const loadingBox = document.getElementById('loadingBox');
     const emptyBox = document.getElementById('emptyBox');
     const studyBox = document.getElementById('studyBox');
+    const testBox = document.getElementById('testBox');
     const completeBox = document.getElementById('completeBox');
     const wordText = document.getElementById('wordText');
     const phaseBadge = document.getElementById('phaseBadge');
     const cardGuide = document.getElementById('cardGuide');
     const scratchLabel = document.getElementById('scratchLabel');
-const scratchCard = document.getElementById('scratchCard');
-const scratchAnswer = document.getElementById('scratchAnswer');
-const scratchCanvas = document.getElementById('scratchCanvas');
-const statusEl = document.getElementById('status');
+    const scratchCard = document.getElementById('scratchCard');
+    const scratchAnswer = document.getElementById('scratchAnswer');
+    const scratchCanvas = document.getElementById('scratchCanvas');
+    const testQuestion = document.getElementById('testQuestion');
+    const choiceWrap = document.getElementById('choiceWrap');
+    const statusEl = document.getElementById('status');
 
     let me = null;
     let role = 'student';
     let currentWords = [];
     let currentIndex = 0;
     let studyPhase = 'word_to_meaning';
+    let hearts = 1;
+    let initialHearts = 1;
+
+    let scratchCtx = null;
+    let isScratching = false;
+    let scratchReady = false;
 
     function setStatus(message, isError = false) {
       statusEl.textContent = message || '';
       statusEl.style.color = isError ? '#b42318' : '#334155';
     }
 
-    let scratchCtx = null;
-let isScratching = false;
-let scratchReady = false;
-
-function setupScratchCanvas() {
-  const rect = scratchCard.getBoundingClientRect();
-  const dpr = window.devicePixelRatio || 1;
-
-  scratchCanvas.width = Math.floor(rect.width * dpr);
-  scratchCanvas.height = Math.floor(rect.height * dpr);
-  scratchCanvas.style.width = rect.width + 'px';
-  scratchCanvas.style.height = rect.height + 'px';
-
-  scratchCtx = scratchCanvas.getContext('2d');
-  scratchCtx.setTransform(1, 0, 0, 1, 0, 0);
-  scratchCtx.scale(dpr, dpr);
-
-  scratchCtx.clearRect(0, 0, rect.width, rect.height);
-
-  scratchCtx.fillStyle = '#dfe6ef';
-  scratchCtx.fillRect(0, 0, rect.width, rect.height);
-
-  const grad = scratchCtx.createLinearGradient(0, 0, rect.width, rect.height);
-  grad.addColorStop(0, 'rgba(255,255,255,.22)');
-  grad.addColorStop(1, 'rgba(255,255,255,0)');
-  scratchCtx.fillStyle = grad;
-  scratchCtx.fillRect(0, 0, rect.width, rect.height);
-
-  scratchCtx.fillStyle = 'rgba(255,255,255,.92)';
-  roundRect(scratchCtx, rect.width / 2 - 62, rect.height / 2 - 18, 124, 36, 18);
-  scratchCtx.fill();
-
-  scratchCtx.fillStyle = '#334155';
-  scratchCtx.font = '800 13px Arial';
-  scratchCtx.textAlign = 'center';
-  scratchCtx.textBaseline = 'middle';
-  scratchCtx.fillText('긁어서 확인', rect.width / 2, rect.height / 2);
-
-  scratchCard.classList.remove('revealed');
-  scratchReady = true;
-}
-
-function roundRect(ctx, x, y, width, height, radius) {
-  ctx.beginPath();
-  ctx.moveTo(x + radius, y);
-  ctx.lineTo(x + width - radius, y);
-  ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
-  ctx.lineTo(x + width, y + height - radius);
-  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-  ctx.lineTo(x + radius, y + height);
-  ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
-  ctx.lineTo(x, y + radius);
-  ctx.quadraticCurveTo(x, y, x + radius, y);
-  ctx.closePath();
-}
-
-function resetScratch() {
-  requestAnimationFrame(() => {
-    setupScratchCanvas();
-  });
-}
-
-function revealScratch() {
-  scratchCard.classList.add('revealed');
-}
-
-function scratchAt(clientX, clientY) {
-  if (!scratchCtx || !scratchReady) return;
-
-  const rect = scratchCanvas.getBoundingClientRect();
-  const x = clientX - rect.left;
-  const y = clientY - rect.top;
-
-  scratchCtx.globalCompositeOperation = 'destination-out';
-  scratchCtx.beginPath();
-  scratchCtx.arc(x, y, 22, 0, Math.PI * 2);
-  scratchCtx.fill();
-
-  checkScratchPercent();
-}
-
-function checkScratchPercent() {
-  if (!scratchCtx || scratchCard.classList.contains('revealed')) return;
-
-  const rect = scratchCanvas.getBoundingClientRect();
-  const imageData = scratchCtx.getImageData(0, 0, Math.floor(rect.width), Math.floor(rect.height));
-  const pixels = imageData.data;
-  let transparentCount = 0;
-
-  for (let i = 3; i < pixels.length; i += 4) {
-    if (pixels[i] < 20) transparentCount++;
-  }
-
-  const totalPixels = pixels.length / 4;
-  const percent = transparentCount / totalPixels;
-
-  if (percent > 0.45) {
-    revealScratch();
-    setStatus('정답을 확인했습니다.');
-  }
-}
+    function updateHeartText() {
+      heartText.textContent = '❤'.repeat(Math.max(0, hearts)) || '0';
+    }
 
     async function requireAuth() {
       const { data: authData, error: authError } = await supabase.auth.getUser();
@@ -495,11 +453,202 @@ function checkScratchPercent() {
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'en-US';
         utterance.rate = 0.9;
+        utterance.pitch = 1;
         window.speechSynthesis.speak(utterance);
-        
       } catch (error) {
         console.error(error);
       }
+    }
+
+    function roundRect(ctx, x, y, width, height, radius) {
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + width - radius, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+      ctx.lineTo(x + width, y + height - radius);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+      ctx.lineTo(x + radius, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+      ctx.closePath();
+    }
+
+    function setupScratchCanvas() {
+      const rect = scratchCard.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+
+      scratchCanvas.width = Math.floor(rect.width * dpr);
+      scratchCanvas.height = Math.floor(rect.height * dpr);
+      scratchCanvas.style.width = rect.width + 'px';
+      scratchCanvas.style.height = rect.height + 'px';
+
+      scratchCtx = scratchCanvas.getContext('2d');
+      scratchCtx.setTransform(1, 0, 0, 1, 0, 0);
+      scratchCtx.scale(dpr, dpr);
+
+      scratchCtx.clearRect(0, 0, rect.width, rect.height);
+
+      scratchCtx.fillStyle = '#dfe6ef';
+      scratchCtx.fillRect(0, 0, rect.width, rect.height);
+
+      const grad = scratchCtx.createLinearGradient(0, 0, rect.width, rect.height);
+      grad.addColorStop(0, 'rgba(255,255,255,.22)');
+      grad.addColorStop(1, 'rgba(255,255,255,0)');
+      scratchCtx.fillStyle = grad;
+      scratchCtx.fillRect(0, 0, rect.width, rect.height);
+
+      scratchCtx.fillStyle = 'rgba(255,255,255,.92)';
+      roundRect(scratchCtx, rect.width / 2 - 62, rect.height / 2 - 18, 124, 36, 18);
+      scratchCtx.fill();
+
+      scratchCtx.fillStyle = '#334155';
+      scratchCtx.font = '800 13px Arial';
+      scratchCtx.textAlign = 'center';
+      scratchCtx.textBaseline = 'middle';
+      scratchCtx.fillText('긁어서 확인', rect.width / 2, rect.height / 2);
+
+      scratchCard.classList.remove('revealed');
+      scratchReady = true;
+    }
+
+    function resetScratch() {
+      requestAnimationFrame(() => {
+        setupScratchCanvas();
+      });
+    }
+
+    function revealScratch() {
+      scratchCard.classList.add('revealed');
+    }
+
+    function scratchAt(clientX, clientY) {
+      if (!scratchCtx || !scratchReady) return;
+
+      const rect = scratchCanvas.getBoundingClientRect();
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
+
+      scratchCtx.globalCompositeOperation = 'destination-out';
+      scratchCtx.beginPath();
+      scratchCtx.arc(x, y, 22, 0, Math.PI * 2);
+      scratchCtx.fill();
+
+      checkScratchPercent();
+    }
+
+    function checkScratchPercent() {
+      if (!scratchCtx || scratchCard.classList.contains('revealed')) return;
+
+      const rect = scratchCanvas.getBoundingClientRect();
+      const imageData = scratchCtx.getImageData(0, 0, Math.floor(rect.width), Math.floor(rect.height));
+      const pixels = imageData.data;
+      let transparentCount = 0;
+
+      for (let i = 3; i < pixels.length; i += 4) {
+        if (pixels[i] < 20) transparentCount++;
+      }
+
+      const totalPixels = pixels.length / 4;
+      const percent = transparentCount / totalPixels;
+
+      if (percent > 0.45) {
+        revealScratch();
+        setStatus('정답을 확인했습니다.');
+      }
+    }
+
+    function shuffle(array) {
+      const copied = [...array];
+      for (let i = copied.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copied[i], copied[j]] = [copied[j], copied[i]];
+      }
+      return copied;
+    }
+
+    function buildTestChoices(correctItem) {
+      const correctText = correctItem.primary_meaning_ko || '뜻 미입력';
+
+      const wrongPool = currentWords
+        .filter(item => item.id !== correctItem.id)
+        .map(item => item.primary_meaning_ko || '뜻 미입력')
+        .filter(Boolean)
+        .filter(text => text !== correctText);
+
+      const uniqueWrong = [...new Set(wrongPool)];
+      const pickedWrong = shuffle(uniqueWrong).slice(0, Math.min(3, uniqueWrong.length));
+      const choices = shuffle([correctText, ...pickedWrong]);
+
+      return choices;
+    }
+
+    function renderTestCard() {
+      if (!currentWords.length) return;
+
+      if (currentIndex >= currentWords.length) {
+        testBox.style.display = 'none';
+        completeBox.style.display = 'block';
+        progressBar.style.width = '100%';
+        currentStepText.textContent = `${currentWords.length} / ${currentWords.length}`;
+        setStatus('테스트 1 완료');
+        return;
+      }
+
+      const item = currentWords[currentIndex];
+      const total = currentWords.length;
+      const progress = total > 0 ? 66 + ((currentIndex / total) * 34) : 100;
+
+      testQuestion.textContent = item.word || '-';
+      choiceWrap.innerHTML = '';
+
+      const choices = buildTestChoices(item);
+
+      for (const choice of choices) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'choice-btn';
+        btn.textContent = choice;
+        btn.addEventListener('click', () => handleTestAnswer(choice));
+        choiceWrap.appendChild(btn);
+      }
+
+      totalCountText.textContent = String(total);
+      currentStepText.textContent = `${currentIndex + 1} / ${total}`;
+      progressBar.style.width = `${progress}%`;
+      studyBox.style.display = 'none';
+      testBox.style.display = 'block';
+      completeBox.style.display = 'none';
+      setStatus('테스트 1: 영단어에 맞는 뜻을 선택하세요.');
+    }
+
+    function handleTestAnswer(choice) {
+      const item = currentWords[currentIndex];
+      const correctText = item.primary_meaning_ko || '뜻 미입력';
+      const isCorrect = choice === correctText;
+
+      if (isCorrect) {
+        setStatus('정답입니다.');
+        currentIndex += 1;
+        renderTestCard();
+        return;
+      }
+
+      hearts -= 1;
+      updateHeartText();
+
+      if (hearts <= 0) {
+        alert('하트가 모두 소진되어 처음부터 다시 시작합니다.');
+        hearts = initialHearts;
+        updateHeartText();
+        studyPhase = 'word_to_meaning';
+        currentIndex = 0;
+        testBox.style.display = 'none';
+        renderCard();
+        return;
+      }
+
+      setStatus('오답입니다. 하트가 1개 줄었습니다.', true);
     }
 
     function renderCard() {
@@ -513,24 +662,29 @@ function checkScratchPercent() {
           return;
         }
 
-        studyBox.style.display = 'none';
-        completeBox.style.display = 'block';
-        progressBar.style.width = '100%';
-        currentStepText.textContent = `${currentWords.length} / ${currentWords.length}`;
-        setStatus('오늘 단어 카드 학습 완료');
-        return;
+        if (studyPhase === 'meaning_to_word') {
+          studyPhase = 'test_1';
+          currentIndex = 0;
+          renderTestCard();
+          return;
+        }
       }
 
       const item = currentWords[currentIndex];
       const total = currentWords.length;
-      const baseProgress = studyPhase === 'word_to_meaning' ? 0 : 50;
-      const progress = total > 0 ? baseProgress + ((currentIndex / total) * 50) : 0;
+
+      let progress = 0;
+      if (studyPhase === 'word_to_meaning') {
+        progress = total > 0 ? (currentIndex / total) * 33 : 0;
+      } else if (studyPhase === 'meaning_to_word') {
+        progress = total > 0 ? 33 + ((currentIndex / total) * 33) : 33;
+      }
 
       if (studyPhase === 'word_to_meaning') {
         phaseBadge.textContent = '영단어 카드';
         wordText.textContent = item.word || '-';
         scratchAnswer.textContent = item.primary_meaning_ko || '뜻 미입력';
-        scratchLabel.textContent = '아래 영역을 눌러 뜻을 확인하세요.';
+        scratchLabel.textContent = '아래 영역을 직접 긁어서 뜻을 확인하세요.';
         cardGuide.textContent = '단어가 보일 때 발음도 함께 재생됩니다.';
         resetScratch();
         speakWord(item.tts_text || item.word || '');
@@ -539,7 +693,7 @@ function checkScratchPercent() {
         phaseBadge.textContent = '뜻 카드';
         wordText.textContent = item.primary_meaning_ko || '뜻 미입력';
         scratchAnswer.textContent = item.word || '-';
-        scratchLabel.textContent = '아래 영역을 눌러 영단어를 확인하세요.';
+        scratchLabel.textContent = '아래 영역을 직접 긁어서 영단어를 확인하세요.';
         cardGuide.textContent = '뜻을 보고 어떤 영단어인지 떠올려 보세요.';
         resetScratch();
         setStatus('2차 학습: 뜻을 보고 영단어를 확인하세요.');
@@ -549,6 +703,7 @@ function checkScratchPercent() {
       currentStepText.textContent = `${currentIndex + 1} / ${total}`;
       progressBar.style.width = `${progress}%`;
       studyBox.style.display = 'block';
+      testBox.style.display = 'none';
       completeBox.style.display = 'none';
     }
 
@@ -556,13 +711,14 @@ function checkScratchPercent() {
       loadingBox.style.display = 'block';
       emptyBox.style.display = 'none';
       studyBox.style.display = 'none';
+      testBox.style.display = 'none';
       completeBox.style.display = 'none';
 
       const today = new Date().toISOString().slice(0,10);
 
       const { data: setRow, error: setError } = await supabase
         .from('user_vocab_daily_sets')
-        .select('id, book_id, study_date, total_words')
+        .select('id, book_id, study_date, total_words, heart_count')
         .eq('user_id', me.id)
         .eq('study_date', today)
         .maybeSingle();
@@ -574,6 +730,10 @@ function checkScratchPercent() {
         setStatus('오늘 학습 세트를 불러오지 못했습니다.', true);
         return;
       }
+
+      hearts = Number(setRow.heart_count || 1);
+      initialHearts = hearts;
+      updateHeartText();
 
       const { data: bookRow } = await supabase
         .from('vocab_books')
@@ -623,35 +783,37 @@ function checkScratchPercent() {
     }
 
     scratchCanvas.addEventListener('pointerdown', (e) => {
-  isScratching = true;
-  scratchCanvas.setPointerCapture(e.pointerId);
-  scratchAt(e.clientX, e.clientY);
-});
+      isScratching = true;
+      scratchCanvas.setPointerCapture(e.pointerId);
+      scratchAt(e.clientX, e.clientY);
+    });
 
-scratchCanvas.addEventListener('pointermove', (e) => {
-  if (!isScratching) return;
-  scratchAt(e.clientX, e.clientY);
-});
+    scratchCanvas.addEventListener('pointermove', (e) => {
+      if (!isScratching) return;
+      scratchAt(e.clientX, e.clientY);
+    });
 
-scratchCanvas.addEventListener('pointerup', () => {
-  isScratching = false;
-});
+    scratchCanvas.addEventListener('pointerup', () => {
+      isScratching = false;
+    });
 
-scratchCanvas.addEventListener('pointercancel', () => {
-  isScratching = false;
-});
+    scratchCanvas.addEventListener('pointercancel', () => {
+      isScratching = false;
+    });
 
-document.getElementById('revealBtn').addEventListener('click', () => {
-  revealScratch();
-  setStatus('정답을 확인했습니다.');
-});
+    document.getElementById('revealBtn').addEventListener('click', () => {
+      revealScratch();
+      setStatus('정답을 확인했습니다.');
+    });
 
     document.getElementById('speakBtn').addEventListener('click', () => {
       if (!currentWords.length) return;
+
       if (studyPhase !== 'word_to_meaning') {
         setStatus('2차 카드에서는 발음 재생이 없습니다.');
         return;
       }
+
       const item = currentWords[currentIndex];
       speakWord(item.tts_text || item.word || '');
       setStatus('발음을 다시 재생했습니다.');
@@ -663,6 +825,8 @@ document.getElementById('revealBtn').addEventListener('click', () => {
     });
 
     document.getElementById('restartBtn').addEventListener('click', () => {
+      hearts = initialHearts;
+      updateHeartText();
       studyPhase = 'word_to_meaning';
       currentIndex = 0;
       renderCard();
