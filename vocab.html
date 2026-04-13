@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>보카엔딩 단어 학습관</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root{
+      --bg:#f4f7fb; --card:#ffffff; --line:#e5e7eb; --text:#1f2937; --muted:#6b7280;
+      --blue:#4f8cff; --green:#4caf50; --red:#ef4444; --shadow:0 10px 30px rgba(15,23,42,.08);
+    }
+    body{
+      margin:0;
+      font-family:Arial,sans-serif;
+      background:linear-gradient(180deg,#eff5ff 0%,#f4f7fb 35%,#eef8f1 100%);
+      color:var(--text);
+    }
+    .wrap{ max-width:1100px; margin:0 auto; padding:20px; min-height:100vh; }
+    .topbar{
+      display:flex; justify-content:space-between; align-items:center; gap:12px;
+      margin-bottom:18px; flex-wrap:wrap;
+    }
+    .title-box h1{ margin:0; font-size:30px; font-weight:800; letter-spacing:-0.02em; }
+    .title-box p{ margin:8px 0 0; color:var(--muted); font-size:14px; line-height:1.6; }
+    .btns{ display:flex; gap:8px; flex-wrap:wrap; }
+    button{
+      border:none; border-radius:14px; padding:11px 16px; font-size:14px; font-weight:700; cursor:pointer;
+      transition:transform .12s ease, opacity .12s ease, box-shadow .12s ease;
+    }
+    button:hover{ opacity:.95; box-shadow:0 8px 18px rgba(0,0,0,.08); }
+    button:active{ transform:translateY(1px); }
+    .btn-blue{ background:var(--blue); color:#fff; }
+    .btn-green{ background:var(--green); color:#fff; }
+    .btn-slate{ background:#607d8b; color:#fff; }
+    .btn-light{ background:#fff; color:#334155; border:1px solid var(--line); }
+
+    .summary-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-bottom:18px; }
+    .summary-card,.panel{ background:var(--card); border-radius:24px; box-shadow:var(--shadow); }
+    .summary-card{ padding:18px; }
+    .summary-card .label{ color:var(--muted); font-size:13px; margin-bottom:8px; }
+    .summary-card .value{ font-size:28px; font-weight:800; }
+
+    .panel{ padding:18px; margin-bottom:18px; }
+    .panel-head{
+      display:flex; justify-content:space-between; align-items:flex-start; gap:12px;
+      margin-bottom:14px; flex-wrap:wrap;
+    }
+    .panel-head h2{ margin:0; font-size:20px; }
+    .panel-head p{ margin:6px 0 0; color:var(--muted); font-size:13px; line-height:1.6; }
+
+    .status{
+      margin-top:10px; font-size:14px; color:#334155; line-height:1.6;
+      min-height:24px;
+    }
+
+    .book-grid, .plan-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .select-card{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,#fff 0%,#fbfdff 100%);
+      border-radius:18px;
+      padding:16px;
+      min-height:160px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      cursor:pointer;
+      transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+      text-align:left;
+    }
+
+    .select-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 28px rgba(15,23,42,.08);
+      border-color:#bfd5ff;
+    }
+
+    .select-card.selected{
+      background:linear-gradient(180deg,#f4f9ff 0%,#eef5ff 100%);
+      border-color:#4f8cff;
+      box-shadow:0 10px 24px rgba(79,140,255,.12);
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      width:max-content;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      background:#eef4ff;
+      color:#335ea8;
+      margin-bottom:10px;
+    }
+
+    .card-title{ font-size:20px; font-weight:800; line-height:1.35; margin-bottom:10px; }
+    .card-meta{ color:var(--muted); font-size:12px; line-height:1.6; }
+    .footer-actions{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; margin-top:16px;
+    }
+
+    .empty, .loading{
+      padding:36px 14px; text-align:center; color:var(--muted); font-weight:700;
+    }
+
+    .notice{
+      margin-top:14px; padding:14px 16px; border-radius:16px;
+      background:#f8fafc; border:1px solid var(--line); font-size:13px; color:#475569; line-height:1.7;
+    }
+
+    @media (max-width:640px){
+      .wrap{ padding:14px; }
+      .title-box h1{ font-size:25px; }
+      .card-title{ font-size:18px; }
+      .book-grid,.plan-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .select-card{ min-height:145px; padding:14px; }
+      .footer-actions{ justify-content:stretch; }
+      .footer-actions button{ width:100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="title-box">
+        <h1>단어 학습관</h1>
+        <p>단어장을 선택하고 하루 학습량을 고르면 오늘의 단어 학습을 시작할 수 있어요.</p>
+      </div>
+      <div class="btns">
+        <button id="homeBtn" class="btn-light" type="button">학습 홈</button>
+        <button id="refreshBtn" class="btn-blue" type="button">새로고침</button>
+        <button id="logoutBtn" class="btn-slate" type="button">로그아웃</button>
+      </div>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="label">사용 가능한 단어장</div>
+        <div class="value" id="bookCountText">-</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">오늘 선택한 플랜</div>
+        <div class="value" id="planText" style="font-size:22px;">-</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">현재 사용자</div>
+        <div class="value" id="currentName" style="font-size:22px;">-</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>1단계 · 단어장 선택</h2>
+          <p>학습할 단어장을 먼저 골라 주세요.</p>
+        </div>
+      </div>
+      <div id="bookGrid" class="book-grid"></div>
+      <div id="bookLoading" class="loading">단어장을 불러오는 중입니다...</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>2단계 · 하루 학습량 선택</h2>
+          <p>하루에 외울 새 단어 개수를 선택하세요. 10개당 하트 1개가 주어집니다.</p>
+        </div>
+      </div>
+      <div id="planGrid" class="plan-grid"></div>
+      <div id="planLoading" class="loading">플랜을 불러오는 중입니다...</div>
+
+      <div class="notice">
+        시작 버튼을 누르면 현재 선택한 단어장과 플랜 기준으로 학습 등록이 생성됩니다.<br />
+        오늘 학습 화면은 다음 단계에서 붙이면 되고, 이 페이지에서는 단어장 선택과 플랜 저장까지만 먼저 연결합니다.
+      </div>
+
+      <div class="footer-actions">
+        <button id="startBtn" class="btn-green" type="button">이 설정으로 시작</button>
+      </div>
+      <div id="status" class="status"></div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    const supabase = createClient(
+      'https://uuzhdxangctewuklvmlv.supabase.co',
+      'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
+    );
+
+    const currentNameEl = document.getElementById('currentName');
+    const bookCountText = document.getElementById('bookCountText');
+    const planText = document.getElementById('planText');
+    const bookGrid = document.getElementById('bookGrid');
+    const planGrid = document.getElementById('planGrid');
+    const bookLoading = document.getElementById('bookLoading');
+    const planLoading = document.getElementById('planLoading');
+    const statusEl = document.getElementById('status');
+
+    let me = null;
+    let role = 'student';
+    let books = [];
+    let plans = [];
+    let selectedBookId = null;
+    let selectedPlanId = null;
+
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replaceAll('&','&amp;')
+        .replaceAll('<','&lt;')
+        .replaceAll('>','&gt;')
+        .replaceAll('"','&quot;')
+        .replaceAll("'",'&#039;');
+    }
+
+    function setStatus(message, isError = false) {
+      statusEl.textContent = message || '';
+      statusEl.style.color = isError ? '#b42318' : '#334155';
+    }
+
+    async function requireAuth() {
+      const { data: authData, error: authError } = await supabase.auth.getUser();
+      if (authError || !authData.user) {
+        alert('로그인이 필요합니다.');
+        location.href = 'login.html';
+        return false;
+      }
+
+      me = authData.user;
+
+      const { data: profileData } = await supabase
+        .from('profiles')
+        .select('user_id, name, role')
+        .eq('user_id', me.id)
+        .maybeSingle();
+
+      if (profileData?.role) role = profileData.role;
+      currentNameEl.textContent = profileData?.name || me.email || '사용자';
+      return true;
+    }
+
+    async function loadBooks() {
+      bookLoading.style.display = 'block';
+      bookGrid.innerHTML = '';
+
+      const { data, error } = await supabase
+        .from('vocab_books')
+        .select('id, code, title, description, category, is_active, sort_order')
+        .eq('is_active', true)
+        .order('sort_order', { ascending: true })
+        .order('title', { ascending: true });
+
+      bookLoading.style.display = 'none';
+
+      if (error) {
+        console.error(error);
+        bookGrid.innerHTML = '<div class="empty">단어장을 불러오지 못했습니다.</div>';
+        return;
+      }
+
+      books = Array.isArray(data) ? data : [];
+      bookCountText.textContent = books.length;
+
+      if (!books.length) {
+        bookGrid.innerHTML = '<div class="empty">사용 가능한 단어장이 없습니다.</div>';
+        return;
+      }
+
+      renderBooks();
+    }
+
+    function renderBooks() {
+      bookGrid.innerHTML = '';
+
+      for (const book of books) {
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = `select-card ${selectedBookId === book.id ? 'selected' : ''}`;
+        card.innerHTML = `
+          <div>
+            <div class="badge">단어장</div>
+            <div class="card-title">${escapeHtml(book.title)}</div>
+          </div>
+          <div class="card-meta">
+            코드: ${escapeHtml(book.code)}<br>
+            ${book.description ? escapeHtml(book.description) : '설명 없음'}
+          </div>
+        `;
+        card.addEventListener('click', () => {
+          selectedBookId = book.id;
+          renderBooks();
+          setStatus(`단어장 선택 완료: ${book.title}`);
+        });
+        bookGrid.appendChild(card);
+      }
+    }
+
+    async function loadPlans() {
+      planLoading.style.display = 'block';
+      planGrid.innerHTML = '';
+
+      const { data, error } = await supabase
+        .from('vocab_plans')
+        .select('id, code, title, daily_new_count, heart_count, description, is_active, sort_order')
+        .eq('is_active', true)
+        .order('sort_order', { ascending: true });
+
+      planLoading.style.display = 'none';
+
+      if (error) {
+        console.error(error);
+        planGrid.innerHTML = '<div class="empty">플랜을 불러오지 못했습니다.</div>';
+        return;
+      }
+
+      plans = Array.isArray(data) ? data : [];
+      if (!plans.length) {
+        planGrid.innerHTML = '<div class="empty">사용 가능한 플랜이 없습니다.</div>';
+        return;
+      }
+
+      renderPlans();
+    }
+
+    function renderPlans() {
+      planGrid.innerHTML = '';
+
+      for (const plan of plans) {
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = `select-card ${selectedPlanId === plan.id ? 'selected' : ''}`;
+        card.innerHTML = `
+          <div>
+            <div class="badge">학습 플랜</div>
+            <div class="card-title">${escapeHtml(plan.title)}</div>
+          </div>
+          <div class="card-meta">
+            하루 새 단어 ${plan.daily_new_count}개<br>
+            하트 ${plan.heart_count}개
+          </div>
+        `;
+        card.addEventListener('click', () => {
+          selectedPlanId = plan.id;
+          planText.textContent = plan.title;
+          renderPlans();
+          setStatus(`플랜 선택 완료: ${plan.title}`);
+        });
+        planGrid.appendChild(card);
+      }
+    }
+
+    async function startEnrollment() {
+      if (!selectedBookId) {
+        setStatus('단어장을 먼저 선택해 주세요.', true);
+        return;
+      }
+      if (!selectedPlanId) {
+        setStatus('하루 학습량 플랜을 먼저 선택해 주세요.', true);
+        return;
+      }
+
+      const selectedBook = books.find(book => book.id === selectedBookId);
+      const selectedPlan = plans.find(plan => plan.id === selectedPlanId);
+
+      setStatus('학습 등록을 저장하는 중입니다...');
+
+      const payload = {
+        user_id: me.id,
+        book_id: selectedBookId,
+        plan_id: selectedPlanId,
+        status: 'studying'
+      };
+
+      const { error } = await supabase
+        .from('user_vocab_enrollments')
+        .upsert(payload, { onConflict: 'user_id,book_id' });
+
+      if (error) {
+        console.error(error);
+        setStatus('학습 등록 저장 실패: ' + error.message, true);
+        return;
+      }
+
+      setStatus(`시작 준비 완료: ${selectedBook?.title || ''} / ${selectedPlan?.title || ''}`);
+      alert('단어장과 플랜이 저장되었습니다. 다음 단계에서 오늘 학습 화면을 붙이면 바로 시작할 수 있습니다.');
+    }
+
+    async function logout() {
+      await supabase.auth.signOut();
+      location.href = 'login.html';
+    }
+
+    document.getElementById('homeBtn').addEventListener('click', () => {
+      if (role === 'admin') location.href = 'admin.html';
+      else location.href = 'class.html';
+    });
+
+    document.getElementById('refreshBtn').addEventListener('click', () => location.reload());
+    document.getElementById('logoutBtn').addEventListener('click', logout);
+    document.getElementById('startBtn').addEventListener('click', startEnrollment);
+
+    async function init() {
+      const ok = await requireAuth();
+      if (!ok) return;
+      await loadBooks();
+      await loadPlans();
+    }
+
+    init();
+  </script>
+</body>
+</html>
