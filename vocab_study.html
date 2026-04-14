@@ -875,28 +875,39 @@ function isCorrectMeaningInput(item, inputValue) {
 }
 
     function buildTestChoices(correctItem) {
-      const correctText = getMeaningText(correctItem);
+  const correctText = getMeaningText(correctItem);
 
-      const wrongPool = currentWords
-        .filter(item => item.id !== correctItem.id)
-        .map(item => getMeaningText(item))
-        .filter(text => text && text !== correctText);
+  const wrongPool = currentWords
+    .filter(item => item.id !== correctItem.id)
+    .map(item => getMeaningText(item))
+    .filter(text => text && text !== correctText);
 
-      const uniqueWrong = [...new Set(wrongPool)];
-      const pickedWrong = shuffle(uniqueWrong).slice(0, 3);
+  const uniqueWrong = [...new Set(wrongPool)];
+  const pickedWrong = shuffle(uniqueWrong).slice(0, 3);
 
-      const fillers = [
-        '장소',
-        '사람',
-        '행동',
-        '사물',
-        '상태',
-        '감정',
-        '동물',
-        '음식'
-      ].filter(text => text !== correctText && !pickedWrong.includes(text));
+  const fillers = [
+    '장소',
+    '사람',
+    '행동',
+    '사물',
+    '상태',
+    '감정',
+    '동물',
+    '음식'
+  ].filter(text => text !== correctText && !pickedWrong.includes(text));
 
-      function buildWordChoices(correctItem) {
+  while (pickedWrong.length < 3 && fillers.length > 0) {
+    pickedWrong.push(fillers.shift());
+  }
+
+  while (pickedWrong.length < 3) {
+    pickedWrong.push(`보기 ${pickedWrong.length + 2}`);
+  }
+
+  return shuffle([correctText, ...pickedWrong.slice(0, 3)]);
+}
+
+function buildWordChoices(correctItem) {
   const correctText = (correctItem.word || '').trim() || 'unknown';
 
   const wrongPool = currentWords
@@ -920,17 +931,6 @@ function isCorrectMeaningInput(item, inputValue) {
 
   return shuffle([correctText, ...pickedWrong.slice(0, 3)]);
 }
-
-      while (pickedWrong.length < 3 && fillers.length > 0) {
-        pickedWrong.push(fillers.shift());
-      }
-
-      while (pickedWrong.length < 3) {
-        pickedWrong.push(`보기 ${pickedWrong.length + 2}`);
-      }
-
-      return shuffle([correctText, ...pickedWrong.slice(0, 3)]);
-    }
 
     function renderTestCard() {
   if (!currentWords.length) return;
