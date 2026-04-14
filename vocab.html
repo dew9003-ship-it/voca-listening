@@ -111,9 +111,75 @@
     }
 
     .notice{
-      margin-top:14px; padding:14px 16px; border-radius:16px;
-      background:#f8fafc; border:1px solid var(--line); font-size:13px; color:#475569; line-height:1.7;
-    }
+  margin-top:14px; padding:14px 16px; border-radius:16px;
+  background:#f8fafc; border:1px solid var(--line); font-size:13px; color:#475569; line-height:1.7;
+}
+
+.app-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.38);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  padding:20px;
+}
+
+.app-modal.show{
+  display:flex;
+}
+
+.app-modal-card{
+  width:min(100%, 420px);
+  background:#fff;
+  border-radius:24px;
+  box-shadow:0 20px 60px rgba(15,23,42,.22);
+  padding:24px 22px 18px;
+  animation:modalUp .18s ease;
+}
+
+@keyframes modalUp{
+  from{
+    opacity:0;
+    transform:translateY(12px) scale(.98);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.app-modal-title{
+  font-size:20px;
+  font-weight:800;
+  margin-bottom:10px;
+  color:#0f172a;
+}
+
+.app-modal-message{
+  font-size:15px;
+  line-height:1.65;
+  color:#475569;
+  white-space:pre-line;
+}
+
+.app-modal-actions{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:18px;
+}
+
+.app-modal-btn{
+  border:none;
+  border-radius:14px;
+  background:#4f8cff;
+  color:#fff;
+  padding:11px 18px;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+}
 
     @media (max-width:640px){
       .wrap{ padding:14px; }
@@ -205,6 +271,11 @@
     const planLoading = document.getElementById('planLoading');
     const statusEl = document.getElementById('status');
 
+const appModal = document.getElementById('appModal');
+const appModalTitle = document.getElementById('appModalTitle');
+const appModalMessage = document.getElementById('appModalMessage');
+const appModalConfirm = document.getElementById('appModalConfirm');
+
     let me = null;
     let role = 'student';
     let books = [];
@@ -222,17 +293,35 @@
     }
 
     function setStatus(message, isError = false) {
-      statusEl.textContent = message || '';
-      statusEl.style.color = isError ? '#b42318' : '#334155';
-    }
+  statusEl.textContent = message || '';
+  statusEl.style.color = isError ? '#b42318' : '#334155';
+}
+
+function showAppModal(message, title = '안내', onConfirm = null) {
+  appModalTitle.textContent = title;
+  appModalMessage.textContent = message;
+  appModal.classList.add('show');
+
+  appModalConfirm.onclick = () => {
+    appModal.classList.remove('show');
+    if (typeof onConfirm === 'function') onConfirm();
+  };
+}
+
+appModal.addEventListener('click', (e) => {
+  if (e.target === appModal) {
+    appModal.classList.remove('show');
+  }
+});
 
     async function requireAuth() {
       const { data: authData, error: authError } = await supabase.auth.getUser();
       if (authError || !authData.user) {
-        alert('로그인이 필요합니다.');
-        location.href = 'login.html';
-        return false;
-      }
+  showAppModal('로그인이 필요합니다.', '로그인 필요', () => {
+    location.href = 'login.html';
+  });
+  return false;
+}
 
       me = authData.user;
 
@@ -388,8 +477,8 @@
   }
 
   if (!words || words.length === 0) {
-    throw new Error('단어를 불러올 수 없습니다.');
-  }
+  throw new Error('단어를 불러올 수 없습니다.');
+}
 
   const wordIds = words.map(w => w.word_id);
 
@@ -466,13 +555,14 @@ try {
 } catch (createError) {
   console.error('createTodaySet failed:', createError);
   setStatus(createError.message || '오늘 학습 생성 실패', true);
-  alert(createError.message || '오늘 학습 생성 실패');
+  showAppModal(createError.message || '오늘 학습 생성 실패', '생성 실패');
   return;
 }
 
 setStatus(`시작 준비 완료: ${selectedBook?.title || ''} / ${selectedPlan?.title || ''}`);
-alert('단어장과 플랜이 저장되었고, 오늘 학습 세트도 생성되었습니다.');
-location.href = 'vocab_study.html';
+showAppModal('단어장과 플랜이 저장되었고, 오늘 학습 세트도 생성되었습니다.', '시작 준비 완료', () => {
+  location.href = 'vocab_study.html';
+});
     }
 
     async function logout() {
@@ -498,5 +588,19 @@ location.href = 'vocab_study.html';
 
     init();
   </script>
+
+  </div>
+
+  <div id="appModal" class="app-modal">
+    <div class="app-modal-card">
+      <div id="appModalTitle" class="app-modal-title">안내</div>
+      <div id="appModalMessage" class="app-modal-message"></div>
+      <div class="app-modal-actions">
+        <button id="appModalConfirm" class="app-modal-btn" type="button">확인</button>
+      </div>
+    </div>
+  </div>
+</body>
+  
 </body>
 </html>
