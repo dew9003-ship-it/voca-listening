@@ -406,10 +406,12 @@
 
 const { error: insertError } = await supabase
   .from('user_vocab_daily_sets')
-  .insert(insertPayload);
+  .upsert(insertPayload, {
+    onConflict: 'enrollment_id,day_no'
+  });
 
 if (insertError) {
-  console.error('user_vocab_daily_sets insert error:', insertError);
+  console.error('user_vocab_daily_sets upsert error:', insertError);
   throw new Error('오늘 학습 세트 생성 실패: ' + insertError.message);
 }
 }
