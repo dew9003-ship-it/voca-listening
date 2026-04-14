@@ -353,20 +353,9 @@
       <div id="studyBox" style="display:none;">
         <div class="word-card">
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
-
-  <!-- 왼쪽: 현재 순서 -->
-  <div id="cardOrder" style="font-weight:800; font-size:18px;">
-    1 / 10
-  </div>
-
-  <!-- 가운데: 카드 타입 -->
+  <div id="cardOrder" style="font-weight:800; font-size:18px;">1 / 10</div>
   <div id="phaseBadge" class="pill">영단어 카드</div>
-
-  <!-- 오른쪽: 하트 -->
-  <div id="cardHearts" style="font-weight:800; font-size:18px; color:#ef4444;">
-    ❤ × 1
-  </div>
-
+  <div id="cardHearts" class="card-hearts" style="position:static; font-size:18px;">❤ × 1</div>
 </div>
 
 <div id="wordText" class="word-text">word</div>
@@ -390,10 +379,13 @@
 
       <div id="testBox" style="display:none;">
         <div class="word-card">
-          <div id="testHearts" class="card-hearts"></div>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+  <div id="testOrder" style="font-weight:800; font-size:18px;">1 / 10</div>
+  <div class="pill">테스트 1</div>
+  <div id="testHearts" class="card-hearts" style="position:static; font-size:18px;">❤ × 1</div>
+</div>
 
-          <div class="pill">테스트 1</div>
-          <div id="testQuestion" class="word-text">word</div>
+<div id="testQuestion" class="word-text">word</div>
           <div class="sub-text">영단어에 맞는 뜻을 고르세요.</div>
           <div id="choiceWrap" class="choice-wrap"></div>
         </div>
@@ -441,9 +433,11 @@
     const scratchCanvas = document.getElementById('scratchCanvas');
 
     const cardHearts = document.getElementById('cardHearts');
-    const testHearts = document.getElementById('testHearts');
+const testHearts = document.getElementById('testHearts');
+const cardOrder = document.getElementById('cardOrder');
+const testOrder = document.getElementById('testOrder');
 
-    const testQuestion = document.getElementById('testQuestion');
+const testQuestion = document.getElementById('testQuestion');
     const choiceWrap = document.getElementById('choiceWrap');
     const statusEl = document.getElementById('status');
 
@@ -681,44 +675,49 @@
         choiceWrap.appendChild(btn);
       }
 
-      totalCountText.textContent = String(total);
       const stepText = `${currentIndex + 1} / ${total}`;
+totalCountText.textContent = String(total);
 currentStepText.textContent = stepText;
-cardOrder.textContent = stepText;
-      progressBar.style.width = `${progress}%`;
-      studyBox.style.display = 'none';
-      testBox.style.display = 'block';
-      completeBox.style.display = 'none';
-      renderHeartIcons();
-      setStatus('테스트 1: 영단어에 맞는 뜻을 선택하세요.');
+testOrder.textContent = stepText;
+progressBar.style.width = `${progress}%`;
+studyBox.style.display = 'none';
+testBox.style.display = 'block';
+completeBox.style.display = 'none';
+renderHeartIcons();
+setStatus('테스트 1: 영단어에 맞는 뜻을 선택하세요.');
     }
 
     function handleTestAnswer(choice) {
-      const item = currentWords[currentIndex];
-      const correctText = getMeaningText(item);
-      const isCorrect = choice === correctText;
+  const item = currentWords[currentIndex];
+  const correctText = getMeaningText(item);
+  const isCorrect = choice === correctText;
 
-      if (isCorrect) {
-        setStatus('정답입니다.');
-        currentIndex += 1;
-        renderTestCard();
-        return;
-      }
+  if (isCorrect) {
+    setStatus('정답입니다.');
+    currentIndex += 1;
+    renderTestCard();
+    return;
+  }
 
-      hearts -= 1;
-      renderHeartIcons();
+  if (hearts <= 0) {
+    alert('하트가 없는 상태에서 틀려 테스트 1 처음으로 다시 시작합니다.');
+    hearts = initialHearts;
+    currentIndex = 0;
+    renderHeartIcons();
+    renderTestCard();
+    return;
+  }
 
-      if (hearts <= 0) {
-  alert('하트가 모두 소진되어 테스트 1 처음으로 다시 시작합니다.');
-  hearts = initialHearts;
-  currentIndex = 0;
+  hearts -= 1;
   renderHeartIcons();
-  renderTestCard();
-  return;
-}
 
-      setStatus('오답입니다. 하트가 1개 줄었습니다.', true);
-    }
+  if (hearts === 0) {
+    setStatus('오답입니다. 하트가 모두 소진되었습니다. 다음 오답 시 테스트 1 처음으로 돌아갑니다.', true);
+    return;
+  }
+
+  setStatus('오답입니다. 하트가 1개 줄었습니다.', true);
+}
 
     function renderCard() {
       if (!currentWords.length) return;
@@ -768,13 +767,15 @@ cardOrder.textContent = stepText;
         setStatus('2차 학습: 뜻을 보고 영단어를 확인하세요.');
       }
 
-      totalCountText.textContent = String(total);
-      currentStepText.textContent = `${currentIndex + 1} / ${total}`;
-      progressBar.style.width = `${progress}%`;
-      studyBox.style.display = 'block';
-      testBox.style.display = 'none';
-      completeBox.style.display = 'none';
-      renderHeartIcons();
+      const stepText = `${currentIndex + 1} / ${total}`;
+totalCountText.textContent = String(total);
+currentStepText.textContent = stepText;
+cardOrder.textContent = stepText;
+progressBar.style.width = `${progress}%`;
+studyBox.style.display = 'block';
+testBox.style.display = 'none';
+completeBox.style.display = 'none';
+renderHeartIcons();
     }
 
     async function loadTodaySet() {
@@ -801,8 +802,8 @@ cardOrder.textContent = stepText;
         return;
       }
 
-     hearts = Math.max(2, Number(setRow.heart_count || 1));
-initialHearts = hearts;
+    hearts = 1;
+initialHearts = 1;
 renderHeartIcons();
 
       const { data: bookRow } = await supabase
