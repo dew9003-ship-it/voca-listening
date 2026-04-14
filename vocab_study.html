@@ -568,8 +568,52 @@ let initialHearts = 1;
 let currentTestStartPhase = 'test_1';
 
     let scratchCtx = null;
-    let isScratching = false;
-    let scratchReady = false;
+let isScratching = false;
+let scratchReady = false;
+
+let audioCtx = null;
+function getAudioCtx() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+
+function playCorrectSound() {
+  const ctx = getAudioCtx();
+  const notes = [784, 988, 1175];
+  const start = ctx.currentTime;
+
+  notes.forEach((freq, i) => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(freq, start + i * 0.07);
+    gain.gain.setValueAtTime(0.0001, start + i * 0.07);
+    gain.gain.exponentialRampToValueAtTime(0.14, start + i * 0.07 + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.0001, start + i * 0.07 + 0.16);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start(start + i * 0.07);
+    osc.stop(start + i * 0.07 + 0.18);
+  });
+}
+
+function playWrongSound() {
+  const ctx = getAudioCtx();
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+
+  osc.type = 'square';
+  osc.frequency.setValueAtTime(220, ctx.currentTime);
+  osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.18);
+
+  gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime + 0.01);
+  gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.2);
+
+  osc.connect(gain).connect(ctx.destination);
+  osc.start();
+  osc.stop(ctx.currentTime + 0.22);
+}
 
     function setStatus(message, isError = false) {
   statusEl.textContent = message || '';
@@ -891,15 +935,16 @@ appModal.addEventListener('click', (e) => {
   });
 
   if (isCorrect) {
-    setStatus('정답입니다.');
+  playCorrectSound();
+  setStatus('정답입니다.');
 
-    setTimeout(() => {
-      currentIndex += 1;
-      renderTestCard();
-    }, 220);
+  setTimeout(() => {
+    currentIndex += 1;
+    renderTestCard();
+  }, 220);
 
-    return;
-  }
+  return;
+}
 
   // 오답 버튼 효과
   const clickedBtn = buttons.find(btn => btn.textContent === choice);
@@ -910,24 +955,27 @@ appModal.addEventListener('click', (e) => {
 
   // 하트 체크
   if (hearts <= 0) {
-    const restartLabel = currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1';
+  playWrongSound(); // 🔥 추가
 
-    setTimeout(() => {
-      showAppModal(`${restartLabel} 처음부터 다시 시작합니다.`, '다시 도전', () => {
-        hearts = initialHearts;
-        currentIndex = 0;
-        studyPhase = currentTestStartPhase;
-        renderHeartIcons();
-        renderTestCard();
-      });
-    }, 400);
+  const restartLabel = currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1';
 
-    return;
-  }
+  setTimeout(() => {
+    showAppModal(`${restartLabel} 처음부터 다시 시작합니다.`, '다시 도전', () => {
+      hearts = initialHearts;
+      currentIndex = 0;
+      studyPhase = currentTestStartPhase;
+      renderHeartIcons();
+      renderTestCard();
+    });
+  }, 400);
 
-  // 하트 감소 + 애니메이션
-  hearts -= 1;
-  renderHeartIcons(true);
+  return;
+}
+
+// 하트 감소 + 애니메이션
+playWrongSound(); // 🔥 추가
+hearts -= 1;
+renderHeartIcons(true);
 
   if (hearts === 0) {
     setStatus('하트 소진! 다음 오답 시 처음으로 돌아갑니다.', true);
