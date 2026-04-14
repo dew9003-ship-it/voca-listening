@@ -889,22 +889,19 @@ appModal.addEventListener('click', (e) => {
     choiceWrap.appendChild(btn);
   }
 
+  if (studyPhase === 'test_2') {
   const replayBtn = document.createElement('button');
   replayBtn.type = 'button';
   replayBtn.className = 'btn-light';
-  replayBtn.textContent = studyPhase === 'test_2' ? '발음 다시 듣기' : '단어 다시 보기';
+  replayBtn.textContent = '발음 다시 듣기';
   replayBtn.style.maxWidth = '220px';
   replayBtn.style.margin = '6px auto 0';
   replayBtn.addEventListener('click', () => {
-    if (studyPhase === 'test_2') {
-      speakWord(item.tts_text || item.word || '');
-      setStatus('발음을 다시 재생했습니다.');
-    } else {
-      testQuestion.textContent = item.word || '-';
-      setStatus('단어를 다시 확인했습니다.');
-    }
+    speakWord(item.tts_text || item.word || '');
+    setStatus('발음을 다시 재생했습니다.');
   });
   choiceWrap.appendChild(replayBtn);
+}
 
   const stepText = `${currentIndex + 1} / ${total}`;
   totalCountText.textContent = String(total);
@@ -1149,17 +1146,12 @@ renderHeartIcons();
     });
 
     document.getElementById('speakBtn').addEventListener('click', () => {
-      if (!currentWords.length) return;
+  if (!currentWords.length) return;
 
-      if (studyPhase !== 'word_to_meaning') {
-        setStatus('2차 카드에서는 발음 재생이 없습니다.');
-        return;
-      }
-
-      const item = currentWords[currentIndex];
-      speakWord(item.tts_text || item.word || '');
-      setStatus('발음을 다시 재생했습니다.');
-    });
+  const item = currentWords[currentIndex];
+  speakWord(item.tts_text || item.word || '');
+  setStatus('발음을 다시 재생했습니다.');
+});
 
     document.getElementById('nextBtn').addEventListener('click', () => {
       currentIndex += 1;
