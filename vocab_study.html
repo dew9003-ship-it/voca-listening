@@ -131,16 +131,34 @@
     }
 
     .word-card{
+      position:relative;
       border:1px solid var(--line);
       background:linear-gradient(180deg,#fff 0%,#fbfdff 100%);
       border-radius:22px;
       padding:24px;
       text-align:center;
-      min-height:430px;
+      min-height:450px;
       display:flex;
       flex-direction:column;
       justify-content:center;
       gap:16px;
+    }
+
+    .card-hearts{
+      position:absolute;
+      top:18px;
+      right:18px;
+      display:flex;
+      align-items:center;
+      gap:6px;
+      font-size:28px;
+      line-height:1;
+      font-weight:800;
+      color:var(--red);
+    }
+
+    .heart-off{
+      opacity:.2;
     }
 
     .pill{
@@ -234,6 +252,7 @@
       width:100%;
       max-width:560px;
       margin:0 auto;
+      grid-template-columns:1fr;
     }
 
     .choice-btn{
@@ -281,8 +300,13 @@
       .word-text{ font-size:38px; }
       .scratch-answer{ font-size:26px; }
       .footer-actions button{ width:100%; }
-      .word-card{ min-height:360px; padding:18px; }
+      .word-card{ min-height:390px; padding:18px; }
       .scratch-card{ min-height:120px; height:120px; }
+      .card-hearts{
+        top:14px;
+        right:14px;
+        font-size:24px;
+      }
     }
   </style>
 </head>
@@ -313,10 +337,6 @@
         <div class="label">현재 사용자</div>
         <div class="value" id="currentName" style="font-size:22px;">-</div>
       </div>
-      <div class="summary-card">
-        <div class="label">하트</div>
-        <div class="value" id="heartText" style="font-size:22px;">-</div>
-      </div>
     </div>
 
     <div class="panel">
@@ -332,6 +352,8 @@
 
       <div id="studyBox" style="display:none;">
         <div class="word-card">
+          <div id="cardHearts" class="card-hearts"></div>
+
           <div id="phaseBadge" class="pill">영단어 카드</div>
           <div id="wordText" class="word-text">word</div>
           <div id="cardGuide" class="sub-text">단어가 보일 때 발음도 함께 재생됩니다.</div>
@@ -354,6 +376,8 @@
 
       <div id="testBox" style="display:none;">
         <div class="word-card">
+          <div id="testHearts" class="card-hearts"></div>
+
           <div class="pill">테스트 1</div>
           <div id="testQuestion" class="word-text">word</div>
           <div class="sub-text">영단어에 맞는 뜻을 고르세요.</div>
@@ -384,7 +408,6 @@
     const currentNameEl = document.getElementById('currentName');
     const totalCountText = document.getElementById('totalCountText');
     const currentStepText = document.getElementById('currentStepText');
-    const heartText = document.getElementById('heartText');
     const bookTitle = document.getElementById('bookTitle');
     const bookDesc = document.getElementById('bookDesc');
     const progressBar = document.getElementById('progressBar');
@@ -393,6 +416,7 @@
     const studyBox = document.getElementById('studyBox');
     const testBox = document.getElementById('testBox');
     const completeBox = document.getElementById('completeBox');
+
     const wordText = document.getElementById('wordText');
     const phaseBadge = document.getElementById('phaseBadge');
     const cardGuide = document.getElementById('cardGuide');
@@ -400,6 +424,10 @@
     const scratchCard = document.getElementById('scratchCard');
     const scratchAnswer = document.getElementById('scratchAnswer');
     const scratchCanvas = document.getElementById('scratchCanvas');
+
+    const cardHearts = document.getElementById('cardHearts');
+    const testHearts = document.getElementById('testHearts');
+
     const testQuestion = document.getElementById('testQuestion');
     const choiceWrap = document.getElementById('choiceWrap');
     const statusEl = document.getElementById('status');
@@ -421,8 +449,16 @@
       statusEl.style.color = isError ? '#b42318' : '#334155';
     }
 
-    function updateHeartText() {
-      heartText.textContent = '❤'.repeat(Math.max(0, hearts)) || '0';
+    function renderHeartIcons() {
+      const total = Math.max(1, initialHearts);
+      const html = Array.from({ length: total }, (_, i) => {
+        return i < hearts
+          ? '<span>❤</span>'
+          : '<span class="heart-off">❤</span>';
+      }).join('');
+
+      cardHearts.innerHTML = html;
+      testHearts.innerHTML = html;
     }
 
     async function requireAuth() {
@@ -567,20 +603,43 @@
       return copied;
     }
 
+    function getMeaningText(item) {
+      const base = (item.primary_meaning_ko || '').trim();
+      if (base) return base;
+      return `${item.word || '단어'}의 뜻`;
+    }
+
     function buildTestChoices(correctItem) {
-      const correctText = correctItem.primary_meaning_ko || '뜻 미입력';
+      const correctText = getMeaningText(correctItem);
 
       const wrongPool = currentWords
         .filter(item => item.id !== correctItem.id)
-        .map(item => item.primary_meaning_ko || '뜻 미입력')
-        .filter(Boolean)
-        .filter(text => text !== correctText);
+        .map(item => getMeaningText(item))
+        .filter(text => text && text !== correctText);
 
       const uniqueWrong = [...new Set(wrongPool)];
-      const pickedWrong = shuffle(uniqueWrong).slice(0, Math.min(3, uniqueWrong.length));
-      const choices = shuffle([correctText, ...pickedWrong]);
+      const pickedWrong = shuffle(uniqueWrong).slice(0, 3);
 
-      return choices;
+      const fillers = [
+        '장소',
+        '사람',
+        '행동',
+        '사물',
+        '상태',
+        '감정',
+        '동물',
+        '음식'
+      ].filter(text => text !== correctText && !pickedWrong.includes(text));
+
+      while (pickedWrong.length < 3 && fillers.length > 0) {
+        pickedWrong.push(fillers.shift());
+      }
+
+      while (pickedWrong.length < 3) {
+        pickedWrong.push(`보기 ${pickedWrong.length + 2}`);
+      }
+
+      return shuffle([correctText, ...pickedWrong.slice(0, 3)]);
     }
 
     function renderTestCard() {
@@ -619,12 +678,13 @@
       studyBox.style.display = 'none';
       testBox.style.display = 'block';
       completeBox.style.display = 'none';
+      renderHeartIcons();
       setStatus('테스트 1: 영단어에 맞는 뜻을 선택하세요.');
     }
 
     function handleTestAnswer(choice) {
       const item = currentWords[currentIndex];
-      const correctText = item.primary_meaning_ko || '뜻 미입력';
+      const correctText = getMeaningText(item);
       const isCorrect = choice === correctText;
 
       if (isCorrect) {
@@ -635,14 +695,14 @@
       }
 
       hearts -= 1;
-      updateHeartText();
+      renderHeartIcons();
 
       if (hearts <= 0) {
         alert('하트가 모두 소진되어 처음부터 다시 시작합니다.');
         hearts = initialHearts;
-        updateHeartText();
         studyPhase = 'word_to_meaning';
         currentIndex = 0;
+        renderHeartIcons();
         testBox.style.display = 'none';
         renderCard();
         return;
@@ -683,7 +743,7 @@
       if (studyPhase === 'word_to_meaning') {
         phaseBadge.textContent = '영단어 카드';
         wordText.textContent = item.word || '-';
-        scratchAnswer.textContent = item.primary_meaning_ko || '뜻 미입력';
+        scratchAnswer.textContent = getMeaningText(item);
         scratchLabel.textContent = '아래 영역을 직접 긁어서 뜻을 확인하세요.';
         cardGuide.textContent = '단어가 보일 때 발음도 함께 재생됩니다.';
         resetScratch();
@@ -691,7 +751,7 @@
         setStatus('1차 학습: 영단어를 보고 뜻을 확인하세요.');
       } else {
         phaseBadge.textContent = '뜻 카드';
-        wordText.textContent = item.primary_meaning_ko || '뜻 미입력';
+        wordText.textContent = getMeaningText(item);
         scratchAnswer.textContent = item.word || '-';
         scratchLabel.textContent = '아래 영역을 직접 긁어서 영단어를 확인하세요.';
         cardGuide.textContent = '뜻을 보고 어떤 영단어인지 떠올려 보세요.';
@@ -705,6 +765,7 @@
       studyBox.style.display = 'block';
       testBox.style.display = 'none';
       completeBox.style.display = 'none';
+      renderHeartIcons();
     }
 
     async function loadTodaySet() {
@@ -733,7 +794,7 @@
 
       hearts = Number(setRow.heart_count || 1);
       initialHearts = hearts;
-      updateHeartText();
+      renderHeartIcons();
 
       const { data: bookRow } = await supabase
         .from('vocab_books')
@@ -826,9 +887,9 @@
 
     document.getElementById('restartBtn').addEventListener('click', () => {
       hearts = initialHearts;
-      updateHeartText();
       studyPhase = 'word_to_meaning';
       currentIndex = 0;
+      renderHeartIcons();
       renderCard();
     });
 
