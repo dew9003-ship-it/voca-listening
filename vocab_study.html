@@ -288,11 +288,77 @@
     }
 
     .empty,.loading{
-      padding:36px 14px;
-      text-align:center;
-      color:var(--muted);
-      font-weight:700;
-    }
+  padding:36px 14px;
+  text-align:center;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.app-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.38);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  padding:20px;
+}
+
+.app-modal.show{
+  display:flex;
+}
+
+.app-modal-card{
+  width:min(100%, 420px);
+  background:#fff;
+  border-radius:24px;
+  box-shadow:0 20px 60px rgba(15,23,42,.22);
+  padding:24px 22px 18px;
+  animation:modalUp .18s ease;
+}
+
+@keyframes modalUp{
+  from{
+    opacity:0;
+    transform:translateY(12px) scale(.98);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.app-modal-title{
+  font-size:20px;
+  font-weight:800;
+  margin-bottom:10px;
+  color:#0f172a;
+}
+
+.app-modal-message{
+  font-size:15px;
+  line-height:1.65;
+  color:#475569;
+  white-space:pre-line;
+}
+
+.app-modal-actions{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:18px;
+}
+
+.app-modal-btn{
+  border:none;
+  border-radius:14px;
+  background:#4f8cff;
+  color:#fff;
+  padding:11px 18px;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+}
 
     @media (max-width:640px){
       .wrap{ padding:14px; }
@@ -401,6 +467,16 @@
 
       <div id="status" class="status"></div>
     </div>
+    </div>
+
+  <div id="appModal" class="app-modal">
+    <div class="app-modal-card">
+      <div id="appModalTitle" class="app-modal-title">안내</div>
+      <div id="appModalMessage" class="app-modal-message"></div>
+      <div class="app-modal-actions">
+        <button id="appModalConfirm" class="app-modal-btn" type="button">확인</button>
+      </div>
+    </div>
   </div>
 
   <script type="module">
@@ -441,6 +517,11 @@ const testGuide = document.getElementById('testGuide');
 const choiceWrap = document.getElementById('choiceWrap');
 const statusEl = document.getElementById('status');
 
+const appModal = document.getElementById('appModal');
+const appModalTitle = document.getElementById('appModalTitle');
+const appModalMessage = document.getElementById('appModalMessage');
+const appModalConfirm = document.getElementById('appModalConfirm');
+
     let me = null;
     let role = 'student';
     let currentWords = [];
@@ -455,9 +536,26 @@ let currentTestStartPhase = 'test_1';
     let scratchReady = false;
 
     function setStatus(message, isError = false) {
-      statusEl.textContent = message || '';
-      statusEl.style.color = isError ? '#b42318' : '#334155';
-    }
+  statusEl.textContent = message || '';
+  statusEl.style.color = isError ? '#b42318' : '#334155';
+}
+
+function showAppModal(message, title = '안내', onConfirm = null) {
+  appModalTitle.textContent = title;
+  appModalMessage.textContent = message;
+  appModal.classList.add('show');
+
+  appModalConfirm.onclick = () => {
+    appModal.classList.remove('show');
+    if (typeof onConfirm === 'function') onConfirm();
+  };
+}
+
+appModal.addEventListener('click', (e) => {
+  if (e.target === appModal) {
+    appModal.classList.remove('show');
+  }
+});
 
     function renderHeartIcons() {
   const text = `❤ × ${hearts}`;
@@ -468,10 +566,11 @@ let currentTestStartPhase = 'test_1';
     async function requireAuth() {
       const { data: authData, error: authError } = await supabase.auth.getUser();
       if (authError || !authData.user) {
-        alert('로그인이 필요합니다.');
-        location.href = 'login.html';
-        return false;
-      }
+  showAppModal('로그인이 필요합니다.', '로그인 필요', () => {
+    location.href = 'login.html';
+  });
+  return false;
+}
 
       me = authData.user;
 
@@ -741,15 +840,16 @@ let currentTestStartPhase = 'test_1';
   }
 
   if (hearts <= 0) {
-    const restartLabel = currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1';
-    alert(`하트가 없는 상태에서 틀려 ${restartLabel} 처음으로 다시 시작합니다.`);
+  const restartLabel = currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1';
+  showAppModal(`${restartLabel} 처음부터 다시 시작합니다.`, '다시 도전', () => {
     hearts = initialHearts;
     currentIndex = 0;
     studyPhase = currentTestStartPhase;
     renderHeartIcons();
     renderTestCard();
-    return;
-  }
+  });
+  return;
+}
 
   hearts -= 1;
   renderHeartIcons();
