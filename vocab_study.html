@@ -267,6 +267,40 @@
       font-weight:700;
     }
 
+    .choice-btn.correct{
+  background:#dcfce7 !important;
+  border-color:#22c55e !important;
+  color:#166534 !important;
+}
+
+.choice-btn.wrong{
+  background:#fee2e2 !important;
+  border-color:#ef4444 !important;
+  color:#991b1b !important;
+}
+
+@keyframes shake{
+  0%{ transform:translateX(0); }
+  25%{ transform:translateX(-6px); }
+  50%{ transform:translateX(6px); }
+  75%{ transform:translateX(-4px); }
+  100%{ transform:translateX(0); }
+}
+
+.shake{
+  animation:shake .3s ease;
+}
+
+.heart-hit{
+  animation:heartPop .25s ease;
+}
+
+@keyframes heartPop{
+  0%{ transform:scale(1); opacity:1; }
+  50%{ transform:scale(1.4); opacity:.6; }
+  100%{ transform:scale(1); opacity:1; }
+}
+
     .choice-btn:hover{
       background:#f8fbff;
     }
@@ -557,10 +591,20 @@ appModal.addEventListener('click', (e) => {
   }
 });
 
-    function renderHeartIcons() {
+    function renderHeartIcons(hit = false) {
   const text = `❤ × ${hearts}`;
   cardHearts.textContent = text;
   testHearts.textContent = text;
+
+  if (hit) {
+    cardHearts.classList.add('heart-hit');
+    testHearts.classList.add('heart-hit');
+
+    setTimeout(() => {
+      cardHearts.classList.remove('heart-hit');
+      testHearts.classList.remove('heart-hit');
+    }, 250);
+  }
 }
 
     async function requireAuth() {
@@ -832,35 +876,67 @@ appModal.addEventListener('click', (e) => {
   const correctText = getMeaningText(item);
   const isCorrect = choice === correctText;
 
+  const buttons = Array.from(choiceWrap.querySelectorAll('.choice-btn'));
+
+  // 버튼 비활성화
+  buttons.forEach(btn => btn.disabled = true);
+
+  // 정답 버튼 표시
+  buttons.forEach(btn => {
+    if (btn.textContent === correctText) {
+      btn.classList.add('correct');
+    }
+  });
+
   if (isCorrect) {
     setStatus('정답입니다.');
-    currentIndex += 1;
-    renderTestCard();
+
+    setTimeout(() => {
+      currentIndex += 1;
+      renderTestCard();
+    }, 500);
+
     return;
   }
 
-  if (hearts <= 0) {
-  const restartLabel = currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1';
-  showAppModal(`${restartLabel} 처음부터 다시 시작합니다.`, '다시 도전', () => {
-    hearts = initialHearts;
-    currentIndex = 0;
-    studyPhase = currentTestStartPhase;
-    renderHeartIcons();
-    renderTestCard();
-  });
-  return;
-}
+  // 오답 버튼 효과
+  const clickedBtn = buttons.find(btn => btn.textContent === choice);
+  if (clickedBtn) {
+    clickedBtn.classList.add('wrong');
+    clickedBtn.classList.add('shake');
+  }
 
+  // 하트 체크
+  if (hearts <= 0) {
+    const restartLabel = currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1';
+
+    setTimeout(() => {
+      showAppModal(`${restartLabel} 처음부터 다시 시작합니다.`, '다시 도전', () => {
+        hearts = initialHearts;
+        currentIndex = 0;
+        studyPhase = currentTestStartPhase;
+        renderHeartIcons();
+        renderTestCard();
+      });
+    }, 400);
+
+    return;
+  }
+
+  // 하트 감소 + 애니메이션
   hearts -= 1;
-  renderHeartIcons();
+  renderHeartIcons(true);
 
   if (hearts === 0) {
-    const nextFailLabel = currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1';
-    setStatus(`오답입니다. 하트가 모두 소진되었습니다. 다음 오답 시 ${nextFailLabel} 처음으로 돌아갑니다.`, true);
-    return;
+    setStatus('하트 소진! 다음 오답 시 처음으로 돌아갑니다.', true);
+  } else {
+    setStatus('오답입니다.', true);
   }
 
-  setStatus('오답입니다. 하트가 1개 줄었습니다.', true);
+  // 잠깐 보여주고 다음 문제
+  setTimeout(() => {
+    renderTestCard();
+  }, 700);
 }
 
     function renderCard() {
