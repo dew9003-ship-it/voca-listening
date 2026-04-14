@@ -897,7 +897,7 @@ function isCorrectMeaningInput(item, inputValue) {
       ].filter(text => text !== correctText && !pickedWrong.includes(text));
 
       function buildWordChoices(correctItem) {
-  const correctText = (correctItem.word || '').trim();
+  const correctText = (correctItem.word || '').trim() || 'unknown';
 
   const wrongPool = currentWords
     .filter(item => item.id !== correctItem.id)
@@ -907,8 +907,15 @@ function isCorrectMeaningInput(item, inputValue) {
   const uniqueWrong = [...new Set(wrongPool)];
   const pickedWrong = shuffle(uniqueWrong).slice(0, 3);
 
+  const fillers = ['apple', 'book', 'chair', 'water', 'school', 'happy']
+    .filter(text => text !== correctText && !pickedWrong.includes(text));
+
+  while (pickedWrong.length < 3 && fillers.length > 0) {
+    pickedWrong.push(fillers.shift());
+  }
+
   while (pickedWrong.length < 3) {
-    pickedWrong.push(`word_${pickedWrong.length + 2}`);
+    pickedWrong.push(`word${pickedWrong.length + 2}`);
   }
 
   return shuffle([correctText, ...pickedWrong.slice(0, 3)]);
@@ -976,8 +983,9 @@ function isCorrectMeaningInput(item, inputValue) {
   }
 
   choiceWrap.innerHTML = '';
-  answerWrap.style.display = 'none';
-  choiceWrap.style.display = 'grid';
+choiceWrap.style.display = 'grid';
+choiceWrap.style.gridTemplateColumns = '1fr';
+answerWrap.style.display = 'none';
 
   if (studyPhase === 'test_1') {
     testQuestion.textContent = item.word || '-';
@@ -1021,20 +1029,25 @@ function isCorrectMeaningInput(item, inputValue) {
     });
     choiceWrap.appendChild(replayBtn);
   } else if (studyPhase === 'test_3') {
-    testQuestion.textContent = getMeaningText(item);
-    testGuide.textContent = '뜻에 맞는 영어단어를 고르세요.';
-    setStatus('테스트 3: 뜻에 맞는 영어단어를 선택하세요.');
+  testQuestion.textContent = getMeaningText(item);
+  testGuide.textContent = '뜻에 맞는 영어단어를 고르세요.';
+  setStatus('테스트 3: 뜻에 맞는 영어단어를 선택하세요.');
 
-    const choices = buildWordChoices(item);
-    for (const choice of choices) {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'choice-btn';
-      btn.textContent = choice;
-      btn.addEventListener('click', () => handleTestAnswer(choice));
-      choiceWrap.appendChild(btn);
-    }
-  } else {
+  choiceWrap.innerHTML = '';
+  choiceWrap.style.display = 'grid';
+  choiceWrap.style.gridTemplateColumns = '1fr';
+
+  const choices = buildWordChoices(item);
+
+  choices.forEach((choice) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'choice-btn';
+    btn.textContent = choice || '-';
+    btn.addEventListener('click', () => handleTestAnswer(choice));
+    choiceWrap.appendChild(btn);
+  });
+} else {
     testQuestion.textContent = item.word || '-';
     testGuide.textContent = '영단어에 맞는 뜻을 입력하세요.';
     choiceWrap.style.display = 'none';
