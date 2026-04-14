@@ -352,10 +352,24 @@
 
       <div id="studyBox" style="display:none;">
         <div class="word-card">
-          <div id="cardHearts" class="card-hearts"></div>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
 
-          <div id="phaseBadge" class="pill">영단어 카드</div>
-          <div id="wordText" class="word-text">word</div>
+  <!-- 왼쪽: 현재 순서 -->
+  <div id="cardOrder" style="font-weight:800; font-size:18px;">
+    1 / 10
+  </div>
+
+  <!-- 가운데: 카드 타입 -->
+  <div id="phaseBadge" class="pill">영단어 카드</div>
+
+  <!-- 오른쪽: 하트 -->
+  <div id="cardHearts" style="font-weight:800; font-size:18px; color:#ef4444;">
+    ❤ × 1
+  </div>
+
+</div>
+
+<div id="wordText" class="word-text">word</div>
           <div id="cardGuide" class="sub-text">단어가 보일 때 발음도 함께 재생됩니다.</div>
 
           <div class="scratch-wrap">
@@ -408,6 +422,7 @@
     const currentNameEl = document.getElementById('currentName');
     const totalCountText = document.getElementById('totalCountText');
     const currentStepText = document.getElementById('currentStepText');
+    const cardOrder = document.getElementById('cardOrder');
     const bookTitle = document.getElementById('bookTitle');
     const bookDesc = document.getElementById('bookDesc');
     const progressBar = document.getElementById('progressBar');
@@ -450,16 +465,10 @@
     }
 
     function renderHeartIcons() {
-      const total = Math.max(1, initialHearts);
-      const html = Array.from({ length: total }, (_, i) => {
-        return i < hearts
-          ? '<span>❤</span>'
-          : '<span class="heart-off">❤</span>';
-      }).join('');
-
-      cardHearts.innerHTML = html;
-      testHearts.innerHTML = html;
-    }
+  const text = `❤ × ${hearts}`;
+  cardHearts.textContent = text;
+  testHearts.textContent = text;
+}
 
     async function requireAuth() {
       const { data: authData, error: authError } = await supabase.auth.getUser();
@@ -673,7 +682,9 @@
       }
 
       totalCountText.textContent = String(total);
-      currentStepText.textContent = `${currentIndex + 1} / ${total}`;
+      const stepText = `${currentIndex + 1} / ${total}`;
+currentStepText.textContent = stepText;
+cardOrder.textContent = stepText;
       progressBar.style.width = `${progress}%`;
       studyBox.style.display = 'none';
       testBox.style.display = 'block';
