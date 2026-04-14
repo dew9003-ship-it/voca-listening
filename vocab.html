@@ -394,6 +394,7 @@
   const wordIds = words.map(w => w.word_id);
 
  const insertPayload = {
+  enrollment_id: enrollmentId, // 🔥 이거 다시 넣어야 함
   user_id: me.id,
   book_id: bookId,
   study_date: today,
