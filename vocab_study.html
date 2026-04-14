@@ -698,15 +698,13 @@
       renderHeartIcons();
 
       if (hearts <= 0) {
-        alert('하트가 모두 소진되어 처음부터 다시 시작합니다.');
-        hearts = initialHearts;
-        studyPhase = 'word_to_meaning';
-        currentIndex = 0;
-        renderHeartIcons();
-        testBox.style.display = 'none';
-        renderCard();
-        return;
-      }
+  alert('하트가 모두 소진되어 테스트 1 처음으로 다시 시작합니다.');
+  hearts = initialHearts;
+  currentIndex = 0;
+  renderHeartIcons();
+  renderTestCard();
+  return;
+}
 
       setStatus('오답입니다. 하트가 1개 줄었습니다.', true);
     }
@@ -792,9 +790,9 @@
         return;
       }
 
-      hearts = Number(setRow.heart_count || 1);
-      initialHearts = hearts;
-      renderHeartIcons();
+     hearts = Math.max(2, Number(setRow.heart_count || 1));
+initialHearts = hearts;
+renderHeartIcons();
 
       const { data: bookRow } = await supabase
         .from('vocab_books')
