@@ -304,8 +304,36 @@
 }
 
     .choice-btn:hover{
-      background:#f8fbff;
-    }
+  background:#f8fbff;
+}
+
+.answer-form{
+  width:100%;
+  max-width:560px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.answer-input{
+  width:100%;
+  border:1.5px solid var(--line);
+  border-radius:16px;
+  padding:16px 18px;
+  font-size:18px;
+  font-weight:700;
+  outline:none;
+}
+
+.answer-input:focus{
+  border-color:#4f8cff;
+  box-shadow:0 0 0 4px rgba(79,140,255,.12);
+}
+
+.answer-submit{
+  width:100%;
+}
 
     .footer-actions{
       display:flex;
@@ -490,6 +518,10 @@
 <div id="testQuestion" class="word-text">word</div>
           <div id="testGuide" class="sub-text">영단어에 맞는 뜻을 고르세요.</div>
           <div id="choiceWrap" class="choice-wrap"></div>
+<div id="answerWrap" class="answer-form" style="display:none;">
+  <input id="answerInput" class="answer-input" type="text" placeholder="뜻을 입력하세요" autocomplete="off" />
+  <button id="answerSubmitBtn" class="btn-green answer-submit" type="button">정답 확인</button>
+</div>
         </div>
       </div>
 
@@ -551,6 +583,9 @@ const testOrder = document.getElementById('testOrder');
 const testQuestion = document.getElementById('testQuestion');
 const testGuide = document.getElementById('testGuide');
 const choiceWrap = document.getElementById('choiceWrap');
+const answerWrap = document.getElementById('answerWrap');
+const answerInput = document.getElementById('answerInput');
+const answerSubmitBtn = document.getElementById('answerSubmitBtn');
 const statusEl = document.getElementById('status');
 
 const appModal = document.getElementById('appModal');
@@ -797,10 +832,47 @@ appModal.addEventListener('click', (e) => {
     }
 
     function getMeaningText(item) {
-      const base = (item.primary_meaning_ko || '').trim();
-      if (base) return base;
-      return `${item.word || '단어'}의 뜻`;
-    }
+  const base = (item.primary_meaning_ko || '').trim();
+  if (base) return base;
+  return `${item.word || '단어'}의 뜻`;
+}
+
+function normalizeKoText(text) {
+  return String(text || '')
+    .trim()
+    .replace(/\s+/g, ' ')
+    .replace(/[.,!?]/g, '');
+}
+
+function getAcceptedMeaningList(item) {
+  const values = [];
+
+  if (Array.isArray(item.accepted_meanings_ko)) {
+    values.push(...item.accepted_meanings_ko);
+  }
+
+  if (Array.isArray(item.meanings_ko)) {
+    values.push(...item.meanings_ko);
+  }
+
+  if (item.primary_meaning_ko) {
+    values.push(item.primary_meaning_ko);
+  }
+
+  const cleaned = values
+    .map(v => normalizeKoText(v))
+    .filter(Boolean);
+
+  return [...new Set(cleaned)];
+}
+
+function isCorrectMeaningInput(item, inputValue) {
+  const normalizedInput = normalizeKoText(inputValue);
+  if (!normalizedInput) return false;
+
+  const accepted = getAcceptedMeaningList(item);
+  return accepted.includes(normalizedInput);
+}
 
     function buildTestChoices(correctItem) {
       const correctText = getMeaningText(correctItem);
@@ -847,11 +919,19 @@ appModal.addEventListener('click', (e) => {
       return;
     }
 
+    if (studyPhase === 'test_2') {
+      studyPhase = 'test_3';
+      currentTestStartPhase = 'test_3';
+      currentIndex = 0;
+      renderTestCard();
+      return;
+    }
+
     testBox.style.display = 'none';
     completeBox.style.display = 'block';
     progressBar.style.width = '100%';
     currentStepText.textContent = `${currentWords.length} / ${currentWords.length}`;
-    setStatus('테스트 2 완료');
+    setStatus('테스트 3 완료');
     return;
   }
 
@@ -860,48 +940,62 @@ appModal.addEventListener('click', (e) => {
 
   let progress = 100;
   if (studyPhase === 'test_1') {
-    progress = total > 0 ? 66 + ((currentIndex / total) * 17) : 83;
+    progress = total > 0 ? 66 + ((currentIndex / total) * 11) : 77;
   } else if (studyPhase === 'test_2') {
-    progress = total > 0 ? 83 + ((currentIndex / total) * 17) : 100;
+    progress = total > 0 ? 77 + ((currentIndex / total) * 11) : 88;
+  } else if (studyPhase === 'test_3') {
+    progress = total > 0 ? 88 + ((currentIndex / total) * 12) : 100;
   }
 
   choiceWrap.innerHTML = '';
+  answerWrap.style.display = 'none';
+  choiceWrap.style.display = 'grid';
 
   if (studyPhase === 'test_1') {
     testQuestion.textContent = item.word || '-';
     testGuide.textContent = '영단어에 맞는 뜻을 고르세요.';
     setStatus('테스트 1: 영단어에 맞는 뜻을 선택하세요.');
-  } else {
+  } else if (studyPhase === 'test_2') {
     testQuestion.textContent = '🔊';
     testGuide.textContent = '발음을 듣고 맞는 뜻을 고르세요.';
     speakWord(item.tts_text || item.word || '');
     setStatus('테스트 2: 발음을 듣고 뜻을 선택하세요.');
+  } else {
+    testQuestion.textContent = item.word || '-';
+    testGuide.textContent = '영단어에 맞는 뜻을 입력하세요.';
+    choiceWrap.style.display = 'none';
+    answerWrap.style.display = 'flex';
+    answerInput.value = '';
+    setTimeout(() => answerInput.focus(), 0);
+    setStatus('테스트 3: 뜻을 직접 입력하세요.');
   }
 
-  const choices = buildTestChoices(item);
+  if (studyPhase === 'test_1' || studyPhase === 'test_2') {
+    const choices = buildTestChoices(item);
 
-  for (const choice of choices) {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'choice-btn';
-    btn.textContent = choice;
-    btn.addEventListener('click', () => handleTestAnswer(choice));
-    choiceWrap.appendChild(btn);
+    for (const choice of choices) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'choice-btn';
+      btn.textContent = choice;
+      btn.addEventListener('click', () => handleTestAnswer(choice));
+      choiceWrap.appendChild(btn);
+    }
+
+    if (studyPhase === 'test_2') {
+      const replayBtn = document.createElement('button');
+      replayBtn.type = 'button';
+      replayBtn.className = 'btn-light';
+      replayBtn.textContent = '발음 다시 듣기';
+      replayBtn.style.maxWidth = '220px';
+      replayBtn.style.margin = '6px auto 0';
+      replayBtn.addEventListener('click', () => {
+        speakWord(item.tts_text || item.word || '');
+        setStatus('발음을 다시 재생했습니다.');
+      });
+      choiceWrap.appendChild(replayBtn);
+    }
   }
-
-  if (studyPhase === 'test_2') {
-  const replayBtn = document.createElement('button');
-  replayBtn.type = 'button';
-  replayBtn.className = 'btn-light';
-  replayBtn.textContent = '발음 다시 듣기';
-  replayBtn.style.maxWidth = '220px';
-  replayBtn.style.margin = '6px auto 0';
-  replayBtn.addEventListener('click', () => {
-    speakWord(item.tts_text || item.word || '');
-    setStatus('발음을 다시 재생했습니다.');
-  });
-  choiceWrap.appendChild(replayBtn);
-}
 
   const stepText = `${currentIndex + 1} / ${total}`;
   totalCountText.textContent = String(total);
@@ -914,6 +1008,54 @@ appModal.addEventListener('click', (e) => {
   renderHeartIcons();
 }
 
+function handleSubjectiveAnswer() {
+  const item = currentWords[currentIndex];
+  const inputValue = answerInput.value;
+  const isCorrect = isCorrectMeaningInput(item, inputValue);
+
+  if (isCorrect) {
+    playCorrectSound();
+    setStatus('정답입니다.');
+    answerInput.disabled = true;
+    answerSubmitBtn.disabled = true;
+
+    setTimeout(() => {
+      answerInput.disabled = false;
+      answerSubmitBtn.disabled = false;
+      currentIndex += 1;
+      renderTestCard();
+    }, 220);
+    return;
+  }
+
+  playWrongSound();
+
+  if (hearts <= 0) {
+    const restartLabel = currentTestStartPhase === 'test_3'
+      ? '테스트 3'
+      : (currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1');
+
+    showAppModal(`${restartLabel} 처음부터 다시 시작합니다.`, '다시 도전', () => {
+      hearts = initialHearts;
+      currentIndex = 0;
+      studyPhase = currentTestStartPhase;
+      renderHeartIcons();
+      renderTestCard();
+    });
+    return;
+  }
+
+  hearts -= 1;
+  renderHeartIcons(true);
+
+  if (hearts === 0) {
+    setStatus('오답입니다. 하트가 모두 소진되었습니다. 다음 오답 시 현재 테스트 처음으로 돌아갑니다.', true);
+    return;
+  }
+
+  setStatus('오답입니다.', true);
+}
+    
     function handleTestAnswer(choice) {
   const item = currentWords[currentIndex];
   const correctText = getMeaningText(item);
@@ -1159,12 +1301,20 @@ renderHeartIcons();
     });
 
     document.getElementById('restartBtn').addEventListener('click', () => {
-      hearts = initialHearts;
-      studyPhase = 'word_to_meaning';
-      currentIndex = 0;
-      renderHeartIcons();
-      renderCard();
-    });
+  hearts = initialHearts;
+  studyPhase = 'word_to_meaning';
+  currentIndex = 0;
+  renderHeartIcons();
+  renderCard();
+});
+
+answerSubmitBtn.addEventListener('click', handleSubjectiveAnswer);
+answerInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    handleSubjectiveAnswer();
+  }
+});
 
     document.getElementById('goSelectBtn').addEventListener('click', () => {
       location.href = 'vocab.html';
