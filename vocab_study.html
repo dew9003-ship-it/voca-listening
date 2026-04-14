@@ -896,6 +896,24 @@ function isCorrectMeaningInput(item, inputValue) {
         '음식'
       ].filter(text => text !== correctText && !pickedWrong.includes(text));
 
+      function buildWordChoices(correctItem) {
+  const correctText = (correctItem.word || '').trim();
+
+  const wrongPool = currentWords
+    .filter(item => item.id !== correctItem.id)
+    .map(item => (item.word || '').trim())
+    .filter(text => text && text !== correctText);
+
+  const uniqueWrong = [...new Set(wrongPool)];
+  const pickedWrong = shuffle(uniqueWrong).slice(0, 3);
+
+  while (pickedWrong.length < 3) {
+    pickedWrong.push(`word_${pickedWrong.length + 2}`);
+  }
+
+  return shuffle([correctText, ...pickedWrong.slice(0, 3)]);
+}
+
       while (pickedWrong.length < 3 && fillers.length > 0) {
         pickedWrong.push(fillers.shift());
       }
@@ -927,11 +945,19 @@ function isCorrectMeaningInput(item, inputValue) {
       return;
     }
 
+    if (studyPhase === 'test_3') {
+      studyPhase = 'test_4';
+      currentTestStartPhase = 'test_4';
+      currentIndex = 0;
+      renderTestCard();
+      return;
+    }
+
     testBox.style.display = 'none';
     completeBox.style.display = 'block';
     progressBar.style.width = '100%';
     currentStepText.textContent = `${currentWords.length} / ${currentWords.length}`;
-    setStatus('테스트 3 완료');
+    setStatus('테스트 4 완료');
     return;
   }
 
@@ -940,11 +966,13 @@ function isCorrectMeaningInput(item, inputValue) {
 
   let progress = 100;
   if (studyPhase === 'test_1') {
-    progress = total > 0 ? 66 + ((currentIndex / total) * 11) : 77;
+    progress = total > 0 ? 66 + ((currentIndex / total) * 8) : 74;
   } else if (studyPhase === 'test_2') {
-    progress = total > 0 ? 77 + ((currentIndex / total) * 11) : 88;
+    progress = total > 0 ? 74 + ((currentIndex / total) * 8) : 82;
   } else if (studyPhase === 'test_3') {
-    progress = total > 0 ? 88 + ((currentIndex / total) * 12) : 100;
+    progress = total > 0 ? 82 + ((currentIndex / total) * 8) : 90;
+  } else if (studyPhase === 'test_4') {
+    progress = total > 0 ? 90 + ((currentIndex / total) * 10) : 100;
   }
 
   choiceWrap.innerHTML = '';
@@ -955,24 +983,23 @@ function isCorrectMeaningInput(item, inputValue) {
     testQuestion.textContent = item.word || '-';
     testGuide.textContent = '영단어에 맞는 뜻을 고르세요.';
     setStatus('테스트 1: 영단어에 맞는 뜻을 선택하세요.');
+
+    const choices = buildTestChoices(item);
+    for (const choice of choices) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'choice-btn';
+      btn.textContent = choice;
+      btn.addEventListener('click', () => handleTestAnswer(choice));
+      choiceWrap.appendChild(btn);
+    }
   } else if (studyPhase === 'test_2') {
     testQuestion.textContent = '🔊';
     testGuide.textContent = '발음을 듣고 맞는 뜻을 고르세요.';
     speakWord(item.tts_text || item.word || '');
     setStatus('테스트 2: 발음을 듣고 뜻을 선택하세요.');
-  } else {
-    testQuestion.textContent = item.word || '-';
-    testGuide.textContent = '영단어에 맞는 뜻을 입력하세요.';
-    choiceWrap.style.display = 'none';
-    answerWrap.style.display = 'flex';
-    answerInput.value = '';
-    setTimeout(() => answerInput.focus(), 0);
-    setStatus('테스트 3: 뜻을 직접 입력하세요.');
-  }
 
-  if (studyPhase === 'test_1' || studyPhase === 'test_2') {
     const choices = buildTestChoices(item);
-
     for (const choice of choices) {
       const btn = document.createElement('button');
       btn.type = 'button';
@@ -982,19 +1009,39 @@ function isCorrectMeaningInput(item, inputValue) {
       choiceWrap.appendChild(btn);
     }
 
-    if (studyPhase === 'test_2') {
-      const replayBtn = document.createElement('button');
-      replayBtn.type = 'button';
-      replayBtn.className = 'btn-light';
-      replayBtn.textContent = '발음 다시 듣기';
-      replayBtn.style.maxWidth = '220px';
-      replayBtn.style.margin = '6px auto 0';
-      replayBtn.addEventListener('click', () => {
-        speakWord(item.tts_text || item.word || '');
-        setStatus('발음을 다시 재생했습니다.');
-      });
-      choiceWrap.appendChild(replayBtn);
+    const replayBtn = document.createElement('button');
+    replayBtn.type = 'button';
+    replayBtn.className = 'btn-light';
+    replayBtn.textContent = '발음 다시 듣기';
+    replayBtn.style.maxWidth = '220px';
+    replayBtn.style.margin = '6px auto 0';
+    replayBtn.addEventListener('click', () => {
+      speakWord(item.tts_text || item.word || '');
+      setStatus('발음을 다시 재생했습니다.');
+    });
+    choiceWrap.appendChild(replayBtn);
+  } else if (studyPhase === 'test_3') {
+    testQuestion.textContent = getMeaningText(item);
+    testGuide.textContent = '뜻에 맞는 영어단어를 고르세요.';
+    setStatus('테스트 3: 뜻에 맞는 영어단어를 선택하세요.');
+
+    const choices = buildWordChoices(item);
+    for (const choice of choices) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'choice-btn';
+      btn.textContent = choice;
+      btn.addEventListener('click', () => handleTestAnswer(choice));
+      choiceWrap.appendChild(btn);
     }
+  } else {
+    testQuestion.textContent = item.word || '-';
+    testGuide.textContent = '영단어에 맞는 뜻을 입력하세요.';
+    choiceWrap.style.display = 'none';
+    answerWrap.style.display = 'flex';
+    answerInput.value = '';
+    setTimeout(() => answerInput.focus(), 0);
+    setStatus('테스트 4: 뜻을 직접 입력하세요.');
   }
 
   const stepText = `${currentIndex + 1} / ${total}`;
@@ -1031,9 +1078,10 @@ function handleSubjectiveAnswer() {
   playWrongSound();
 
   if (hearts <= 0) {
-    const restartLabel = currentTestStartPhase === 'test_3'
-      ? '테스트 3'
-      : (currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1');
+    const restartLabel =
+  currentTestStartPhase === 'test_4' ? '테스트 4' :
+  currentTestStartPhase === 'test_3' ? '테스트 3' :
+  currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1';
 
     showAppModal(`${restartLabel} 처음부터 다시 시작합니다.`, '다시 도전', () => {
       hearts = initialHearts;
@@ -1058,15 +1106,15 @@ function handleSubjectiveAnswer() {
     
     function handleTestAnswer(choice) {
   const item = currentWords[currentIndex];
-  const correctText = getMeaningText(item);
-  const isCorrect = choice === correctText;
+  const correctText = studyPhase === 'test_3'
+    ? ((item.word || '').trim())
+    : getMeaningText(item);
 
+  const isCorrect = choice === correctText;
   const buttons = Array.from(choiceWrap.querySelectorAll('.choice-btn'));
 
-  // 버튼 비활성화
   buttons.forEach(btn => btn.disabled = true);
 
-  // 정답 버튼 표시
   buttons.forEach(btn => {
     if (btn.textContent === correctText) {
       btn.classList.add('correct');
@@ -1074,55 +1122,60 @@ function handleSubjectiveAnswer() {
   });
 
   if (isCorrect) {
-  playCorrectSound();
-  setStatus('정답입니다.');
+    playCorrectSound();
+    setStatus('정답입니다.');
 
-  setTimeout(() => {
-    currentIndex += 1;
-    renderTestCard();
-  }, 220);
+    setTimeout(() => {
+      currentIndex += 1;
+      renderTestCard();
+    }, 220);
 
-  return;
-}
+    return;
+  }
 
-  // 오답 버튼 효과
   const clickedBtn = buttons.find(btn => btn.textContent === choice);
   if (clickedBtn) {
     clickedBtn.classList.add('wrong');
     clickedBtn.classList.add('shake');
   }
 
-  // 하트 체크
   if (hearts <= 0) {
-  playWrongSound(); // 🔥 추가
+    playWrongSound();
 
-  const restartLabel = currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1';
+    const restartLabel =
+      currentTestStartPhase === 'test_4' ? '테스트 4' :
+      currentTestStartPhase === 'test_3' ? '테스트 3' :
+      currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1';
 
-  setTimeout(() => {
-    showAppModal(`${restartLabel} 처음부터 다시 시작합니다.`, '다시 도전', () => {
-      hearts = initialHearts;
-      currentIndex = 0;
-      studyPhase = currentTestStartPhase;
-      renderHeartIcons();
-      renderTestCard();
-    });
-  }, 400);
+    setTimeout(() => {
+      showAppModal(`${restartLabel} 처음부터 다시 시작합니다.`, '다시 도전', () => {
+        hearts = initialHearts;
+        currentIndex = 0;
+        studyPhase = currentTestStartPhase;
+        renderHeartIcons();
+        renderTestCard();
+      });
+    }, 400);
 
-  return;
-}
-
-// 하트 감소 + 애니메이션
-playWrongSound(); // 🔥 추가
-hearts -= 1;
-renderHeartIcons(true);
-
-  if (hearts === 0) {
-    setStatus('하트 소진! 다음 오답 시 처음으로 돌아갑니다.', true);
-  } else {
-    setStatus('오답입니다.', true);
+    return;
   }
 
-  // 잠깐 보여주고 다음 문제
+  playWrongSound();
+  hearts -= 1;
+  renderHeartIcons(true);
+
+  if (hearts === 0) {
+    const nextFailLabel =
+      currentTestStartPhase === 'test_4' ? '테스트 4' :
+      currentTestStartPhase === 'test_3' ? '테스트 3' :
+      currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1';
+
+    setStatus(`오답입니다. 하트가 모두 소진되었습니다. 다음 오답 시 ${nextFailLabel} 처음으로 돌아갑니다.`, true);
+    return;
+  }
+
+  setStatus('오답입니다.', true);
+
   setTimeout(() => {
     renderTestCard();
   }, 700);
