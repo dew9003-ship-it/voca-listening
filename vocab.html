@@ -393,26 +393,22 @@
 
   const wordIds = words.map(w => w.word_id);
 
-  const { error: insertError } = await supabase
-    .from('user_vocab_daily_sets')
-    .insert({
-      enrollment_id: enrollmentId,
-      user_id: me.id,
-      book_id: bookId,
-      plan_id: planId,
-      day_no: 1,
-      study_date: today,
-      new_words: wordIds,
-      review_words: [],
-      total_words: wordIds,
-      heart_count: plan.heart_count,
-      is_completed: false
-    });
+ const insertPayload = {
+  user_id: me.id,
+  book_id: bookId,
+  study_date: today,
+  total_words: wordIds,
+  heart_count: plan.heart_count
+};
 
-  if (insertError) {
-    console.error(insertError);
-    throw new Error('오늘 학습 세트 생성 실패');
-  }
+const { error: insertError } = await supabase
+  .from('user_vocab_daily_sets')
+  .insert(insertPayload);
+
+if (insertError) {
+  console.error('user_vocab_daily_sets insert error:', insertError);
+  throw new Error('오늘 학습 세트 생성 실패: ' + insertError.message);
+}
 }
 
     async function startEnrollment() {
