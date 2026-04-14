@@ -459,8 +459,9 @@ if (enrollmentFetchError || !savedEnrollment) {
 try {
   await createTodaySet(savedEnrollment.id, selectedBookId, selectedPlanId, selectedPlan);
 } catch (createError) {
-  console.error(createError);
+  console.error('createTodaySet failed:', createError);
   setStatus(createError.message || '오늘 학습 생성 실패', true);
+  alert(createError.message || '오늘 학습 생성 실패');
   return;
 }
 
