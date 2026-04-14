@@ -1178,21 +1178,27 @@ function handleSubjectiveAnswer() {
   renderHeartIcons(true);
 
   if (hearts === 0) {
-    const nextFailLabel =
-      currentTestStartPhase === 'test_4' ? '테스트 4' :
-      currentTestStartPhase === 'test_3' ? '테스트 3' :
-      currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1';
+  const nextFailLabel =
+    currentTestStartPhase === 'test_4' ? '테스트 4' :
+    currentTestStartPhase === 'test_3' ? '테스트 3' :
+    currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1';
 
-    setStatus(`오답입니다. 하트가 모두 소진되었습니다. 다음 오답 시 ${nextFailLabel} 처음으로 돌아갑니다.`, true);
-    return;
-  }
-
-  setStatus('오답입니다.', true);
+  setStatus(`오답입니다. 하트가 모두 소진되었습니다. 다음 오답 시 ${nextFailLabel} 처음으로 돌아갑니다.`, true);
 
   setTimeout(() => {
+    currentIndex += 1;
     renderTestCard();
   }, 700);
+
+  return;
 }
+
+setStatus('오답입니다.', true);
+
+setTimeout(() => {
+  currentIndex += 1;
+  renderTestCard();
+}, 700);
 
     function renderCard() {
       if (!currentWords.length) return;
