@@ -66,7 +66,43 @@
     .app-modal-message{ font-size:15px; line-height:1.65; color:#475569; white-space:pre-line; }
     .app-modal-actions{ display:flex; justify-content:flex-end; margin-top:18px; }
     .app-modal-btn{ border:none; border-radius:14px; background:#4f8cff; color:#fff; padding:11px 18px; font-size:14px; font-weight:800; cursor:pointer; }
-    @media (max-width:640px){ .wrap{ padding:14px; } .word-text{ font-size:38px; } .scratch-answer{ font-size:26px; } .footer-actions button{ width:100%; } }
+    @media (max-width:640px) {
+  /* 1. 상단 제목과 부제목 숨기기 (공간 확보) */
+  .title-box { display: none; }
+  
+  /* 2. 상단 버튼 바 여백 축소 */
+  .topbar { margin-bottom: 10px; padding: 5px 0; }
+  .btns button { padding: 8px 12px; font-size: 12px; }
+
+  /* 3. 요약 카드(3개 박스) 숨기기 */
+  /* 학습 카드 안에 이미 '1/10' 정보가 있으므로 모바일에서는 숨기는 것이 좋습니다. */
+  .summary-grid { display: none; }
+
+  /* 4. 단어장 제목과 설명 축소 */
+  .panel { padding: 10px; margin-bottom: 10px; border-radius: 15px; }
+  #bookTitle { font-size: 16px; margin: 0; display: inline-block; }
+  #bookDesc { display: none; } /* 단어장 설명 숨기기 */
+  
+  /* 5. 진행바 여백 축소 */
+  .progress-wrap { margin-bottom: 10px; height: 6px; }
+
+  /* 6. 메인 학습 카드 상단 이동 및 크기 조절 */
+  .word-card { 
+    min-height: auto !important; 
+    padding: 15px !important; 
+    gap: 10px !important;
+  }
+  
+  /* 7. 단어 텍스트 크기 조절 */
+  .word-text { font-size: 32px !important; margin: 10px 0; }
+  
+  /* 8. 스크래치 영역 높이 조절 */
+  .scratch-card { height: 100px; min-height: 100px; }
+  .scratch-answer { font-size: 24px; }
+
+  /* 9. 전체 감싸는 영역 여백 제거 */
+  .wrap { padding: 10px; }
+}
   </style>
 </head>
 <body>
