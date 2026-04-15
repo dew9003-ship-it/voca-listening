@@ -371,12 +371,12 @@
       elements.currentStepText.textContent = `${currentIndex + 1} / ${total}`;
 
       if (studyPhase === 'word_to_meaning') {
-        elements.phaseBadge.textContent = '1단계: 영단어 보고 뜻 맞추기';
+        elements.phaseBadge.textContent = '1단계: 뜻 맞추기';
         elements.wordText.textContent = item.word;
         elements.scratchAnswer.textContent = getMeaningText(item);
         speakWord(item.word);
       } else {
-        elements.phaseBadge.textContent = '2단계: 뜻 보고 영단어 맞추기';
+        elements.phaseBadge.textContent = '2단계: 영단어 맞추기';
         elements.wordText.textContent = getMeaningText(item);
         elements.scratchAnswer.textContent = item.word;
       }
