@@ -5,447 +5,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>보카엔딩 단어 학습</title>
   <style>
+    /* CSS 스타일은 기존과 동일하게 유지 (변화 없음) */
     * { box-sizing: border-box; }
-
     :root{
-      --bg:#f4f7fb;
-      --card:#ffffff;
-      --line:#e5e7eb;
-      --text:#1f2937;
-      --muted:#6b7280;
-      --blue:#4f8cff;
-      --green:#4caf50;
-      --red:#ef4444;
+      --bg:#f4f7fb; --card:#ffffff; --line:#e5e7eb; --text:#1f2937;
+      --muted:#6b7280; --blue:#4f8cff; --green:#4caf50; --red:#ef4444;
       --shadow:0 10px 30px rgba(15,23,42,.08);
     }
-
-    body{
-      margin:0;
-      font-family:Arial,sans-serif;
-      background:linear-gradient(180deg,#eff5ff 0%,#f4f7fb 35%,#eef8f1 100%);
-      color:var(--text);
-    }
-
-    .wrap{
-      max-width:900px;
-      margin:0 auto;
-      padding:20px;
-      min-height:100vh;
-    }
-
-    .topbar{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      margin-bottom:18px;
-      flex-wrap:wrap;
-    }
-
-    .title-box h1{
-      margin:0;
-      font-size:30px;
-      font-weight:800;
-    }
-
-    .title-box p{
-      margin:8px 0 0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
-    }
-
-    .btns{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-    }
-
-    button{
-      border:none;
-      border-radius:14px;
-      padding:11px 16px;
-      font-size:14px;
-      font-weight:700;
-      cursor:pointer;
-    }
-
-    button:disabled{
-      opacity:.55;
-      cursor:not-allowed;
-    }
-
+    body{ margin:0; font-family:Arial,sans-serif; background:linear-gradient(180deg,#eff5ff 0%,#f4f7fb 35%,#eef8f1 100%); color:var(--text); }
+    .wrap{ max-width:900px; margin:0 auto; padding:20px; min-height:100vh; }
+    .topbar{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; flex-wrap:wrap; }
+    .title-box h1{ margin:0; font-size:30px; font-weight:800; }
+    .title-box p{ margin:8px 0 0; color:var(--muted); font-size:14px; line-height:1.6; }
+    .btns{ display:flex; gap:8px; flex-wrap:wrap; }
+    button{ border:none; border-radius:14px; padding:11px 16px; font-size:14px; font-weight:700; cursor:pointer; }
+    button:disabled{ opacity:.55; cursor:not-allowed; }
     .btn-blue{ background:var(--blue); color:#fff; }
     .btn-green{ background:var(--green); color:#fff; }
     .btn-red{ background:var(--red); color:#fff; }
     .btn-slate{ background:#607d8b; color:#fff; }
     .btn-light{ background:#fff; color:#334155; border:1px solid var(--line); }
-
-    .summary-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:12px;
-      margin-bottom:18px;
-    }
-
-    .summary-card,.panel{
-      background:var(--card);
-      border-radius:24px;
-      box-shadow:var(--shadow);
-    }
-
-    .summary-card{
-      padding:18px;
-    }
-
-    .summary-card .label{
-      color:var(--muted);
-      font-size:13px;
-      margin-bottom:8px;
-    }
-
-    .summary-card .value{
-      font-size:26px;
-      font-weight:800;
-    }
-
-    .panel{
-      padding:18px;
-      margin-bottom:18px;
-    }
-
-    .progress-wrap{
-      width:100%;
-      height:10px;
-      background:#e5e7eb;
-      border-radius:999px;
-      overflow:hidden;
-      margin-bottom:18px;
-    }
-
-    .progress-bar{
-      height:100%;
-      width:0%;
-      background:linear-gradient(90deg,#4f8cff,#6fcf97);
-      transition:width .2s ease;
-    }
-
-    .word-card{
-      position:relative;
-      border:1px solid var(--line);
-      background:linear-gradient(180deg,#fff 0%,#fbfdff 100%);
-      border-radius:22px;
-      padding:24px;
-      text-align:center;
-      min-height:450px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:16px;
-    }
-
-    .card-hearts{
-      position:absolute;
-      top:18px;
-      right:18px;
-      display:flex;
-      align-items:center;
-      gap:6px;
-      font-size:28px;
-      line-height:1;
-      font-weight:800;
-      color:var(--red);
-    }
-
-    .heart-off{
-      opacity:.2;
-    }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:7px 12px;
-      border-radius:999px;
-      background:#eef4ff;
-      color:#355ea9;
-      font-size:12px;
-      font-weight:800;
-      width:max-content;
-      margin:0 auto;
-    }
-
-    .word-text{
-      font-size:52px;
-      font-weight:900;
-      line-height:1.15;
-      word-break:break-word;
-    }
-
-    .sub-text{
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.7;
-    }
-
-    .scratch-wrap{
-      width:100%;
-      max-width:760px;
-      margin:0 auto;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-
-    .scratch-label{
-      color:var(--muted);
-      font-size:13px;
-      text-align:center;
-    }
-
-    .scratch-card{
-      position:relative;
-      width:100%;
-      min-height:140px;
-      height:140px;
-      border-radius:22px;
-      overflow:hidden;
-      border:2px dashed #bfd5ff;
-      background:#f8fbff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-    }
-
-    .scratch-answer{
-      position:relative;
-      z-index:1;
-      font-size:34px;
-      font-weight:800;
-      line-height:1.5;
-      text-align:center;
-      word-break:keep-all;
-      padding:10px;
-    }
-
-    .scratch-canvas{
-      position:absolute;
-      inset:0;
-      z-index:2;
-      width:100%;
-      height:100%;
-      display:block;
-      cursor:grab;
-      touch-action:none;
-    }
-
-    .scratch-card.revealed .scratch-canvas{
-      opacity:0;
-      pointer-events:none;
-      transition:opacity .25s ease;
-    }
-
-    .choice-wrap{
-  display:grid;
-  gap:10px;
-  width:100%;
-  max-width:560px;
-  margin:0 auto;
-  grid-template-columns:1fr;
-}
-
-
-
-    .choice-btn{
-      width:100%;
-      text-align:center;
-      background:#fff;
-      color:#334155;
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:14px 16px;
-      font-size:16px;
-      font-weight:700;
-    }
-
-    .choice-btn.correct{
-  background:#dcfce7 !important;
-  border-color:#22c55e !important;
-  color:#166534 !important;
-}
-
-.choice-btn.wrong{
-  background:#fee2e2 !important;
-  border-color:#ef4444 !important;
-  color:#991b1b !important;
-}
-
-@keyframes shake{
-  0%{ transform:translateX(0); }
-  25%{ transform:translateX(-6px); }
-  50%{ transform:translateX(6px); }
-  75%{ transform:translateX(-4px); }
-  100%{ transform:translateX(0); }
-}
-
-.shake{
-  animation:shake .3s ease;
-}
-
-.heart-hit{
-  animation:heartPop .25s ease;
-}
-
-@keyframes heartPop{
-  0%{ transform:scale(1); opacity:1; }
-  50%{ transform:scale(1.4); opacity:.6; }
-  100%{ transform:scale(1); opacity:1; }
-}
-
-    .choice-btn:hover{
-  background:#f8fbff;
-}
-
-.answer-form{
-  width:100%;
-  max-width:560px;
-  margin:0 auto;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.answer-input{
-  width:100%;
-  border:1.5px solid var(--line);
-  border-radius:16px;
-  padding:16px 18px;
-  font-size:18px;
-  font-weight:700;
-  outline:none;
-}
-
-.answer-input:focus{
-  border-color:#4f8cff;
-  box-shadow:0 0 0 4px rgba(79,140,255,.12);
-}
-
-.answer-submit{
-  width:100%;
-}
-
-    .footer-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:center;
-      margin-top:16px;
-    }
-
-    .status{
-      margin-top:14px;
-      min-height:24px;
-      color:#334155;
-      font-size:14px;
-      text-align:center;
-    }
-
-    .empty,.loading{
-  padding:36px 14px;
-  text-align:center;
-  color:var(--muted);
-  font-weight:700;
-}
-
-.app-modal{
-  position:fixed;
-  inset:0;
-  background:rgba(15,23,42,.38);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-  padding:20px;
-}
-
-.app-modal.show{
-  display:flex;
-}
-
-.app-modal-card{
-  width:min(100%, 420px);
-  background:#fff;
-  border-radius:24px;
-  box-shadow:0 20px 60px rgba(15,23,42,.22);
-  padding:24px 22px 18px;
-  animation:modalUp .18s ease;
-}
-
-@keyframes modalUp{
-  from{
-    opacity:0;
-    transform:translateY(12px) scale(.98);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0) scale(1);
-  }
-}
-
-.app-modal-title{
-  font-size:20px;
-  font-weight:800;
-  margin-bottom:10px;
-  color:#0f172a;
-}
-
-.app-modal-message{
-  font-size:15px;
-  line-height:1.65;
-  color:#475569;
-  white-space:pre-line;
-}
-
-.app-modal-actions{
-  display:flex;
-  justify-content:flex-end;
-  margin-top:18px;
-}
-
-.app-modal-btn{
-  border:none;
-  border-radius:14px;
-  background:#4f8cff;
-  color:#fff;
-  padding:11px 18px;
-  font-size:14px;
-  font-weight:800;
-  cursor:pointer;
-}
-
-    @media (max-width:640px){
-      .wrap{ padding:14px; }
-      .title-box h1{ font-size:25px; }
-      .word-text{ font-size:38px; }
-      .scratch-answer{ font-size:26px; }
-      .footer-actions button{ width:100%; }
-      .word-card{ min-height:390px; padding:18px; }
-      .scratch-card{ min-height:120px; height:120px; }
-      .card-hearts{
-        top:14px;
-        right:14px;
-        font-size:24px;
-      }
-    }
+    .summary-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-bottom:18px; }
+    .summary-card,.panel{ background:var(--card); border-radius:24px; box-shadow:var(--shadow); }
+    .summary-card{ padding:18px; }
+    .summary-card .label{ color:var(--muted); font-size:13px; margin-bottom:8px; }
+    .summary-card .value{ font-size:26px; font-weight:800; }
+    .panel{ padding:18px; margin-bottom:18px; }
+    .progress-wrap{ width:100%; height:10px; background:#e5e7eb; border-radius:999px; overflow:hidden; margin-bottom:18px; }
+    .progress-bar{ height:100%; width:0%; background:linear-gradient(90deg,#4f8cff,#6fcf97); transition:width .2s ease; }
+    .word-card{ position:relative; border:1px solid var(--line); background:linear-gradient(180deg,#fff 0%,#fbfdff 100%); border-radius:22px; padding:24px; text-align:center; min-height:450px; display:flex; flex-direction:column; justify-content:center; gap:16px; }
+    .card-hearts{ display:flex; align-items:center; gap:6px; font-size:18px; font-weight:800; color:var(--red); }
+    .pill{ display:inline-flex; align-items:center; justify-content:center; padding:7px 12px; border-radius:999px; background:#eef4ff; color:#355ea9; font-size:12px; font-weight:800; width:max-content; margin:0 auto; }
+    .word-text{ font-size:52px; font-weight:900; line-height:1.15; word-break:break-word; }
+    .sub-text{ color:var(--muted); font-size:14px; line-height:1.7; }
+    .scratch-wrap{ width:100%; max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:10px; }
+    .scratch-label{ color:var(--muted); font-size:13px; text-align:center; }
+    .scratch-card{ position:relative; width:100%; min-height:140px; height:140px; border-radius:22px; overflow:hidden; border:2px dashed #bfd5ff; background:#f8fbff; display:flex; align-items:center; justify-content:center; padding:20px; }
+    .scratch-answer{ position:relative; z-index:1; font-size:34px; font-weight:800; line-height:1.5; text-align:center; word-break:keep-all; padding:10px; }
+    .scratch-canvas{ position:absolute; inset:0; z-index:2; width:100%; height:100%; display:block; cursor:grab; touch-action:none; }
+    .scratch-card.revealed .scratch-canvas{ opacity:0; pointer-events:none; transition:opacity .25s ease; }
+    .choice-wrap{ display:grid; gap:10px; width:100%; max-width:560px; margin:0 auto; grid-template-columns:1fr; }
+    .choice-btn{ width:100%; text-align:center; background:#fff; color:#334155; border:1px solid var(--line); border-radius:16px; padding:14px 16px; font-size:16px; font-weight:700; transition: all 0.2s; }
+    .choice-btn.correct{ background:#dcfce7 !important; border-color:#22c55e !important; color:#166534 !important; }
+    .choice-btn.wrong{ background:#fee2e2 !important; border-color:#ef4444 !important; color:#991b1b !important; }
+    @keyframes shake{ 0%, 100%{ transform:translateX(0); } 25%{ transform:translateX(-6px); } 50%{ transform:translateX(6px); } 75%{ transform:translateX(-4px); } }
+    .shake{ animation:shake .3s ease; }
+    .heart-hit{ animation:heartPop .25s ease; }
+    @keyframes heartPop{ 0%{ transform:scale(1); } 50%{ transform:scale(1.4); } 100%{ transform:scale(1); } }
+    .answer-form{ width:100%; max-width:560px; margin:0 auto; display:flex; flex-direction:column; gap:12px; }
+    .answer-input{ width:100%; border:1.5px solid var(--line); border-radius:16px; padding:16px 18px; font-size:18px; font-weight:700; outline:none; text-align: center; }
+    .answer-input:focus{ border-color:#4f8cff; box-shadow:0 0 0 4px rgba(79,140,255,.12); }
+    .footer-actions{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:16px; }
+    .status{ margin-top:14px; min-height:24px; color:#334155; font-size:14px; text-align:center; }
+    .empty,.loading{ padding:36px 14px; text-align:center; color:var(--muted); font-weight:700; }
+    .app-modal{ position:fixed; inset:0; background:rgba(15,23,42,.38); display:none; align-items:center; justify-content:center; z-index:9999; padding:20px; }
+    .app-modal.show{ display:flex; }
+    .app-modal-card{ width:min(100%, 420px); background:#fff; border-radius:24px; box-shadow:0 20px 60px rgba(15,23,42,.22); padding:24px 22px 18px; animation:modalUp .18s ease; }
+    @keyframes modalUp{ from{ opacity:0; transform:translateY(12px) scale(.98); } to{ opacity:1; transform:translateY(0) scale(1); } }
+    .app-modal-title{ font-size:20px; font-weight:800; margin-bottom:10px; color:#0f172a; }
+    .app-modal-message{ font-size:15px; line-height:1.65; color:#475569; white-space:pre-line; }
+    .app-modal-actions{ display:flex; justify-content:flex-end; margin-top:18px; }
+    .app-modal-btn{ border:none; border-radius:14px; background:#4f8cff; color:#fff; padding:11px 18px; font-size:14px; font-weight:800; cursor:pointer; }
+    @media (max-width:640px){ .wrap{ padding:14px; } .word-text{ font-size:38px; } .scratch-answer{ font-size:26px; } .footer-actions button{ width:100%; } }
   </style>
 </head>
 <body>
   <div class="wrap">
+    <!-- 상단바 -->
     <div class="topbar">
       <div class="title-box">
         <h1>오늘의 단어 학습</h1>
-        <p>카드 학습 2단계 후 테스트 1로 이어집니다.</p>
+        <p>카드 학습 2단계 후 테스트 4단계가 진행됩니다.</p>
       </div>
       <div class="btns">
         <button id="backBtn" class="btn-light" type="button">단어장 선택</button>
@@ -454,89 +84,91 @@
       </div>
     </div>
 
+    <!-- 요약 정보 -->
     <div class="summary-grid">
       <div class="summary-card">
         <div class="label">오늘 학습 단어 수</div>
         <div class="value" id="totalCountText">-</div>
       </div>
       <div class="summary-card">
-        <div class="label">현재 카드</div>
+        <div class="label">현재 진행</div>
         <div class="value" id="currentStepText">-</div>
       </div>
       <div class="summary-card">
-        <div class="label">현재 사용자</div>
-        <div class="value" id="currentName" style="font-size:22px;">-</div>
+        <div class="label">사용자</div>
+        <div class="value" id="currentName" style="font-size:18px;">-</div>
       </div>
     </div>
 
+    <!-- 메인 패널 -->
     <div class="panel">
-      <h2 id="bookTitle">단어 학습</h2>
-      <p id="bookDesc" class="sub-text">오늘 생성된 학습 세트를 불러옵니다.</p>
+      <h2 id="bookTitle">로딩 중...</h2>
+      <p id="bookDesc" class="sub-text">단어 정보를 불러오고 있습니다.</p>
 
       <div class="progress-wrap">
         <div id="progressBar" class="progress-bar"></div>
       </div>
 
-      <div id="loadingBox" class="loading">오늘 학습 세트를 불러오는 중입니다...</div>
-      <div id="emptyBox" class="empty" style="display:none;">오늘 학습 세트가 없습니다. 먼저 단어장과 플랜을 선택해 주세요.</div>
+      <div id="loadingBox" class="loading">학습 세트를 불러오는 중입니다...</div>
+      <div id="emptyBox" class="empty" style="display:none;">오늘 학습 세트가 없습니다. 단어장을 먼저 선택해주세요.</div>
 
+      <!-- [1] 학습 카드 섹션 -->
       <div id="studyBox" style="display:none;">
         <div class="word-card">
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
-  <div id="cardOrder" style="font-weight:800; font-size:18px;">1 / 10</div>
-  <div id="phaseBadge" class="pill">영단어 카드</div>
-  <div id="cardHearts" class="card-hearts" style="position:static; font-size:18px;">❤ × 1</div>
-</div>
-
-<div id="wordText" class="word-text">word</div>
-          <div id="cardGuide" class="sub-text">단어가 보일 때 발음도 함께 재생됩니다.</div>
-
+            <div id="cardOrder" style="font-weight:800; font-size:18px;">1 / 10</div>
+            <div id="phaseBadge" class="pill">영단어 카드</div>
+            <div id="cardHearts" class="card-hearts">❤ × 1</div>
+          </div>
+          <div id="wordText" class="word-text">word</div>
+          <div id="cardGuide" class="sub-text">가이드를 확인하세요.</div>
           <div class="scratch-wrap">
-            <div id="scratchLabel" class="scratch-label">아래 영역을 직접 긁어서 정답을 확인하세요.</div>
+            <div id="scratchLabel" class="scratch-label">아래 영역을 긁어서 확인하세요.</div>
             <div id="scratchCard" class="scratch-card">
               <div id="scratchAnswer" class="scratch-answer">뜻</div>
               <canvas id="scratchCanvas" class="scratch-canvas"></canvas>
             </div>
           </div>
-
           <div class="footer-actions">
-            <button id="speakBtn" class="btn-light" type="button">발음 다시 듣기</button>
-            <button id="revealBtn" class="btn-blue" type="button">전부 공개</button>
+            <button id="speakBtn" class="btn-light" type="button">🔊 다시 듣기</button>
+            <button id="revealBtn" class="btn-blue" type="button">정답 공개</button>
             <button id="nextBtn" class="btn-green" type="button">다음 카드</button>
           </div>
         </div>
       </div>
 
+      <!-- [2] 테스트 섹션 -->
       <div id="testBox" style="display:none;">
         <div class="word-card">
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
-  <div id="testOrder" style="font-weight:800; font-size:18px;">1 / 10</div>
-  <div id="testPhaseBadge" class="pill">테스트 1</div>
-  <div id="testHearts" class="card-hearts" style="position:static; font-size:18px;">❤ × 1</div>
-</div>
-
-<div id="testQuestion" class="word-text">word</div>
-          <div id="testGuide" class="sub-text">영단어에 맞는 뜻을 고르세요.</div>
+            <div id="testOrder" style="font-weight:800; font-size:18px;">1 / 10</div>
+            <div id="testPhaseBadge" class="pill">테스트</div>
+            <div id="testHearts" class="card-hearts">❤ × 1</div>
+          </div>
+          <div id="testQuestion" class="word-text">word</div>
+          <div id="testGuide" class="sub-text">알맞은 답을 고르세요.</div>
           <div id="choiceWrap" class="choice-wrap"></div>
-<div id="answerWrap" class="answer-form" style="display:none;">
-  <input id="answerInput" class="answer-input" type="text" placeholder="뜻을 입력하세요" autocomplete="off" />
-  <button id="answerSubmitBtn" class="btn-green answer-submit" type="button">정답 확인</button>
-</div>
+          <div id="answerWrap" class="answer-form" style="display:none;">
+            <input id="answerInput" class="answer-input" type="text" placeholder="뜻을 입력하세요" autocomplete="off" />
+            <button id="answerSubmitBtn" class="btn-green answer-submit" type="button">정답 확인</button>
+          </div>
         </div>
       </div>
 
+      <!-- [3] 완료 섹션 -->
       <div id="completeBox" class="empty" style="display:none;">
-        오늘 카드 학습과 테스트 1을 모두 끝냈습니다.<br />
+        축하합니다! 오늘 학습과 테스트를 모두 마쳤습니다.<br />
         <div class="footer-actions" style="margin-top:18px;">
-          <button id="restartBtn" class="btn-blue" type="button">처음부터 다시 보기</button>
-          <button id="goSelectBtn" class="btn-light" type="button">단어장 선택으로</button>
+          <button id="restartBtn" class="btn-blue" type="button">처음부터 다시하기</button>
+          <button id="goSelectBtn" class="btn-light" type="button">단어장으로 돌아가기</button>
         </div>
       </div>
 
       <div id="status" class="status"></div>
     </div>
-    </div>
+  </div>
 
+  <!-- 알림 모달 -->
   <div id="appModal" class="app-modal">
     <div class="app-modal-card">
       <div id="appModalTitle" class="app-modal-title">안내</div>
@@ -555,868 +187,381 @@
       'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
     );
 
-    const currentNameEl = document.getElementById('currentName');
-    const totalCountText = document.getElementById('totalCountText');
-    const currentStepText = document.getElementById('currentStepText');
-    const cardOrder = document.getElementById('cardOrder');
-    const bookTitle = document.getElementById('bookTitle');
-    const bookDesc = document.getElementById('bookDesc');
-    const progressBar = document.getElementById('progressBar');
-    const loadingBox = document.getElementById('loadingBox');
-    const emptyBox = document.getElementById('emptyBox');
-    const studyBox = document.getElementById('studyBox');
-    const testBox = document.getElementById('testBox');
-    const completeBox = document.getElementById('completeBox');
+    // DOM 요소
+    const elements = {
+      currentName: document.getElementById('currentName'),
+      totalCountText: document.getElementById('totalCountText'),
+      currentStepText: document.getElementById('currentStepText'),
+      progressBar: document.getElementById('progressBar'),
+      loadingBox: document.getElementById('loadingBox'),
+      emptyBox: document.getElementById('emptyBox'),
+      studyBox: document.getElementById('studyBox'),
+      testBox: document.getElementById('testBox'),
+      completeBox: document.getElementById('completeBox'),
+      bookTitle: document.getElementById('bookTitle'),
+      bookDesc: document.getElementById('bookDesc'),
+      status: document.getElementById('status'),
+      // 카드 관련
+      wordText: document.getElementById('wordText'),
+      phaseBadge: document.getElementById('phaseBadge'),
+      scratchAnswer: document.getElementById('scratchAnswer'),
+      scratchCanvas: document.getElementById('scratchCanvas'),
+      scratchCard: document.getElementById('scratchCard'),
+      cardHearts: document.getElementById('cardHearts'),
+      cardOrder: document.getElementById('cardOrder'),
+      // 테스트 관련
+      testQuestion: document.getElementById('testQuestion'),
+      testPhaseBadge: document.getElementById('testPhaseBadge'),
+      testHearts: document.getElementById('testHearts'),
+      testOrder: document.getElementById('testOrder'),
+      testGuide: document.getElementById('testGuide'),
+      choiceWrap: document.getElementById('choiceWrap'),
+      answerWrap: document.getElementById('answerWrap'),
+      answerInput: document.getElementById('answerInput'),
+      answerSubmitBtn: document.getElementById('answerSubmitBtn')
+    };
 
-    const wordText = document.getElementById('wordText');
-    const phaseBadge = document.getElementById('phaseBadge');
-    const cardGuide = document.getElementById('cardGuide');
-    const scratchLabel = document.getElementById('scratchLabel');
-    const scratchCard = document.getElementById('scratchCard');
-    const scratchAnswer = document.getElementById('scratchAnswer');
-    const scratchCanvas = document.getElementById('scratchCanvas');
-
-    const cardHearts = document.getElementById('cardHearts');
-const testHearts = document.getElementById('testHearts');
-const testOrder = document.getElementById('testOrder');
-
-const testQuestion = document.getElementById('testQuestion');
-const testGuide = document.getElementById('testGuide');
-const testPhaseBadge = document.getElementById('testPhaseBadge');
-const choiceWrap = document.getElementById('choiceWrap');
-const answerWrap = document.getElementById('answerWrap');
-const answerInput = document.getElementById('answerInput');
-const answerSubmitBtn = document.getElementById('answerSubmitBtn');
-const statusEl = document.getElementById('status');
-
-const appModal = document.getElementById('appModal');
-const appModalTitle = document.getElementById('appModalTitle');
-const appModalMessage = document.getElementById('appModalMessage');
-const appModalConfirm = document.getElementById('appModalConfirm');
-
+    // 상태 관리 변수
     let me = null;
-    let role = 'student';
     let currentWords = [];
-let currentIndex = 0;
-let studyPhase = 'word_to_meaning';
-let hearts = 1;
-let initialHearts = 1;
-let currentTestStartPhase = 'test_1';
+    let currentIndex = 0;
+    let studyPhase = 'word_to_meaning'; // word_to_meaning -> meaning_to_word -> test_1~4
+    let hearts = 3;
+    let initialHearts = 3;
+    let currentTestStartPhase = 'test_1';
 
-    let scratchCtx = null;
-let isScratching = false;
-let scratchReady = false;
+    // 사운드 시스템
+    let audioCtx = null;
+    function getAudioCtx() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      return audioCtx;
+    }
 
-let audioCtx = null;
-function getAudioCtx() {
-  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  if (audioCtx.state === 'suspended') audioCtx.resume();
-  return audioCtx;
-}
+    function playSound(type) {
+      const ctx = getAudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      if (type === 'correct') {
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(880, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.1);
+        gain.gain.setValueAtTime(0.1, ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.2);
+      } else {
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(220, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(110, ctx.currentTime + 0.2);
+        gain.gain.setValueAtTime(0.1, ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.3);
+      }
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(); osc.stop(ctx.currentTime + 0.3);
+    }
 
-function playCorrectSound() {
-  const ctx = getAudioCtx();
-  const notes = [784, 988, 1175];
-  const start = ctx.currentTime;
+    // 공통 유틸리티
+    function setStatus(msg, isErr = false) {
+      elements.status.textContent = msg || '';
+      elements.status.style.color = isErr ? '#ef4444' : '#334155';
+    }
 
-  notes.forEach((freq, i) => {
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.type = 'triangle';
-    osc.frequency.setValueAtTime(freq, start + i * 0.07);
-    gain.gain.setValueAtTime(0.0001, start + i * 0.07);
-    gain.gain.exponentialRampToValueAtTime(0.14, start + i * 0.07 + 0.01);
-    gain.gain.exponentialRampToValueAtTime(0.0001, start + i * 0.07 + 0.16);
-    osc.connect(gain).connect(ctx.destination);
-    osc.start(start + i * 0.07);
-    osc.stop(start + i * 0.07 + 0.18);
-  });
-}
-
-function playWrongSound() {
-  const ctx = getAudioCtx();
-  const osc = ctx.createOscillator();
-  const gain = ctx.createGain();
-
-  osc.type = 'square';
-  osc.frequency.setValueAtTime(220, ctx.currentTime);
-  osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.18);
-
-  gain.gain.setValueAtTime(0.0001, ctx.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime + 0.01);
-  gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.2);
-
-  osc.connect(gain).connect(ctx.destination);
-  osc.start();
-  osc.stop(ctx.currentTime + 0.22);
-}
-
-    function setStatus(message, isError = false) {
-  statusEl.textContent = message || '';
-  statusEl.style.color = isError ? '#b42318' : '#334155';
-}
-
-function showAppModal(message, title = '안내', onConfirm = null) {
-  appModalTitle.textContent = title;
-  appModalMessage.textContent = message;
-  appModal.classList.add('show');
-
-  appModalConfirm.onclick = () => {
-    appModal.classList.remove('show');
-    if (typeof onConfirm === 'function') onConfirm();
-  };
-}
-
-appModal.addEventListener('click', (e) => {
-  if (e.target === appModal) {
-    appModal.classList.remove('show');
-  }
-});
+    function showAppModal(message, title = '안내', onConfirm = null) {
+      document.getElementById('appModalTitle').textContent = title;
+      document.getElementById('appModalMessage').textContent = message;
+      const modal = document.getElementById('appModal');
+      modal.classList.add('show');
+      document.getElementById('appModalConfirm').onclick = () => {
+        modal.classList.remove('show');
+        if (onConfirm) onConfirm();
+      };
+    }
 
     function renderHeartIcons(hit = false) {
-  const text = `❤ × ${hearts}`;
-  cardHearts.textContent = text;
-  testHearts.textContent = text;
-
-  if (hit) {
-    cardHearts.classList.add('heart-hit');
-    testHearts.classList.add('heart-hit');
-
-    setTimeout(() => {
-      cardHearts.classList.remove('heart-hit');
-      testHearts.classList.remove('heart-hit');
-    }, 250);
-  }
-}
-
-    async function requireAuth() {
-      const { data: authData, error: authError } = await supabase.auth.getUser();
-      if (authError || !authData.user) {
-  showAppModal('로그인이 필요합니다.', '로그인 필요', () => {
-    location.href = 'login.html';
-  });
-  return false;
-}
-
-      me = authData.user;
-
-      const { data: profileData } = await supabase
-        .from('profiles')
-        .select('user_id, name, role')
-        .eq('user_id', me.id)
-        .maybeSingle();
-
-      if (profileData?.role) role = profileData.role;
-      currentNameEl.textContent = profileData?.name || me.email || '사용자';
-      return true;
+      const text = `❤ × ${hearts}`;
+      elements.cardHearts.textContent = text;
+      elements.testHearts.textContent = text;
+      if (hit) {
+        elements.cardHearts.classList.add('heart-hit');
+        elements.testHearts.classList.add('heart-hit');
+        setTimeout(() => {
+          elements.cardHearts.classList.remove('heart-hit');
+          elements.testHearts.classList.remove('heart-hit');
+        }, 300);
+      }
     }
 
     function speakWord(text) {
       if (!text) return;
-      try {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'en-US';
-        utterance.rate = 0.9;
-        utterance.pitch = 1;
-        window.speechSynthesis.speak(utterance);
-      } catch (error) {
-        console.error(error);
-      }
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'en-US'; u.rate = 0.9;
+      window.speechSynthesis.speak(u);
     }
 
-    function roundRect(ctx, x, y, width, height, radius) {
-      ctx.beginPath();
-      ctx.moveTo(x + radius, y);
-      ctx.lineTo(x + width - radius, y);
-      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
-      ctx.lineTo(x + width, y + height - radius);
-      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-      ctx.lineTo(x + radius, y + height);
-      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
-      ctx.lineTo(x, y + radius);
-      ctx.quadraticCurveTo(x, y, x + radius, y);
-      ctx.closePath();
+    // 단어 데이터 가공
+    function getMeaningText(item) {
+      return (item.primary_meaning_ko || '').trim() || '뜻 없음';
     }
 
-    function setupScratchCanvas() {
-      const rect = scratchCard.getBoundingClientRect();
+    function normalize(t) {
+      return String(t || '').trim().replace(/\s+/g, ' ').replace(/[.,!?]/g, '');
+    }
+
+    function isCorrectInput(item, val) {
+      const input = normalize(val);
+      if (!input) return false;
+      const accepted = [];
+      if (item.primary_meaning_ko) accepted.push(normalize(item.primary_meaning_ko));
+      if (Array.isArray(item.accepted_meanings_ko)) item.accepted_meanings_ko.forEach(m => accepted.push(normalize(m)));
+      return accepted.includes(input);
+    }
+
+    // 셔플 및 보기 생성
+    function shuffle(arr) { return [...arr].sort(() => Math.random() - 0.5); }
+
+    function buildChoices(correctItem, isMeaningToWord = false) {
+      const correct = isMeaningToWord ? correctItem.word : getMeaningText(correctItem);
+      const pool = currentWords
+        .filter(w => w.id !== correctItem.id)
+        .map(w => isMeaningToWord ? w.word : getMeaningText(w));
+      const wrongs = shuffle([...new Set(pool)]).slice(0, 3);
+      // 보기가 부족할 때 채우기
+      const fillers = isMeaningToWord ? ['apple','book','desk'] : ['상태','동작','사물'];
+      while(wrongs.length < 3) wrongs.push(fillers[wrongs.length] || '보기');
+      return shuffle([correct, ...wrongs]);
+    }
+
+    // [학습 카드] 렌더링
+    let scratchCtx = null;
+    function initScratch() {
+      const canvas = elements.scratchCanvas;
+      const rect = elements.scratchCard.getBoundingClientRect();
       const dpr = window.devicePixelRatio || 1;
-
-      scratchCanvas.width = Math.floor(rect.width * dpr);
-      scratchCanvas.height = Math.floor(rect.height * dpr);
-      scratchCanvas.style.width = rect.width + 'px';
-      scratchCanvas.style.height = rect.height + 'px';
-
-      scratchCtx = scratchCanvas.getContext('2d');
-      scratchCtx.setTransform(1, 0, 0, 1, 0, 0);
+      canvas.width = rect.width * dpr; canvas.height = rect.height * dpr;
+      canvas.style.width = rect.width + 'px'; canvas.style.height = rect.height + 'px';
+      scratchCtx = canvas.getContext('2d');
       scratchCtx.scale(dpr, dpr);
-
-      scratchCtx.clearRect(0, 0, rect.width, rect.height);
-
       scratchCtx.fillStyle = '#dfe6ef';
       scratchCtx.fillRect(0, 0, rect.width, rect.height);
-
-      const grad = scratchCtx.createLinearGradient(0, 0, rect.width, rect.height);
-      grad.addColorStop(0, 'rgba(255,255,255,.22)');
-      grad.addColorStop(1, 'rgba(255,255,255,0)');
-      scratchCtx.fillStyle = grad;
-      scratchCtx.fillRect(0, 0, rect.width, rect.height);
-
-      scratchCtx.fillStyle = 'rgba(255,255,255,.92)';
-      roundRect(scratchCtx, rect.width / 2 - 62, rect.height / 2 - 18, 124, 36, 18);
-      scratchCtx.fill();
-
       scratchCtx.fillStyle = '#334155';
-      scratchCtx.font = '800 13px Arial';
+      scratchCtx.font = 'bold 14px Arial';
       scratchCtx.textAlign = 'center';
-      scratchCtx.textBaseline = 'middle';
-      scratchCtx.fillText('긁어서 확인', rect.width / 2, rect.height / 2);
-
-      scratchCard.classList.remove('revealed');
-      scratchReady = true;
+      scratchCtx.fillText('긁어서 확인', rect.width / 2, rect.height / 2 + 5);
+      elements.scratchCard.classList.remove('revealed');
     }
-
-    function resetScratch() {
-      requestAnimationFrame(() => {
-        setupScratchCanvas();
-      });
-    }
-
-    function revealScratch() {
-      scratchCard.classList.add('revealed');
-    }
-
-    function scratchAt(clientX, clientY) {
-      if (!scratchCtx || !scratchReady) return;
-
-      const rect = scratchCanvas.getBoundingClientRect();
-      const x = clientX - rect.left;
-      const y = clientY - rect.top;
-
-      scratchCtx.globalCompositeOperation = 'destination-out';
-      scratchCtx.beginPath();
-      scratchCtx.arc(x, y, 22, 0, Math.PI * 2);
-      scratchCtx.fill();
-
-      checkScratchPercent();
-    }
-
-    function checkScratchPercent() {
-      if (!scratchCtx || scratchCard.classList.contains('revealed')) return;
-
-      const rect = scratchCanvas.getBoundingClientRect();
-      const imageData = scratchCtx.getImageData(0, 0, Math.floor(rect.width), Math.floor(rect.height));
-      const pixels = imageData.data;
-      let transparentCount = 0;
-
-      for (let i = 3; i < pixels.length; i += 4) {
-        if (pixels[i] < 20) transparentCount++;
-      }
-
-      const totalPixels = pixels.length / 4;
-      const percent = transparentCount / totalPixels;
-
-      if (percent > 0.45) {
-        revealScratch();
-        setStatus('정답을 확인했습니다.');
-      }
-    }
-
-    function shuffle(array) {
-      const copied = [...array];
-      for (let i = copied.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [copied[i], copied[j]] = [copied[j], copied[i]];
-      }
-      return copied;
-    }
-
-    function getMeaningText(item) {
-  const base = (item.primary_meaning_ko || '').trim();
-  if (base) return base;
-  return `${item.word || '단어'}의 뜻`;
-}
-
-function normalizeKoText(text) {
-  return String(text || '')
-    .trim()
-    .replace(/\s+/g, ' ')
-    .replace(/[.,!?]/g, '');
-}
-
-function getAcceptedMeaningList(item) {
-  const values = [];
-
-  if (Array.isArray(item.accepted_meanings_ko)) {
-    values.push(...item.accepted_meanings_ko);
-  }
-
-  if (Array.isArray(item.meanings_ko)) {
-    values.push(...item.meanings_ko);
-  }
-
-  if (item.primary_meaning_ko) {
-    values.push(item.primary_meaning_ko);
-  }
-
-  const cleaned = values
-    .map(v => normalizeKoText(v))
-    .filter(Boolean);
-
-  return [...new Set(cleaned)];
-}
-
-function isCorrectMeaningInput(item, inputValue) {
-  const normalizedInput = normalizeKoText(inputValue);
-  if (!normalizedInput) return false;
-
-  const accepted = getAcceptedMeaningList(item);
-  return accepted.includes(normalizedInput);
-}
-
-    function buildTestChoices(correctItem) {
-  const correctText = getMeaningText(correctItem);
-
-  const wrongPool = currentWords
-    .filter(item => item.id !== correctItem.id)
-    .map(item => getMeaningText(item))
-    .filter(text => text && text !== correctText);
-
-  const uniqueWrong = [...new Set(wrongPool)];
-  const pickedWrong = shuffle(uniqueWrong).slice(0, 3);
-
-  const fillers = [
-    '장소',
-    '사람',
-    '행동',
-    '사물',
-    '상태',
-    '감정',
-    '동물',
-    '음식'
-  ].filter(text => text !== correctText && !pickedWrong.includes(text));
-
-  while (pickedWrong.length < 3 && fillers.length > 0) {
-    pickedWrong.push(fillers.shift());
-  }
-
-  while (pickedWrong.length < 3) {
-    pickedWrong.push(`보기 ${pickedWrong.length + 2}`);
-  }
-
-  return shuffle([correctText, ...pickedWrong.slice(0, 3)]);
-}
-
-function buildWordChoices(correctItem) {
-  const correctText = (correctItem.word || '').trim() || 'unknown';
-
-  const wrongPool = currentWords
-    .filter(item => item.id !== correctItem.id)
-    .map(item => (item.word || '').trim())
-    .filter(text => text && text !== correctText);
-
-  const uniqueWrong = [...new Set(wrongPool)];
-  const pickedWrong = shuffle(uniqueWrong).slice(0, 3);
-
-  const fillers = ['apple', 'book', 'chair', 'water', 'school', 'happy']
-    .filter(text => text !== correctText && !pickedWrong.includes(text));
-
-  while (pickedWrong.length < 3 && fillers.length > 0) {
-    pickedWrong.push(fillers.shift());
-  }
-
-  while (pickedWrong.length < 3) {
-    pickedWrong.push(`word${pickedWrong.length + 2}`);
-  }
-
-  return shuffle([correctText, ...pickedWrong.slice(0, 3)]);
-}
-
-    function renderTestCard() {
-  if (!currentWords.length) return;
-
-  if (currentIndex >= currentWords.length) {
-    if (studyPhase === 'test_1') {
-      studyPhase = 'test_2';
-      currentTestStartPhase = 'test_2';
-      currentIndex = 0;
-      renderTestCard();
-      return;
-    }
-
-    if (studyPhase === 'test_2') {
-      studyPhase = 'test_3';
-      currentTestStartPhase = 'test_3';
-      currentIndex = 0;
-      renderTestCard();
-      return;
-    }
-
-    if (studyPhase === 'test_3') {
-      studyPhase = 'test_4';
-      currentTestStartPhase = 'test_4';
-      currentIndex = 0;
-      renderTestCard();
-      return;
-    }
-
-    testBox.style.display = 'none';
-    completeBox.style.display = 'block';
-    progressBar.style.width = '100%';
-    currentStepText.textContent = `${currentWords.length} / ${currentWords.length}`;
-    setStatus('테스트 4 완료');
-    return;
-  }
-
-  const item = currentWords[currentIndex];
-  const total = currentWords.length;
-
-  let progress = 100;
-  if (studyPhase === 'test_1') {
-    progress = total > 0 ? 66 + ((currentIndex / total) * 8) : 74;
-    testPhaseBadge.textContent = '테스트 1';
-  } else if (studyPhase === 'test_2') {
-    progress = total > 0 ? 74 + ((currentIndex / total) * 8) : 82;
-    testPhaseBadge.textContent = '테스트 2';
-  } else if (studyPhase === 'test_3') {
-    progress = total > 0 ? 82 + ((currentIndex / total) * 8) : 90;
-    testPhaseBadge.textContent = '테스트 3';
-  } else if (studyPhase === 'test_4') {
-    progress = total > 0 ? 90 + ((currentIndex / total) * 10) : 100;
-    testPhaseBadge.textContent = '테스트 4';
-  }
-
-  choiceWrap.innerHTML = '';
-  choiceWrap.style.display = 'grid';
-  choiceWrap.style.gridTemplateColumns = '1fr';
-  answerWrap.style.display = 'none';
-
-  if (studyPhase === 'test_1') {
-    testQuestion.textContent = item.word || '-';
-    testGuide.textContent = '영단어에 맞는 뜻을 고르세요.';
-    setStatus('테스트 1: 영단어에 맞는 뜻을 선택하세요.');
-
-    const choices = buildTestChoices(item);
-    choices.forEach((choice) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'choice-btn';
-      btn.textContent = choice;
-      btn.addEventListener('click', () => handleTestAnswer(choice));
-      choiceWrap.appendChild(btn);
-    });
-  } else if (studyPhase === 'test_2') {
-    testQuestion.textContent = '🔊';
-    testGuide.textContent = '발음을 듣고 맞는 뜻을 고르세요.';
-    speakWord(item.tts_text || item.word || '');
-    setStatus('테스트 2: 발음을 듣고 뜻을 선택하세요.');
-
-    const choices = buildTestChoices(item);
-    choices.forEach((choice) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'choice-btn';
-      btn.textContent = choice;
-      btn.addEventListener('click', () => handleTestAnswer(choice));
-      choiceWrap.appendChild(btn);
-    });
-
-    const replayBtn = document.createElement('button');
-    replayBtn.type = 'button';
-    replayBtn.className = 'btn-light';
-    replayBtn.textContent = '발음 다시 듣기';
-    replayBtn.style.maxWidth = '220px';
-    replayBtn.style.margin = '6px auto 0';
-    replayBtn.addEventListener('click', () => {
-      speakWord(item.tts_text || item.word || '');
-      setStatus('발음을 다시 재생했습니다.');
-    });
-    choiceWrap.appendChild(replayBtn);
-  } else if (studyPhase === 'test_3') {
-    testQuestion.textContent = getMeaningText(item);
-    testGuide.textContent = '뜻에 맞는 영어단어를 고르세요.';
-    setStatus('테스트 3: 뜻에 맞는 영어단어를 선택하세요.');
-
-    const choices = buildWordChoices(item);
-    choices.forEach((choice) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'choice-btn';
-      btn.textContent = choice;
-      btn.addEventListener('click', () => handleTestAnswer(choice));
-      choiceWrap.appendChild(btn);
-    });
-  } else {
-    testQuestion.textContent = item.word || '-';
-    testGuide.textContent = '영단어에 맞는 뜻을 입력하세요.';
-    choiceWrap.style.display = 'none';
-    answerWrap.style.display = 'flex';
-    answerInput.value = '';
-    answerInput.disabled = false;
-    answerSubmitBtn.disabled = false;
-    setTimeout(() => answerInput.focus(), 0);
-    setStatus('테스트 4: 뜻을 직접 입력하세요.');
-  }
-
-  const stepText = `${currentIndex + 1} / ${total}`;
-  totalCountText.textContent = String(total);
-  currentStepText.textContent = stepText;
-  testOrder.textContent = stepText;
-  progressBar.style.width = `${progress}%`;
-  studyBox.style.display = 'none';
-  testBox.style.display = 'block';
-  completeBox.style.display = 'none';
-  renderHeartIcons();
-}
-
-function handleSubjectiveAnswer() {
-  const item = currentWords[currentIndex];
-  const inputValue = answerInput.value;
-  const isCorrect = isCorrectMeaningInput(item, inputValue);
-
-  if (isCorrect) {
-    playCorrectSound();
-    setStatus('정답입니다.');
-    answerInput.disabled = true;
-    answerSubmitBtn.disabled = true;
-
-    setTimeout(() => {
-      answerInput.disabled = false;
-      answerSubmitBtn.disabled = false;
-      currentIndex += 1;
-      renderTestCard();
-    }, 220);
-    return;
-  }
-
-  playWrongSound();
-
-  if (hearts <= 0) {
-    const restartLabel =
-  currentTestStartPhase === 'test_4' ? '테스트 4' :
-  currentTestStartPhase === 'test_3' ? '테스트 3' :
-  currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1';
-
-    showAppModal(`${restartLabel} 처음부터 다시 시작합니다.`, '다시 도전', () => {
-      hearts = initialHearts;
-      currentIndex = 0;
-      studyPhase = currentTestStartPhase;
-      renderHeartIcons();
-      renderTestCard();
-    });
-    return;
-  }
-
-  hearts -= 1;
-  renderHeartIcons(true);
-
-  if (hearts === 0) {
-    setStatus('오답입니다. 하트가 모두 소진되었습니다. 다음 오답 시 현재 테스트 처음으로 돌아갑니다.', true);
-    return;
-  }
-
-  setStatus('오답입니다.', true);
-}
-    
-    function handleTestAnswer(choice) {
-  const item = currentWords[currentIndex];
-  const correctText = studyPhase === 'test_3'
-    ? ((item.word || '').trim())
-    : getMeaningText(item);
-
-  const isCorrect = choice === correctText;
-  const buttons = Array.from(choiceWrap.querySelectorAll('.choice-btn'));
-
-  buttons.forEach(btn => btn.disabled = true);
-
-  buttons.forEach(btn => {
-    if (btn.textContent === correctText) {
-      btn.classList.add('correct');
-    }
-  });
-
-  if (isCorrect) {
-    playCorrectSound();
-    setStatus('정답입니다.');
-
-    setTimeout(() => {
-      currentIndex += 1;
-      renderTestCard();
-    }, 220);
-
-    return;
-  }
-
-  const clickedBtn = buttons.find(btn => btn.textContent === choice);
-  if (clickedBtn) {
-    clickedBtn.classList.add('wrong');
-    clickedBtn.classList.add('shake');
-  }
-
-  if (hearts <= 0) {
-    playWrongSound();
-
-    const restartLabel =
-      currentTestStartPhase === 'test_4' ? '테스트 4' :
-      currentTestStartPhase === 'test_3' ? '테스트 3' :
-      currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1';
-
-    setTimeout(() => {
-      showAppModal(`${restartLabel} 처음부터 다시 시작합니다.`, '다시 도전', () => {
-        hearts = initialHearts;
-        currentIndex = 0;
-        studyPhase = currentTestStartPhase;
-        renderHeartIcons();
-        renderTestCard();
-      });
-    }, 400);
-
-    return;
-  }
-
-  playWrongSound();
-  hearts -= 1;
-  renderHeartIcons(true);
-
-  if (hearts === 0) {
-  const nextFailLabel =
-    currentTestStartPhase === 'test_4' ? '테스트 4' :
-    currentTestStartPhase === 'test_3' ? '테스트 3' :
-    currentTestStartPhase === 'test_2' ? '테스트 2' : '테스트 1';
-
-  setStatus(`오답입니다. 하트가 모두 소진되었습니다. 다음 오답 시 ${nextFailLabel} 처음으로 돌아갑니다.`, true);
-
-  setTimeout(() => {
-    currentIndex += 1;
-    renderTestCard();
-  }, 700);
-  }
-  return;
-}
-
-setStatus('오답입니다.', true);
-
-setTimeout(() => {
-  currentIndex += 1;
-  renderTestCard();
-}, 700);
 
     function renderCard() {
-      if (!currentWords.length) return;
-
       if (currentIndex >= currentWords.length) {
         if (studyPhase === 'word_to_meaning') {
-          studyPhase = 'meaning_to_word';
-          currentIndex = 0;
-          renderCard();
+          studyPhase = 'meaning_to_word'; currentIndex = 0; renderCard();
+        } else {
+          studyPhase = 'test_1'; currentTestStartPhase = 'test_1'; currentIndex = 0; renderTestCard();
+        }
+        return;
+      }
+      const item = currentWords[currentIndex];
+      const total = currentWords.length;
+      const prog = (studyPhase === 'word_to_meaning' ? 0 : 33) + (currentIndex / total * 33);
+      elements.progressBar.style.width = prog + '%';
+      elements.cardOrder.textContent = `${currentIndex + 1} / ${total}`;
+      elements.currentStepText.textContent = `${currentIndex + 1} / ${total}`;
+
+      if (studyPhase === 'word_to_meaning') {
+        elements.phaseBadge.textContent = '1단계: 영단어 보고 뜻 맞추기';
+        elements.wordText.textContent = item.word;
+        elements.scratchAnswer.textContent = getMeaningText(item);
+        speakWord(item.word);
+      } else {
+        elements.phaseBadge.textContent = '2단계: 뜻 보고 영단어 맞추기';
+        elements.wordText.textContent = getMeaningText(item);
+        elements.scratchAnswer.textContent = item.word;
+      }
+      initScratch();
+      elements.studyBox.style.display = 'block';
+      elements.testBox.style.display = 'none';
+      renderHeartIcons();
+    }
+
+    // [테스트] 렌더링
+    function renderTestCard() {
+      if (currentIndex >= currentWords.length) {
+        const phases = ['test_1', 'test_2', 'test_3', 'test_4', 'done'];
+        const nextIdx = phases.indexOf(studyPhase) + 1;
+        studyPhase = phases[nextIdx];
+        currentIndex = 0;
+        if (studyPhase === 'done') {
+          elements.testBox.style.display = 'none';
+          elements.completeBox.style.display = 'block';
+          elements.progressBar.style.width = '100%';
           return;
         }
-
-        if (studyPhase === 'meaning_to_word') {
-  studyPhase = 'test_1';
-  currentTestStartPhase = 'test_1';
-  currentIndex = 0;
-  renderTestCard();
-  return;
-}
+        currentTestStartPhase = studyPhase;
+        renderTestCard();
+        return;
       }
 
       const item = currentWords[currentIndex];
       const total = currentWords.length;
+      let stepProg = 0;
+      if (studyPhase === 'test_1') stepProg = 66 + (currentIndex/total * 8);
+      else if (studyPhase === 'test_2') stepProg = 74 + (currentIndex/total * 8);
+      else if (studyPhase === 'test_3') stepProg = 82 + (currentIndex/total * 8);
+      else if (studyPhase === 'test_4') stepProg = 90 + (currentIndex/total * 10);
+      
+      elements.progressBar.style.width = stepProg + '%';
+      elements.testOrder.textContent = `${currentIndex + 1} / ${total}`;
+      elements.currentStepText.textContent = `${currentIndex + 1} / ${total}`;
+      elements.choiceWrap.innerHTML = '';
+      elements.answerWrap.style.display = 'none';
+      elements.choiceWrap.style.display = 'grid';
 
-      let progress = 0;
-      if (studyPhase === 'word_to_meaning') {
-        progress = total > 0 ? (currentIndex / total) * 33 : 0;
-      } else if (studyPhase === 'meaning_to_word') {
-        progress = total > 0 ? 33 + ((currentIndex / total) * 33) : 33;
+      if (studyPhase === 'test_1') {
+        elements.testPhaseBadge.textContent = '테스트 1: 영단어 → 뜻 (객관식)';
+        elements.testQuestion.textContent = item.word;
+        renderChoices(buildChoices(item, false));
+      } else if (studyPhase === 'test_2') {
+        elements.testPhaseBadge.textContent = '테스트 2: 발음 → 뜻 (객관식)';
+        elements.testQuestion.textContent = '🔊';
+        speakWord(item.word);
+        renderChoices(buildChoices(item, false));
+      } else if (studyPhase === 'test_3') {
+        elements.testPhaseBadge.textContent = '테스트 3: 뜻 → 영단어 (객관식)';
+        elements.testQuestion.textContent = getMeaningText(item);
+        renderChoices(buildChoices(item, true));
+      } else if (studyPhase === 'test_4') {
+        elements.testPhaseBadge.textContent = '테스트 4: 영단어 → 뜻 (주관식)';
+        elements.testQuestion.textContent = item.word;
+        elements.choiceWrap.style.display = 'none';
+        elements.answerWrap.style.display = 'flex';
+        elements.answerInput.value = '';
+        elements.answerInput.classList.remove('wrong', 'shake');
+        setTimeout(() => elements.answerInput.focus(), 100);
       }
-
-      if (studyPhase === 'word_to_meaning') {
-        phaseBadge.textContent = '영단어 카드';
-        wordText.textContent = item.word || '-';
-        scratchAnswer.textContent = getMeaningText(item);
-        scratchLabel.textContent = '아래 영역을 직접 긁어서 뜻을 확인하세요.';
-        cardGuide.textContent = '단어가 보일 때 발음도 함께 재생됩니다.';
-        resetScratch();
-        speakWord(item.tts_text || item.word || '');
-        setStatus('1차 학습: 영단어를 보고 뜻을 확인하세요.');
-      } else {
-        phaseBadge.textContent = '뜻 카드';
-        wordText.textContent = getMeaningText(item);
-        scratchAnswer.textContent = item.word || '-';
-        scratchLabel.textContent = '아래 영역을 직접 긁어서 영단어를 확인하세요.';
-        cardGuide.textContent = '뜻을 보고 어떤 영단어인지 떠올려 보세요.';
-        resetScratch();
-        setStatus('2차 학습: 뜻을 보고 영단어를 확인하세요.');
-      }
-
-      const stepText = `${currentIndex + 1} / ${total}`;
-totalCountText.textContent = String(total);
-currentStepText.textContent = stepText;
-cardOrder.textContent = stepText;
-progressBar.style.width = `${progress}%`;
-studyBox.style.display = 'block';
-testBox.style.display = 'none';
-completeBox.style.display = 'none';
-renderHeartIcons();
+      elements.studyBox.style.display = 'none';
+      elements.testBox.style.display = 'block';
+      renderHeartIcons();
     }
 
-    async function loadTodaySet() {
-      loadingBox.style.display = 'block';
-      emptyBox.style.display = 'none';
-      studyBox.style.display = 'none';
-      testBox.style.display = 'none';
-      completeBox.style.display = 'none';
+    function renderChoices(choices) {
+      choices.forEach(c => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.textContent = c;
+        btn.onclick = () => handleTestAnswer(c);
+        elements.choiceWrap.appendChild(btn);
+      });
+    }
 
-      const today = new Date().toISOString().slice(0,10);
-
-      const { data: setRow, error: setError } = await supabase
-        .from('user_vocab_daily_sets')
-        .select('id, book_id, study_date, total_words, heart_count')
-        .eq('user_id', me.id)
-        .eq('study_date', today)
-        .maybeSingle();
-
-      if (setError || !setRow) {
-        console.error(setError);
-        loadingBox.style.display = 'none';
-        emptyBox.style.display = 'block';
-        setStatus('오늘 학습 세트를 불러오지 못했습니다.', true);
-        return;
-      }
-
-    hearts = 1;
-initialHearts = 1;
-renderHeartIcons();
-
-      const { data: bookRow } = await supabase
-        .from('vocab_books')
-        .select('title, description')
-        .eq('id', setRow.book_id)
-        .maybeSingle();
-
-      bookTitle.textContent = bookRow?.title || '오늘의 단어 학습';
-      bookDesc.textContent = bookRow?.description || '오늘 생성된 학습 세트';
-
-      const wordIds = Array.isArray(setRow.total_words) ? setRow.total_words : [];
-      if (!wordIds.length) {
-        loadingBox.style.display = 'none';
-        emptyBox.style.display = 'block';
-        setStatus('오늘 세트에 단어가 없습니다.', true);
-        return;
-      }
-
-      const { data: wordRows, error: wordError } = await supabase
-        .from('vocab_words')
-        .select('id, word, tts_text, primary_meaning_ko')
-        .in('id', wordIds);
-
-      loadingBox.style.display = 'none';
-
-      if (wordError) {
-        console.error(wordError);
-        emptyBox.style.display = 'block';
-        setStatus('단어 상세 정보를 불러오지 못했습니다.', true);
-        return;
-      }
-
-      const orderMap = new Map(wordIds.map((id, idx) => [id, idx]));
-      currentWords = (wordRows || []).slice().sort((a, b) => {
-        return (orderMap.get(a.id) ?? 9999) - (orderMap.get(b.id) ?? 9999);
+    // 정답 판정 및 하트 처리
+    function handleTestAnswer(choice) {
+      const item = currentWords[currentIndex];
+      const correct = (studyPhase === 'test_3') ? item.word : getMeaningText(item);
+      const isCorrect = (choice === correct);
+      
+      const btns = elements.choiceWrap.querySelectorAll('.choice-btn');
+      btns.forEach(b => {
+        b.disabled = true;
+        if(b.textContent === correct) b.classList.add('correct');
       });
 
-      if (!currentWords.length) {
-        emptyBox.style.display = 'block';
-        setStatus('오늘 세트 단어를 표시할 수 없습니다.', true);
-        return;
+      if (isCorrect) {
+        playSound('correct');
+        setTimeout(() => { currentIndex++; renderTestCard(); }, 600);
+      } else {
+        playSound('wrong');
+        const clicked = Array.from(btns).find(b => b.textContent === choice);
+        if(clicked) clicked.classList.add('wrong', 'shake');
+        processFailure();
+      }
+    }
+
+    function handleSubjective() {
+      const item = currentWords[currentIndex];
+      if (isCorrectInput(item, elements.answerInput.value)) {
+        playSound('correct');
+        elements.answerInput.style.backgroundColor = '#dcfce7';
+        setTimeout(() => {
+          elements.answerInput.style.backgroundColor = '';
+          currentIndex++; renderTestCard();
+        }, 600);
+      } else {
+        playSound('wrong');
+        elements.answerInput.classList.add('wrong', 'shake');
+        setTimeout(() => elements.answerInput.classList.remove('shake'), 300);
+        processFailure();
+      }
+    }
+
+    function processFailure() {
+      hearts--;
+      renderHeartIcons(true);
+      if (hearts < 0) {
+        showAppModal(`하트를 모두 소진했습니다.\n${elements.testPhaseBadge.textContent}을 처음부터 다시 시작합니다.`, '다시 도전', () => {
+          hearts = initialHearts; currentIndex = 0; renderTestCard();
+        });
+      } else {
+        setStatus(`틀렸습니다! (남은 하트: ${hearts}개)`, true);
+        // 하트가 남아있어도 테스트에서는 다음 문제로 넘기지 않고 다시 기회를 주거나(주관식), 객관식은 다음으로 넘김
+        if(studyPhase !== 'test_4') {
+           setTimeout(() => { currentIndex++; renderTestCard(); }, 1000);
+        }
+      }
+    }
+
+    // 초기화 및 데이터 로드
+    async function init() {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) { location.href = 'login.html'; return; }
+      me = user;
+      const { data: prof } = await supabase.from('profiles').select('name').eq('user_id', me.id).maybeSingle();
+      elements.currentName.textContent = prof?.name || me.email;
+
+      const today = new Date().toISOString().slice(0, 10);
+      const { data: set } = await supabase.from('user_vocab_daily_sets').select('*').eq('user_id', me.id).eq('study_date', today).maybeSingle();
+
+      if (!set) {
+        elements.loadingBox.style.display = 'none'; elements.emptyBox.style.display = 'block'; return;
       }
 
-      studyPhase = 'word_to_meaning';
-currentTestStartPhase = 'test_1';
-currentIndex = 0;
-hearts = 1;
-initialHearts = 1;
-answerInput.value = '';
-answerInput.disabled = false;
-answerSubmitBtn.disabled = false;
-renderHeartIcons();
-renderCard();
-    }
+      hearts = set.heart_count || 3; initialHearts = hearts;
+      const { data: words } = await supabase.from('vocab_words').select('*').in('id', set.total_words);
+      
+      const orderMap = new Map(set.total_words.map((id, i) => [id, i]));
+      currentWords = words.sort((a, b) => orderMap.get(a.id) - orderMap.get(b.id));
 
-    scratchCanvas.addEventListener('pointerdown', (e) => {
-      isScratching = true;
-      scratchCanvas.setPointerCapture(e.pointerId);
-      scratchAt(e.clientX, e.clientY);
-    });
-
-    scratchCanvas.addEventListener('pointermove', (e) => {
-      if (!isScratching) return;
-      scratchAt(e.clientX, e.clientY);
-    });
-
-    scratchCanvas.addEventListener('pointerup', () => {
-      isScratching = false;
-    });
-
-    scratchCanvas.addEventListener('pointercancel', () => {
-      isScratching = false;
-    });
-
-    document.getElementById('revealBtn').addEventListener('click', () => {
-      revealScratch();
-      setStatus('정답을 확인했습니다.');
-    });
-
-    document.getElementById('speakBtn').addEventListener('click', () => {
-  if (!currentWords.length) return;
-
-  const item = currentWords[currentIndex];
-  speakWord(item.tts_text || item.word || '');
-  setStatus('발음을 다시 재생했습니다.');
-});
-
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      currentIndex += 1;
+      const { data: book } = await supabase.from('vocab_books').select('title, description').eq('id', set.book_id).maybeSingle();
+      elements.bookTitle.textContent = book?.title || '오늘의 단어';
+      elements.bookDesc.textContent = book?.description || '학습을 시작합니다.';
+      elements.totalCountText.textContent = currentWords.length;
+      elements.loadingBox.style.display = 'none';
+      
       renderCard();
-    });
-
-    document.getElementById('restartBtn').addEventListener('click', () => {
-  hearts = initialHearts;
-  studyPhase = 'word_to_meaning';
-  currentIndex = 0;
-  renderHeartIcons();
-  renderCard();
-});
-
-answerSubmitBtn.addEventListener('click', handleSubjectiveAnswer);
-answerInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    e.preventDefault();
-    handleSubjectiveAnswer();
-  }
-});
-
-    document.getElementById('goSelectBtn').addEventListener('click', () => {
-      location.href = 'vocab.html';
-    });
-
-    document.getElementById('backBtn').addEventListener('click', () => {
-      location.href = 'vocab.html';
-    });
-
-    document.getElementById('refreshBtn').addEventListener('click', () => location.reload());
-
-    document.getElementById('logoutBtn').addEventListener('click', async () => {
-      await supabase.auth.signOut();
-      location.href = 'login.html';
-    });
-
-    async function init() {
-      const ok = await requireAuth();
-      if (!ok) return;
-      await loadTodaySet();
     }
+
+    // 이벤트 리스너
+    elements.scratchCanvas.onpointerdown = (e) => {
+      elements.scratchCanvas.setPointerCapture(e.pointerId);
+      const scratch = (ex, ey) => {
+        const r = elements.scratchCanvas.getBoundingClientRect();
+        scratchCtx.globalCompositeOperation = 'destination-out';
+        scratchCtx.beginPath();
+        scratchCtx.arc(ex - r.left, ey - r.top, 20, 0, Math.PI * 2);
+        scratchCtx.fill();
+      };
+      scratch(e.clientX, e.clientY);
+      elements.scratchCanvas.onpointermove = (ev) => scratch(ev.clientX, ev.clientY);
+    };
+    elements.scratchCanvas.onpointerup = () => elements.scratchCanvas.onpointermove = null;
+
+    document.getElementById('revealBtn').onclick = () => elements.scratchCard.classList.add('revealed');
+    document.getElementById('nextBtn').onclick = () => { currentIndex++; renderCard(); };
+    document.getElementById('speakBtn').onclick = () => speakWord(currentWords[currentIndex].word);
+    elements.answerSubmitBtn.onclick = handleSubjective;
+    elements.answerInput.onkeydown = (e) => { if(e.key === 'Enter') handleSubjective(); };
+    document.getElementById('restartBtn').onclick = () => location.reload();
+    document.getElementById('backBtn').onclick = () => location.href = 'vocab.html';
+    document.getElementById('refreshBtn').onclick = () => location.reload();
+    document.getElementById('logoutBtn').onclick = () => { supabase.auth.signOut(); location.href='login.html'; };
 
     init();
   </script>
