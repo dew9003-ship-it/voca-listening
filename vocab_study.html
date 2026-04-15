@@ -2,20 +2,20 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>보카엔딩 단어 학습</title>
   <style>
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     :root{
       --bg:#f4f7fb; --card:#ffffff; --line:#e5e7eb; --text:#1f2937;
       --muted:#6b7280; --blue:#4f8cff; --green:#4caf50; --red:#ef4444;
       --shadow:0 10px 30px rgba(15,23,42,.08);
     }
-    body{ margin:0; font-family:Arial,sans-serif; background:linear-gradient(180deg,#eff5ff 0%,#f4f7fb 35%,#eef8f1 100%); color:var(--text); }
-    .wrap{ max-width:900px; margin:0 auto; padding:15px; min-height:100vh; }
-    .topbar{ display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:15px; }
-    .topbar h1 { margin:0; font-size:24px; font-weight:800; }
-    button{ border:none; border-radius:12px; padding:10px 14px; font-size:13px; font-weight:700; cursor:pointer; }
+    body{ margin:0; font-family:Arial,sans-serif; background:linear-gradient(180deg,#eff5ff 0%,#f4f7fb 35%,#eef8f1 100%); color:var(--text); overflow-x:hidden; }
+    .wrap{ max-width:1000px; margin:0 auto; padding:15px; min-height:100vh; }
+    .topbar{ display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; }
+    .topbar h1 { margin:0; font-size:22px; font-weight:800; }
+    button{ border:none; border-radius:12px; padding:10px 14px; font-size:13px; font-weight:700; cursor:pointer; transition: 0.2s; }
     .btn-blue{ background:var(--blue); color:#fff; }
     .btn-green{ background:var(--green); color:#fff; }
     .btn-light{ background:#fff; color:#334155; border:1px solid var(--line); }
@@ -29,9 +29,29 @@
     .progress-wrap{ width:100%; height:8px; background:#e5e7eb; border-radius:999px; overflow:hidden; margin-bottom:15px; }
     .progress-bar{ height:100%; width:0%; background:linear-gradient(90deg,#4f8cff,#6fcf97); transition:width .2s ease; }
 
-    .word-card{ position:relative; border:1px solid var(--line); background:#fff; border-radius:22px; padding:20px; text-align:center; min-height:400px; display:flex; flex-direction:column; justify-content:center; gap:12px; }
+    .word-card{ position:relative; border:1px solid var(--line); background:#fff; border-radius:22px; padding:20px; text-align:center; min-height:380px; display:flex; flex-direction:column; justify-content:center; gap:12px; }
     .word-text{ font-size:42px; font-weight:900; margin:15px 0; word-break:break-word; }
     .pill{ display:inline-flex; padding:6px 12px; border-radius:999px; background:#eef4ff; color:#355ea9; font-size:12px; font-weight:800; margin:0 auto; }
+    
+    /* 매칭 게임 그리드 (4열 레이아웃) */
+    .game-grid { 
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr); /* [단어][뜻][단어][뜻] 4열 */
+      gap: 10px; 
+      width:100%; 
+      margin-top: 10px;
+    }
+    .game-btn { 
+      background:#fff; border:2px solid var(--line); border-radius:12px; 
+      padding:12px 5px; font-size:13px; font-weight:800; cursor:pointer; 
+      min-height:70px; display:flex; align-items:center; justify-content:center; 
+      transition: all 0.2s; word-break: keep-all;
+    }
+    .game-btn.selected { border-color: var(--blue); background: #f0f7ff; color: var(--blue); }
+    .game-btn.matched { visibility: hidden; opacity: 0; pointer-events: none; }
+    .game-btn.error { border-color: var(--red); background: #fff1f1; animation: shake 0.3s; }
+
+    @keyframes shake{ 0%, 100%{ transform:translateX(0); } 25%{ transform:translateX(-5px); } 50%{ transform:translateX(5px); } }
     
     .scratch-card{ position:relative; width:100%; height:120px; border-radius:18px; overflow:hidden; border:2px dashed #bfd5ff; background:#f8fbff; display:flex; align-items:center; justify-content:center; }
     .scratch-answer{ position:relative; z-index:1; font-size:28px; font-weight:800; }
@@ -44,23 +64,23 @@
     .choice-btn.wrong{ background:#fee2e2 !important; border-color:#ef4444 !important; color:#991b1b !important; }
 
     .answer-input{ width:100%; max-width:500px; border:2px solid var(--line); border-radius:16px; padding:15px; font-size:18px; font-weight:700; text-align:center; outline:none; }
-    
-    /* 매칭 게임 블록 스타일 */
-    .game-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; width:100%; }
-    .game-btn { background:#fff; border:2.5px solid var(--line); border-radius:14px; padding:12px 8px; font-size:14px; font-weight:800; cursor:pointer; min-height:65px; display:flex; align-items:center; justify-content:center; transition: all 0.2s; }
-    .game-btn.selected { border-color: var(--blue); background: #f0f7ff; color: var(--blue); transform: scale(1.02); }
-    .game-btn.matched { visibility: hidden; opacity: 0; pointer-events: none; }
-    .game-btn.error { border-color: var(--red); background: #fff1f1; animation: shake 0.3s; }
-
-    @keyframes shake{ 0%, 100%{ transform:translateX(0); } 25%{ transform:translateX(-5px); } 50%{ transform:translateX(5px); } }
     .footer-actions{ display:flex; gap:10px; justify-content:center; margin-top:10px; }
-    .status { text-align:center; font-size:13px; margin-top:8px; min-height:18px; color:var(--red); font-weight:700; }
+    .status { text-align:center; font-size:13px; margin-top:8px; color:var(--red); font-weight:700; }
+
+    /* 모바일 가로 모드 최적화 */
+    @media (max-width: 900px) and (orientation: landscape) {
+      .wrap { padding: 5px; }
+      .summary-grid { display: none; }
+      .word-card { min-height: 200px; padding: 10px; }
+      .game-grid { grid-template-columns: repeat(4, 1fr); gap: 5px; }
+      .game-btn { min-height: 50px; font-size: 12px; }
+      .word-text { font-size: 28px; margin: 5px 0; }
+    }
 
     @media (max-width:640px){
       .wrap { padding: 10px; }
-      .summary-grid { display: none; } /* 공간 확보를 위해 숨김 */
-      .topbar h1 { font-size: 20px; }
-      .word-text { font-size: 34px; }
+      .summary-grid { display: none; }
+      .game-grid { grid-template-columns: repeat(2, 1fr); } /* 폰 세로모드에선 2열이 한계 */
     }
   </style>
 </head>
@@ -68,7 +88,7 @@
   <div class="wrap">
     <div class="topbar">
       <h1 id="modeTitle">단어 학습</h1>
-      <button id="lobbyBtn" class="btn-light">로비로</button>
+      <button onclick="location.href='vocab.html'" class="btn-light">로비로</button>
     </div>
 
     <div class="summary-grid">
@@ -79,7 +99,7 @@
 
     <div class="panel">
       <div class="progress-wrap"><div id="progressBar" class="progress-bar"></div></div>
-      <div id="loadingBox" class="loading" style="text-align:center; padding:50px;">데이터를 불러오는 중...</div>
+      <div id="loadingBox" style="text-align:center; padding:50px;">데이터를 불러오는 중...</div>
 
       <div id="studyBox" style="display:none;">
         <div class="word-card">
@@ -88,29 +108,15 @@
             <div id="phaseBadge" class="pill">모드</div>
           </div>
           
-          <!-- 질문 영역 (매칭게임 시 숨김) -->
           <div id="questionArea">
              <div id="wordText" class="word-text">word</div>
           </div>
 
-          <!-- 1단계: 스크래치 -->
-          <div id="scratchArea" style="display:none;">
-            <div class="scratch-card" id="scratchCard">
-              <div id="scratchAnswer" class="scratch-answer">뜻</div>
-              <canvas id="scratchCanvas" class="scratch-canvas"></canvas>
-            </div>
-          </div>
-
-          <!-- 2단계: 4지선다 -->
+          <div id="scratchArea" style="display:none;"><div class="scratch-card" id="scratchCard"><div id="scratchAnswer" class="scratch-answer">뜻</div><canvas id="scratchCanvas" class="scratch-canvas"></canvas></div></div>
           <div id="choiceArea" class="choice-wrap" style="display:none;"></div>
-
-          <!-- 3단계: 주관식 -->
-          <div id="typingArea" class="answer-form" style="display:none;">
-            <input id="answerInput" class="answer-input" type="text" autocomplete="off" />
-            <button id="answerSubmitBtn" class="btn-green" style="width:100%; padding:15px; margin-top:10px;">정답 확인</button>
-          </div>
-
-          <!-- 4단계: 매칭 게임 -->
+          <div id="typingArea" class="answer-form" style="display:none;"><input id="answerInput" class="answer-input" type="text" autocomplete="off" /><button id="answerSubmitBtn" class="btn-green" style="width:100%; padding:15px; margin-top:10px;">정답 확인</button></div>
+          
+          <!-- 매칭 게임 영역 -->
           <div id="gameArea" class="game-grid" style="display:none;"></div>
 
           <div class="footer-actions" id="cardActions">
@@ -123,25 +129,22 @@
 
       <div id="completeBox" style="display:none; text-align:center; padding:40px;">
         <h2 style="margin:0 0 10px;">학습 완료!</h2>
-        <p style="color:var(--muted); margin-bottom:20px;">모든 단계를 마쳤습니다.</p>
         <button onclick="location.href='vocab.html'" class="btn-blue" style="width:200px;">로비로 돌아가기</button>
       </div>
-
       <div id="status" class="status"></div>
     </div>
   </div>
 
-  <div id="appModal" class="app-modal">
-    <div class="app-modal-card">
-      <h3 id="modalTitle" style="margin:0 0 10px;">안내</h3>
-      <p id="modalMsg" style="line-height:1.6; font-size:14px; color:#444;"></p>
-      <button id="modalConfirm" class="btn-blue" style="width:100%; margin-top:15px; padding:12px;">확인</button>
+  <div id="appModal" style="position:fixed; inset:0; background:rgba(0,0,0,0.5); display:none; align-items:center; justify-content:center; z-index:9999; padding:20px;">
+    <div style="width:100%; max-width:320px; background:#fff; border-radius:20px; padding:20px; text-align:center;">
+      <h3 id="modalTitle" style="margin:0 0 10px;">알림</h3>
+      <p id="modalMsg" style="font-size:14px; color:#444; margin-bottom:15px;"></p>
+      <button id="modalConfirm" class="btn-blue" style="width:100%;">확인</button>
     </div>
   </div>
 
   <script type="module">
     import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
-
     const supabase = createClient('https://uuzhdxangctewuklvmlv.supabase.co', 'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F');
 
     const params = new URLSearchParams(window.location.search);
@@ -172,9 +175,8 @@
       status: document.getElementById('status')
     };
 
-    let audioCtx = null;
     function playSound(type) {
-      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
       osc.frequency.setValueAtTime(type === 'correct' ? 660 : 220, audioCtx.currentTime);
@@ -193,14 +195,10 @@
     async function loadData() {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) return location.href = 'login.html';
-
       const today = new Date().toISOString().slice(0, 10);
-      const { data: set } = await supabase.from('user_vocab_daily_sets')
-        .select('*').eq('user_id', user.id).eq('study_date', today).maybeSingle();
-
+      const { data: set } = await supabase.from('user_vocab_daily_sets').select('*').eq('user_id', user.id).eq('study_date', today).maybeSingle();
       if (!set) return document.getElementById('loadingBox').textContent = "오늘의 학습 세트가 없습니다.";
 
-      // [핵심수정] 전체 단어를 가져오기 위해 limit 제거
       const { data: words } = await supabase.from('vocab_words').select('*').in('id', set.total_words);
       const orderMap = new Map(set.total_words.map((id, i) => [id, i]));
       currentWords = words.sort((a, b) => orderMap.get(a.id) - orderMap.get(b.id));
@@ -211,9 +209,6 @@
       document.getElementById('loadingBox').style.display = 'none';
       document.getElementById('studyBox').style.display = 'block';
 
-      // 모드 설정
-      const titles = { card: '카드 학습', basic: '기초 테스트', advanced: '심화 테스트', game: '매칭 게임' };
-      document.getElementById('modeTitle').textContent = titles[studyMode];
       if (studyMode === 'card') studyPhase = 'word_to_meaning';
       else if (studyMode === 'basic') studyPhase = 'test_1';
       else if (studyMode === 'advanced') studyPhase = 'test_4';
@@ -227,153 +222,75 @@
       el.itemOrder.textContent = `${currentIndex + 1} / ${currentWords.length}`;
       document.getElementById('progressCount').textContent = `${currentIndex + 1} / ${currentWords.length}`;
       document.getElementById('heartDisplay').textContent = `❤ x ${hearts}`;
-      
       const item = currentWords[currentIndex];
       
-      // UI 초기화
       [el.questionArea, el.scratchArea, el.choiceArea, el.typingArea, el.gameArea, el.cardActions].forEach(a => a.style.display = 'none');
 
       if (studyMode === 'card') {
-        el.questionArea.style.display = 'block';
-        el.scratchArea.style.display = 'block';
-        el.cardActions.style.display = 'flex';
-        if (studyPhase === 'word_to_meaning') {
-          el.phaseBadge.textContent = '영단어 → 뜻';
-          el.wordText.textContent = item.word;
-          el.scratchAnswer.textContent = item.primary_meaning_ko;
-          speak(item.word);
-        } else {
-          el.phaseBadge.textContent = '뜻 → 영단어';
-          el.wordText.textContent = item.primary_meaning_ko;
-          el.scratchAnswer.textContent = item.word;
-        }
+        el.questionArea.style.display = 'block'; el.scratchArea.style.display = 'block'; el.cardActions.style.display = 'flex';
+        if (studyPhase === 'word_to_meaning') { el.phaseBadge.textContent = '영단어 → 뜻'; el.wordText.textContent = item.word; el.scratchAnswer.textContent = item.primary_meaning_ko; speak(item.word); }
+        else { el.phaseBadge.textContent = '뜻 → 영단어'; el.wordText.textContent = item.primary_meaning_ko; el.scratchAnswer.textContent = item.word; }
         initScratch();
       } 
       else if (studyMode === 'basic') {
-        el.questionArea.style.display = 'block';
-        el.choiceArea.style.display = 'grid';
-        if (studyPhase === 'test_1') {
-          el.phaseBadge.textContent = '테스트 1: 영단어 → 뜻';
-          el.wordText.textContent = item.word;
-          renderChoices(item, 'meaning');
-        } else if (studyPhase === 'test_2') {
-          el.phaseBadge.textContent = '테스트 2: 발음 → 뜻';
-          el.wordText.textContent = '🔊';
-          speak(item.word);
-          renderChoices(item, 'meaning', true);
-        } else {
-          el.phaseBadge.textContent = '테스트 3: 뜻 → 영단어';
-          el.wordText.textContent = item.primary_meaning_ko;
-          renderChoices(item, 'word');
-        }
+        el.questionArea.style.display = 'block'; el.choiceArea.style.display = 'grid';
+        if (studyPhase === 'test_1') { el.phaseBadge.textContent = '영단어 → 뜻'; el.wordText.textContent = item.word; renderChoices(item, 'm'); }
+        else if (studyPhase === 'test_2') { el.phaseBadge.textContent = '발음 → 뜻'; el.wordText.textContent = '🔊'; speak(item.word); renderChoices(item, 'm', true); }
+        else { el.phaseBadge.textContent = '뜻 → 영단어'; el.wordText.textContent = item.primary_meaning_ko; renderChoices(item, 'w'); }
       } 
       else if (studyMode === 'advanced') {
-        el.questionArea.style.display = 'block';
-        el.typingArea.style.display = 'block';
-        el.answerInput.value = '';
+        el.questionArea.style.display = 'block'; el.typingArea.style.display = 'block'; el.answerInput.value = '';
+        if (studyPhase === 'test_4') { el.phaseBadge.textContent = '단어 → 뜻 입력'; el.wordText.textContent = item.word; }
+        else { el.phaseBadge.textContent = '뜻 → 단어 입력'; el.wordText.textContent = item.primary_meaning_ko; }
         setTimeout(() => el.answerInput.focus(), 100);
-        if (studyPhase === 'test_4') {
-          el.phaseBadge.textContent = '테스트 4: 단어 → 뜻 입력';
-          el.wordText.textContent = item.word;
-        } else {
-          el.phaseBadge.textContent = '테스트 5: 뜻 → 단어 입력';
-          el.wordText.textContent = item.primary_meaning_ko;
-        }
       } 
       else if (studyMode === 'game') {
-        el.phaseBadge.textContent = '매칭 게임';
-        el.gameArea.style.display = 'grid';
-        el.itemOrder.textContent = "Matching";
+        el.phaseBadge.textContent = '매칭 게임'; el.gameArea.style.display = 'grid'; el.itemOrder.textContent = "Matching";
         renderMatchingGame();
       }
 
-      // 진행바
       const totalSteps = currentWords.length * (studyMode === 'basic' ? 3 : studyMode === 'game' ? 1 : 2);
-      let currentStepVal = (studyMode === 'game') ? currentIndex : (currentIndex + (studyPhase.includes('2') || studyPhase.includes('word') || studyPhase.includes('5') ? currentWords.length : 0));
-      el.progressBar.style.width = (currentStepVal / totalSteps * 100) + '%';
+      let stepVal = (studyMode === 'game') ? currentIndex : (currentIndex + (studyPhase.includes('2') || studyPhase.includes('word') || studyPhase.includes('5') ? currentWords.length : 0));
+      el.progressBar.style.width = (stepVal / totalSteps * 100) + '%';
     }
 
-    function renderChoices(correctItem, type, withAudio = false) {
-      const correctText = (type === 'meaning') ? correctItem.primary_meaning_ko : correctItem.word;
-      const pool = currentWords.filter(w => w.id !== correctItem.id).map(w => (type === 'meaning' ? w.primary_meaning_ko : w.word));
-      const choices = [...new Set(pool)].sort(() => Math.random() - 0.5).slice(0, 3);
-      choices.push(correctText);
-      const shuffled = choices.sort(() => Math.random() - 0.5);
-
+    function renderChoices(item, type, audio = false) {
+      const correct = (type === 'm') ? item.primary_meaning_ko : item.word;
+      const pool = currentWords.filter(w => w.id !== item.id).map(w => (type === 'm' ? w.primary_meaning_ko : w.word));
+      const choices = [...new Set(pool)].sort(() => 0.5 - Math.random()).slice(0, 3);
+      choices.push(correct);
+      const shuffled = choices.sort(() => 0.5 - Math.random());
       el.choiceArea.innerHTML = shuffled.map(c => `<button class="choice-btn">${c}</button>`).join('');
-      if (withAudio) {
-        const audioBtn = document.createElement('button');
-        audioBtn.className = 'btn-light'; audioBtn.textContent = '🔊 다시 듣기';
-        audioBtn.onclick = () => speak(correctItem.word);
-        el.choiceArea.appendChild(audioBtn);
-      }
+      if (audio) { const b = document.createElement('button'); b.className = 'btn-light'; b.textContent = '🔊 다시 듣기'; b.onclick = () => speak(item.word); el.choiceArea.appendChild(b); }
       el.choiceArea.querySelectorAll('.choice-btn').forEach(btn => {
         btn.onclick = () => {
-          if (isProcessing) return;
-          isProcessing = true;
-          if (btn.textContent === correctText) {
-            playSound('correct'); btn.classList.add('correct');
-            setTimeout(() => { isProcessing = false; next(); }, 220);
-          } else {
-            playSound('wrong'); btn.classList.add('wrong');
-            const cBtn = Array.from(el.choiceArea.querySelectorAll('.choice-btn')).find(b => b.textContent === correctText);
-            if(cBtn) cBtn.classList.add('correct');
-            handleFail();
-          }
+          if (isProcessing) return; isProcessing = true;
+          if (btn.textContent === correct) { playSound('correct'); btn.classList.add('correct'); setTimeout(() => { isProcessing = false; next(); }, 220); }
+          else { playSound('wrong'); btn.classList.add('wrong'); handleFail(); }
         };
       });
     }
 
-    document.getElementById('answerSubmitBtn').onclick = () => {
-      const item = currentWords[currentIndex];
-      const input = el.answerInput.value.trim().toLowerCase();
-      const correct = (studyPhase === 'test_4') ? item.primary_meaning_ko : item.word.toLowerCase();
-      
-      const isOk = (studyPhase === 'test_4') ? (input === correct || (item.accepted_meanings_ko || []).includes(input)) : (input === correct);
-
-      if (isOk) {
-        playSound('correct'); el.answerInput.style.borderColor = 'var(--green)';
-        setTimeout(() => { el.answerInput.style.borderColor = 'var(--line)'; next(); }, 220);
-      } else {
-        playSound('wrong'); el.answerInput.style.borderColor = 'var(--red)';
-        handleFail();
-      }
-    };
-
     function renderMatchingGame() {
-      // 현재 인덱스부터 최대 10개씩 게임 구성
-      const gameItems = currentWords.slice(currentIndex, currentIndex + 10);
+      const items = currentWords.slice(currentIndex, currentIndex + 10);
       let blocks = [];
-      gameItems.forEach(item => {
-        blocks.push({ id: item.id, text: item.word, type: 'w' });
-        blocks.push({ id: item.id, text: item.primary_meaning_ko, type: 'm' });
-      });
-      blocks = blocks.sort(() => Math.random() - 0.5);
+      items.forEach(it => { blocks.push({ id: it.id, text: it.word, type: 'w' }); blocks.push({ id: it.id, text: it.primary_meaning_ko, type: 'm' }); });
+      blocks = blocks.sort(() => 0.5 - Math.random());
       el.gameArea.innerHTML = blocks.map(b => `<button class="game-btn" data-id="${b.id}" data-type="${b.type}">${b.text}</button>`).join('');
-      
       el.gameArea.querySelectorAll('.game-btn').forEach(btn => {
         btn.onclick = () => {
           if (isProcessing || btn.classList.contains('matched')) return;
-          if (!gameSelected) {
-            gameSelected = btn; btn.classList.add('selected');
-          } else {
+          if (!gameSelected) { gameSelected = btn; btn.classList.add('selected'); }
+          else {
             if (gameSelected === btn) { btn.classList.remove('selected'); gameSelected = null; return; }
             if (gameSelected.dataset.id === btn.dataset.id && gameSelected.dataset.type !== btn.dataset.type) {
               playSound('correct'); btn.classList.add('selected'); isProcessing = true;
-              setTimeout(() => {
-                btn.classList.add('matched'); gameSelected.classList.add('matched');
-                gameSelected = null; isProcessing = false;
-                if (el.gameArea.querySelectorAll('.matched').length === blocks.length) {
-                  currentIndex += 10;
-                  if (currentIndex >= currentWords.length) finish(); else render();
-                }
+              setTimeout(() => { btn.classList.add('matched'); gameSelected.classList.add('matched'); gameSelected = null; isProcessing = false;
+                if (el.gameArea.querySelectorAll('.matched').length === blocks.length) { currentIndex += 10; if (currentIndex >= currentWords.length) finish(); else render(); }
               }, 250);
             } else {
               playSound('wrong'); btn.classList.add('error'); gameSelected.classList.add('error'); isProcessing = true;
-              setTimeout(() => {
-                btn.classList.remove('error', 'selected'); gameSelected.classList.remove('error', 'selected');
-                gameSelected = null; isProcessing = false;
-              }, 400);
+              setTimeout(() => { btn.classList.remove('error', 'selected'); gameSelected.classList.remove('error', 'selected'); gameSelected = null; isProcessing = false; }, 400);
             }
           }
         };
@@ -384,59 +301,43 @@
       hearts--;
       document.getElementById('heartDisplay').textContent = `❤ x ${hearts}`;
       if (hearts < 0) {
-        showModal("기회를 모두 소진했습니다. 다시 도전하세요!", "실패", () => {
-          hearts = initialHearts; currentIndex = 0; render();
-        });
-      } else {
-        el.status.textContent = '틀렸습니다! 다시 시도하세요.';
-        isProcessing = false;
-      }
+        document.getElementById('modalMsg').textContent = "기회를 소진했습니다. 처음부터 다시 시작합니다.";
+        document.getElementById('appModal').style.display = 'flex';
+        document.getElementById('modalConfirm').onclick = () => { document.getElementById('appModal').style.display = 'none'; hearts = initialHearts; currentIndex = 0; render(); };
+      } else { isProcessing = false; }
     }
 
     function next() {
       currentIndex++;
       if (currentIndex >= currentWords.length) {
-        if (studyMode === 'card' && studyPhase === 'word_to_meaning') { studyPhase = 'meaning_to_word'; currentIndex = 0; render(); }
-        else if (studyMode === 'basic' && studyPhase === 'test_1') { studyPhase = 'test_2'; currentIndex = 0; render(); }
-        else if (studyMode === 'basic' && studyPhase === 'test_2') { studyPhase = 'test_3'; currentIndex = 0; render(); }
-        else if (studyMode === 'advanced' && studyPhase === 'test_4') { studyPhase = 'test_5'; currentIndex = 0; render(); }
+        if (studyPhase === 'word_to_meaning') { studyPhase = 'meaning_to_word'; currentIndex = 0; render(); }
+        else if (studyPhase === 'test_1') { studyPhase = 'test_2'; currentIndex = 0; render(); }
+        else if (studyPhase === 'test_2') { studyPhase = 'test_3'; currentIndex = 0; render(); }
+        else if (studyPhase === 'test_4') { studyPhase = 'test_5'; currentIndex = 0; render(); }
         else finish();
       } else render();
     }
 
-    function finish() {
-      document.getElementById('studyBox').style.display = 'none';
-      document.getElementById('completeBox').style.display = 'block';
-    }
-
+    function finish() { document.getElementById('studyBox').style.display = 'none'; document.getElementById('completeBox').style.display = 'block'; }
     function initScratch() {
-      const canvas = el.scratchCanvas;
-      const ctx = canvas.getContext('2d');
-      const rect = el.scratchCard.getBoundingClientRect();
-      canvas.width = rect.width; canvas.height = rect.height;
-      ctx.fillStyle = '#dfe6ef'; ctx.fillRect(0,0,canvas.width,canvas.height);
-      ctx.fillStyle = '#334155'; ctx.font = 'bold 14px Arial'; ctx.textAlign = 'center';
-      ctx.fillText('긁어서 확인', canvas.width/2, canvas.height/2 + 5);
-      let drawing = false;
-      const scratch = (x, y) => { ctx.globalCompositeOperation = 'destination-out'; ctx.beginPath(); ctx.arc(x, y, 20, 0, Math.PI * 2); ctx.fill(); };
-      canvas.onpointerdown = (e) => { drawing = true; scratch(e.offsetX, e.offsetY); };
-      canvas.onpointermove = (e) => { if(drawing) scratch(e.offsetX, e.offsetY); };
-      canvas.onpointerup = () => drawing = false;
+      const c = el.scratchCanvas; const ctx = c.getContext('2d'); const r = el.scratchCard.getBoundingClientRect();
+      c.width = r.width; c.height = r.height; ctx.fillStyle = '#dfe6ef'; ctx.fillRect(0,0,c.width,c.height);
+      ctx.fillStyle = '#334155'; ctx.font = 'bold 14px Arial'; ctx.textAlign = 'center'; ctx.fillText('긁어서 확인', c.width/2, c.height/2 + 5);
+      let draw = false; const sc = (x, y) => { ctx.globalCompositeOperation = 'destination-out'; ctx.beginPath(); ctx.arc(x, y, 20, 0, Math.PI * 2); ctx.fill(); };
+      c.onpointerdown = (e) => { draw = true; sc(e.offsetX, e.offsetY); }; c.onpointermove = (e) => { if(draw) sc(e.offsetX, e.offsetY); }; c.onpointerup = () => draw = false;
       el.scratchCard.classList.remove('revealed');
     }
 
-    function showModal(msg, title, cb) {
-      document.getElementById('modalTitle').textContent = title;
-      document.getElementById('modalMsg').textContent = msg;
-      document.getElementById('appModal').classList.add('show');
-      document.getElementById('modalConfirm').onclick = () => { document.getElementById('appModal').classList.remove('show'); if(cb) cb(); };
-    }
-
-    document.getElementById('lobbyBtn').onclick = () => location.href = 'vocab.html';
     document.getElementById('nextBtn').onclick = next;
     document.getElementById('revealBtn').onclick = () => el.scratchCard.classList.add('revealed');
     document.getElementById('speakBtn').onclick = () => speak(currentWords[currentIndex].word);
-    
+    document.getElementById('answerSubmitBtn').onclick = () => {
+      const item = currentWords[currentIndex];
+      const inp = el.answerInput.value.trim().toLowerCase();
+      const cor = (studyPhase === 'test_4') ? item.primary_meaning_ko.toLowerCase() : item.word.toLowerCase();
+      if (inp === cor) { playSound('correct'); next(); } else { playSound('wrong'); handleFail(); }
+    };
+
     loadData();
   </script>
 </body>
