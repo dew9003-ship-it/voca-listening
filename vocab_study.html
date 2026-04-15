@@ -511,7 +511,7 @@
         <div class="word-card">
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
   <div id="testOrder" style="font-weight:800; font-size:18px;">1 / 10</div>
-  <div class="pill">테스트 1</div>
+  <div id="testPhaseBadge" class="pill">테스트 1</div>
   <div id="testHearts" class="card-hearts" style="position:static; font-size:18px;">❤ × 1</div>
 </div>
 
@@ -582,6 +582,7 @@ const testOrder = document.getElementById('testOrder');
 
 const testQuestion = document.getElementById('testQuestion');
 const testGuide = document.getElementById('testGuide');
+const testPhaseBadge = document.getElementById('testPhaseBadge');
 const choiceWrap = document.getElementById('choiceWrap');
 const answerWrap = document.getElementById('answerWrap');
 const answerInput = document.getElementById('answerInput');
@@ -974,18 +975,22 @@ function buildWordChoices(correctItem) {
   let progress = 100;
   if (studyPhase === 'test_1') {
     progress = total > 0 ? 66 + ((currentIndex / total) * 8) : 74;
+    testPhaseBadge.textContent = '테스트 1';
   } else if (studyPhase === 'test_2') {
     progress = total > 0 ? 74 + ((currentIndex / total) * 8) : 82;
+    testPhaseBadge.textContent = '테스트 2';
   } else if (studyPhase === 'test_3') {
     progress = total > 0 ? 82 + ((currentIndex / total) * 8) : 90;
+    testPhaseBadge.textContent = '테스트 3';
   } else if (studyPhase === 'test_4') {
     progress = total > 0 ? 90 + ((currentIndex / total) * 10) : 100;
+    testPhaseBadge.textContent = '테스트 4';
   }
 
   choiceWrap.innerHTML = '';
-choiceWrap.style.display = 'grid';
-choiceWrap.style.gridTemplateColumns = '1fr';
-answerWrap.style.display = 'none';
+  choiceWrap.style.display = 'grid';
+  choiceWrap.style.gridTemplateColumns = '1fr';
+  answerWrap.style.display = 'none';
 
   if (studyPhase === 'test_1') {
     testQuestion.textContent = item.word || '-';
@@ -993,14 +998,14 @@ answerWrap.style.display = 'none';
     setStatus('테스트 1: 영단어에 맞는 뜻을 선택하세요.');
 
     const choices = buildTestChoices(item);
-    for (const choice of choices) {
+    choices.forEach((choice) => {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'choice-btn';
       btn.textContent = choice;
       btn.addEventListener('click', () => handleTestAnswer(choice));
       choiceWrap.appendChild(btn);
-    }
+    });
   } else if (studyPhase === 'test_2') {
     testQuestion.textContent = '🔊';
     testGuide.textContent = '발음을 듣고 맞는 뜻을 고르세요.';
@@ -1008,14 +1013,14 @@ answerWrap.style.display = 'none';
     setStatus('테스트 2: 발음을 듣고 뜻을 선택하세요.');
 
     const choices = buildTestChoices(item);
-    for (const choice of choices) {
+    choices.forEach((choice) => {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'choice-btn';
       btn.textContent = choice;
       btn.addEventListener('click', () => handleTestAnswer(choice));
       choiceWrap.appendChild(btn);
-    }
+    });
 
     const replayBtn = document.createElement('button');
     replayBtn.type = 'button';
@@ -1029,30 +1034,27 @@ answerWrap.style.display = 'none';
     });
     choiceWrap.appendChild(replayBtn);
   } else if (studyPhase === 'test_3') {
-  testQuestion.textContent = getMeaningText(item);
-  testGuide.textContent = '뜻에 맞는 영어단어를 고르세요.';
-  setStatus('테스트 3: 뜻에 맞는 영어단어를 선택하세요.');
+    testQuestion.textContent = getMeaningText(item);
+    testGuide.textContent = '뜻에 맞는 영어단어를 고르세요.';
+    setStatus('테스트 3: 뜻에 맞는 영어단어를 선택하세요.');
 
-  choiceWrap.innerHTML = '';
-  choiceWrap.style.display = 'grid';
-  choiceWrap.style.gridTemplateColumns = '1fr';
-
-  const choices = buildWordChoices(item);
-
-  choices.forEach((choice) => {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'choice-btn';
-    btn.textContent = choice || '-';
-    btn.addEventListener('click', () => handleTestAnswer(choice));
-    choiceWrap.appendChild(btn);
-  });
-} else {
+    const choices = buildWordChoices(item);
+    choices.forEach((choice) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'choice-btn';
+      btn.textContent = choice;
+      btn.addEventListener('click', () => handleTestAnswer(choice));
+      choiceWrap.appendChild(btn);
+    });
+  } else {
     testQuestion.textContent = item.word || '-';
     testGuide.textContent = '영단어에 맞는 뜻을 입력하세요.';
     choiceWrap.style.display = 'none';
     answerWrap.style.display = 'flex';
     answerInput.value = '';
+    answerInput.disabled = false;
+    answerSubmitBtn.disabled = false;
     setTimeout(() => answerInput.focus(), 0);
     setStatus('테스트 4: 뜻을 직접 입력하세요.');
   }
@@ -1331,8 +1333,15 @@ renderHeartIcons();
       }
 
       studyPhase = 'word_to_meaning';
-      currentIndex = 0;
-      renderCard();
+currentTestStartPhase = 'test_1';
+currentIndex = 0;
+hearts = 1;
+initialHearts = 1;
+answerInput.value = '';
+answerInput.disabled = false;
+answerSubmitBtn.disabled = false;
+renderHeartIcons();
+renderCard();
     }
 
     scratchCanvas.addEventListener('pointerdown', (e) => {
