@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>보카엔딩 단어 학습</title>
   <style>
+    /* 기존 스타일 유지 */
     * { box-sizing: border-box; }
     :root{
       --bg:#f4f7fb; --card:#ffffff; --line:#e5e7eb; --text:#1f2937;
@@ -73,7 +74,7 @@
     <div class="topbar">
       <div class="title-box">
         <h1>오늘의 단어 학습</h1>
-        <p>카드 학습 2단계 후 테스트 4단계가 진행됩니다.</p>
+        <p>카드 학습 2단계 후 테스트 5단계가 진행됩니다.</p>
       </div>
       <div class="btns">
         <button id="backBtn" class="btn-light" type="button">단어장 선택</button>
@@ -108,6 +109,7 @@
       <div id="loadingBox" class="loading">학습 세트를 구성 중입니다...</div>
       <div id="emptyBox" class="empty" style="display:none;">오늘의 학습 세트가 없습니다.</div>
 
+      <!-- 카드 학습 섹션 -->
       <div id="studyBox" style="display:none;">
         <div class="word-card">
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
@@ -132,6 +134,7 @@
         </div>
       </div>
 
+      <!-- 테스트 섹션 -->
       <div id="testBox" style="display:none;">
         <div class="word-card">
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
@@ -143,7 +146,7 @@
           <div id="testGuide" class="sub-text">알맞은 답을 고르세요.</div>
           <div id="choiceWrap" class="choice-wrap"></div>
           <div id="answerWrap" class="answer-form" style="display:none;">
-            <input id="answerInput" class="answer-input" type="text" placeholder="뜻을 입력하세요" autocomplete="off" />
+            <input id="answerInput" class="answer-input" type="text" placeholder="정답을 입력하세요" autocomplete="off" />
             <button id="answerSubmitBtn" class="btn-green answer-submit" type="button">정답 확인</button>
           </div>
         </div>
@@ -161,6 +164,7 @@
     </div>
   </div>
 
+  <!-- 알림 모달 -->
   <div id="appModal" class="app-modal">
     <div class="app-modal-card">
       <div id="appModalTitle" class="app-modal-title">안내</div>
@@ -216,8 +220,8 @@
     let studyPhase = 'word_to_meaning';
     let hearts = 1;
     let initialHearts = 1;
-    let isProcessing = false; // 엔터 중복 방지 플래그
-    let isModalOpen = false; // 모달 상태 플래그
+    let isProcessing = false; 
+    let isModalOpen = false; 
 
     let audioCtx = null;
     function getAudioCtx() {
@@ -226,12 +230,10 @@
       return audioCtx;
     }
 
-    // [수정 2] 정답 사운드 교체 (디로링~ 경쾌한 상승음)
     function playSound(type) {
       const ctx = getAudioCtx();
       const start = ctx.currentTime;
       if (type === 'correct') {
-        // 경쾌한 3단 상승음
         [523.25, 659.25, 783.99].forEach((freq, i) => {
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
@@ -262,14 +264,14 @@
     }
 
     function showAppModal(message, title = '안내', onConfirm = null) {
-      isModalOpen = true; // 모달 오픈 상태
+      isModalOpen = true; 
       document.getElementById('appModalTitle').textContent = title;
       document.getElementById('appModalMessage').textContent = message;
       const modal = document.getElementById('appModal');
       modal.classList.add('show');
       document.getElementById('appModalConfirm').onclick = () => {
         modal.classList.remove('show');
-        isModalOpen = false; // 모달 닫힘
+        isModalOpen = false; 
         if (onConfirm) onConfirm();
       };
     }
@@ -326,23 +328,17 @@
       return shuffle([correct, ...wrongs]);
     }
 
-    // [수정 1] 첫 단어 긁기 캔버스 오류 수정
     let scratchCtx = null;
     function initScratch() {
       const canvas = elements.scratchCanvas;
       const card = elements.scratchCard;
-      card.classList.remove('revealed'); // 확실히 가림막 초기화
-      
-      // 캔버스 크기 재설정
+      card.classList.remove('revealed'); 
       const rect = card.getBoundingClientRect();
       const dpr = window.devicePixelRatio || 1;
       canvas.width = rect.width * dpr; canvas.height = rect.height * dpr;
       canvas.style.width = rect.width + 'px'; canvas.style.height = rect.height + 'px';
-      
       scratchCtx = canvas.getContext('2d');
       scratchCtx.scale(dpr, dpr);
-      
-      // 가림막 색칠
       scratchCtx.fillStyle = '#dfe6ef';
       scratchCtx.fillRect(0, 0, rect.width, rect.height);
       scratchCtx.fillStyle = '#334155';
@@ -352,8 +348,8 @@
     }
 
     function renderCard() {
+      setStatus(''); // 메시지 초기화
       if (currentIndex >= currentWords.length) {
-        // [수정 6] 학습 단계 넘어가면 하트 리셋
         hearts = initialHearts; 
         if (studyPhase === 'word_to_meaning') {
           studyPhase = 'meaning_to_word'; currentIndex = 0; renderCard();
@@ -362,38 +358,36 @@
         }
         return;
       }
-      
       const item = currentWords[currentIndex];
       const total = currentWords.length;
-      const prog = (studyPhase === 'word_to_meaning' ? 0 : 33) + (currentIndex / total * 33);
-      elements.progressBar.style.width = prog + '%';
+      const prog = (studyPhase === 'word_to_meaning' ? 0 : 33) * (1); // 간소화된 계산
+      elements.progressBar.style.width = ((studyPhase==='word_to_meaning'?0:25) + (currentIndex/total*25)) + '%';
+      
       elements.cardOrder.textContent = `${currentIndex + 1} / ${total}`;
       elements.currentStepText.textContent = `${currentIndex + 1} / ${total}`;
 
       if (studyPhase === 'word_to_meaning') {
-        elements.phaseBadge.textContent = '1단계: 뜻 맞추기';
+        elements.phaseBadge.textContent = '1단계: 영단어 보고 뜻 맞추기';
         elements.wordText.textContent = item.word;
         elements.scratchAnswer.textContent = getMeaningText(item);
         speakWord(item.word);
       } else {
-        elements.phaseBadge.textContent = '2단계: 영단어 맞추기';
+        elements.phaseBadge.textContent = '2단계: 뜻 보고 영단어 맞추기';
         elements.wordText.textContent = getMeaningText(item);
         elements.scratchAnswer.textContent = item.word;
       }
 
-      // [수정 1] 렌더링 후 즉시 캔버스 초기화
       requestAnimationFrame(() => initScratch());
-
       elements.studyBox.style.display = 'block';
       elements.testBox.style.display = 'none';
       renderHeartIcons();
     }
 
     function renderTestCard() {
+      setStatus(''); // 메시지 초기화
       if (currentIndex >= currentWords.length) {
-        // [수정 6] 테스트 단계 넘어가면 하트 리셋
         hearts = initialHearts;
-        const phases = ['test_1', 'test_2', 'test_3', 'test_4', 'done'];
+        const phases = ['test_1', 'test_2', 'test_3', 'test_4', 'test_5', 'done'];
         const nextIdx = phases.indexOf(studyPhase) + 1;
         studyPhase = phases[nextIdx];
         currentIndex = 0;
@@ -409,13 +403,12 @@
 
       const item = currentWords[currentIndex];
       const total = currentWords.length;
-      let stepProg = 0;
-      if (studyPhase === 'test_1') stepProg = 66 + (currentIndex/total * 8);
-      else if (studyPhase === 'test_2') stepProg = 74 + (currentIndex/total * 8);
-      else if (studyPhase === 'test_3') stepProg = 82 + (currentIndex/total * 8);
-      else if (studyPhase === 'test_4') stepProg = 90 + (currentIndex/total * 10);
       
+      // 진행바 계산 (학습 2단계 + 테스트 5단계 = 총 7단계 기준)
+      const baseMap = { 'test_1': 50, 'test_2': 60, 'test_3': 70, 'test_4': 80, 'test_5': 90 };
+      let stepProg = (baseMap[studyPhase] || 50) + (currentIndex/total * 10);
       elements.progressBar.style.width = stepProg + '%';
+
       elements.testOrder.textContent = `${currentIndex + 1} / ${total}`;
       elements.currentStepText.textContent = `${currentIndex + 1} / ${total}`;
       elements.choiceWrap.innerHTML = '';
@@ -428,7 +421,6 @@
         elements.testQuestion.textContent = item.word;
         renderChoices(buildChoices(item, false));
       } else if (studyPhase === 'test_2') {
-        // [수정 4] 테스트 2 다시듣기 버튼 추가
         elements.testPhaseBadge.textContent = '테스트 2: 발음 → 뜻';
         elements.testQuestion.textContent = '🔊';
         speakWord(item.word);
@@ -438,11 +430,22 @@
         elements.testQuestion.textContent = getMeaningText(item);
         renderChoices(buildChoices(item, true));
       } else if (studyPhase === 'test_4') {
-        elements.testPhaseBadge.textContent = '테스트 4: 주관식';
+        elements.testPhaseBadge.textContent = '테스트 4: 주관식 (영단어→뜻)';
         elements.testQuestion.textContent = item.word;
         elements.choiceWrap.style.display = 'none';
         elements.answerWrap.style.display = 'flex';
         elements.answerInput.value = '';
+        elements.answerInput.placeholder = '뜻을 입력하세요';
+        elements.answerInput.classList.remove('wrong', 'shake');
+        setTimeout(() => elements.answerInput.focus(), 100);
+      } else if (studyPhase === 'test_5') {
+        // [추가] 테스트 5: 뜻 → 영단어 주관식
+        elements.testPhaseBadge.textContent = '테스트 5: 주관식 (뜻→영단어)';
+        elements.testQuestion.textContent = getMeaningText(item);
+        elements.choiceWrap.style.display = 'none';
+        elements.answerWrap.style.display = 'flex';
+        elements.answerInput.value = '';
+        elements.answerInput.placeholder = '영단어를 입력하세요';
         elements.answerInput.classList.remove('wrong', 'shake');
         setTimeout(() => elements.answerInput.focus(), 100);
       }
@@ -451,7 +454,6 @@
       renderHeartIcons();
     }
 
-    // [수정 4] includeAudio 인자 추가
     function renderChoices(choices, includeAudio = false) {
       choices.forEach(c => {
         const btn = document.createElement('button');
@@ -473,20 +475,16 @@
     function handleTestAnswer(choice) {
       if (isProcessing) return;
       isProcessing = true;
-
       const item = currentWords[currentIndex];
       const correct = (studyPhase === 'test_3') ? item.word : getMeaningText(item);
       const isCorrect = (choice === correct);
-      
       const btns = elements.choiceWrap.querySelectorAll('.choice-btn');
       btns.forEach(b => {
         b.disabled = true;
         if(b.textContent === correct) b.classList.add('correct');
       });
-
       if (isCorrect) {
         playSound('correct');
-        // [수정 3] 딜레이 220ms
         setTimeout(() => { currentIndex++; renderTestCard(); }, 220);
       } else {
         playSound('wrong');
@@ -497,15 +495,22 @@
     }
 
     function handleSubjective() {
-      // [수정 5] 중복 실행 및 모달 상태 체크
       if (isProcessing || isModalOpen) return;
       isProcessing = true;
-
       const item = currentWords[currentIndex];
-      if (isCorrectInput(item, elements.answerInput.value)) {
+      
+      let isCorrect = false;
+      if (studyPhase === 'test_5') {
+        // 테스트 5는 영단어와 비교 (대소문자 무관)
+        isCorrect = normalize(elements.answerInput.value).toLowerCase() === normalize(item.word).toLowerCase();
+      } else {
+        // 테스트 4는 한글 뜻과 비교
+        isCorrect = isCorrectInput(item, elements.answerInput.value);
+      }
+
+      if (isCorrect) {
         playSound('correct');
         elements.answerInput.style.backgroundColor = '#dcfce7';
-        // [수정 3] 딜레이 220ms
         setTimeout(() => {
           elements.answerInput.style.backgroundColor = '';
           currentIndex++; renderTestCard();
@@ -522,17 +527,16 @@
       hearts--;
       renderHeartIcons(true);
       if (hearts < 0) {
-        // [수정 5] 하트 - 방지 (강제 고정)
         hearts = -1; 
         showAppModal(`하트를 모두 소진했습니다.\n${elements.testPhaseBadge.textContent}을 처음부터 다시 시작합니다.`, '다시 도전', () => {
           hearts = initialHearts; currentIndex = 0; renderTestCard();
         });
       } else {
         setStatus(`틀렸습니다! (남은 하트: ${hearts}개)`, true);
-        if(studyPhase !== 'test_4') {
+        if(studyPhase !== 'test_4' && studyPhase !== 'test_5') {
            setTimeout(() => { currentIndex++; renderTestCard(); }, 700);
         } else {
-          isProcessing = false; // 주관식은 다시 입력 가능하게
+          isProcessing = false; 
         }
       }
     }
@@ -543,32 +547,24 @@
       me = user;
       const { data: prof } = await supabase.from('profiles').select('name').eq('user_id', me.id).maybeSingle();
       elements.currentName.textContent = prof?.name || me.email;
-
       const today = new Date().toISOString().slice(0, 10);
       const { data: set } = await supabase.from('user_vocab_daily_sets').select('*').eq('user_id', me.id).eq('study_date', today).maybeSingle();
-
       if (!set) {
         elements.loadingBox.style.display = 'none'; elements.emptyBox.style.display = 'block'; return;
       }
-
-      // 하트 설정
       initialHearts = set.heart_count || 1; 
       hearts = initialHearts;
-
       const { data: words } = await supabase.from('vocab_words').select('*').in('id', set.total_words);
       const orderMap = new Map(set.total_words.map((id, i) => [id, i]));
       currentWords = words.sort((a, b) => orderMap.get(a.id) - orderMap.get(b.id));
-
       const { data: book } = await supabase.from('vocab_books').select('title, description').eq('id', set.book_id).maybeSingle();
       elements.bookTitle.textContent = book?.title || '오늘의 단어';
       elements.bookDesc.textContent = book?.description || '보카엔딩 단어 학습';
       elements.totalCountText.textContent = currentWords.length;
       elements.loadingBox.style.display = 'none';
-      
       renderCard();
     }
 
-    // 긁기 로직
     elements.scratchCanvas.onpointerdown = (e) => {
       elements.scratchCanvas.setPointerCapture(e.pointerId);
       const scratch = (ex, ey) => {
