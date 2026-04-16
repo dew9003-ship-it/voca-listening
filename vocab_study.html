@@ -1,225 +1,549 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
+<meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>보카엔딩 - 단어 학습</title>
-  <style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>보카엔딩 단어 학습</title>
+<style>
     * { box-sizing: border-box; }
-    :root {
-      --bg: #f4f7fb; --card: #ffffff; --line: #e5e7eb; --text: #1f2937;
-      --blue: #4f8cff; --green: #10b981; --red: #ef4444; --orange: #f59e0b;
-      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+:root{
+--bg:#f4f7fb; --card:#ffffff; --line:#e5e7eb; --text:#1f2937;
+--muted:#6b7280; --blue:#4f8cff; --green:#4caf50; --red:#ef4444;
+--shadow:0 10px 30px rgba(15,23,42,.08);
+}
+    body{ margin:0; font-family:Arial,sans-serif; background:linear-gradient(180deg,#eff5ff 0%,#f4f7fb 35%,#eef8f1 100%); color:var(--text); }
+    .wrap{ max-width:900px; margin:0 auto; padding:15px; min-height:100vh; }
+    .topbar{ display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:15px; }
+    .topbar h1 { margin:0; font-size:24px; font-weight:800; }
+    button{ border:none; border-radius:12px; padding:10px 14px; font-size:13px; font-weight:700; cursor:pointer; }
+    body{ margin:0; font-family:Arial,sans-serif; background:linear-gradient(180deg,#eff5ff 0%,#f4f7fb 35%,#eef8f1 100%); color:var(--text); overflow-x:hidden; }
+    .wrap{ max-width:1000px; margin:0 auto; padding:15px; min-height:100vh; }
+    .topbar{ display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; }
+    .topbar h1 { margin:0; font-size:22px; font-weight:800; }
+    button{ border:none; border-radius:12px; padding:10px 14px; font-size:13px; font-weight:700; cursor:pointer; transition: 0.2s; }
+.btn-blue{ background:var(--blue); color:#fff; }
+.btn-green{ background:var(--green); color:#fff; }
+.btn-light{ background:#fff; color:#334155; border:1px solid var(--line); }
+
+.summary-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; margin-bottom:15px; }
+.summary-card{ background:var(--card); border-radius:16px; padding:10px; box-shadow:var(--shadow); text-align:center; }
+.summary-card .label{ color:var(--muted); font-size:11px; margin-bottom:4px; }
+.summary-card .value{ font-size:14px; font-weight:800; }
+
+.panel{ padding:15px; background:var(--card); border-radius:20px; box-shadow:var(--shadow); margin-bottom:15px; }
+.progress-wrap{ width:100%; height:8px; background:#e5e7eb; border-radius:999px; overflow:hidden; margin-bottom:15px; }
+.progress-bar{ height:100%; width:0%; background:linear-gradient(90deg,#4f8cff,#6fcf97); transition:width .2s ease; }
+
+    .word-card{ position:relative; border:1px solid var(--line); background:#fff; border-radius:22px; padding:20px; text-align:center; min-height:400px; display:flex; flex-direction:column; justify-content:center; gap:12px; }
+    .word-card{ position:relative; border:1px solid var(--line); background:#fff; border-radius:22px; padding:20px; text-align:center; min-height:380px; display:flex; flex-direction:column; justify-content:center; gap:12px; }
+.word-text{ font-size:42px; font-weight:900; margin:15px 0; word-break:break-word; }
+.pill{ display:inline-flex; padding:6px 12px; border-radius:999px; background:#eef4ff; color:#355ea9; font-size:12px; font-weight:800; margin:0 auto; }
+
+    /* 매칭 게임 그리드 (4열 레이아웃) */
+    .game-grid { 
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr); /* [단어][뜻][단어][뜻] 4열 */
+      gap: 10px; 
+      width:100%; 
+      margin-top: 10px;
     }
-    body { margin: 0; font-family: 'Pretendard', sans-serif; background: var(--bg); color: var(--text); overflow: hidden; }
+    .game-btn { 
+      background:#fff; border:2px solid var(--line); border-radius:12px; 
+      padding:12px 5px; font-size:13px; font-weight:800; cursor:pointer; 
+      min-height:70px; display:flex; align-items:center; justify-content:center; 
+      transition: all 0.2s; word-break: keep-all;
+    }
+    .game-btn.selected { border-color: var(--blue); background: #f0f7ff; color: var(--blue); }
+    .game-btn.matched { visibility: hidden; opacity: 0; pointer-events: none; }
+    .game-btn.error { border-color: var(--red); background: #fff1f1; animation: shake 0.3s; }
+
+    @keyframes shake{ 0%, 100%{ transform:translateX(0); } 25%{ transform:translateX(-5px); } 50%{ transform:translateX(5px); } }
     
-    .study-wrap { max-width: 500px; margin: 0 auto; height: 100vh; display: flex; flex-direction: column; padding: 20px; }
+.scratch-card{ position:relative; width:100%; height:120px; border-radius:18px; overflow:hidden; border:2px dashed #bfd5ff; background:#f8fbff; display:flex; align-items:center; justify-content:center; }
+.scratch-answer{ position:relative; z-index:1; font-size:28px; font-weight:800; }
+.scratch-canvas{ position:absolute; inset:0; z-index:2; cursor:grab; touch-action:none; }
+.scratch-card.revealed .scratch-canvas{ opacity:0; pointer-events:none; }
+
+.choice-wrap{ display:grid; gap:10px; width:100%; max-width:500px; margin:0 auto; }
+.choice-btn{ width:100%; padding:14px; background:#fff; border:1px solid var(--line); border-radius:16px; font-size:16px; font-weight:700; }
+.choice-btn.correct{ background:#dcfce7 !important; border-color:#22c55e !important; color:#166534 !important; }
+.choice-btn.wrong{ background:#fee2e2 !important; border-color:#ef4444 !important; color:#991b1b !important; }
+
+.answer-input{ width:100%; max-width:500px; border:2px solid var(--line); border-radius:16px; padding:15px; font-size:18px; font-weight:700; text-align:center; outline:none; }
     
-    /* 상단 헤더 */
-    .study-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-    .heart-box { color: var(--red); font-weight: bold; font-size: 18px; display: flex; align-items: center; gap: 5px; }
-    .progress-container { flex: 1; margin: 0 15px; height: 10px; background: var(--line); border-radius: 5px; overflow: hidden; }
-    .progress-bar { width: 0%; height: 100%; background: var(--blue); transition: width 0.3s; }
+    /* 매칭 게임 블록 스타일 */
+    .game-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; width:100%; }
+    .game-btn { background:#fff; border:2.5px solid var(--line); border-radius:14px; padding:12px 8px; font-size:14px; font-weight:800; cursor:pointer; min-height:65px; display:flex; align-items:center; justify-content:center; transition: all 0.2s; }
+    .game-btn.selected { border-color: var(--blue); background: #f0f7ff; color: var(--blue); transform: scale(1.02); }
+    .game-btn.matched { visibility: hidden; opacity: 0; pointer-events: none; }
+    .game-btn.error { border-color: var(--red); background: #fff1f1; animation: shake 0.3s; }
 
-    /* 단어 카드 구역 */
-    .card-area { flex: 1; perspective: 1000px; position: relative; margin-bottom: 30px; }
-    .card {
-      width: 100%; height: 100%; position: relative; transform-style: preserve-3d;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;
-    }
-    .card.flipped { transform: rotateY(180deg); }
-    
-    .card-face {
-      position: absolute; width: 100%; height: 100%; backface-visibility: hidden;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      background: #fff; border-radius: 30px; box-shadow: var(--shadow); padding: 40px;
-    }
-    .card-back { transform: rotateY(180deg); background: #f9faff; }
+    @keyframes shake{ 0%, 100%{ transform:translateX(0); } 25%{ transform:translateX(-5px); } 50%{ transform:translateX(5px); } }
+.footer-actions{ display:flex; gap:10px; justify-content:center; margin-top:10px; }
+    .status { text-align:center; font-size:13px; margin-top:8px; min-height:18px; color:var(--red); font-weight:700; }
+    .status { text-align:center; font-size:13px; margin-top:8px; color:var(--red); font-weight:700; }
 
-    .word-text { font-size: 48px; font-weight: 800; color: var(--blue); margin-bottom: 10px; text-align: center; }
-    .phonetic { font-size: 18px; color: var(--muted); margin-bottom: 20px; }
-    .meaning-text { font-size: 32px; font-weight: 700; color: var(--text); text-align: center; }
-    .example-text { font-size: 16px; color: #6b7280; margin-top: 20px; line-height: 1.5; text-align: center; }
-
-    /* 하단 버튼 */
-    .bottom-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-    button { 
-      border: none; border-radius: 20px; padding: 20px; font-size: 18px; font-weight: 700; 
-      cursor: pointer; transition: 0.2s; color: white;
+    /* 모바일 가로 모드 최적화 */
+    @media (max-width: 900px) and (orientation: landscape) {
+      .wrap { padding: 5px; }
+      .summary-grid { display: none; }
+      .word-card { min-height: 200px; padding: 10px; }
+      .game-grid { grid-template-columns: repeat(4, 1fr); gap: 5px; }
+      .game-btn { min-height: 50px; font-size: 12px; }
+      .word-text { font-size: 28px; margin: 5px 0; }
     }
-    .btn-unknown { background: var(--red); box-shadow: 0 4px 0 #c53030; }
-    .btn-know { background: var(--green); box-shadow: 0 4px 0 #059669; }
-    button:active { transform: translateY(3px); box-shadow: none; }
 
-    /* 로딩 및 완료 화면 */
-    .overlay {
-      position: fixed; inset: 0; background: var(--bg); display: flex; flex-direction: column;
-      align-items: center; justify-content: center; z-index: 100; text-align: center; padding: 20px;
-    }
-    .hidden { display: none !important; }
-    .result-icon { font-size: 60px; margin-bottom: 20px; }
-  </style>
+@media (max-width:640px){
+.wrap { padding: 10px; }
+      .summary-grid { display: none; } /* 공간 확보를 위해 숨김 */
+      .topbar h1 { font-size: 20px; }
+      .word-text { font-size: 34px; }
+      .summary-grid { display: none; }
+      .game-grid { grid-template-columns: repeat(2, 1fr); } /* 폰 세로모드에선 2열이 한계 */
+}
+</style>
 </head>
 <body>
+<div class="wrap">
+<div class="topbar">
+<h1 id="modeTitle">단어 학습</h1>
+      <button id="lobbyBtn" class="btn-light">로비로</button>
+      <button onclick="location.href='vocab.html'" class="btn-light">로비로</button>
+</div>
 
-  <!-- 로딩 화면 -->
-  <div id="loadingOverlay" class="overlay">
-    <div class="word-text">잠시만 기다려주세요...</div>
-  </div>
+<div class="summary-grid">
+<div class="summary-card"><div class="label">오늘의 단어</div><div id="totalCount" class="value">-</div></div>
+<div class="summary-card"><div class="label">진행도</div><div id="progressCount" class="value">-</div></div>
+<div class="summary-card"><div class="label">하트</div><div id="heartDisplay" class="value" style="color:var(--red);">❤ x 1</div></div>
+</div>
 
-  <!-- 학습 완료 화면 -->
-  <div id="finishOverlay" class="overlay hidden">
-    <div class="result-icon">🎉</div>
-    <h2 style="font-size: 28px;">오늘의 학습 완료!</h2>
-    <p style="color: var(--muted); margin-bottom: 30px;">정말 멋져요. 내일도 또 만나요!</p>
-    <button onclick="location.href='index.html'" style="background: var(--blue); width: 200px;">학습 종료</button>
-  </div>
+<div class="panel">
+<div class="progress-wrap"><div id="progressBar" class="progress-bar"></div></div>
+      <div id="loadingBox" class="loading" style="text-align:center; padding:50px;">데이터를 불러오는 중...</div>
+      <div id="loadingBox" style="text-align:center; padding:50px;">데이터를 불러오는 중...</div>
 
-  <div class="study-wrap">
-    <div class="study-header">
-      <button onclick="confirmExit()" style="background:none; color:var(--text); padding:5px; font-size:20px;">✕</button>
-      <div class="progress-container">
-        <div id="progressBar" class="progress-bar"></div>
-      </div>
-      <div class="heart-box">❤️ <span id="heartCount">-</span></div>
-    </div>
+<div id="studyBox" style="display:none;">
+<div class="word-card">
+<div style="display:flex; justify-content:space-between; align-items:center;">
+<div id="itemOrder" style="font-weight:800; font-size:14px;">1 / 10</div>
+<div id="phaseBadge" class="pill">모드</div>
+</div>
 
-    <div class="card-area">
-      <div class="card" id="mainCard" onclick="flipCard()">
-        <!-- 앞면 (단어) -->
-        <div class="card-face card-front">
-          <div id="wordDisplay" class="word-text">Word</div>
-          <div id="phoneticDisplay" class="phonetic">/pronunciation/</div>
-          <div style="color: var(--muted); font-size: 14px; margin-top: 20px;">터치하여 뜻 확인</div>
-        </div>
-        <!-- 뒷면 (뜻) -->
-        <div class="card-face card-back">
-          <div id="meaningDisplay" class="meaning-text">뜻</div>
-          <div id="exampleDisplay" class="example-text">예문이 이곳에 표시됩니다.</div>
-        </div>
-      </div>
-    </div>
+          <!-- 질문 영역 (매칭게임 시 숨김) -->
+<div id="questionArea">
+<div id="wordText" class="word-text">word</div>
+</div>
 
-    <div class="bottom-btns">
-      <button class="btn-unknown" onclick="handleAnswer(false)">모르겠어요</button>
-      <button class="btn-know" onclick="handleAnswer(true)">알아요</button>
-    </div>
-  </div>
+          <!-- 1단계: 스크래치 -->
+          <div id="scratchArea" style="display:none;">
+            <div class="scratch-card" id="scratchCard">
+              <div id="scratchAnswer" class="scratch-answer">뜻</div>
+              <canvas id="scratchCanvas" class="scratch-canvas"></canvas>
+            </div>
+          </div>
 
-  <script type="module">
-    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+          <!-- 2단계: 4지선다 -->
+          <div id="scratchArea" style="display:none;"><div class="scratch-card" id="scratchCard"><div id="scratchAnswer" class="scratch-answer">뜻</div><canvas id="scratchCanvas" class="scratch-canvas"></canvas></div></div>
+<div id="choiceArea" class="choice-wrap" style="display:none;"></div>
 
-    const supabase = createClient(
-      'https://uuzhdxangctewuklvmlv.supabase.co',
-      'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
-    );
+          <!-- 3단계: 주관식 -->
+          <div id="typingArea" class="answer-form" style="display:none;">
+            <input id="answerInput" class="answer-input" type="text" autocomplete="off" />
+            <button id="answerSubmitBtn" class="btn-green" style="width:100%; padding:15px; margin-top:10px;">정답 확인</button>
+          </div>
 
-    // URL 파라미터 가져오기
-    const urlParams = new URLSearchParams(window.location.search);
-    const setId = urlParams.get('setId');
+          <!-- 4단계: 매칭 게임 -->
+          <div id="typingArea" class="answer-form" style="display:none;"><input id="answerInput" class="answer-input" type="text" autocomplete="off" /><button id="answerSubmitBtn" class="btn-green" style="width:100%; padding:15px; margin-top:10px;">정답 확인</button></div>
+          
+          <!-- 매칭 게임 영역 -->
+<div id="gameArea" class="game-grid" style="display:none;"></div>
 
-    let currentWords = [];
-    let currentIndex = 0;
-    let hearts = 0;
-    let isFlipped = false;
+<div class="footer-actions" id="cardActions">
+<button id="speakBtn" class="btn-light">🔊 발음</button>
+<button id="revealBtn" class="btn-blue">정답 공개</button>
+<button id="nextBtn" class="btn-green">다음 카드</button>
+</div>
+</div>
+</div>
 
-    async function init() {
-      if (!setId) { alert('잘못된 접근입니다.'); location.href='index.html'; return; }
+<div id="completeBox" style="display:none; text-align:center; padding:40px;">
+<h2 style="margin:0 0 10px;">학습 완료!</h2>
+        <p style="color:var(--muted); margin-bottom:20px;">모든 단계를 마쳤습니다.</p>
+<button onclick="location.href='vocab.html'" class="btn-blue" style="width:200px;">로비로 돌아가기</button>
+</div>
 
-      // 1. 학습 세트 정보 및 하트 수 가져오기
-      const { data: setInfo, error: setErr } = await supabase
-        .from('user_vocab_daily_sets')
-        .select('*')
-        .eq('id', setId)
-        .single();
+<div id="status" class="status"></div>
+</div>
+</div>
 
-      if (setErr || !setInfo) { alert('데이터를 불러오지 못했습니다.'); return; }
+  <div id="appModal" class="app-modal">
+    <div class="app-modal-card">
+      <h3 id="modalTitle" style="margin:0 0 10px;">안내</h3>
+      <p id="modalMsg" style="line-height:1.6; font-size:14px; color:#444;"></p>
+      <button id="modalConfirm" class="btn-blue" style="width:100%; margin-top:15px; padding:12px;">확인</button>
+  <div id="appModal" style="position:fixed; inset:0; background:rgba(0,0,0,0.5); display:none; align-items:center; justify-content:center; z-index:9999; padding:20px;">
+    <div style="width:100%; max-width:320px; background:#fff; border-radius:20px; padding:20px; text-align:center;">
+      <h3 id="modalTitle" style="margin:0 0 10px;">알림</h3>
+      <p id="modalMsg" style="font-size:14px; color:#444; margin-bottom:15px;"></p>
+      <button id="modalConfirm" class="btn-blue" style="width:100%;">확인</button>
+</div>
+</div>
+
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+const supabase = createClient('https://uuzhdxangctewuklvmlv.supabase.co', 'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F');
+
+const params = new URLSearchParams(window.location.search);
+const studyMode = params.get('mode') || 'card';
+let currentWords = [];
+let currentIndex = 0;
+let studyPhase = ''; 
+let hearts = 1;
+let initialHearts = 1;
+let isProcessing = false;
+let gameSelected = null;
+
+const el = {
+wordText: document.getElementById('wordText'),
+scratchCanvas: document.getElementById('scratchCanvas'),
+scratchAnswer: document.getElementById('scratchAnswer'),
+scratchCard: document.getElementById('scratchCard'),
+choiceArea: document.getElementById('choiceArea'),
+typingArea: document.getElementById('typingArea'),
+gameArea: document.getElementById('gameArea'),
+scratchArea: document.getElementById('scratchArea'),
+questionArea: document.getElementById('questionArea'),
+cardActions: document.getElementById('cardActions'),
+progressBar: document.getElementById('progressBar'),
+phaseBadge: document.getElementById('phaseBadge'),
+itemOrder: document.getElementById('itemOrder'),
+answerInput: document.getElementById('answerInput'),
+status: document.getElementById('status')
+};
+
+    let audioCtx = null;
+function playSound(type) {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+const osc = audioCtx.createOscillator();
+const gain = audioCtx.createGain();
+osc.frequency.setValueAtTime(type === 'correct' ? 660 : 220, audioCtx.currentTime);
+gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+osc.connect(gain).connect(audioCtx.destination);
+osc.start(); osc.stop(audioCtx.currentTime + 0.15);
+}
+
+function speak(text) {
+window.speechSynthesis.cancel();
+const u = new SpeechSynthesisUtterance(text);
+u.lang = 'en-US'; u.rate = 0.9;
+window.speechSynthesis.speak(u);
+}
+
+async function loadData() {
+const { data: { user } } = await supabase.auth.getUser();
+if (!user) return location.href = 'login.html';
+
+const today = new Date().toISOString().slice(0, 10);
+      const { data: set } = await supabase.from('user_vocab_daily_sets')
+        .select('*').eq('user_id', user.id).eq('study_date', today).maybeSingle();
+
+      const { data: set } = await supabase.from('user_vocab_daily_sets').select('*').eq('user_id', user.id).eq('study_date', today).maybeSingle();
+if (!set) return document.getElementById('loadingBox').textContent = "오늘의 학습 세트가 없습니다.";
+
+      // [핵심수정] 전체 단어를 가져오기 위해 limit 제거
+const { data: words } = await supabase.from('vocab_words').select('*').in('id', set.total_words);
+const orderMap = new Map(set.total_words.map((id, i) => [id, i]));
+currentWords = words.sort((a, b) => orderMap.get(a.id) - orderMap.get(b.id));
+
+initialHearts = set.heart_count || 1;
+hearts = initialHearts;
+document.getElementById('totalCount').textContent = currentWords.length;
+document.getElementById('loadingBox').style.display = 'none';
+document.getElementById('studyBox').style.display = 'block';
+
+      // 모드 설정
+      const titles = { card: '카드 학습', basic: '기초 테스트', advanced: '심화 테스트', game: '매칭 게임' };
+      document.getElementById('modeTitle').textContent = titles[studyMode];
+if (studyMode === 'card') studyPhase = 'word_to_meaning';
+else if (studyMode === 'basic') studyPhase = 'test_1';
+else if (studyMode === 'advanced') studyPhase = 'test_4';
+else studyPhase = 'test_6';
+
+render();
+}
+
+function render() {
+el.status.textContent = '';
+el.itemOrder.textContent = `${currentIndex + 1} / ${currentWords.length}`;
+document.getElementById('progressCount').textContent = `${currentIndex + 1} / ${currentWords.length}`;
+document.getElementById('heartDisplay').textContent = `❤ x ${hearts}`;
       
-      hearts = setInfo.heart_count || 5;
-      document.getElementById('heartCount').textContent = hearts;
+const item = currentWords[currentIndex];
 
-      // 2. 단어 상세 정보 가져오기
-      const { data: wordList, error: wordErr } = await supabase
-        .from('vocab_words')
-        .select('*')
-        .in('id', setInfo.total_words);
+      // UI 초기화
+[el.questionArea, el.scratchArea, el.choiceArea, el.typingArea, el.gameArea, el.cardActions].forEach(a => a.style.display = 'none');
 
-      if (wordErr) { alert('단어 정보를 불러오지 못했습니다.'); return; }
-
-      // DB의 total_words 순서대로 정렬
-      currentWords = setInfo.total_words.map(id => wordList.find(w => w.id === id)).filter(Boolean);
-
-      document.getElementById('loadingOverlay').classList.add('hidden');
-      renderWord();
-    }
-
-    // 카드 렌더링
-    function renderWord() {
-      if (currentIndex >= currentWords.length) {
-        completeStudy();
-        return;
-      }
-
-      const word = currentWords[currentIndex];
-      isFlipped = false;
-      document.getElementById('mainCard').classList.remove('flipped');
-      
-      document.getElementById('wordDisplay').textContent = word.word;
-      document.getElementById('phoneticDisplay').textContent = word.phonetic || '';
-      document.getElementById('meaningDisplay').textContent = word.meaning;
-      document.getElementById('exampleDisplay').textContent = word.example_en || '예문이 없습니다.';
-      
-      // 진행바 업데이트
-      const progress = (currentIndex / currentWords.length) * 100;
-      document.getElementById('progressBar').style.width = `${progress}%`;
-    }
-
-    // 카드 뒤집기
-    window.flipCard = () => {
-      isFlipped = !isFlipped;
-      document.getElementById('mainCard').classList.toggle('flipped', isFlipped);
-    };
-
-    // 정답 처리 (알아요/몰라요)
-    window.handleAnswer = async (known) => {
-      if (!known) {
-        hearts--;
-        document.getElementById('heartCount').textContent = hearts;
-        if (hearts <= 0) {
-          alert('생명을 모두 소진했습니다! 다시 도전하세요.');
-          location.href = 'index.html';
-          return;
+if (studyMode === 'card') {
+        el.questionArea.style.display = 'block';
+        el.scratchArea.style.display = 'block';
+        el.cardActions.style.display = 'flex';
+        if (studyPhase === 'word_to_meaning') {
+          el.phaseBadge.textContent = '영단어 → 뜻';
+          el.wordText.textContent = item.word;
+          el.scratchAnswer.textContent = item.primary_meaning_ko;
+          speak(item.word);
+        } else {
+          el.phaseBadge.textContent = '뜻 → 영단어';
+          el.wordText.textContent = item.primary_meaning_ko;
+          el.scratchAnswer.textContent = item.word;
         }
+        el.questionArea.style.display = 'block'; el.scratchArea.style.display = 'block'; el.cardActions.style.display = 'flex';
+        if (studyPhase === 'word_to_meaning') { el.phaseBadge.textContent = '영단어 → 뜻'; el.wordText.textContent = item.word; el.scratchAnswer.textContent = item.primary_meaning_ko; speak(item.word); }
+        else { el.phaseBadge.textContent = '뜻 → 영단어'; el.wordText.textContent = item.primary_meaning_ko; el.scratchAnswer.textContent = item.word; }
+initScratch();
+} 
+else if (studyMode === 'basic') {
+        el.questionArea.style.display = 'block';
+        el.choiceArea.style.display = 'grid';
+        if (studyPhase === 'test_1') {
+          el.phaseBadge.textContent = '테스트 1: 영단어 → 뜻';
+          el.wordText.textContent = item.word;
+          renderChoices(item, 'meaning');
+        } else if (studyPhase === 'test_2') {
+          el.phaseBadge.textContent = '테스트 2: 발음 → 뜻';
+          el.wordText.textContent = '🔊';
+          speak(item.word);
+          renderChoices(item, 'meaning', true);
+        } else {
+          el.phaseBadge.textContent = '테스트 3: 뜻 → 영단어';
+          el.wordText.textContent = item.primary_meaning_ko;
+          renderChoices(item, 'word');
+        }
+        el.questionArea.style.display = 'block'; el.choiceArea.style.display = 'grid';
+        if (studyPhase === 'test_1') { el.phaseBadge.textContent = '영단어 → 뜻'; el.wordText.textContent = item.word; renderChoices(item, 'm'); }
+        else if (studyPhase === 'test_2') { el.phaseBadge.textContent = '발음 → 뜻'; el.wordText.textContent = '🔊'; speak(item.word); renderChoices(item, 'm', true); }
+        else { el.phaseBadge.textContent = '뜻 → 영단어'; el.wordText.textContent = item.primary_meaning_ko; renderChoices(item, 'w'); }
+} 
+else if (studyMode === 'advanced') {
+        el.questionArea.style.display = 'block';
+        el.typingArea.style.display = 'block';
+        el.answerInput.value = '';
+        el.questionArea.style.display = 'block'; el.typingArea.style.display = 'block'; el.answerInput.value = '';
+        if (studyPhase === 'test_4') { el.phaseBadge.textContent = '단어 → 뜻 입력'; el.wordText.textContent = item.word; }
+        else { el.phaseBadge.textContent = '뜻 → 단어 입력'; el.wordText.textContent = item.primary_meaning_ko; }
+setTimeout(() => el.answerInput.focus(), 100);
+        if (studyPhase === 'test_4') {
+          el.phaseBadge.textContent = '테스트 4: 단어 → 뜻 입력';
+          el.wordText.textContent = item.word;
+        } else {
+          el.phaseBadge.textContent = '테스트 5: 뜻 → 단어 입력';
+          el.wordText.textContent = item.primary_meaning_ko;
+        }
+} 
+else if (studyMode === 'game') {
+        el.phaseBadge.textContent = '매칭 게임';
+        el.gameArea.style.display = 'grid';
+        el.itemOrder.textContent = "Matching";
+        el.phaseBadge.textContent = '매칭 게임'; el.gameArea.style.display = 'grid'; el.itemOrder.textContent = "Matching";
+renderMatchingGame();
+}
+
+      // 진행바
+const totalSteps = currentWords.length * (studyMode === 'basic' ? 3 : studyMode === 'game' ? 1 : 2);
+      let currentStepVal = (studyMode === 'game') ? currentIndex : (currentIndex + (studyPhase.includes('2') || studyPhase.includes('word') || studyPhase.includes('5') ? currentWords.length : 0));
+      el.progressBar.style.width = (currentStepVal / totalSteps * 100) + '%';
+      let stepVal = (studyMode === 'game') ? currentIndex : (currentIndex + (studyPhase.includes('2') || studyPhase.includes('word') || studyPhase.includes('5') ? currentWords.length : 0));
+      el.progressBar.style.width = (stepVal / totalSteps * 100) + '%';
+}
+
+    function renderChoices(correctItem, type, withAudio = false) {
+      const correctText = (type === 'meaning') ? correctItem.primary_meaning_ko : correctItem.word;
+      const pool = currentWords.filter(w => w.id !== correctItem.id).map(w => (type === 'meaning' ? w.primary_meaning_ko : w.word));
+      const choices = [...new Set(pool)].sort(() => Math.random() - 0.5).slice(0, 3);
+      choices.push(correctText);
+      const shuffled = choices.sort(() => Math.random() - 0.5);
+
+    function renderChoices(item, type, audio = false) {
+      const correct = (type === 'm') ? item.primary_meaning_ko : item.word;
+      const pool = currentWords.filter(w => w.id !== item.id).map(w => (type === 'm' ? w.primary_meaning_ko : w.word));
+      const choices = [...new Set(pool)].sort(() => 0.5 - Math.random()).slice(0, 3);
+      choices.push(correct);
+      const shuffled = choices.sort(() => 0.5 - Math.random());
+el.choiceArea.innerHTML = shuffled.map(c => `<button class="choice-btn">${c}</button>`).join('');
+      if (withAudio) {
+        const audioBtn = document.createElement('button');
+        audioBtn.className = 'btn-light'; audioBtn.textContent = '🔊 다시 듣기';
+        audioBtn.onclick = () => speak(correctItem.word);
+        el.choiceArea.appendChild(audioBtn);
       }
+      if (audio) { const b = document.createElement('button'); b.className = 'btn-light'; b.textContent = '🔊 다시 듣기'; b.onclick = () => speak(item.word); el.choiceArea.appendChild(b); }
+el.choiceArea.querySelectorAll('.choice-btn').forEach(btn => {
+btn.onclick = () => {
+          if (isProcessing) return;
+          isProcessing = true;
+          if (btn.textContent === correctText) {
+            playSound('correct'); btn.classList.add('correct');
+            setTimeout(() => { isProcessing = false; next(); }, 220);
+          } else {
+            playSound('wrong'); btn.classList.add('wrong');
+            const cBtn = Array.from(el.choiceArea.querySelectorAll('.choice-btn')).find(b => b.textContent === correctText);
+            if(cBtn) cBtn.classList.add('correct');
+            handleFail();
+          }
+          if (isProcessing) return; isProcessing = true;
+          if (btn.textContent === correct) { playSound('correct'); btn.classList.add('correct'); setTimeout(() => { isProcessing = false; next(); }, 220); }
+          else { playSound('wrong'); btn.classList.add('wrong'); handleFail(); }
+};
+});
+}
 
-      // 학습 기록 저장 로직 (필요 시 API 호출)
-      // await supabase.from('user_vocab_word_progress').upsert({...});
+    document.getElementById('answerSubmitBtn').onclick = () => {
+      const item = currentWords[currentIndex];
+      const input = el.answerInput.value.trim().toLowerCase();
+      const correct = (studyPhase === 'test_4') ? item.primary_meaning_ko : item.word.toLowerCase();
+      
+      const isOk = (studyPhase === 'test_4') ? (input === correct || (item.accepted_meanings_ko || []).includes(input)) : (input === correct);
 
-      currentIndex++;
-      if (currentIndex <= currentWords.length) {
-        renderWord();
+      if (isOk) {
+        playSound('correct'); el.answerInput.style.borderColor = 'var(--green)';
+        setTimeout(() => { el.answerInput.style.borderColor = 'var(--line)'; next(); }, 220);
+      } else {
+        playSound('wrong'); el.answerInput.style.borderColor = 'var(--red)';
+        handleFail();
       }
     };
 
-    // 학습 완료
-    async function completeStudy() {
-      document.getElementById('progressBar').style.width = `100%`;
+function renderMatchingGame() {
+      // 현재 인덱스부터 최대 10개씩 게임 구성
+      const gameItems = currentWords.slice(currentIndex, currentIndex + 10);
+      const items = currentWords.slice(currentIndex, currentIndex + 10);
+let blocks = [];
+      gameItems.forEach(item => {
+        blocks.push({ id: item.id, text: item.word, type: 'w' });
+        blocks.push({ id: item.id, text: item.primary_meaning_ko, type: 'm' });
+      });
+      blocks = blocks.sort(() => Math.random() - 0.5);
+      items.forEach(it => { blocks.push({ id: it.id, text: it.word, type: 'w' }); blocks.push({ id: it.id, text: it.primary_meaning_ko, type: 'm' }); });
+      blocks = blocks.sort(() => 0.5 - Math.random());
+el.gameArea.innerHTML = blocks.map(b => `<button class="game-btn" data-id="${b.id}" data-type="${b.type}">${b.text}</button>`).join('');
       
-      // DB 상태 업데이트
-      await supabase.from('user_vocab_daily_sets')
-        .update({ status: 'completed', completed_at: new Date() })
-        .eq('id', setId);
+el.gameArea.querySelectorAll('.game-btn').forEach(btn => {
+btn.onclick = () => {
+if (isProcessing || btn.classList.contains('matched')) return;
+          if (!gameSelected) {
+            gameSelected = btn; btn.classList.add('selected');
+          } else {
+          if (!gameSelected) { gameSelected = btn; btn.classList.add('selected'); }
+          else {
+if (gameSelected === btn) { btn.classList.remove('selected'); gameSelected = null; return; }
+if (gameSelected.dataset.id === btn.dataset.id && gameSelected.dataset.type !== btn.dataset.type) {
+playSound('correct'); btn.classList.add('selected'); isProcessing = true;
+              setTimeout(() => {
+                btn.classList.add('matched'); gameSelected.classList.add('matched');
+                gameSelected = null; isProcessing = false;
+                if (el.gameArea.querySelectorAll('.matched').length === blocks.length) {
+                  currentIndex += 10;
+                  if (currentIndex >= currentWords.length) finish(); else render();
+                }
+              setTimeout(() => { btn.classList.add('matched'); gameSelected.classList.add('matched'); gameSelected = null; isProcessing = false;
+                if (el.gameArea.querySelectorAll('.matched').length === blocks.length) { currentIndex += 10; if (currentIndex >= currentWords.length) finish(); else render(); }
+}, 250);
+} else {
+playSound('wrong'); btn.classList.add('error'); gameSelected.classList.add('error'); isProcessing = true;
+              setTimeout(() => {
+                btn.classList.remove('error', 'selected'); gameSelected.classList.remove('error', 'selected');
+                gameSelected = null; isProcessing = false;
+              }, 400);
+              setTimeout(() => { btn.classList.remove('error', 'selected'); gameSelected.classList.remove('error', 'selected'); gameSelected = null; isProcessing = false; }, 400);
+}
+}
+};
+});
+}
 
-      document.getElementById('finishOverlay').classList.remove('hidden');
+function handleFail() {
+hearts--;
+document.getElementById('heartDisplay').textContent = `❤ x ${hearts}`;
+if (hearts < 0) {
+        showModal("기회를 모두 소진했습니다. 다시 도전하세요!", "실패", () => {
+          hearts = initialHearts; currentIndex = 0; render();
+        });
+      } else {
+        el.status.textContent = '틀렸습니다! 다시 시도하세요.';
+        isProcessing = false;
+      }
+        document.getElementById('modalMsg').textContent = "기회를 소진했습니다. 처음부터 다시 시작합니다.";
+        document.getElementById('appModal').style.display = 'flex';
+        document.getElementById('modalConfirm').onclick = () => { document.getElementById('appModal').style.display = 'none'; hearts = initialHearts; currentIndex = 0; render(); };
+      } else { isProcessing = false; }
+}
+
+function next() {
+currentIndex++;
+if (currentIndex >= currentWords.length) {
+        if (studyMode === 'card' && studyPhase === 'word_to_meaning') { studyPhase = 'meaning_to_word'; currentIndex = 0; render(); }
+        else if (studyMode === 'basic' && studyPhase === 'test_1') { studyPhase = 'test_2'; currentIndex = 0; render(); }
+        else if (studyMode === 'basic' && studyPhase === 'test_2') { studyPhase = 'test_3'; currentIndex = 0; render(); }
+        else if (studyMode === 'advanced' && studyPhase === 'test_4') { studyPhase = 'test_5'; currentIndex = 0; render(); }
+        if (studyPhase === 'word_to_meaning') { studyPhase = 'meaning_to_word'; currentIndex = 0; render(); }
+        else if (studyPhase === 'test_1') { studyPhase = 'test_2'; currentIndex = 0; render(); }
+        else if (studyPhase === 'test_2') { studyPhase = 'test_3'; currentIndex = 0; render(); }
+        else if (studyPhase === 'test_4') { studyPhase = 'test_5'; currentIndex = 0; render(); }
+else finish();
+} else render();
+}
+
+    function finish() {
+      document.getElementById('studyBox').style.display = 'none';
+      document.getElementById('completeBox').style.display = 'block';
     }
 
-    window.confirmExit = () => {
-      if (confirm('학습을 중단하고 나갈까요? 저장되지 않은 진행 상황은 사라집니다.')) {
-        location.href = 'index.html';
-      }
+    function finish() { document.getElementById('studyBox').style.display = 'none'; document.getElementById('completeBox').style.display = 'block'; }
+function initScratch() {
+      const canvas = el.scratchCanvas;
+      const ctx = canvas.getContext('2d');
+      const rect = el.scratchCard.getBoundingClientRect();
+      canvas.width = rect.width; canvas.height = rect.height;
+      ctx.fillStyle = '#dfe6ef'; ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = '#334155'; ctx.font = 'bold 14px Arial'; ctx.textAlign = 'center';
+      ctx.fillText('긁어서 확인', canvas.width/2, canvas.height/2 + 5);
+      let drawing = false;
+      const scratch = (x, y) => { ctx.globalCompositeOperation = 'destination-out'; ctx.beginPath(); ctx.arc(x, y, 20, 0, Math.PI * 2); ctx.fill(); };
+      canvas.onpointerdown = (e) => { drawing = true; scratch(e.offsetX, e.offsetY); };
+      canvas.onpointermove = (e) => { if(drawing) scratch(e.offsetX, e.offsetY); };
+      canvas.onpointerup = () => drawing = false;
+      const c = el.scratchCanvas; const ctx = c.getContext('2d'); const r = el.scratchCard.getBoundingClientRect();
+      c.width = r.width; c.height = r.height; ctx.fillStyle = '#dfe6ef'; ctx.fillRect(0,0,c.width,c.height);
+      ctx.fillStyle = '#334155'; ctx.font = 'bold 14px Arial'; ctx.textAlign = 'center'; ctx.fillText('긁어서 확인', c.width/2, c.height/2 + 5);
+      let draw = false; const sc = (x, y) => { ctx.globalCompositeOperation = 'destination-out'; ctx.beginPath(); ctx.arc(x, y, 20, 0, Math.PI * 2); ctx.fill(); };
+      c.onpointerdown = (e) => { draw = true; sc(e.offsetX, e.offsetY); }; c.onpointermove = (e) => { if(draw) sc(e.offsetX, e.offsetY); }; c.onpointerup = () => draw = false;
+el.scratchCard.classList.remove('revealed');
+}
+
+    function showModal(msg, title, cb) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalMsg').textContent = msg;
+      document.getElementById('appModal').classList.add('show');
+      document.getElementById('modalConfirm').onclick = () => { document.getElementById('appModal').classList.remove('show'); if(cb) cb(); };
+    }
+
+    document.getElementById('lobbyBtn').onclick = () => location.href = 'vocab.html';
+document.getElementById('nextBtn').onclick = next;
+document.getElementById('revealBtn').onclick = () => el.scratchCard.classList.add('revealed');
+document.getElementById('speakBtn').onclick = () => speak(currentWords[currentIndex].word);
+    
+    document.getElementById('answerSubmitBtn').onclick = () => {
+      const item = currentWords[currentIndex];
+      const inp = el.answerInput.value.trim().toLowerCase();
+      const cor = (studyPhase === 'test_4') ? item.primary_meaning_ko.toLowerCase() : item.word.toLowerCase();
+      if (inp === cor) { playSound('correct'); next(); } else { playSound('wrong'); handleFail(); }
     };
 
-    init();
-  </script>
+loadData();
+</script>
 </body>
 </html>
