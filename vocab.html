@@ -1,151 +1,438 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>보카엔딩 단어 학습관</title>
-  <style>
-    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    :root{
-      --bg:#f4f7fb; --card:#ffffff; --line:#e5e7eb; --text:#1f2937; --muted:#6b7280;
-      --blue:#4f8cff; --green:#4caf50; --red:#ef4444; --shadow:0 10px 30px rgba(15,23,42,.08);
-    }
-    body{ margin:0; font-family:Arial,sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; }
-    .wrap{ max-width:1000px; margin:0 auto; padding:15px; min-height:100vh; }
-    .topbar{ display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; }
-    .topbar h1{ margin:0; font-size:22px; font-weight:800; }
-    
-    button{ border:none; border-radius:12px; padding:10px 14px; font-size:13px; font-weight:700; cursor:pointer; transition:all .12s ease; }
-    .btn-blue{ background:var(--blue); color:#fff; }
-    .btn-slate{ background:#607d8b; color:#fff; }
-    .btn-light{ background:#fff; color:#334155; border:1px solid var(--line); }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>보카엔딩 단어 학습관</title>
+<style>
+* { box-sizing: border-box; }
+:root{
+--bg:#f4f7fb; --card:#ffffff; --line:#e5e7eb; --text:#1f2937; --muted:#6b7280;
+--blue:#4f8cff; --green:#4caf50; --red:#ef4444; --shadow:0 10px 30px rgba(15,23,42,.08);
+}
+body{
+margin:0; font-family:Arial,sans-serif;
+background:linear-gradient(180deg,#eff5ff 0%,#f4f7fb 35%,#eef8f1 100%);
+color:var(--text);
+}
+    .wrap{ max-width:1100px; margin:0 auto; padding:20px; min-height:100vh; }
+    .topbar{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; flex-wrap:wrap; }
+    .title-box h1{ margin:0; font-size:30px; font-weight:800; letter-spacing:-0.02em; }
+    .title-box p{ margin:8px 0 0; color:var(--muted); font-size:14px; line-height:1.6; }
+    .btns{ display:flex; gap:8px; flex-wrap:wrap; }
+    .wrap{ max-width:1100px; margin:0 auto; padding:15px; min-height:100vh; }
+    .topbar{ display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:15px; }
+    .title-box h1{ margin:0; font-size:24px; font-weight:800; letter-spacing:-0.02em; }
+    .title-box p{ display:none; } /* 모바일에서 설명 생략 */
 
+button{
+      border:none; border-radius:14px; padding:11px 16px; font-size:14px; font-weight:700; cursor:pointer;
+      border:none; border-radius:12px; padding:10px 14px; font-size:13px; font-weight:700; cursor:pointer;
+transition:all .12s ease;
+}
+    button:hover{ opacity:.9; transform:translateY(-1px); }
+    button:active{ transform:translateY(1px); }
+.btn-blue{ background:var(--blue); color:#fff; }
+    .btn-green{ background:var(--green); color:#fff; }
+.btn-slate{ background:#607d8b; color:#fff; }
+.btn-light{ background:#fff; color:#334155; border:1px solid var(--line); }
+
+    /* 단계별 화면 전환 애니메이션 */
+    .view-section { display: none; animation: slideIn 0.3s ease-out; }
+    /* 화면 전환 애니메이션 */
     .view-section { display: none; animation: slideIn 0.2s ease-out; }
-    .view-section.active { display: block; }
-    @keyframes slideIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+.view-section.active { display: block; }
+@keyframes slideIn {
+      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(5px); }
+to { opacity: 1; transform: translateY(0); }
+}
 
+    .summary-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin-bottom:18px; }
+    .summary-card,.panel{ background:var(--card); border-radius:24px; box-shadow:var(--shadow); }
+    .summary-card{ padding:18px; border: 1px solid transparent; transition: border 0.3s; }
+    .summary-card.highlight { border-color: var(--blue); }
+    .summary-card .label{ color:var(--muted); font-size:13px; margin-bottom:8px; }
+    .summary-card .value{ font-size:22px; font-weight:800; color: #0f172a; }
+    /* 요약 대시보드 슬림화 */
     .summary-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; margin-bottom:15px; }
     .summary-card{ background:var(--card); border-radius:16px; padding:10px; box-shadow:var(--shadow); text-align:center; border:1.5px solid transparent; }
     .summary-card.highlight { border-color: var(--blue); background:#f0f7ff; }
-    .summary-card .label{ color:var(--muted); font-size:10px; margin-bottom:4px; }
-    .summary-card .value{ font-size:12px; font-weight:800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .summary-card .label{ color:var(--muted); font-size:11px; margin-bottom:4px; }
+    .summary-card .value{ font-size:13px; font-weight:800; color: #0f172a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
+    .panel{ padding:24px; margin-bottom:18px; }
+    .panel-head{ margin-bottom:20px; }
+    .panel-head h2{ margin:0; font-size:22px; font-weight:800; }
+    .panel-head p{ margin:6px 0 0; color:var(--muted); font-size:14px; }
     .panel{ padding:18px; margin-bottom:15px; background:var(--card); border-radius:20px; box-shadow:var(--shadow); }
+    .panel-head{ margin-bottom:15px; }
+    .panel-head h2{ margin:0; font-size:18px; font-weight:800; }
+    .panel-head p{ margin:4px 0 0; color:var(--muted); font-size:13px; }
+
+    /* 카드 그리드 공통 */
+    .grid-layout { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:15px; }
+    /* 그리드 레이아웃: 모바일 2열 */
     .grid-layout { display:grid; grid-template-columns:repeat(2, 1fr); gap:10px; }
-    .select-card{ border:1.5px solid var(--line); background:#fff; border-radius:16px; padding:12px; min-height:100px; display:flex; flex-direction:column; justify-content:center; cursor:pointer; text-align:left; }
-    .select-card.selected { border-color:var(--blue); background:#f0f7ff; }
-    .card-title{ font-size:15px; font-weight:800; }
 
+.select-card{
+      border:1.5px solid var(--line); background:#fff; border-radius:20px;
+      padding:20px; min-height:150px; display:flex; flex-direction:column;
+      border:1.5px solid var(--line); background:#fff; border-radius:16px;
+      padding:12px; min-height:110px; display:flex; flex-direction:column;
+justify-content:space-between; cursor:pointer; text-align:left;
+}
+    .select-card:hover{ border-color:var(--blue); transform:translateY(-3px); box-shadow:var(--shadow); }
+    .select-card.selected{ border-color:var(--blue); background:#f0f7ff; }
+    .select-card:hover{ border-color:var(--blue); }
+
+    .badge{ display:inline-flex; padding:5px 10px; border-radius:999px; font-size:11px; font-weight:800; background:#eef4ff; color:#335ea8; margin-bottom:8px; }
+    .card-title{ font-size:19px; font-weight:800; margin-bottom:8px; }
+    .card-meta{ color:var(--muted); font-size:13px; line-height:1.5; }
+    .badge{ display:inline-flex; padding:3px 7px; border-radius:6px; font-size:10px; font-weight:800; background:#eef4ff; color:#335ea8; margin-bottom:6px; }
+    .card-title{ font-size:15px; font-weight:800; margin-bottom:4px; line-height:1.3; }
+    .card-meta{ color:var(--muted); font-size:11px; line-height:1.4; }
+
+    /* 3단계 로비 모드 카드 전용 */
+    .mode-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:15px; }
+    /* 로비 모드 카드: 모바일 2열 */
     .mode-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:10px; }
-    .mode-card{ border:1.5px solid #f1f5f9; background:#fff; border-radius:20px; padding:20px 10px; text-align:center; cursor:pointer; }
+.mode-card{
+      border:2px solid #f1f5f9; background:#fff; border-radius:26px; padding:30px 20px;
+      text-align:center; cursor:pointer; transition:all .2s;
+      border:1.5px solid #f1f5f9; background:#fff; border-radius:20px; padding:15px 10px;
+      text-align:center; cursor:pointer;
+}
+    .mode-card:hover{ transform:translateY(-5px); border-color:var(--blue); box-shadow:var(--shadow); }
+    .mode-card .icon{ font-size:44px; margin-bottom:15px; display:block; }
+    .mode-card h3{ margin:0 0 10px; font-size:20px; font-weight:800; }
+    .mode-card p{ margin:0; font-size:14px; color:var(--muted); line-height:1.5; }
     .mode-card .icon{ font-size:32px; margin-bottom:8px; display:block; }
-    .status{ margin-top:10px; text-align:center; font-size:12px; color:var(--blue); font-weight:700; }
+    .mode-card h3{ margin:0 0 5px; font-size:15px; font-weight:800; }
+    .mode-card p{ margin:0; font-size:11px; color:var(--muted); line-height:1.3; }
 
-    @media (min-width:768px){ .grid-layout { grid-template-columns: repeat(3, 1fr); } .mode-grid { grid-template-columns: repeat(4, 1fr); } }
-  </style>
+    .loading{ padding:50px; text-align:center; color:var(--muted); font-weight:700; }
+    .status{ margin-top:15px; text-align:center; font-size:14px; min-height:20px; }
+    .loading{ padding:30px; text-align:center; color:var(--muted); font-size:14px; }
+    .status{ margin-top:10px; text-align:center; font-size:12px; min-height:18px; color:var(--blue); font-weight:700; }
+
+    /* 모달 스타일 */
+    .app-modal{ position:fixed; inset:0; background:rgba(15,23,42,0.4); display:none; align-items:center; justify-content:center; z-index:9999; }
+    /* 모달 */
+    .app-modal{ position:fixed; inset:0; background:rgba(0,0,0,0.5); display:none; align-items:center; justify-content:center; z-index:9999; padding:20px; }
+.app-modal.show{ display:flex; }
+    .app-modal-card{ width:min(90%, 400px); background:#fff; border-radius:24px; padding:24px; text-align:center; }
+    .app-modal-card{ width:100%; max-width:320px; background:#fff; border-radius:20px; padding:20px; text-align:center; }
+.app-modal-btn{ background:var(--blue); color:#fff; width:100%; margin-top:15px; padding:12px; border-radius:12px; font-weight:bold; }
+
+    @media (max-width:640px){
+      .grid-layout, .mode-grid { grid-template-columns: 1fr; }
+    @media (min-width:768px){
+      .wrap { padding: 20px; }
+      .title-box p { display: block; }
+      .grid-layout { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 15px; }
+      .mode-grid { grid-template-columns: repeat(4, 1fr); gap: 15px; }
+      .select-card { min-height: 140px; padding: 20px; }
+      .summary-card .value { font-size: 16px; }
+      .summary-card .label { font-size: 12px; }
+      .card-title { font-size: 18px; }
+      .mode-card { padding: 30px 20px; }
+      .mode-card .icon { font-size: 44px; }
+      .mode-card h3 { font-size: 18px; }
+}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="topbar">
-      <h1>단어 학습관</h1>
-      <div class="btns">
+<div class="wrap">
+    <!-- 상단바 -->
+<div class="topbar">
+<div class="title-box">
+<h1 id="topTitle">단어 학습관</h1>
+        <p id="topSub">오늘 공부할 단어장과 모드를 선택하세요.</p>
+</div>
+<div class="btns">
+        <button id="prevBtn" class="btn-light" style="display:none;">← 이전 단계</button>
         <button id="prevBtn" class="btn-light" style="display:none;">이전</button>
-        <button id="logoutBtn" class="btn-slate">로그아웃</button>
-      </div>
-    </div>
+<button id="logoutBtn" class="btn-slate">로그아웃</button>
+</div>
+</div>
 
-    <div class="summary-grid">
-      <div id="sumBookCard" class="summary-card"><div class="label">단어장</div><div id="sumBook" class="value">미선택</div></div>
-      <div id="sumPlanCard" class="summary-card"><div class="label">학습량</div><div id="sumPlan" class="value">미선택</div></div>
-      <div class="summary-card"><div class="label">학습자</div><div id="currentName" class="value">-</div></div>
-    </div>
+    <!-- 진행 상황 요약 -->
+    <!-- 요약 대시보드 (슬림 버전) -->
+<div class="summary-grid">
+<div id="sumBookCard" class="summary-card">
+        <div class="label">1단계: 단어장</div>
+        <div class="value" id="sumBook">미선택</div>
+        <div class="label">단어장</div>
+        <div id="sumBook" class="value">미선택</div>
+</div>
+<div id="sumPlanCard" class="summary-card">
+        <div class="label">2단계: 학습량</div>
+        <div class="value" id="sumPlan">미선택</div>
+        <div class="label">학습량</div>
+        <div id="sumPlan" class="value">미선택</div>
+</div>
+<div class="summary-card">
+<div class="label">학습자</div>
+        <div class="value" id="currentName">-</div>
+        <div id="currentName" class="value">-</div>
+</div>
+</div>
 
-    <div id="step1" class="view-section active">
-      <div class="panel"><h3>1단계 · 단어장 선택</h3><div id="bookGrid" class="grid-layout"></div></div>
-    </div>
-    <div id="step2" class="view-section">
-      <div class="panel"><h3>2단계 · 학습량 선택</h3><div id="planGrid" class="grid-layout"></div></div>
-    </div>
-    <div id="step3" class="view-section">
-      <div class="panel">
-        <h3>3단계 · 학습 모드 선택</h3>
-        <div class="mode-grid">
-          <div class="mode-card" onclick="startStudy('card')"><span class="icon">🗂️</span><h4>카드 학습</h4></div>
-          <div class="mode-card" onclick="startStudy('basic')"><span class="icon">📝</span><h4>기초 테스트</h4></div>
-          <div class="mode-card" onclick="startStudy('advanced')"><span class="icon">⌨️</span><h4>심화 테스트</h4></div>
-          <div class="mode-card" onclick="startStudy('game')"><span class="icon">🧩</span><h4>매칭 게임</h4></div>
-        </div>
-        <div id="status" class="status"></div>
-      </div>
-    </div>
-  </div>
+    <!-- [View 1] 단어장 선택 -->
+    <!-- 1단계: 단어장 선택 -->
+<div id="step1" class="view-section active">
+<div class="panel">
+<div class="panel-head">
+<h2>1단계 · 단어장 선택</h2>
+          <p>학습을 진행할 단어장을 선택해 주세요.</p>
+</div>
+<div id="bookGrid" class="grid-layout"></div>
+        <div id="bookLoading" class="loading">단어장을 불러오는 중...</div>
+        <div id="bookLoading" class="loading">불러오는 중...</div>
+</div>
+</div>
 
-  <script type="module">
-    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
-    const supabase = createClient('https://uuzhdxangctewuklvmlv.supabase.co', 'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F');
+    <!-- [View 2] 학습량 선택 -->
+    <!-- 2단계: 학습량 선택 -->
+<div id="step2" class="view-section">
+<div class="panel">
+<div class="panel-head">
+          <h2>2단계 · 하루 학습량 선택</h2>
+          <p>오늘 새롭게 외울 단어 개수를 정해주세요.</p>
+          <h2>2단계 · 학습량 선택</h2>
+</div>
+<div id="planGrid" class="grid-layout"></div>
+        <div id="planLoading" class="loading">플랜을 불러오는 중...</div>
+        <div id="planLoading" class="loading">불러오는 중...</div>
+</div>
+</div>
 
-    let me = null; let currentStep = 1; let selectedBook = null; let selectedPlan = null; let books = []; let plans = [];
-    const views = { s1: document.getElementById('step1'), s2: document.getElementById('step2'), s3: document.getElementById('step3'), prevBtn: document.getElementById('prevBtn'), sumBook: document.getElementById('sumBook'), sumPlan: document.getElementById('sumPlan'), status: document.getElementById('status') };
+    <!-- [View 3] 학습 로비 (모드 선택) -->
+    <!-- 3단계: 로비 -->
+<div id="step3" class="view-section">
+<div class="panel">
+<div class="panel-head">
+          <h2>3단계 · 학습 모드 선택</h2>
+          <p>원하는 학습 방식을 선택하여 시작하세요.</p>
+          <h2>3단계 · 학습 모드</h2>
+</div>
+<div class="mode-grid">
+<div class="mode-card" onclick="startStudy('card')">
+<span class="icon">🗂️</span>
+<h3>카드 학습</h3>
+            <p>영단어와 뜻 카드를<br>넘기며 가볍게 눈에 익히기</p>
+            <p>익히기</p>
+</div>
+<div class="mode-card" onclick="startStudy('basic')">
+<span class="icon">📝</span>
+<h3>기초 테스트</h3>
+            <p>테스트 1, 2, 3 단계<br>객관식으로 정확도 확인</p>
+            <p>객관식</p>
+</div>
+<div class="mode-card" onclick="startStudy('advanced')">
+<span class="icon">⌨️</span>
+<h3>심화 테스트</h3>
+            <p>테스트 4, 5 단계<br>주관식으로 암기 완성</p>
+            <p>주관식</p>
+</div>
+<div class="mode-card" onclick="startStudy('game')">
+<span class="icon">🧩</span>
+<h3>매칭 게임</h3>
+            <p>테스트 6 단계<br>단어와 뜻 짝 맞추기</p>
+            <p>짝 맞추기</p>
+</div>
+</div>
+<div id="status" class="status"></div>
+</div>
+</div>
+</div>
 
-    async function init() {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) { location.href = 'login.html'; return; }
-      me = user;
-      const { data: prof } = await supabase.from('profiles').select('name').eq('user_id', me.id).maybeSingle();
+  <!-- 알림 모달 -->
+<div id="appModal" class="app-modal">
+<div class="app-modal-card">
+      <h3 id="appModalTitle">안내</h3>
+      <p id="appModalMessage"></p>
+      <h3 id="appModalTitle" style="margin:0 0 10px;">안내</h3>
+      <p id="appModalMessage" style="font-size:14px; color:#666;"></p>
+<button id="appModalConfirm" class="app-modal-btn">확인</button>
+</div>
+</div>
+
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+const supabase = createClient(
+'https://uuzhdxangctewuklvmlv.supabase.co',
+'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
+);
+
+    // 상태 변수
+let me = null;
+let currentStep = 1;
+let selectedBook = null;
+let selectedPlan = null;
+let books = [];
+let plans = [];
+
+    // UI 요소
+const views = {
+      s1: document.getElementById('step1'),
+      s2: document.getElementById('step2'),
+      s3: document.getElementById('step3'),
+      prevBtn: document.getElementById('prevBtn'),
+      sumBook: document.getElementById('sumBook'),
+      sumPlan: document.getElementById('sumPlan'),
+      s1: document.getElementById('step1'), s2: document.getElementById('step2'), s3: document.getElementById('step3'),
+      prevBtn: document.getElementById('prevBtn'), sumBook: document.getElementById('sumBook'), sumPlan: document.getElementById('sumPlan'),
+status: document.getElementById('status')
+};
+
+    // 초기화
+async function init() {
+const { data: { user } } = await supabase.auth.getUser();
+if (!user) { location.href = 'login.html'; return; }
+me = user;
+      
+const { data: prof } = await supabase.from('profiles').select('name').eq('user_id', me.id).maybeSingle();
+      document.getElementById('currentName').textContent = prof?.name || me.email;
+
       document.getElementById('currentName').textContent = prof?.name || me.email.split('@')[0];
-      await Promise.all([loadBooks(), loadPlans()]);
-    }
+await Promise.all([loadBooks(), loadPlans()]);
+}
 
-    async function loadBooks() {
-      const { data } = await supabase.from('vocab_books').select('*').eq('is_active', true).order('sort_order');
-      books = data || [];
-      document.getElementById('bookGrid').innerHTML = books.map(b => `<div class="select-card" onclick="nextStep(2, '${b.id}')"><div class="card-title">${b.title}</div></div>`).join('');
-    }
+    // 1단계: 단어장 로드
+async function loadBooks() {
+const { data } = await supabase.from('vocab_books').select('*').eq('is_active', true).order('sort_order');
+document.getElementById('bookLoading').style.display = 'none';
+books = data || [];
+      const grid = document.getElementById('bookGrid');
+      grid.innerHTML = books.map(b => `
+      document.getElementById('bookGrid').innerHTML = books.map(b => `
+       <div class="select-card" onclick="nextStep(2, '${b.id}')">
+         <div><div class="badge">단어장</div><div class="card-title">${b.title}</div></div>
+          <div class="card-meta">${b.description || '보카엔딩 단어장'}</div>
+          <div class="card-meta">${b.description || '단어 학습'}</div>
+       </div>
+     `).join('');
+}
 
-    async function loadPlans() {
-      const { data } = await supabase.from('vocab_plans').select('*').eq('is_active', true).order('sort_order');
-      plans = data || [];
-      document.getElementById('planGrid').innerHTML = plans.map(p => `<div class="select-card" onclick="nextStep(3, '${p.id}')"><div class="card-title">${p.title}</div></div>`).join('');
-    }
+    // 2단계: 플랜 로드
+async function loadPlans() {
+const { data } = await supabase.from('vocab_plans').select('*').eq('is_active', true).order('sort_order');
+document.getElementById('planLoading').style.display = 'none';
+plans = data || [];
+      const grid = document.getElementById('planGrid');
+      grid.innerHTML = plans.map(p => `
+      document.getElementById('planGrid').innerHTML = plans.map(p => `
+       <div class="select-card" onclick="nextStep(3, '${p.id}')">
+         <div><div class="badge">학습량</div><div class="card-title">${p.title}</div></div>
+          <div class="card-meta">하루 새 단어 ${p.daily_new_count}개<br>하트 ${p.heart_count}개 제공</div>
+          <div class="card-meta">${p.daily_new_count}단어 / 하트${p.heart_count}</div>
+       </div>
+     `).join('');
+}
 
-    window.nextStep = async (step, id) => {
-      if (step === 2) {
-        selectedBook = books.find(b => b.id === id); views.sumBook.textContent = selectedBook.title;
-        views.s1.classList.remove('active'); views.s2.classList.add('active'); views.prevBtn.style.display = 'block'; currentStep = 2;
-      } 
-      else if (step === 3) {
-        selectedPlan = plans.find(p => p.id === id); views.sumPlan.textContent = selectedPlan.title;
-        views.status.textContent = '단어 데이터 동기화 중... (' + selectedPlan.daily_new_count + '개)';
-        try {
-          await createTodaySet();
-          views.s2.classList.remove('active'); views.s3.classList.add('active'); currentStep = 3;
-          views.status.textContent = '준비 완료! 학습 모드를 선택하세요.';
-        } catch (e) { alert('데이터 생성 실패: ' + e.message); }
-      }
+    // 단계 전환 함수
+window.nextStep = async (step, id) => {
+if (step === 2) {
+selectedBook = books.find(b => b.id === id);
+views.sumBook.textContent = selectedBook.title;
+document.getElementById('sumBookCard').classList.add('highlight');
+        
+        views.s1.classList.remove('active');
+        views.s2.classList.add('active');
+        views.prevBtn.style.display = 'block';
+        currentStep = 2;
+        views.s1.classList.remove('active'); views.s2.classList.add('active');
+        views.prevBtn.style.display = 'block'; currentStep = 2;
+} 
+else if (step === 3) {
+selectedPlan = plans.find(p => p.id === id);
+views.sumPlan.textContent = selectedPlan.title;
+document.getElementById('sumPlanCard').classList.add('highlight');
+        
+        // 오늘 세트 생성 (DB 저장)
+        views.status.textContent = '학습 세트를 생성 중입니다...';
+        views.status.textContent = '세트 구성 중...';
+try {
+await createTodaySet();
+          views.s2.classList.remove('active');
+          views.s3.classList.add('active');
+          currentStep = 3;
+          views.status.textContent = '';
+        } catch (e) {
+          alert('세트 생성 실패: ' + e.message);
+        }
+          views.s2.classList.remove('active'); views.s3.classList.add('active');
+          currentStep = 3; views.status.textContent = '준비 완료!';
+        } catch (e) { alert(e.message); }
+}
+};
+
+    // 이전 단계 버튼
+views.prevBtn.onclick = () => {
+if (currentStep === 2) {
+        views.s2.classList.remove('active');
+        views.s1.classList.add('active');
+        views.prevBtn.style.display = 'none';
+        views.sumBook.textContent = '미선택';
+        views.s2.classList.remove('active'); views.s1.classList.add('active');
+        views.prevBtn.style.display = 'none'; views.sumBook.textContent = '미선택';
+document.getElementById('sumBookCard').classList.remove('highlight');
+currentStep = 1;
+} else if (currentStep === 3) {
+        views.s3.classList.remove('active');
+        views.s2.classList.add('active');
+        views.s3.classList.remove('active'); views.s2.classList.add('active');
+views.sumPlan.textContent = '미선택';
+document.getElementById('sumPlanCard').classList.remove('highlight');
+currentStep = 2;
+}
+};
+
+    // 오늘 학습 세트 생성 로직
+async function createTodaySet() {
+const today = new Date().toISOString().slice(0, 10);
+      
+      // 1. Enrollment 처리
+const { data: enroll } = await supabase.from('user_vocab_enrollments')
+.upsert({ user_id: me.id, book_id: selectedBook.id, plan_id: selectedPlan.id, status: 'studying' }, { onConflict: 'user_id,book_id' })
+.select().single();
+
+      // 2. 이미 오늘 데이터가 있는지 확인
+const { data: existing } = await supabase.from('user_vocab_daily_sets')
+.select('id').eq('enrollment_id', enroll.id).eq('study_date', today).maybeSingle();
+      
+if (existing) return;
+
+      // 3. 단어 가져오기
+const { data: words } = await supabase.from('vocab_book_words')
+.select('word_id').eq('book_id', selectedBook.id).order('book_order').limit(selectedPlan.daily_new_count);
+
+      if (!words || words.length === 0) throw new Error('단어장에 단어가 없습니다.');
+
+      // 4. 세트 생성
+      if (!words?.length) throw new Error('단어가 없습니다.');
+await supabase.from('user_vocab_daily_sets').insert({
+enrollment_id: enroll.id, user_id: me.id, book_id: selectedBook.id, plan_id: selectedPlan.id,
+day_no: 1, study_date: today, total_words: words.map(w => w.word_id), heart_count: selectedPlan.heart_count
+});
+}
+
+    // 실제 학습 페이지로 이동 (모드 파라미터 전달)
+    window.startStudy = (mode) => {
+      location.href = `vocab_study.html?mode=${mode}`;
     };
 
-    views.prevBtn.onclick = () => {
-      if (currentStep === 2) { views.s2.classList.remove('active'); views.s1.classList.add('active'); views.prevBtn.style.display = 'none'; currentStep = 1; }
-      else if (currentStep === 3) { views.s3.classList.remove('active'); views.s2.classList.add('active'); currentStep = 2; }
+    document.getElementById('logoutBtn').onclick = async () => {
+      await supabase.auth.signOut();
+      location.href = 'login.html';
     };
-
-    async function createTodaySet() {
-      const today = new Date().toISOString().slice(0, 10);
-      const { data: enroll } = await supabase.from('user_vocab_enrollments').upsert({ user_id: me.id, book_id: selectedBook.id, plan_id: selectedPlan.id, status: 'studying' }, { onConflict: 'user_id,book_id' }).select().single();
-      
-      const { data: words } = await supabase.from('vocab_book_words').select('word_id').eq('book_id', selectedBook.id).order('book_order').limit(selectedPlan.daily_new_count);
-      
-      if (!words || words.length === 0) throw new Error('불러올 단어가 없습니다.');
-
-      await supabase.from('user_vocab_daily_sets').upsert({
-        enrollment_id: enroll.id, user_id: me.id, book_id: selectedBook.id, plan_id: selectedPlan.id,
-        study_date: today, total_words: words.map(w => w.word_id), heart_count: selectedPlan.heart_count, day_no: 1
-      }, { onConflict: 'user_id,study_date' });
-    }
-
     window.startStudy = (mode) => { location.href = `vocab_study.html?mode=${mode}`; };
     document.getElementById('logoutBtn').onclick = async () => { await supabase.auth.signOut(); location.href = 'login.html'; };
-    init();
-  </script>
+
+init();
+</script>
 </body>
 </html>
