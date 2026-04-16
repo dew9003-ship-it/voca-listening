@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>보카엔딩 단어 학습관</title>
+  <title>보카엔딩 단어 학습관 - 선택</title>
   <style>
     * { box-sizing: border-box; }
     :root{
       --bg:#f4f7fb; --card:#ffffff; --line:#e5e7eb; --text:#1f2937; --muted:#6b7280;
       --blue:#4f8cff; --green:#4caf50; --red:#ef4444; --shadow:0 10px 30px rgba(15,23,42,.08);
     }
-    body{ margin:0; font-family:Arial,sans-serif; background:#f4f7fb; color:var(--text); }
+    body{ margin:0; font-family:Arial,sans-serif; background:var(--bg); color:var(--text); }
     .wrap{ max-width:1100px; margin:0 auto; padding:20px; }
     .topbar{ display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
     .btns{ display:flex; gap:8px; }
-    button{ border:none; border-radius:12px; padding:10px 16px; font-weight:700; cursor:pointer; }
+    button{ border:none; border-radius:12px; padding:10px 16px; font-weight:700; cursor:pointer; transition: 0.2s; }
+    button:active { transform: scale(0.95); }
     .btn-light{ background:#fff; border:1px solid var(--line); }
 
     .view-section { display: none; }
@@ -23,22 +24,23 @@
 
     .summary-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin-bottom:18px; }
     .summary-card{ background:#fff; padding:15px; border-radius:15px; border:2px solid transparent; box-shadow:var(--shadow); }
-    .summary-card.highlight { border-color: var(--blue); }
-    .value { font-size: 18px; font-weight: bold; }
+    .summary-card.highlight { border-color: var(--blue); background: #eef4ff; }
+    .value { font-size: 18px; font-weight: bold; margin-top: 5px; }
 
-    .panel{ background:#fff; padding:24px; border-radius:20px; box-shadow:var(--shadow); }
+    .panel{ background:#fff; padding:24px; border-radius:20px; box-shadow:var(--shadow); min-height: 400px; }
     .grid-layout { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:15px; margin-top:20px; }
-    .select-card{ border:1px solid var(--line); padding:20px; border-radius:15px; cursor:pointer; transition: 0.2s; }
-    .select-card:hover{ border-color:var(--blue); transform:translateY(-2px); }
+    .select-card{ border:1px solid var(--line); padding:20px; border-radius:15px; cursor:pointer; transition: 0.2s; background: #fff; }
+    .select-card:hover{ border-color:var(--blue); transform:translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
     
-    .loading-overlay { display:none; position:fixed; inset:0; background:rgba(255,255,255,0.7); z-index:100; align-items:center; justify-content:center; }
-    .spinner { font-size: 20px; font-weight: bold; color: var(--blue); }
+    .loading-overlay { display:none; position:fixed; inset:0; background:rgba(255,255,255,0.85); z-index:100; align-items:center; justify-content:center; flex-direction: column; }
+    .spinner { width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid var(--blue); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 15px; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
-  <!-- 로딩 오버레이 -->
   <div id="loading" class="loading-overlay">
-    <div class="spinner">⏳ 학습 세트를 생성 중입니다. 잠시만 기다려주세요...</div>
+    <div class="spinner"></div>
+    <div style="font-weight: bold; color: var(--blue);">학습 세트를 생성 중입니다...</div>
   </div>
 
   <div class="wrap">
@@ -53,7 +55,6 @@
       </div>
     </div>
 
-    <!-- 진행 상황 요약 -->
     <div class="summary-grid">
       <div id="sumBookCard" class="summary-card">
         <div style="font-size:12px; color:var(--muted);">1단계: 단어장</div>
@@ -69,7 +70,6 @@
       </div>
     </div>
 
-    <!-- 1단계: 단어장 선택 -->
     <div id="step1" class="view-section active">
       <div class="panel">
         <h2>1단계: 단어장 선택</h2>
@@ -77,7 +77,6 @@
       </div>
     </div>
 
-    <!-- 2단계: 학습 플랜 선택 -->
     <div id="step2" class="view-section">
       <div class="panel">
         <h2>2단계: 학습 플랜 선택</h2>
@@ -98,7 +97,6 @@
     let books = [];
     let plans = [];
     let selectedBookId = null;
-    let selectedPlanId = null;
 
     async function init() {
       const { data: { user } } = await supabase.auth.getUser();
@@ -130,77 +128,61 @@
       `).join('');
     }
 
-    // 1단계 -> 2단계 이동
     window.goStep2 = (id) => {
       selectedBookId = id;
       const book = books.find(b => b.id === id);
       document.getElementById('sumBook').textContent = book.title;
       document.getElementById('sumBookCard').classList.add('highlight');
-      
       document.getElementById('step1').classList.remove('active');
       document.getElementById('step2').classList.add('active');
       document.getElementById('prevBtn').style.display = 'block';
     };
 
-    // 2단계 선택 완료 시 호출 (DB 처리 후 다음 페이지 이동)
-    window.completeSelection = async (id) => {
-      selectedPlanId = id;
-      const plan = plans.find(p => p.id === id);
+    window.completeSelection = async (planId) => {
+      const plan = plans.find(p => p.id === planId);
       document.getElementById('sumPlan').textContent = plan.title;
       document.getElementById('sumPlanCard').classList.add('highlight');
-
       document.getElementById('loading').style.display = 'flex';
       
       try {
         const setId = await createTodaySet(plan);
-        // ⭐ 작업이 끝나면 뒤에 vocab_study.html 로 이동 (파라미터 전달)
         location.href = `vocab_study.html?setId=${setId}&bookId=${selectedBookId}`;
       } catch (err) {
         console.error(err);
-        alert('데이터 저장 중 오류가 발생했습니다: ' + err.message);
+        alert('데이터 저장 중 오류: ' + err.message);
         document.getElementById('loading').style.display = 'none';
       }
     };
 
-    // DB에 오늘 학습 데이터 생성 혹은 불러오기
     async function createTodaySet(plan) {
       const today = new Date().toISOString().slice(0, 10);
       
-      // 1. 등록 정보 (Upsert)
       const { data: enroll, error: enrollErr } = await supabase.from('user_vocab_enrollments')
         .upsert({ 
           user_id: me.id, 
           book_id: selectedBookId, 
-          plan_id: selectedPlanId, 
+          plan_id: plan.id, 
           status: 'studying' 
         }, { onConflict: 'user_id,book_id' })
         .select().single();
 
       if (enrollErr) throw enrollErr;
 
-      // 💥 [중요] 중복 키 에러 방지: 이 enrollment의 Day 1 데이터가 이미 있는지 먼저 확인
       const { data: existingSet } = await supabase.from('user_vocab_daily_sets')
-        .select('id')
-        .eq('enrollment_id', enroll.id)
-        .eq('day_no', 1)
-        .maybeSingle();
+        .select('id').eq('enrollment_id', enroll.id).eq('day_no', 1).maybeSingle();
       
-      // 이미 Day 1 데이터가 있다면 새로 만들지 않고 그 ID를 반환
-      if (existingSet) {
-        return existingSet.id;
-      }
+      if (existingSet) return existingSet.id;
 
-      // 없다면 새로 단어를 추출해서 생성
       const { data: words } = await supabase.from('vocab_book_words')
         .select('word_id').eq('book_id', selectedBookId).order('book_order').limit(plan.daily_new_count);
 
-      if (!words || words.length === 0) throw new Error('이 단어장에 단어가 없습니다.');
+      if (!words || words.length === 0) throw new Error('단어장에 단어가 없습니다.');
 
       const { data: newSet, error: insErr } = await supabase.from('user_vocab_daily_sets').insert({
         enrollment_id: enroll.id,
         user_id: me.id,
         book_id: selectedBookId,
-        plan_id: selectedPlanId,
+        plan_id: plan.id,
         day_no: 1,
         study_date: today,
         total_words: words.map(w => w.word_id),
@@ -208,11 +190,9 @@
       }).select().single();
       
       if (insErr) throw insErr;
-      
       return newSet.id;
     }
 
-    // 이전 버튼
     document.getElementById('prevBtn').onclick = () => {
       document.getElementById('step2').classList.remove('active');
       document.getElementById('step1').classList.add('active');
