@@ -5,221 +5,109 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>영작 학습관</title>
 <style>
-/* 기본 스타일 최적화 */
+/* [디자인] 모바일 최적화 및 컴팩트 스타일 */
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-
 :root {
---card: #ffffff;
---line: #e5e7eb;
---text: #1f2937;
---muted: #6b7280;
---blue: #4f8cff;
---green: #4caf50;
---shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+    --card: #ffffff; --line: #e5e7eb; --text: #1f2937; --muted: #6b7280;
+    --blue: #4f8cff; --green: #4caf50; --shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
 }
+html, body { margin: 0; padding: 0; height: 100%; font-family: Arial, sans-serif; background: #f8fafc; color: var(--text); }
+.wrap { width: 100%; max-width: 800px; margin: 0 auto; padding: 12px; min-height: 100vh; }
 
-html, body {
-margin: 0; padding: 0; height: 100%;
-font-family: Arial, sans-serif;
-background: #f8fafc;
-color: var(--text);
-}
+/* 요약 그리드를 없애고 상단 바를 작게 유지 */
+.topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.topbar h1 { margin: 0; font-size: 20px; font-weight: 800; }
 
-.wrap {
-width: 100%; max-width: 800px;
-margin: 0 auto; padding: 12px;
-min-height: 100vh;
-}
+.btn-light { background: #fff; color: #334155; border: 1px solid var(--line); padding: 8px 14px; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; }
 
-/* 상단 타이틀 간소화 */
-.topbar {
-display: flex; justify-content: space-between; align-items: center;
-margin-bottom: 12px;
-}
+/* 필터 패널 컴팩트화 */
+.panel { background: var(--card); border-radius: 16px; box-shadow: var(--shadow); padding: 12px; margin-bottom: 12px; }
+.filter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.filter-card { background: #f1f5f9; border-radius: 10px; padding: 6px 10px; }
+.filter-card label { display: block; font-size: 11px; color: var(--muted); font-weight: 800; margin-bottom: 2px; }
+.filter-card select { width: 100%; height: 32px; border: 1px solid var(--line); background: #fff; border-radius: 6px; font-size: 13px; font-weight: 700; }
 
-.title-box h1 {
-margin: 0; font-size: 20px; font-weight: 800;
-}
-
-/* 필터 영역 컴팩트화 */
-.panel {
-background: var(--card);
-border-radius: 16px;
-box-shadow: var(--shadow);
-padding: 12px;
-margin-bottom: 12px;
-}
-
-.filter-grid {
-display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
-}
-
-.filter-card {
-background: #f1f5f9; border-radius: 10px; padding: 8px;
-}
-
-.filter-card label {
-display: block; font-size: 11px; color: var(--muted); font-weight: 800; margin-bottom: 2px;
-}
-
-.filter-card select {
-width: 100%; height: 32px; border: 1px solid var(--line);
-background: #fff; border-radius: 6px; font-size: 13px; font-weight: 700;
-}
-
-/* 단원 카드 그리드 - 작게 만들기 */
-.unit-grid {
-display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px;
-}
-
+/* 단원 카드 그리드 - 모바일에서 한눈에 들어오게 축소 */
+.unit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 10px; }
 .unit-card {
-border: 1px solid var(--line);
-background: #fff; border-radius: 14px;
-padding: 10px;
-min-height: 100px; /* 높이 대폭 축소 */
-display: flex; flex-direction: column; justify-content: space-between;
-cursor: pointer; box-shadow: var(--shadow);
+    border: 1px solid var(--line); background: #fff; border-radius: 14px; padding: 12px;
+    min-height: 100px; display: flex; flex-direction: column; justify-content: space-between;
+    cursor: pointer; box-shadow: var(--shadow); text-align: left;
 }
-
-.badge {
-display: inline-flex; padding: 3px 8px;
-border-radius: 6px; font-size: 11px; font-weight: 800;
-background: #eef4ff; color: #335ea8; margin-bottom: 6px;
-}
-
-.unit-title {
-font-size: 14px; font-weight: 800; margin-bottom: 4px;
-line-height: 1.2;
-}
-
-.meta {
-color: var(--muted); font-size: 11px; line-height: 1.3;
-}
+.badge { display: inline-flex; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; background: #eef4ff; color: #335ea8; margin-bottom: 6px; width: max-content; }
+.unit-title { font-size: 15px; font-weight: 800; margin-bottom: 4px; line-height: 1.2; }
+.meta { color: var(--muted); font-size: 11px; line-height: 1.3; }
 
 /* 학습 화면 UI */
 #stageView, #gameView { display: none; }
-
-.grid-container {
-display: grid; grid-template-columns: repeat(auto-fill, minmax(65px, 1fr)); gap: 8px;
-}
-
-.stage-btn {
-aspect-ratio: 1; font-size: 16px; border-radius: 12px; font-weight: 800;
-}
-
+.quiz-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(65px, 1fr)); gap: 8px; }
+.stage-btn { aspect-ratio: 1; font-size: 16px; border-radius: 12px; font-weight: 800; cursor: pointer; border: none; }
 .stage-unlocked { background: linear-gradient(180deg, #5aa6ff, #4f8cff); color: white; }
 .stage-locked { background: #e2e8f0; color: #94a3b8; }
 .stage-complete { background: linear-gradient(180deg, #5fc776, #4caf50); color: white; }
 
-.progress-pill {
-display: inline-flex; background: #eef4ff; color: #2f5da8;
-border-radius: 8px; padding: 6px 10px; font-size: 12px; font-weight: 800;
-}
-
-.progress-bar-wrap {
-width: 100%; height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin-bottom: 12px;
-}
-
+.progress-pill { display: inline-flex; background: #eef4ff; color: #2f5da8; border-radius: 8px; padding: 6px 10px; font-size: 12px; font-weight: 800; }
+.progress-bar-wrap { width: 100%; height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin-bottom: 12px; }
 .progress-bar { height: 100%; width: 0%; background: #4caf50; transition: width 0.3s; }
 
-.question-card {
-background: #fff; border-radius: 18px; padding: 16px; border: 1px solid var(--line);
-}
-
-.prompt-box {
-padding: 12px; background: #f0f7ff; border-radius: 12px;
-font-weight: 700; font-size: 15px; margin-bottom: 10px;
-}
-
-.hint-box {
-padding: 10px; background: #fff; border: 1px dashed #cbd5e1;
-border-radius: 10px; font-size: 12px; color: var(--muted); margin-bottom: 10px;
-}
-
-.drop-zone {
-min-height: 80px; border: 2px dashed #93c5fd; border-radius: 14px;
-display: flex; flex-wrap: wrap; gap: 6px; padding: 10px; margin-bottom: 10px;
-}
-
-.word-btn {
-padding: 8px 12px; font-size: 13px; border-radius: 8px;
-background: #4f8cff; color: white; font-weight: 700;
-}
-
-.type-input {
-width: 100%; min-height: 60px; padding: 12px; font-size: 16px;
-border: 2px solid #bfdbfe; border-radius: 12px; outline: none;
-}
-
-#checkBtn {
-width: 100%; background: #4caf50; color: #fff; padding: 12px; font-size: 16px;
-}
+.question-card { background: #fff; border-radius: 18px; padding: 16px; border: 1px solid var(--line); }
+.step-label { display: inline-block; padding: 4px 10px; border-radius: 999px; background: #fff4e8; color: #f97316; font-size: 11px; font-weight: 800; margin-bottom: 10px; }
+.prompt-box { padding: 14px; background: #f0f7ff; border-radius: 12px; font-weight: 700; font-size: 16px; line-height: 1.5; margin-bottom: 12px; }
+.hint-box { padding: 10px; background: #fff; border: 1px dashed #cbd5e1; border-radius: 10px; font-size: 12px; color: var(--muted); margin-bottom: 12px; line-height: 1.4; }
+.drop-zone { min-height: 90px; border: 2px dashed #93c5fd; border-radius: 14px; display: flex; flex-wrap: wrap; gap: 8px; padding: 12px; margin-bottom: 12px; justify-content: center; }
+.word-bank { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.word-btn { padding: 10px 14px; font-size: 14px; border-radius: 10px; background: #4f8cff; color: white; font-weight: 700; border: none; cursor: pointer; }
+.type-input { width: 100%; min-height: 64px; padding: 14px; font-size: 18px; border: 2px solid #bfdbfe; border-radius: 14px; outline: none; resize: none; overflow-y: auto; }
+#checkBtn { width: 100%; background: #4caf50; color: #fff; padding: 14px; font-size: 16px; border-radius: 12px; font-weight: 800; margin-top: 10px; }
 
 /* 모달 */
-#modalOverlay {
-position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6);
-display: none; justify-content: center; align-items: center; padding: 20px; z-index: 2000;
-}
-
-.modal-content {
-background: #fff; border-radius: 20px; padding: 20px; width: 100%; max-width: 320px; text-align: center;
-}
-
-.m-btn {
-width: 100%; padding: 12px; margin-top: 8px; border-radius: 10px; font-weight: 800;
-}
-
-@media (max-width: 480px) {
-    .unit-grid { grid-template-columns: 1fr 1fr; } /* 모달에서 단원 카드는 무조건 2열 */
-}
+#modalOverlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); display: none; justify-content: center; align-items: center; padding: 20px; z-index: 2000; }
+.modal-content { background: #fff; border-radius: 20px; padding: 24px; width: 100%; max-width: 320px; text-align: center; }
+.m-btn { width: 100%; padding: 14px; margin-top: 10px; border-radius: 12px; font-weight: 800; font-size: 16px; cursor: pointer; border: none; }
 </style>
 </head>
 <body>
 <div class="wrap">
-    <!-- 상단 바 (요약 정보 삭제됨) -->
     <div class="topbar">
-        <div class="title-box"><h1>영작 학습관</h1></div>
+        <h1>영작 학습관</h1>
         <button id="homeBtn" class="btn-light">홈</button>
     </div>
 
     <div id="menuView">
-        <!-- 필터 영역 (학년/출판사 선택) -->
         <div class="panel">
             <div class="filter-grid">
                 <div class="filter-card"><label>학년</label><select id="gradeSelect"></select></div>
                 <div class="filter-card"><label>출판사</label><select id="bookSelect"></select></div>
             </div>
         </div>
-        <!-- 단원 리스트 -->
         <div id="unitGrid" class="unit-grid"></div>
     </div>
 
-    <!-- 번호 선택 화면 -->
     <div id="stageView">
         <div class="panel">
             <div class="quiz-head">
-                <div><div class="progress-pill" id="stageTitle"></div></div>
+                <div class="progress-pill" id="stageTitle">단원</div>
                 <button class="btn-light" id="stageBackBtn">목록</button>
             </div>
             <div id="stageGrid" class="grid-container" style="margin-top:12px;"></div>
         </div>
     </div>
 
-    <!-- 문제 풀이 화면 -->
     <div id="gameView">
         <div class="panel">
             <div class="quiz-head">
-                <div class="progress-pill" id="progressText"></div>
+                <div class="progress-pill" id="progressText">1 / 1</div>
                 <button class="btn-light" id="backBtn">뒤로</button>
             </div>
             <div class="progress-bar-wrap"><div id="progressBar" class="progress-bar"></div></div>
             <div class="question-card">
-                <div id="stepLabel" class="step-label" style="font-size:11px; font-weight:800; color:#f97316; margin-bottom:8px; display:block;">Step 1</div>
+                <div id="stepLabel" class="step-label">Step 1</div>
                 <div id="promptBox" class="prompt-box"></div>
                 <div id="hintBox" class="hint-box"></div>
                 <div id="arrangeArea"><div id="answerArea" class="drop-zone"></div><div id="wordBank" class="word-bank"></div></div>
-                <div id="typingArea" style="display:none;"><textarea id="typeInput" class="type-input" placeholder="문장을 입력하세요..."></textarea></div>
-                <div style="margin-top:12px;"><button id="checkBtn">제출</button></div>
+                <div id="typingArea" style="display:none;"><textarea id="typeInput" class="type-input" placeholder="영작을 입력하세요..."></textarea></div>
+                <button id="checkBtn">제출</button>
             </div>
         </div>
     </div>
@@ -227,8 +115,8 @@ width: 100%; padding: 12px; margin-top: 8px; border-radius: 10px; font-weight: 8
 
 <div id="modalOverlay">
     <div class="modal-content">
-        <h3 id="mTitle" style="margin:0 0 8px 0; font-size:18px;"></h3>
-        <p id="mMsg" style="margin:0 0 16px 0; font-size:14px; line-height:1.5; color:#475569;"></p>
+        <h3 id="mTitle" style="margin:0 0 8px 0; font-size:20px;"></h3>
+        <p id="mMsg" style="margin:0 0 20px 0; font-size:15px; line-height:1.6; color:#475569;"></p>
         <button class="m-btn" id="mYes" style="background:#4caf50; color:white;">확인</button>
         <button class="m-btn" id="mNo" style="background:#f1f5f9; color:#475569;">번호 목록</button>
     </div>
@@ -238,6 +126,7 @@ width: 100%; padding: 12px; margin-top: 8px; border-radius: 10px; font-weight: 8
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 const supabase = createClient('https://uuzhdxangctewuklvmlv.supabase.co', 'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F');
 
+// [복구] 카탈로그 100% 보존
 const catalog = {
     middle3: { label: '중3', books: {
         donga_yoon: { label: '동아(윤정미)', units: [
@@ -261,9 +150,11 @@ let currentGrade = 'middle3', currentBook = 'donga_yoon', currentUnitMeta = null
 let currentIndex = 0, currentStep = 1, typingWrongCount = 0, modalConfirmAction = null, authUserId = null;
 let unitProgressMap = new Map(), isProcessing = false;
 
-// 유틸리티
-const clean = t => String(t||'').toLowerCase().replace(/[.,!?“”‘’]/g,'').replace(/\s+/g,' ').trim();
+// [복구] 원본 유틸리티 로직 (clean, shuffle, tokensOf, autoResize 등)
+const clean = t => String(t||'').toLowerCase().replace(/[“”]/g,'"').replace(/[‘’]/g,"'").replace(/[.,!?"]/g,'').replace(/\s+/g,' ').trim();
 const shuffle = a => { let c=[...a]; for(let i=c.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [c[i],c[j]]=[c[j],c[i]]; } return c; };
+const tokensOf = t => clean(t).split(' ').filter(Boolean);
+const autoResize = el => { el.style.height='auto'; el.style.height=el.scrollHeight+'px'; };
 
 async function ensureAuth() {
     const { data } = await supabase.auth.getUser();
@@ -271,35 +162,56 @@ async function ensureAuth() {
     authUserId = data.user.id;
 }
 
+// [복구] 상세 데이터 정규화 및 진도 로직
+function normalizeProgress(row) {
+    const completed = Array.isArray(row?.completed_indexes) ? row.completed_indexes.map(v => Number(v)).filter(v => Number.isInteger(v) && v >= 0) : [];
+    return { completed: [...new Set(completed)].sort((a,b)=>a-b), maxUnlockedIndex: Number.isInteger(row?.max_unlocked_index) ? Math.max(0, row.max_unlocked_index) : 0 };
+}
+
 async function loadProgress() {
     if (!authUserId) return;
     const { data } = await supabase.from('writing_unit_progress').select('*').eq('user_id', authUserId);
     unitProgressMap.clear();
-    data?.forEach(r => unitProgressMap.set(`${r.grade_key}__${r.book_key}__${r.unit_id}`, { completed: r.completed_indexes || [], max: r.max_unlocked_index || 0 }));
+    data?.forEach(r => unitProgressMap.set(`${r.grade_key}__${r.book_key}__${r.unit_id}`, normalizeProgress(r)));
 }
 
-function getProg(meta = currentUnitMeta) { return unitProgressMap.get(`${currentGrade}__${currentBook}__${meta.id}`) || { completed: [], max: 0 }; }
+function getProg(meta = currentUnitMeta) { return unitProgressMap.get(`${currentGrade}__${currentBook}__${meta.id}`) || { completed: [], maxUnlockedIndex: 0 }; }
 
+// [버그 수정] 점프 방지 및 잠금 정체 해결 로직 보존
 async function saveProgress(idx) {
-    if (isProcessing) return;
     const key = `${currentGrade}__${currentBook}__${currentUnitMeta.id}`;
     let p = getProg();
     if (!p.completed.includes(idx)) p.completed.push(idx);
-    p.max = Math.max(p.max, (idx + 1 < currentData.items.length ? idx + 1 : idx));
+    p.maxUnlockedIndex = Math.max(p.maxUnlockedIndex, (idx + 1 < currentData.items.length ? idx + 1 : idx));
     
     await supabase.from('writing_unit_progress').upsert({
         user_id: authUserId, grade_key: currentGrade, book_key: currentBook, unit_id: currentUnitMeta.id,
-        completed_indexes: p.completed, max_unlocked_index: p.max, updated_at: new Date().toISOString()
+        completed_indexes: p.completed, max_unlocked_index: p.maxUnlockedIndex, updated_at: new Date().toISOString()
     }, { onConflict: 'user_id,grade_key,book_key,unit_id' });
 
     unitProgressMap.set(key, p);
-    // 전체 통계 동기화
+    // [복구] 전체 통계 동기화
     await supabase.from('writing_progress').upsert({
         user_id: authUserId, completed_count: p.completed.length, unit_total_count: currentData.items.length,
-        unit_label: `${catalog[currentGrade].label} ${currentUnitMeta.label}`, last_completed_at: new Date().toISOString()
+        unit_label: `${catalog[currentGrade].label} ${catalog[currentGrade].books[currentBook].label} ${currentUnitMeta.label}`, last_completed_at: new Date().toISOString()
     }, { onConflict: 'user_id' });
 }
 
+// [복구] 3단계 상세 힌트 로직
+function getWrongIndexes(uI, ans) {
+    const uT = tokensOf(uI), aT = tokensOf(ans), wrong = [];
+    for(let i=0; i<aT.length; i++) { if(uT[i] !== aT[i]) wrong.push(i); }
+    return { wrong, answerTokens: aT };
+}
+function buildHintMessage(uI, ans, count) {
+    const { wrong, answerTokens } = getWrongIndexes(uI, ans);
+    if (!wrong.length) return '다시 확인해 보세요.';
+    if (count === 1) return `틀린 단어가 ${wrong.length}개 있어요.`;
+    if (count === 2) return `${wrong.map(i => i+1).join(', ')}번째를 확인하세요.`;
+    return wrong.map(i => `${i+1}번째(${answerTokens[i][0]})`).join(', ') + " 단어를 확인하세요.";
+}
+
+// UI 렌더링
 async function renderUnits() {
     unitGrid.innerHTML = '';
     for (const u of catalog[currentGrade].books[currentBook].units) {
@@ -324,7 +236,7 @@ function renderStages() {
     const p = getProg(); stageGrid.innerHTML = '';
     currentData.items.forEach((_, i) => {
         const btn = document.createElement('button');
-        const done = p.completed.includes(i), open = i <= p.max;
+        const done = p.completed.includes(i), open = i <= p.maxUnlockedIndex;
         btn.className = `stage-btn ${done ? 'stage-complete' : open ? 'stage-unlocked' : 'stage-locked'}`;
         btn.textContent = open ? i + 1 : '🔒';
         if (open) btn.onclick = () => startQuiz(i);
@@ -355,18 +267,17 @@ function showQuestion() {
             qs('#wordBank').appendChild(b);
         });
     } else {
-        qs('#stepLabel').textContent = 'Step 2. 직접 입력';
+        qs('#stepLabel').textContent = 'Step 2. 직접 타이핑';
         qs('#arrangeArea').style.display = 'none'; qs('#typingArea').style.display = 'block';
-        typeInputEl.value = ''; typeInputEl.focus();
+        typeInputEl.value = ''; autoResize(typeInputEl); typeInputEl.focus();
     }
 }
 
-function buildHint(input, answer, count) {
-    const inW = clean(input).split(' '), anW = clean(answer).split(' '), wrong = [];
-    anW.forEach((w, i) => { if(inW[i] !== w) wrong.push(i); });
-    if (count === 1) return `틀린 단어가 ${wrong.length}개 있습니다.`;
-    if (count === 2) return `${wrong.map(i => i+1).join(', ')}번째를 확인하세요.`;
-    return wrong.map(i => `${i+1}번째(${anW[i][0]}...)`).join(', ') + " 확인 필요";
+function popup(ok, msg) {
+    qs('#modalOverlay').style.display = 'flex';
+    qs('#mTitle').textContent = ok ? "정답입니다!" : "오답입니다";
+    qs('#mTitle').style.color = ok ? '#4caf50' : '#f44336';
+    qs('#mMsg').textContent = msg;
 }
 
 qs('#checkBtn').onclick = () => {
@@ -376,16 +287,13 @@ qs('#checkBtn').onclick = () => {
     if (currentStep === 1) {
         const user = [...qs('#answerArea').children].map(n => n.textContent).join(' ');
         ok = clean(user) === clean(ans);
-        qs('#mTitle').textContent = ok ? "정답!" : "오답";
-        qs('#mMsg').textContent = ok ? "정확합니다. 다음 단계로 갑니다." : "배열 순서를 확인하세요.";
+        popup(ok, ok ? "정확합니다. 타이핑 단계로 갑니다." : "배열 순서를 확인하세요.");
     } else {
         const user = typeInputEl.value;
         ok = clean(user) === clean(ans);
-        if (ok) { qs('#mTitle').textContent = "참 잘했어요!"; qs('#mMsg').textContent = "이 문장을 마스터했습니다."; }
-        else { typingWrongCount++; qs('#mTitle').textContent = "오답"; qs('#mMsg').textContent = buildHint(user, ans, typingWrongCount); }
+        if (ok) popup(true, "완료했습니다!");
+        else { typingWrongCount++; popup(false, buildHintMessage(user, ans, typingWrongCount)); }
     }
-    qs('#modalOverlay').style.display = 'flex';
-    
     modalConfirmAction = async () => {
         if (ok) {
             if (currentStep === 1) { currentStep = 2; qs('#modalOverlay').style.display = 'none'; showQuestion(); }
@@ -401,6 +309,7 @@ qs('#checkBtn').onclick = () => {
     };
 };
 
+// [복구] 엔터키 및 모달 제어 로직 100% 보존
 qs('#mYes').onclick = async () => { if(modalConfirmAction) await modalConfirmAction(); };
 qs('#mNo').onclick = () => { qs('#modalOverlay').style.display = 'none'; stageView.style.display = 'block'; gameView.style.display = 'none'; renderStages(); };
 qs('#backBtn').onclick = () => { stageView.style.display = 'block'; gameView.style.display = 'none'; renderStages(); };
@@ -412,9 +321,11 @@ qs('#homeBtn').onclick = async () => {
     location.href = pD?.role === 'admin' ? 'admin.html' : 'class.html';
 };
 
+typeInputEl.oninput = () => autoResize(typeInputEl);
 typeInputEl.onkeydown = (e) => {
     if (e.key === 'Enter') {
         e.preventDefault();
+        if (isProcessing) return;
         if (qs('#modalOverlay').style.display === 'flex') qs('#mYes').click();
         else qs('#checkBtn').click();
     }
