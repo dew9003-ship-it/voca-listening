@@ -642,766 +642,189 @@ async function requireAuth() {
 }
 
         const db = [
-  {
-    "en": "Emily, what are you doing this weekend?",
-    "ko": "Emily, 이번 주말에 무엇을 할 거니?",
-    "audioUrl": "audio/1.mp3"
-  },
-  {
-    "en": "I’m going out for dinner to celebrate my friend Jenny’s birthday.",
-    "ko": "내 친구 Jenny의 생일을 축하하기 위해 저녁을 먹으러 나갈 거야.",
-    "audioUrl": "audio/2.mp3"
-  },
-  {
-    "en": "Sounds fun. Did you get something for her?",
-    "ko": "재미있게 들린다. 그녀에게 줄 것을 뭔가 샀니?",
-    "audioUrl": "audio/3.mp3"
-  },
-  {
-    "en": "Mr. Lee, do you have time to talk about our winter team-building workshop?",
-    "ko": "Mr. Lee, 우리의 동계 팀웍 다지기 워크숍에 대해 이야기할 시간이 있습니까?",
-    "audioUrl": "audio/4.mp3"
-  },
-  {
-    "en": "Sure. Actually, I was wondering if you had found any good locations yet.",
-    "ko": "물론이죠. 사실 저는 당신이 어떤 좋은 장소를 벌써 찾았는지 궁금해 하고 있었어요.",
-    "audioUrl": "audio/5.mp3"
-  },
-  {
-    "en": "Yes, I have, and we have some options. Here, I picked up some brochures from the travel agency.",
-    "ko": "네, 이미 찾았고 우리는 몇 개의 선택이 있어요. 내가 여행사에서 안내 책자 몇 권을 집어왔는데, 여기 있어요.",
-    "audioUrl": "audio/6.mp3"
-  },
-  {
-    "en": "May I have your attention please?",
-    "ko": "여러분, 주목해 주세요.",
-    "audioUrl": "audio/7.mp3"
-  },
-  {
-    "en": "This is principal Wilson.",
-    "ko": "저는 교장 Wilson입니다.",
-    "audioUrl": "audio/8.mp3"
-  },
-  {
-    "en": "As you know, this Friday is the last day of our month-long item donation event.",
-    "ko": "아시다시피 이번 금요일은 우리의 한 달 동안의 물품 기부 행사의 마지막 날입니다.",
-    "audioUrl": "audio/9.mp3"
-  },
-  {
-    "en": "Thank you to those who have already participated.",
-    "ko": "이미 참석한 사람들에게 감사드립니다.",
-    "audioUrl": "audio/10.mp3"
-  },
-  {
-    "en": "However, our involvement in the event has not met expectations yet, so we need to do more.",
-    "ko": "그러나 그 행사에 대한 우리의 참여가 아직 기대에 미치지 못해서 우리는 더 많은 것을 할 필요가 있습니다.",
-    "audioUrl": "audio/11.mp3"
-  },
-  {
-    "en": "The items we are still looking for are children’s clothes, toys, school supplies, and books.",
-    "ko": "우리가 아직도 찾고 있는 물품은 어린이옷, 장난감, 학용품 그리고 책입니다.",
-    "audioUrl": "audio/12.mp3"
-  },
-  {
-    "en": "If you have any of these items, please drop them off in the school cafeteria by Friday.",
-    "ko": "이 물품들을 어느 것이라도 갖고 있으면 금요일까지 학교 식당으로 가져다 놓으세요.",
-    "audioUrl": "audio/13.mp3"
-  },
-  {
-    "en": "Any donation, even just a single pencil, will be a great help.",
-    "ko": "어떤 기부도, 심지어 단 하나의 연필도 큰 도움이 될 것입니다.",
-    "audioUrl": "audio/14.mp3"
-  },
-  {
-    "en": "Don’t forget that your small actions can make a big difference.",
-    "ko": "여러분의 작은 행동이 큰 영향을 미칠 수 있다는 것을 잊지 마세요.",
-    "audioUrl": "audio/15.mp3"
-  },
-  {
-    "en": "I really encourage you to participate in this event.",
-    "ko": "여러분이 이 행사에 참여하기를 정말로 권장합니다.",
-    "audioUrl": "audio/16.mp3"
-  },
-  {
-    "en": "Thank you for listening.",
-    "ko": "들어주어서 감사합니다.",
-    "audioUrl": "audio/17.mp3"
-  },
-  {
-    "en": "Brian, you look really tired.",
-    "ko": "Brian, 너 정말로 피곤해 보인다.",
-    "audioUrl": "audio/18.mp3"
-  },
-  {
-    "en": "Yeah, I’ve been having difficulty sleeping recently.",
-    "ko": "그래, 나는 요즘 잠을 자는데 애를 먹고 있어.",
-    "audioUrl": "audio/19.mp3"
-  },
-  {
-    "en": "Why? Is something troubling you?",
-    "ko": "왜? 뭔가가 너를 괴롭히고 있니?",
-    "audioUrl": "audio/20.mp3"
-  },
-  {
-    "en": "Not really, but I don’t know how to get over this problem.",
-    "ko": "그렇지는 않지만 이 문제를 어떻게 극복해야 할지 모르겠어.",
-    "audioUrl": "audio/21.mp3"
-  },
-  {
-    "en": "Well, keeping a regular sleep pattern can help.",
-    "ko": "음, 규칙적인 수면 패턴을 지키는 것이 도움이 될 수 있어.",
-    "audioUrl": "audio/22.mp3"
-  },
-  {
-    "en": "I usually go to bed and wake up at the same time every day, but it doesn’t work.",
-    "ko": "나는 보통 매일 똑같은 시간에 잠을 자고 잠에서 깨지만 그것이 효과가 없어.",
-    "audioUrl": "audio/23.mp3"
-  },
-  {
-    "en": "Hmm, do you do anything particular before bed?",
-    "ko": "음, 잠자기 전에 특별한 것이라도 하니?",
-    "audioUrl": "audio/24.mp3"
-  },
-  {
-    "en": "Well, I use my phone to play games or text with friends for a little while.",
-    "ko": "음, 나는 전화를 사용해서 잠깐 동안 게임을 하거나 친구와 문자 메시지를 주고받아.",
-    "audioUrl": "audio/25.mp3"
-  },
-  {
-    "en": "Oh, that’s not good. It’s important not to use media devices for at least an hour before sleep.",
-    "ko": "아, 그것은 좋지 않아. 잠자기 전에 적어도 한 시간 동안 미디어 기기를 사용하지 않는 것이 중요해.",
-    "audioUrl": "audio/26.mp3"
-  },
-  {
-    "en": "Really? I thought it would help relieve my stress.",
-    "ko": "정말? 나는 그것이 내 스트레스를 없애는데 도움이 될 거라고 생각했는데.",
-    "audioUrl": "audio/27.mp3"
-  },
-  {
-    "en": "It can overexcite your senses and cause trouble sleeping.",
-    "ko": "그것이 네 감각을 너무 자극시키고 수면 장애를 일으킬 수 있어.",
-    "audioUrl": "audio/28.mp3"
-  },
-  {
-    "en": "I see.",
-    "ko": "알겠어.",
-    "audioUrl": "audio/29.mp3"
-  },
-  {
-    "en": "One other tip for sound sleep is to drink some warm milk before bed.",
-    "ko": "깊은 수면을 위한 다른 하나의 조언은 자기 전에 따뜻한 우유를 좀 마시는 거야.",
-    "audioUrl": "audio/30.mp3"
-  },
-  {
-    "en": "Okay, I’ll try those things and see if they work. Thanks.",
-    "ko": "좋았어, 내가 그것들을 시도해보고 효과가 있는지 알아볼게. 고마워.",
-    "audioUrl": "audio/31.mp3"
-  },
-  {
-    "en": "Good evening, Ms. Jackson. Thank you for joining us.",
-    "ko": "안녕하세요, Jackson 씨. 저희와 함께 해 주셔서 감사합니다.",
-    "audioUrl": "audio/32.mp3"
-  },
-  {
-    "en": "I’m happy to be here.",
-    "ko": "함께 해서 저도 기쁩니다.",
-    "audioUrl": "audio/33.mp3"
-  },
-  {
-    "en": "Well, before the main part of the show, can you give the audience any simple tips for the kitchen?",
-    "ko": "본격적인 프로그램에 들어가기 전에 시청자들에게 부엌을 위한 간단한 조언을 해주실 수 있나요?",
-    "audioUrl": "audio/34.mp3"
-  },
-  {
-    "en": "Sure. Sometimes we have to cook without enough time to go grocery shopping, like when we have unexpected guests, right?",
-    "ko": "물론이죠. 가끔 우리는 예기치 않은 손님이 찾아 올 때와 같이, 장을 볼 충분한 시간이 없이 요리를 해야 하죠, 그렇죠?",
-    "audioUrl": "audio/35.mp3"
-  },
-  {
-    "en": "Yeah, that happens. As a professional, what would you do in such a case? Our audience may want to know.",
-    "ko": "네. 그런 일이 생기지요. 전문가로서 그런 경우에 당신은 어떻게 합니까? 저희 시청자들이 알고 싶어 할 것 같아서요.",
-    "audioUrl": "audio/36.mp3"
-  },
-  {
-    "en": "Well, throwing a quick meal together is easy if you have some basic ingredients.",
-    "ko": "여러분이 기본적인 재료를 가지고 있으면 음식을 빨리 차려 내는 것이 쉽지요.",
-    "audioUrl": "audio/37.mp3"
-  },
-  {
-    "en": "Please, tell us what those are.",
-    "ko": "그것들이 무엇인지 저희에게 말씀해 주시겠어요.",
-    "audioUrl": "audio/38.mp3"
-  },
-  {
-    "en": "First, 300 to 400 grams of frozen pork or beef is useful.",
-    "ko": "먼저, 300에서 400 그램의 냉동 돼지고기나 소고기가 있으면 유용하지요.",
-    "audioUrl": "audio/39.mp3"
-  },
-  {
-    "en": "I see. What else?",
-    "ko": "알겠습니다. 다른 것은요?",
-    "audioUrl": "audio/40.mp3"
-  },
-  {
-    "en": "I also recommend potatoes and onions. With these ingredients, you can make so many different dishes.",
-    "ko": "감자와 양파도 또한 추천해 드립니다. 이러한 재료들을 가지고, 여러분은 너무나 많은 다양한 요리를 만들 수 있습니다.",
-    "audioUrl": "audio/41.mp3"
-  },
-  {
-    "en": "Thanks for the tip. Now, let’s move on to your special recipe.",
-    "ko": "조언을 해 주셔서 감사드립니다. 이제, 당신의 특별 요리법으로 넘어가 보지요.",
-    "audioUrl": "audio/42.mp3"
-  },
-  {
-    "en": "Honey, how’s the preparation going for Amy’s birthday party?",
-    "ko": "여보, Amy의 생일 파티를 위한 준비는 어떻게 돼가고 있어요?",
-    "audioUrl": "audio/43.mp3"
-  },
-  {
-    "en": "Almost done. We just need to find some places to hide the candy for the kids’ treasure hunt.",
-    "ko": "거의 다 됐어요. 아이들의 보물찾기를 위해 사탕을 숨길 장소를 찾기만 하면 돼요.",
-    "audioUrl": "audio/44.mp3"
-  },
-  {
-    "en": "Okay. Would the water fountain next to the steps be good?",
-    "ko": "좋아요. 계단 옆에 있는 분수대가 좋지 않을까요?",
-    "audioUrl": "audio/45.mp3"
-  },
-  {
-    "en": "Hmm.... If we put the candy there, it would get wet. Let’s choose somewhere dry. How about the flower pot in front of the window?",
-    "ko": "음.... 우리가 사탕을 거기에 두면, 젖어 버릴 거예요. 젖지 않는 다른 곳으로 선택해 봅시다. 창문 앞에 있는 화분은 어때요?",
-    "audioUrl": "audio/46.mp3"
-  },
-  {
-    "en": "Yeah, I think that’s good. We could also put some in the basket on the table.",
-    "ko": "네, 좋은 것 같아요. 또 일부는 탁자 위에 있는 바구니에 놓아 둘 수도 있을 것 같아요.",
-    "audioUrl": "audio/47.mp3"
-  },
-  {
-    "en": "Great. Then, I’ll sit in the chair beside the table and pretend nothing’s there.",
-    "ko": "훌륭해요. 그러면 나는 탁자 옆에 있는 의자에 앉아 있으면서 거기에 아무것도 없는 척 할게요.",
-    "audioUrl": "audio/48.mp3"
-  },
-  {
-    "en": "I like that idea. Now, let’s find one more place.",
-    "ko": "그 아이디어가 마음에 들어요. 이제 한 장소만 더 찾아봅시다.",
-    "audioUrl": "audio/49.mp3"
-  },
-  {
-    "en": "All right. Umm, the bunny would be good.",
-    "ko": "좋아요. 음, 토끼가 좋겠네요.",
-    "audioUrl": "audio/50.mp3"
-  },
-  {
-    "en": "You’re right.",
-    "ko": "맞아요.",
-    "audioUrl": "audio/51.mp3"
-  },
-  {
-    "en": "We could put the rest of the candy inside the hat in the bunny’s hand.",
-    "ko": "나머지 캔디는 토끼의 손에 있는 모자 안에 둘 수 있을 것 같아요.",
-    "audioUrl": "audio/52.mp3"
-  },
-  {
-    "en": "Perfect! I hope the kids have fun.",
-    "ko": "완벽해요! 아이들이 즐거워했으면 좋겠어요.",
-    "audioUrl": "audio/53.mp3"
-  }
-            ,
-  {
-    "en": "What are you reading, Tom?",
-    "ko": "Tom, 무엇을 읽고 있니?",
-    "audioUrl": "audio/54.mp3"
-  },
-  {
-    "en": "It’s a book about famous people in history.",
-    "ko": "그것은 역사 속 유명한 사람들에 관한 책이야.",
-    "audioUrl": "audio/55.mp3"
-  },
-  {
-    "en": "Oh, interesting. Who are you reading about now?",
-    "ko": "오, 흥미롭다. 지금 누구에 대해 읽고 있어?",
-    "audioUrl": "audio/56.mp3"
-  },
-  {
-    "en": "I’m reading about Tony Johnson.",
-    "ko": "나는 Tony Johnson에 대해 읽고 있어.",
-    "audioUrl": "audio/57.mp3"
-  },
-  {
-    "en": "Tony Johnson? I’ve never heard of him.",
-    "ko": "Tony Johnson? 나는 그에 대해 들어본 적이 없어.",
-    "audioUrl": "audio/58.mp3"
-  },
-  {
-    "en": "He was a great leader. Many people respected him.",
-    "ko": "그는 훌륭한 지도자였어. 많은 사람들이 그를 존경했어.",
-    "audioUrl": "audio/59.mp3"
-  },
-  {
-    "en": "Wow, I should read that book too.",
-    "ko": "와, 나도 그 책을 읽어봐야겠다.",
-    "audioUrl": "audio/60.mp3"
-  },
-  {
-    "en": "Excuse me, can you help me find this book?",
-    "ko": "실례합니다, 이 책을 찾는 것을 도와주실 수 있나요?",
-    "audioUrl": "audio/61.mp3"
-  },
-  {
-    "en": "Of course. What’s the title?",
-    "ko": "물론이죠. 제목이 무엇인가요?",
-    "audioUrl": "audio/62.mp3"
-  },
-  {
-    "en": "It’s called The Future of Technology.",
-    "ko": "그것은 The Future of Technology라고 불려요.",
-    "audioUrl": "audio/63.mp3"
-  },
-  {
-    "en": "Let me check. It should be in aisle 3.",
-    "ko": "확인해 보겠습니다. 3번 통로에 있어야 합니다.",
-    "audioUrl": "audio/64.mp3"
-  },
-  {
-    "en": "Thank you very much.",
-    "ko": "정말 감사합니다.",
-    "audioUrl": "audio/65.mp3"
-  },
-  {
-    "en": "No problem. Let me know if you need anything else.",
-    "ko": "괜찮습니다. 다른 것이 필요하시면 말씀해 주세요.",
-    "audioUrl": "audio/66.mp3"
-  },
-  {
-    "en": "Hey, do you want to grab some coffee?",
-    "ko": "야, 커피 좀 마시러 갈래?",
-    "audioUrl": "audio/67.mp3"
-  },
-  {
-    "en": "Sure, I could use a break.",
-    "ko": "좋아, 나도 좀 쉬고 싶었어.",
-    "audioUrl": "audio/68.mp3"
-  },
-  {
-    "en": "There’s a new café around the corner.",
-    "ko": "모퉁이에 새로운 카페가 있어.",
-    "audioUrl": "audio/69.mp3"
-  },
-  {
-    "en": "Sounds great. Let’s go.",
-    "ko": "좋다. 가자.",
-    "audioUrl": "audio/70.mp3"
-  },
-  {
-    "en": "What would you like to drink?",
-    "ko": "무엇을 마시겠어요?",
-    "audioUrl": "audio/71.mp3"
-  },
-  {
-    "en": "I’ll have a latte, please.",
-    "ko": "라떼 하나 주세요.",
-    "audioUrl": "audio/72.mp3"
-  },
-  {
-    "en": "Would you like anything to eat?",
-    "ko": "먹을 것도 드릴까요?",
-    "audioUrl": "audio/73.mp3"
-  },
-  {
-    "en": "Yes, I’ll take a sandwich.",
-    "ko": "네, 샌드위치 하나 주세요.",
-    "audioUrl": "audio/74.mp3"
-  },
-  {
-    "en": "That will be ten dollars.",
-    "ko": "10달러입니다.",
-    "audioUrl": "audio/75.mp3"
-  },
-  {
-    "en": "Here you go.",
-    "ko": "여기요.",
-    "audioUrl": "audio/76.mp3"
-  },
-  {
-    "en": "Thank you. Your order will be ready soon.",
-    "ko": "감사합니다. 주문하신 음료는 곧 준비됩니다.",
-    "audioUrl": "audio/77.mp3"
-  },
-  {
-    "en": "Hi, how was your trip?",
-    "ko": "안녕, 여행은 어땠어?",
-    "audioUrl": "audio/78.mp3"
-  },
-  {
-    "en": "It was amazing! I visited so many beautiful places.",
-    "ko": "정말 멋졌어! 정말 많은 아름다운 곳을 방문했어.",
-    "audioUrl": "audio/79.mp3"
-  },
-  {
-    "en": "Did you take a lot of pictures?",
-    "ko": "사진 많이 찍었어?",
-    "audioUrl": "audio/80.mp3"
-  },
-  {
-    "en": "Of course! I’ll show them to you later.",
-    "ko": "물론이지! 나중에 보여줄게.",
-    "audioUrl": "audio/81.mp3"
-  },
-  {
-    "en": "I can’t wait to see them.",
-    "ko": "정말 기대된다.",
-    "audioUrl": "audio/82.mp3"
-  },
-  {
-    "en": "Welcome to our store. How can I help you?",
-    "ko": "저희 매장에 오신 것을 환영합니다. 무엇을 도와드릴까요?",
-    "audioUrl": "audio/83.mp3"
-  },
-  {
-    "en": "I’m looking for a gift for my friend.",
-    "ko": "친구를 위한 선물을 찾고 있어요.",
-    "audioUrl": "audio/84.mp3"
-  },
-  {
-    "en": "What kind of gift are you thinking about?",
-    "ko": "어떤 종류의 선물을 생각하고 계신가요?",
-    "audioUrl": "audio/85.mp3"
-  },
-  {
-    "en": "Maybe something simple but meaningful.",
-    "ko": "아마도 간단하지만 의미 있는 것이요.",
-    "audioUrl": "audio/86.mp3"
-  },
-  {
-    "en": "How about this necklace?",
-    "ko": "이 목걸이는 어떠세요?",
-    "audioUrl": "audio/87.mp3"
-  },
-  {
-    "en": "That looks perfect. I’ll take it.",
-    "ko": "완벽해 보여요. 이걸로 할게요.",
-    "audioUrl": "audio/88.mp3"
-  },
-  {
-    "en": "Great choice. I’ll wrap it for you.",
-    "ko": "좋은 선택이에요. 포장해 드릴게요.",
-    "audioUrl": "audio/89.mp3"
-  }
-           ,
-  {
-    "en": "Good morning, everyone.",
-    "ko": "여러분, 안녕하세요.",
-    "audioUrl": "audio/90.mp3"
-  },
-  {
-    "en": "Today, I’d like to talk about the importance of exercise.",
-    "ko": "오늘 저는 운동의 중요성에 대해 이야기하고 싶습니다.",
-    "audioUrl": "audio/91.mp3"
-  },
-  {
-    "en": "Regular exercise helps us stay healthy and strong.",
-    "ko": "규칙적인 운동은 우리를 건강하고 강하게 유지해 줍니다.",
-    "audioUrl": "audio/92.mp3"
-  },
-  {
-    "en": "It also improves our mood and reduces stress.",
-    "ko": "또한 기분을 좋게 하고 스트레스를 줄여줍니다.",
-    "audioUrl": "audio/93.mp3"
-  },
-  {
-    "en": "Even a short walk every day can make a big difference.",
-    "ko": "매일 짧은 산책만으로도 큰 변화를 만들 수 있습니다.",
-    "audioUrl": "audio/94.mp3"
-  },
-  {
-    "en": "So, let’s try to be more active in our daily lives.",
-    "ko": "그러니 일상생활에서 더 활동적으로 지내도록 노력합시다.",
-    "audioUrl": "audio/95.mp3"
-  },
-  {
-    "en": "Thank you for your attention.",
-    "ko": "경청해 주셔서 감사합니다.",
-    "audioUrl": "audio/96.mp3"
-  },
-  {
-    "en": "I think it’s about 15 dollars.",
-    "ko": "약 15달러 정도인 것 같아요.",
-    "audioUrl": "audio/97.mp3"
-  },
-  {
-    "en": "That’s not too expensive.",
-    "ko": "그건 그렇게 비싸지 않네요.",
-    "audioUrl": "audio/98.mp3"
-  },
-  {
-    "en": "Would you like to buy it?",
-    "ko": "구매하시겠어요?",
-    "audioUrl": "audio/99.mp3"
-  },
-  {
-    "en": "Yes, I’ll take it.",
-    "ko": "네, 이걸로 할게요.",
-    "audioUrl": "audio/100.mp3"
-  },
-  {
-    "en": "Please sign here.",
-    "ko": "여기에 서명해 주세요.",
-    "audioUrl": "audio/101.mp3"
-  },
-  {
-    "en": "Thank you for your purchase.",
-    "ko": "구매해 주셔서 감사합니다.",
-    "audioUrl": "audio/102.mp3"
-  },
-  {
-    "en": "Hi, can I ask you a question?",
-    "ko": "안녕하세요, 질문 하나 해도 될까요?",
-    "audioUrl": "audio/103.mp3"
-  },
-  {
-    "en": "Sure, go ahead.",
-    "ko": "물론이죠, 말씀하세요.",
-    "audioUrl": "audio/104.mp3"
-  },
-  {
-    "en": "How do I get to the nearest subway station?",
-    "ko": "가장 가까운 지하철역에 어떻게 가나요?",
-    "audioUrl": "audio/105.mp3"
-  },
-  {
-    "en": "Go straight and turn left at the corner.",
-    "ko": "직진하다가 모퉁이에서 왼쪽으로 도세요.",
-    "audioUrl": "audio/106.mp3"
-  },
-  {
-    "en": "It’s about a five-minute walk from here.",
-    "ko": "여기서 걸어서 약 5분 거리입니다.",
-    "audioUrl": "audio/107.mp3"
-  },
-  {
-    "en": "Thank you so much for your help.",
-    "ko": "도와주셔서 정말 감사합니다.",
-    "audioUrl": "audio/108.mp3"
-  },
-  {
-    "en": "You’re welcome.",
-    "ko": "천만에요.",
-    "audioUrl": "audio/109.mp3"
-  },
-  {
-    "en": "Let’s start the meeting.",
-    "ko": "회의를 시작합시다.",
-    "audioUrl": "audio/110.mp3"
-  },
-  {
-    "en": "First, we need to review last week’s progress.",
-    "ko": "먼저 지난주 진행 상황을 검토해야 합니다.",
-    "audioUrl": "audio/111.mp3"
-  },
-  {
-    "en": "Then, we can discuss the new project.",
-    "ko": "그 다음에 새로운 프로젝트를 논의할 수 있습니다.",
-    "audioUrl": "audio/112.mp3"
-  },
-  {
-    "en": "Does anyone have any questions?",
-    "ko": "질문 있는 분 계신가요?",
-    "audioUrl": "audio/113.mp3"
-  },
-  {
-    "en": "No, everything is clear.",
-    "ko": "아니요, 모두 명확합니다.",
-    "audioUrl": "audio/114.mp3"
-  },
-  {
-    "en": "Great, let’s move on.",
-    "ko": "좋습니다, 다음으로 넘어갑시다.",
-    "audioUrl": "audio/115.mp3"
-  },
-  {
-    "en": "Can you help me with this problem?",
-    "ko": "이 문제 좀 도와줄 수 있니?",
-    "audioUrl": "audio/116.mp3"
-  },
-  {
-    "en": "Of course, what seems to be the issue?",
-    "ko": "물론이지, 어떤 문제가 있어?",
-    "audioUrl": "audio/117.mp3"
-  },
-  {
-    "en": "I don’t understand this part.",
-    "ko": "이 부분이 이해가 안 돼.",
-    "audioUrl": "audio/118.mp3"
-  },
-  {
-    "en": "Let me explain it to you.",
-    "ko": "내가 설명해 줄게.",
-    "audioUrl": "audio/119.mp3"
-  },
-  {
-    "en": "Oh, now I get it. Thank you!",
-    "ko": "아, 이제 이해됐어. 고마워!",
-    "audioUrl": "audio/120.mp3"
-  } 
-            ,
-  {
-    "en": "Let’s go for a walk.",
-    "ko": "산책하러 가자.",
-    "audioUrl": "audio/121.mp3"
-  },
-  {
-    "en": "That sounds like a great idea.",
-    "ko": "좋은 생각이다.",
-    "audioUrl": "audio/122.mp3"
-  },
-  {
-    "en": "The weather is perfect today.",
-    "ko": "오늘 날씨가 완벽해.",
-    "audioUrl": "audio/123.mp3"
-  },
-  {
-    "en": "Yes, it’s not too hot or too cold.",
-    "ko": "응, 너무 덥지도 춥지도 않아.",
-    "audioUrl": "audio/124.mp3"
-  },
-  {
-    "en": "Let’s meet at the park entrance.",
-    "ko": "공원 입구에서 만나자.",
-    "audioUrl": "audio/125.mp3"
-  },
-  {
-    "en": "Okay, I’ll be there in ten minutes.",
-    "ko": "좋아, 10분 후에 갈게.",
-    "audioUrl": "audio/126.mp3"
-  },
-  {
-    "en": "Don’t be late!",
-    "ko": "늦지 마!",
-    "audioUrl": "audio/127.mp3"
-  },
-  {
-    "en": "I won’t, don’t worry.",
-    "ko": "안 늦어, 걱정 마.",
-    "audioUrl": "audio/128.mp3"
-  },
-  {
-    "en": "What are you planning to do this summer?",
-    "ko": "이번 여름에 무엇을 할 계획이니?",
-    "audioUrl": "audio/129.mp3"
-  },
-  {
-    "en": "I’m thinking about traveling abroad.",
-    "ko": "해외여행을 생각 중이야.",
-    "audioUrl": "audio/130.mp3"
-  },
-  {
-    "en": "That sounds exciting!",
-    "ko": "신나겠다!",
-    "audioUrl": "audio/131.mp3"
-  },
-  {
-    "en": "Where do you want to go?",
-    "ko": "어디 가고 싶어?",
-    "audioUrl": "audio/132.mp3"
-  },
-  {
-    "en": "Maybe Europe or Japan.",
-    "ko": "유럽이나 일본.",
-    "audioUrl": "audio/133.mp3"
-  },
-  {
-    "en": "I hope you have a great trip.",
-    "ko": "좋은 여행 되길 바랄게.",
-    "audioUrl": "audio/134.mp3"
-  },
-  {
-    "en": "Thanks! I’m really looking forward to it.",
-    "ko": "고마워! 정말 기대돼.",
-    "audioUrl": "audio/135.mp3"
-  },
-  {
-    "en": "Hello, everyone. Welcome to Dr. Thompson’s Family Center.",
-    "ko": "안녕하세요, 여러분. Thompson 박사의 Family Center에 오신 것을 환영합니다.",
-    "audioUrl": "audio/162.mp3"
-  },
-  {
-    "en": "Many of you may not know how to smooth things over with your family members after conflict.",
-    "ko": "여러분 중 많은 분들이 갈등을 겪은 이후에 가족 구성원들과의 상황을 진정시키는 방법을 알지 못할 수도 있습니다.",
-    "audioUrl": "audio/163.mp3"
-  },
-  {
-    "en": "Today, I’d like to talk about some ways to make up with them after an argument.",
-    "ko": "오늘 저는 말다툼 이후 화해하는 방법에 대해 이야기하려고 합니다.",
-    "audioUrl": "audio/164.mp3"
-  },
-  {
-    "en": "First, reveal your true feelings.",
-    "ko": "먼저, 진심을 표현하세요.",
-    "audioUrl": "audio/165.mp3"
-  },
-  {
-    "en": "Giving them a letter is one option.",
-    "ko": "편지를 주는 것도 하나의 방법입니다.",
-    "audioUrl": "audio/166.mp3"
-  },
-  {
-    "en": "Sometimes it’s hard to say everything you want in person.",
-    "ko": "때때로 직접 말하기 어려울 수 있습니다.",
-    "audioUrl": "audio/167.mp3"
-  },
-  {
-    "en": "Writing gives you time to think.",
-    "ko": "글쓰기는 생각할 시간을 줍니다.",
-    "audioUrl": "audio/168.mp3"
-  },
-  {
-    "en": "If you’re not good at writing, you can draw a picture.",
-    "ko": "글쓰기가 어렵다면 그림을 그릴 수도 있습니다.",
-    "audioUrl": "audio/169.mp3"
-  },
-  {
-    "en": "It can express your feelings, too.",
-    "ko": "그것도 감정을 표현할 수 있습니다.",
-    "audioUrl": "audio/170.mp3"
-  },
-  {
-    "en": "Even if it’s not perfect, it can still be meaningful.",
-    "ko": "완벽하지 않아도 의미가 있습니다.",
-    "audioUrl": "audio/171.mp3"
-  },
-  {
-    "en": "Showing interest in what they like is another way.",
-    "ko": "상대가 좋아하는 것에 관심을 보이는 것도 방법입니다.",
-    "audioUrl": "audio/172.mp3"
-  },
-  {
-    "en": "For example, surprise them with something they love.",
-    "ko": "예를 들어, 좋아하는 것으로 놀라게 해보세요.",
-    "audioUrl": "audio/173.mp3"
-  },
-  {
-    "en": "It doesn’t have to be expensive.",
-    "ko": "비쌀 필요는 없습니다.",
-    "audioUrl": "audio/174.mp3"
-  },
-  {
-    "en": "It’s the thought that counts.",
-    "ko": "마음이 중요합니다.",
-    "audioUrl": "audio/175.mp3"
-  },
-  {
-    "en": "When you show you care, things will improve.",
-    "ko": "마음을 표현하면 관계가 좋아집니다.",
-    "audioUrl": "audio/176.mp3"
-  },
-  {
-    "en": "Remember, your family is your greatest support.",
-    "ko": "가족은 가장 큰 힘입니다.",
-    "audioUrl": "audio/177.mp3"
-  }
-];
+  // 1-53번 (기존과 동일하므로 대본 확인 완료)
+  { "en": "Emily, what are you doing this weekend?", "ko": "Emily, 이번 주말에 무엇을 할 거니?", "audioUrl": "audio/1.mp3" },
+  { "en": "I’m going out for dinner to celebrate my friend Jenny’s birthday.", "ko": "내 친구 Jenny의 생일을 축하하기 위해 저녁을 먹으러 나갈 거야.", "audioUrl": "audio/2.mp3" },
+  { "en": "Sounds fun. Did you get something for her?", "ko": "재미있게 들린다. 그녀에게 줄 것을 뭔가 샀니?", "audioUrl": "audio/3.mp3" },
+  { "en": "Mr. Lee, do you have time to talk about our winter team-building workshop?", "ko": "Mr. Lee, 우리의 동계 팀웍 다지기 워크숍에 대해 이야기할 시간이 있습니까?", "audioUrl": "audio/4.mp3" },
+  { "en": "Sure. Actually, I was wondering if you had found any good locations yet.", "ko": "물론이죠. 사실 저는 당신이 어떤 좋은 장소를 벌써 찾았는지 궁금해 하고 있었어요.", "audioUrl": "audio/5.mp3" },
+  { "en": "Yes, I have, and we have some options. Here, I picked up some brochures from the travel agency.", "ko": "네, 이미 찾았고 우리는 몇 개의 선택이 있어요. 내가 여행사에서 안내 책자 몇 권을 집어왔는데, 여기 있어요.", "audioUrl": "audio/6.mp3" },
+  { "en": "May I have your attention please?", "ko": "여러분, 주목해 주세요.", "audioUrl": "audio/7.mp3" },
+  { "en": "This is principal Wilson.", "ko": "저는 교장 Wilson입니다.", "audioUrl": "audio/8.mp3" },
+  { "en": "As you know, this Friday is the last day of our month-long item donation event.", "ko": "아시다시피 이번 금요일은 우리의 한 달 동안의 물품 기부 행사의 마지막 날입니다.", "audioUrl": "audio/9.mp3" },
+  { "en": "Thank you to those who have already participated.", "ko": "이미 참석한 사람들에게 감사드립니다.", "audioUrl": "audio/10.mp3" },
+  { "en": "However, our involvement in the event has not met expectations yet, so we need to do more.", "ko": "그러나 그 행사에 대한 우리의 참여가 아직 기대에 미치지 못해서 우리는 더 많은 것을 할 필요가 있습니다.", "audioUrl": "audio/11.mp3" },
+  { "en": "The items we are still looking for are children’s clothes, toys, school supplies, and books.", "ko": "우리가 아직도 찾고 있는 물품은 어린이옷, 장난감, 학용품 그리고 책입니다.", "audioUrl": "audio/12.mp3" },
+  { "en": "If you have any of these items, please drop them off in the school cafeteria by Friday.", "ko": "이 물품들을 어느 것이라도 갖고 있으면 금요일까지 학교 식당으로 가져다 놓으세요.", "audioUrl": "audio/13.mp3" },
+  { "en": "Any donation, even just a single pencil, will be a great help.", "ko": "어떤 기부도, 심지어 단 하나의 연필도 큰 도움이 될 것입니다.", "audioUrl": "audio/14.mp3" },
+  { "en": "Don’t forget that your small actions can make a big difference.", "ko": "여러분의 작은 행동이 큰 영향을 미칠 수 있다는 것을 잊지 마세요.", "audioUrl": "audio/15.mp3" },
+  { "en": "I really encourage you to participate in this event.", "ko": "여러분이 이 행사에 참여하기를 정말로 권장합니다.", "audioUrl": "audio/16.mp3" },
+  { "en": "Thank you for listening.", "ko": "들어주어서 감사합니다.", "audioUrl": "audio/17.mp3" },
+  { "en": "Brian, you look really tired.", "ko": "Brian, 너 정말로 피곤해 보인다.", "audioUrl": "audio/18.mp3" },
+  { "en": "Yeah, I’ve been having difficulty sleeping recently.", "ko": "그래, 나는 요즘 잠을 자는데 애를 먹고 있어.", "audioUrl": "audio/19.mp3" },
+  { "en": "Why? Is something troubling you?", "ko": "왜? 뭔가가 너를 괴롭히고 있니?", "audioUrl": "audio/20.mp3" },
+  { "en": "Not really, but I don’t know how to get over this problem.", "ko": "그렇지는 않지만 이 문제를 어떻게 극복해야 할지 모르겠어.", "audioUrl": "audio/21.mp3" },
+  { "en": "Well, keeping a regular sleep pattern can help.", "ko": "음, 규칙적인 수면 패턴을 지키는 것이 도움이 될 수 있어.", "audioUrl": "audio/22.mp3" },
+  { "en": "I usually go to bed and wake up at the same time every day, but it doesn’t work.", "ko": "나는 보통 매일 똑같은 시간에 잠을 자고 잠에서 깨지만 그것이 효과가 없어.", "audioUrl": "audio/23.mp3" },
+  { "en": "Hmm, do you do anything particular before bed?", "ko": "음, 잠자기 전에 특별한 것이라도 하니?", "audioUrl": "audio/24.mp3" },
+  { "en": "Well, I use my phone to play games or text with friends for a little while.", "ko": "음, 나는 전화를 사용해서 잠깐 동안 게임을 하거나 친구와 문자 메시지를 주고받아.", "audioUrl": "audio/25.mp3" },
+  { "en": "Oh, that’s not good. It’s important not to use media devices for at least an hour before sleep.", "ko": "아, 그것은 좋지 않아. 잠자기 전에 적어도 한 시간 동안 미디어 기기를 사용하지 않는 것이 중요해.", "audioUrl": "audio/26.mp3" },
+  { "en": "Really? I thought it would help relieve my stress.", "ko": "정말? 나는 그것이 내 스트레스를 없애는데 도움이 될 거라고 생각했는데.", "audioUrl": "audio/27.mp3" },
+  { "en": "It can overexcite your senses and cause trouble sleeping.", "ko": "그것이 네 감각을 너무 자극시키고 수면 장애를 일으킬 수 있어.", "audioUrl": "audio/28.mp3" },
+  { "en": "I see.", "ko": "알겠어.", "audioUrl": "audio/29.mp3" },
+  { "en": "One other tip for sound sleep is to drink some warm milk before bed.", "ko": "깊은 수면을 위한 다른 하나의 조언은 자기 전에 따뜻한 우유를 좀 마시는 거야.", "audioUrl": "audio/30.mp3" },
+  { "en": "Okay, I’ll try those things and see if they work. Thanks.", "ko": "좋았어, 내가 그것들을 시도해보고 효과가 있는지 알아볼게. 고마워.", "audioUrl": "audio/31.mp3" },
+  { "en": "Good evening, Ms. Jackson. Thank you for joining us.", "ko": "안녕하세요, Jackson 씨. 저희와 함께 해 주셔서 감사합니다.", "audioUrl": "audio/32.mp3" },
+  { "en": "I’m happy to be here.", "ko": "함께 해서 저도 기쁩니다.", "audioUrl": "audio/33.mp3" },
+  { "en": "Well, before the main part of the show, can you give the audience any simple tips for the kitchen?", "ko": "본격적인 프로그램에 들어가기 전에 시청자들에게 부엌을 위한 간단한 조언을 해주실 수 있나요?", "audioUrl": "audio/34.mp3" },
+  { "en": "Sure. Sometimes we have to cook without enough time to go grocery shopping, like when we have unexpected guests, right?", "ko": "물론이죠. 가끔 우리는 예기치 않은 손님이 찾아 올 때와 같이, 장을 볼 충분한 시간이 없이 요리를 해야 하죠, 그렇죠?", "audioUrl": "audio/35.mp3" },
+  { "en": "Yeah, that happens. As a professional, what would you do in such a case? Our audience may want to know.", "ko": "네. 그런 일이 생기지요. 전문가로서 그런 경우에 당신은 어떻게 합니까? 저희 시청자들이 알고 싶어 할 것 같아서요.", "audioUrl": "audio/36.mp3" },
+  { "en": "Well, throwing a quick meal together is easy if you have some basic ingredients.", "ko": "여러분이 기본적인 재료를 가지고 있으면 음식을 빨리 차려 내는 것이 쉽지요.", "audioUrl": "audio/37.mp3" },
+  { "en": "Please, tell us what those are.", "ko": "그것들이 무엇인지 저희에게 말씀해 주시겠어요.", "audioUrl": "audio/38.mp3" },
+  { "en": "First, 300 to 400 grams of frozen pork or beef is useful.", "ko": "먼저, 300에서 400 그램의 냉동 돼지고기나 소고기가 있으면 유용하지요.", "audioUrl": "audio/39.mp3" },
+  { "en": "I see. What else?", "ko": "알겠습니다. 다른 것은요?", "audioUrl": "audio/40.mp3" },
+  { "en": "I also recommend potatoes and onions. With these ingredients, you can make so many different dishes.", "ko": "감자와 양파도 또한 추천해 드립니다. 이러한 재료들을 가지고, 여러분은 너무나 많은 다양한 요리를 만들 수 있습니다.", "audioUrl": "audio/41.mp3" },
+  { "en": "Thanks for the tip. Now, let’s move on to your special recipe.", "ko": "조언을 해 주셔서 감사드립니다. 이제, 당신의 특별 요리법으로 넘어가 보지요.", "audioUrl": "audio/42.mp3" },
+  { "en": "Honey, how’s the preparation going for Amy’s birthday party?", "ko": "여보, Amy의 생일 파티를 위한 준비는 어떻게 돼가고 있어요?", "audioUrl": "audio/43.mp3" },
+  { "en": "Almost done. We just need to find some places to hide the candy for the kids’ treasure hunt.", "ko": "거의 다 됐어요. 아이들의 보물찾기를 위해 사탕을 숨길 장소를 찾기만 하면 돼요.", "audioUrl": "audio/44.mp3" },
+  { "en": "Okay. Would the water fountain next to the steps be good?", "ko": "좋아요. 계단 옆에 있는 분수대가 좋지 않을까요?", "audioUrl": "audio/45.mp3" },
+  { "en": "Hmm.... If we put the candy there, it would get wet. Let’s choose somewhere dry. How about the flower pot in front of the window?", "ko": "음.... 우리가 사탕을 거기에 두면, 젖어 버릴 거예요. 젖지 않는 다른 곳으로 선택해 봅시다. 창문 앞에 있는 화분은 어때요?", "audioUrl": "audio/46.mp3" },
+  { "en": "Yeah, I think that’s good. We could also put some in the basket on the table.", "ko": "네, 좋은 것 같아요. 또 일부는 탁자 위에 있는 바구니에 놓아 둘 수도 있을 것 같아요.", "audioUrl": "audio/47.mp3" },
+  { "en": "Great. Then, I’ll sit in the chair beside the table and pretend nothing’s there.", "ko": "훌륭해요. 그러면 나는 탁자 옆에 있는 의자에 앉아 있으면서 거기에 아무것도 없는 척 할게요.", "audioUrl": "audio/48.mp3" },
+  { "en": "I like that idea. Now, let’s find one more place.", "ko": "그 아이디어가 마음에 들어요. 이제 한 장소만 더 찾아봅시다.", "audioUrl": "audio/49.mp3" },
+  { "en": "All right. Umm, the bunny would be good.", "ko": "좋아요. 음, 토끼가 좋겠네요.", "audioUrl": "audio/50.mp3" },
+  { "en": "You’re right.", "ko": "맞아요.", "audioUrl": "audio/51.mp3" },
+  { "en": "We could put the rest of the candy inside the hat in the bunny’s hand.", "ko": "나머지 캔디는 토끼의 손에 있는 모자 안에 둘 수 있을 것 같아요.", "audioUrl": "audio/52.mp3" },
+  { "en": "Perfect! I hope the kids have fun.", "ko": "완벽해요! 아이들이 즐거워했으면 좋겠어요.", "audioUrl": "audio/53.mp3" },
 
+  // 54번부터 이미지 대본 바탕으로 새로 작성 (Election/Baseball/Cake/Hair/Essay/Park/Interview/Printer/Sandra/Thompson)
+  { "en": "Eva, I've decided to run for student council president!", "ko": "Eva, 나 학생회장 선거에 나가기로 결심했어!", "audioUrl": "audio/54.mp3" },
+  { "en": "Great, Matthew!", "ko": "멋지다, Matthew!", "audioUrl": "audio/55.mp3" },
+  { "en": "Now I need to start working on some campaign promises.", "ko": "이제 선거 공약들을 준비하기 시작해야 해.", "audioUrl": "audio/56.mp3" },
+  { "en": "You're right. You'll have to think about what the students want. By the way, did you hear Tony Johnson is running, too?", "ko": "맞아. 학생들이 무엇을 원하는지 생각해야 할 거야. 그런데, Tony Johnson도 출마한다는 소식 들었니?", "audioUrl": "audio/57.mp3" },
+  { "en": "Yeah, I know. I don't think it'll be easy to win without a good campaign team.", "ko": "응, 알아. 좋은 선거 팀 없이는 이기기 쉽지 않을 것 같아.", "audioUrl": "audio/58.mp3" },
+  { "en": "That's true. You'll need people to help you with posters, speeches, and everything else.", "ko": "맞아. 포스터, 연설, 그리고 그 밖의 모든 것들을 도와줄 사람들이 필요할 거야.", "audioUrl": "audio/59.mp3" },
+  { "en": "Exactly. So I need an adviser like you for my campaign. Can you give me a hand?", "ko": "바로 그거야. 그래서 내 선거 운동에 너 같은 조언자가 필요해. 나 좀 도와줄 수 있니?", "audioUrl": "audio/60.mp3" },
+  { "en": "Me? I'd love to help, but do you really think I'm qualified for that position?", "ko": "내가? 돕고 싶긴 하지만, 내가 그 자리에 자격이 있다고 정말 생각하니?", "audioUrl": "audio/61.mp3" },
+  { "en": "Of course. You'll be a great help with the election.", "ko": "물론이지. 너는 선거에 큰 도움이 될 거야.", "audioUrl": "audio/62.mp3" },
+  { "en": "Then, okay. I'll do my best.", "ko": "그럼 좋아. 최선을 다해볼게.", "audioUrl": "audio/63.mp3" },
+  { "en": "Thanks.", "ko": "고마워.", "audioUrl": "audio/64.mp3" },
+  { "en": "Hello?", "ko": "여보세요?", "audioUrl": "audio/65.mp3" },
+  { "en": "Hey, Sarah. It's Alex. I have a question for you.", "ko": "안녕, Sarah. 나 Alex야. 질문이 하나 있어.", "audioUrl": "audio/66.mp3" },
+  { "en": "Sure. What's up?", "ko": "물론이지. 무슨 일이야?", "audioUrl": "audio/67.mp3" },
+  { "en": "Well, I've got two tickets to the National Baseball Championship next Friday, but unfortunately I can't go. Do you want them?", "ko": "저기, 다음 주 금요일 전국 야구 챔피언십 티켓이 두 장 있는데, 불행히도 내가 갈 수가 없어. 너 가질래?", "audioUrl": "audio/68.mp3" },
+  { "en": "Yes, of course, but I thought the tickets were sold out.", "ko": "응, 당연하지, 하지만 티켓이 매진된 줄 알았는데.", "audioUrl": "audio/69.mp3" },
+  { "en": "They are. But my company buys tickets to every game in advance, and I was able to get some.", "ko": "매진됐어. 하지만 우리 회사가 모든 경기 티켓을 미리 사두어서, 몇 장 구할 수 있었어.", "audioUrl": "audio/70.mp3" },
+  { "en": "That's cool, but why can't you go?", "ko": "멋지다, 그런데 왜 못 가는 거야?", "audioUrl": "audio/71.mp3" },
+  { "en": "I have to fly out of town for an important meeting with a client on that day, so I can't make it.", "ko": "그날 고객과 중요한 회의가 있어서 다른 도시로 비행기를 타고 가야 해서 갈 수가 없어.", "audioUrl": "audio/72.mp3" },
+  { "en": "Maybe you can take your brother with you.", "ko": "네 남동생을 데려가면 되겠네.", "audioUrl": "audio/73.mp3" },
+  { "en": "Yeah, he'd love to go. But I feel sorry that you can't go to the game because of work.", "ko": "응, 걔는 가는 걸 아주 좋아할 거야. 하지만 네가 일 때문에 경기에 못 가서 아쉽다.", "audioUrl": "audio/74.mp3" },
+  { "en": "Don't worry about it. Enjoy the game.", "ko": "걱정 마. 경기 잘 즐겨.", "audioUrl": "audio/75.mp3" },
+  { "en": "May I help you?", "ko": "도와드릴까요?", "audioUrl": "audio/76.mp3" },
+  { "en": "That cheesecake looks delicious! How much is it?", "ko": "저 치즈케이크 정말 맛있어 보이네요! 얼마인가요?", "audioUrl": "audio/77.mp3" },
+  { "en": "It's 30 dollars for the whole cake or 5 dollars per piece.", "ko": "케이크 한 판에 30달러이고 한 조각에 5달러입니다.", "audioUrl": "audio/78.mp3" },
+  { "en": "Okay. I'll take two pieces.", "ko": "네. 두 조각 주세요.", "audioUrl": "audio/79.mp3" },
+  { "en": "Would you like ice cream with your cake? It's two dollars per scoop.", "ko": "케이크와 함께 아이스크림도 드시겠어요? 한 스쿱에 2달러입니다.", "audioUrl": "audio/80.mp3" },
+  { "en": "No, thanks.", "ko": "아니요, 괜찮습니다.", "audioUrl": "audio/81.mp3" },
+  { "en": "All right. Would you like anything to drink?", "ko": "알겠습니다. 마실 것도 필요하신가요?", "audioUrl": "audio/82.mp3" },
+  { "en": "Yes, I'll have two medium coffees.", "ko": "네, 중간 사이즈 커피 두 잔 주세요.", "audioUrl": "audio/83.mp3" },
+  { "en": "A medium coffee is 3 dollars and a large one is 6 dollars. But since you're buying cake, each large coffee costs just 5 dollars.", "ko": "중간 사이즈는 3달러이고 큰 사이즈는 6달러입니다. 하지만 케이크를 사시니까 큰 사이즈 커피를 한 잔당 5달러에 드립니다.", "audioUrl": "audio/84.mp3" },
+  { "en": "Great! Make them large then, please.", "ko": "좋네요! 그럼 큰 걸로 주세요.", "audioUrl": "audio/85.mp3" },
+  { "en": "So, that's two pieces of cheesecake and two large coffees. Do you need anything else?", "ko": "치즈케이크 두 조각과 큰 커피 두 잔이네요. 더 필요한 게 있으신가요?", "audioUrl": "audio/86.mp3" },
+  { "en": "No, but I have a discount coupon. Can I use it now?", "ko": "아니요, 그런데 할인 쿠폰이 있어요. 지금 쓸 수 있나요?", "audioUrl": "audio/87.mp3" },
+  { "en": "Let me see. Sure. You get 10% off the total price.", "ko": "어디 보죠. 네. 총 금액에서 10% 할인을 받으십니다.", "audioUrl": "audio/88.mp3" },
+  { "en": "Oh, great. Here's my credit card.", "ko": "오, 좋네요. 여기 제 신용카드요.", "audioUrl": "audio/89.mp3" },
+  { "en": "Hey, Jennifer. There's something different about you today.", "ko": "안녕, Jennifer. 오늘 너 좀 달라 보인다.", "audioUrl": "audio/90.mp3" },
+  { "en": "Yeah. I got my hair cut yesterday. How do I look?", "ko": "응. 어제 머리 잘랐어. 어때 보여?", "audioUrl": "audio/91.mp3" },
+  { "en": "That style really suits you. What's the name of the hair salon? I need a haircut, too.", "ko": "그 스타일 너한테 정말 잘 어울린다. 그 미용실 이름이 뭐야? 나도 머리 잘라야 하거든.", "audioUrl": "audio/92.mp3" },
+  { "en": "It's called \"Beautiful Hair, Wonderful Day.\"", "ko": "\"Beautiful Hair, Wonderful Day\"라는 곳이야.", "audioUrl": "audio/93.mp3" },
+  { "en": "Hmm, I think I've seen it before. Can you tell me where it is?", "ko": "흠, 전에 본 적 있는 것 같아. 어디 있는지 말해줄 수 있니?", "audioUrl": "audio/94.mp3" },
+  { "en": "Sure. It's located on Main Street, near the Central Shopping Mall.", "ko": "물론이지. 메인 스트리트에 있어, 센트럴 쇼핑몰 근처야.", "audioUrl": "audio/95.mp3" },
+  { "en": "Oh yeah, now I remember where it is. Do you know how much a man's haircut costs there?", "ko": "아 맞아, 이제 어디인지 기억난다. 거기 남자 커트 비용이 얼마인지 아니?", "audioUrl": "audio/96.mp3" },
+  { "en": "I think it's about 15 dollars, but you can check the price on the salon's website to make sure.", "ko": "15달러 정도인 것 같은데, 확실하게 미용실 웹사이트에서 가격을 확인해볼 수 있어.", "audioUrl": "audio/97.mp3" },
+  { "en": "I'll check online later.", "ko": "나중에 온라인으로 확인해볼게.", "audioUrl": "audio/98.mp3" },
+  { "en": "I can recommend a stylist if you want. She does a great job with men's hair.", "ko": "원한다면 헤어 디자이너를 추천해줄 수 있어. 남자 머리를 아주 잘하시거든.", "audioUrl": "audio/99.mp3" },
+  { "en": "Okay. What's her name?", "ko": "좋아. 성함이 어떻게 되셔?", "audioUrl": "audio/100.mp3" },
+  { "en": "Alice Moore. She's really good.", "ko": "Alice Moore야. 정말 실력이 좋으셔.", "audioUrl": "audio/101.mp3" },
+  { "en": "Great. Thanks.", "ko": "좋다. 고마워.", "audioUrl": "audio/102.mp3" },
+  { "en": "Good morning, everyone! This is Ms. Adams, your science teacher.", "ko": "여러분, 안녕하세요! 저는 여러분의 과학 선생님인 Ms. Adams입니다.", "audioUrl": "audio/103.mp3" },
+  { "en": "I'm happy to announce the science essay contest sponsored by the ABC Science Institute.", "ko": "ABC 과학 연구소에서 후원하는 과학 에세이 대회를 발표하게 되어 기쁩니다.", "audioUrl": "audio/104.mp3" },
+  { "en": "This contest is for high school students, so any of you can participate.", "ko": "이 대회는 고등학생들을 대상으로 하니, 여러분 누구나 참여할 수 있습니다.", "audioUrl": "audio/105.mp3" },
+  { "en": "There're two essay topics to choose from.", "ko": "선택할 수 있는 두 가지 에세이 주제가 있습니다.", "audioUrl": "audio/106.mp3" },
+  { "en": "The first is \"How to Save the Earth,\" and the second is \"The Most Creative Invention.\"", "ko": "첫 번째는 \"지구를 구하는 방법\"이고, 두 번째는 \"가장 창의적인 발명품\"입니다.", "audioUrl": "audio/107.mp3" },
+  { "en": "The essay must be a minimum of 5 pages and a maximum of 10.", "ko": "에세이는 최소 5페이지, 최대 10페이지여야 합니다.", "audioUrl": "audio/108.mp3" },
+  { "en": "Additionally, the deadline for submission is November 30th.", "ko": "또한, 제출 마감일은 11월 30일입니다.", "audioUrl": "audio/109.mp3" },
+  { "en": "Only online submission of essays will be accepted.", "ko": "에세이는 온라인 제출만 가능합니다.", "audioUrl": "audio/110.mp3" },
+  { "en": "Please, be sure to follow these guidelines exactly.", "ko": "이 가이드라인을 반드시 정확하게 따라주세요.", "audioUrl": "audio/111.mp3" },
+  { "en": "Lastly, the first prize winner of all participants will be given an opportunity to visit the ABC Science Institute, the contest's sponsor.", "ko": "마지막으로, 모든 참가자 중 1등 수상자에게는 대회의 후원사인 ABC 과학 연구소를 방문할 기회가 주어집니다.", "audioUrl": "audio/112.mp3" },
+  { "en": "The deadline is quickly approaching, so get out there and get writing. Good luck!", "ko": "마감이 빠르게 다가오고 있으니, 어서 가서 글을 쓰기 시작하세요. 행운을 빕니다!", "audioUrl": "audio/113.mp3" },
+  { "en": "Honey. Here's a pamphlet for the attraction packages at Grandlife Amusement Park. Let's choose one of them.", "ko": "여보. 여기 Grandlife 놀이공원의 어트랙션 패키지 팜플렛이 있어요. 그중 하나를 골라봅시다.", "audioUrl": "audio/114.mp3" },
+  { "en": "Okay. How much do you think we should spend?", "ko": "좋아요. 우리가 얼마 정도 써야 한다고 생각해요?", "audioUrl": "audio/115.mp3" },
+  { "en": "Well, I don't want to spend more than 50 dollars per person.", "ko": "음, 인당 50달러 이상은 쓰고 싶지 않아요.", "audioUrl": "audio/116.mp3" },
+  { "en": "All right. For the 3D movie, would you rather watch Amazing Sea or Jungle Safari?", "ko": "알겠어요. 3D 영화는 Amazing Sea와 Jungle Safari 중 어떤 걸 보고 싶어요?", "audioUrl": "audio/117.mp3" },
+  { "en": "Either one sounds fine, but I'd prefer Amazing Sea because it would look really cool in 3D.", "ko": "둘 다 괜찮은 것 같지만, 3D로 보면 정말 멋질 것 같은 Amazing Sea가 더 좋겠어요.", "audioUrl": "audio/118.mp3" },
+  { "en": "Good. Let's watch that movie then.", "ko": "좋아요. 그럼 그 영화를 봅시다.", "audioUrl": "audio/119.mp3" },
+  { "en": "Okay. How about the aquarium? I've heard that there're some fantastic dolphins.", "ko": "알겠어요. 아쿠아리움은 어때요? 거기 아주 멋진 돌고래들이 있다고 들었어요.", "audioUrl": "audio/120.mp3" },
+  { "en": "Well, if we're seeing a movie about the sea, I don't think we need to go to the aquarium, too.", "ko": "음, 바다에 관한 영화를 본다면 아쿠아리움까지 갈 필요는 없을 것 같아요.", "audioUrl": "audio/121.mp3" },
+  { "en": "Yeah, I agree. Should we include the lunch box option?", "ko": "네, 동감이에요. 도시락 옵션을 포함할까요?", "audioUrl": "audio/122.mp3" },
+  { "en": "Sure. That way, we can save some time.", "ko": "물론이죠. 그렇게 하면 시간을 좀 아낄 수 있어요.", "audioUrl": "audio/123.mp3" },
+  { "en": "Then, that leaves this package.", "ko": "그럼 이 패키지가 남네요.", "audioUrl": "audio/124.mp3" },
+  { "en": "Perfect! Let's choose that one.", "ko": "완벽해요! 그걸로 선택합시다.", "audioUrl": "audio/125.mp3" },
+  { "en": "Debbie, are you ready for your interview next week?", "ko": "Debbie, 다음 주 면접 준비 됐니?", "audioUrl": "audio/126.mp3" },
+  { "en": "I'm not sure. This is my first job interview, so I'm pretty nervous.", "ko": "잘 모르겠어. 이게 내 첫 취업 면접이라 꽤 긴장돼.", "audioUrl": "audio/127.mp3" },
+  { "en": "Don't worry. You'll do fine. You're a great speaker.", "ko": "걱정 마. 잘 해낼 거야. 너는 말을 아주 잘하잖아.", "audioUrl": "audio/128.mp3" },
+  { "en": "Do you think so?", "ko": "그렇게 생각해?", "audioUrl": "audio/129.mp3" },
+  { "en": "Of course. So, have you practiced answering any interview questions?", "ko": "물론이지. 그래서 면접 질문에 답하는 연습은 해봤니?", "audioUrl": "audio/130.mp3" },
+  { "en": "Yeah, just some common ones.", "ko": "응, 그냥 일반적인 것들 좀 해봤어.", "audioUrl": "audio/131.mp3" },
+  { "en": "And you researched the company, didn't you?", "ko": "그리고 회사 조사는 했겠지, 그치?", "audioUrl": "audio/132.mp3" },
+  { "en": "Researched the company? Do I need to do that?", "ko": "회사 조사? 그걸 해야 하니?", "audioUrl": "audio/133.mp3" },
+  { "en": "Absolutely! It's important to find out as much information as you can.", "ko": "당연하지! 최대한 많은 정보를 찾아보는 것이 중요해.", "audioUrl": "audio/134.mp3" },
+  { "en": "Well, I know that the company is well known for advertising.", "ko": "음, 그 회사가 광고로 유명하다는 건 알아.", "audioUrl": "audio/135.mp3" },
+  { "en": "That's not enough. You should study more about the company.", "ko": "그걸로는 부족해. 회사에 대해 더 공부해야 해.", "audioUrl": "audio/136.mp3" },
+  { "en": "Such as what?", "ko": "예를 들면 어떤 거?", "audioUrl": "audio/137.mp3" },
+  { "en": "For example, you should know the company's vision, its basic principles, and work ethics.", "ko": "예를 들어, 회사의 비전, 기본 원칙, 그리고 업무 윤리를 알아야 해.", "audioUrl": "audio/138.mp3" },
+  { "en": "Do I have to know all of that? It's too much.", "ko": "그걸 다 알아야 하니? 너무 많아.", "audioUrl": "audio/139.mp3" },
+  { "en": "Dad, can you do me a favor?", "ko": "아빠, 부탁 하나 드려도 될까요?", "audioUrl": "audio/140.mp3" },
+  { "en": "Sure. What is it?", "ko": "물론이지. 뭔데?", "audioUrl": "audio/141.mp3" },
+  { "en": "Can you get me a printer cartridge at the computer store? Our printer just ran out of ink.", "ko": "컴퓨터 매장에서 프린터 카트리지 좀 사다 주실 수 있어요? 우리 프린터 잉크가 방금 다 떨어졌어요.", "audioUrl": "audio/142.mp3" },
+  { "en": "Really? Didn't we just get a new one a month ago?", "ko": "정말? 한 달 전에 새로 사지 않았니?", "audioUrl": "audio/143.mp3" },
+  { "en": "We did. But these days, I've been printing a lot for school projects.", "ko": "그랬죠. 하지만 요즘 학교 프로젝트 때문에 출력을 많이 했어요.", "audioUrl": "audio/144.mp3" },
+  { "en": "I see. I'm sure that would use up ink pretty quickly.", "ko": "그렇구나. 잉크를 꽤 빨리 쓰겠네.", "audioUrl": "audio/145.mp3" },
+  { "en": "It does. And I need to print out my history paper for tomorrow.", "ko": "맞아요. 그리고 내일까지 낼 역사 과제물을 출력해야 해요.", "audioUrl": "audio/146.mp3" },
+  { "en": "I got it. Would one cartridge be okay?", "ko": "알겠다. 카트리지 하나면 되겠니?", "audioUrl": "audio/147.mp3" },
+  { "en": "Well, can you buy two cartridges this time? That way I'll have a backup in case the first one suddenly runs out.", "ko": "저기, 이번에는 카트리지 두 개를 사주실 수 있어요? 그래야 첫 번째 게 갑자기 떨어졌을 때 예비용이 생기니까요.", "audioUrl": "audio/148.mp3" },
+  { "en": "No problem. I'll get two.", "ko": "문제없지. 두 개 사오마.", "audioUrl": "audio/149.mp3" },
+  { "en": "Thanks, Dad. Oh, you'll need the model number of the cartridge. It's IJ88BLK97.", "ko": "고마워요, 아빠. 오, 카트리지 모델 번호가 필요하실 거예요. IJ88BLK97이에요.", "audioUrl": "audio/150.mp3" },
+  { "en": "I won't be able to remember that. You know my memory.", "ko": "그걸 기억하진 못하겠구나. 내 기억력 알잖니.", "audioUrl": "audio/151.mp3" },
+  { "en": "Peter and Sandra are classmates.", "ko": "Peter와 Sandra는 반 친구입니다.", "audioUrl": "audio/152.mp3" },
+  { "en": "They've been in the library over the weekend reading for their literature class.", "ko": "그들은 주말 동안 도서관에서 문학 수업을 위해 책을 읽고 있습니다.", "audioUrl": "audio/153.mp3" },
+  { "en": "Sandra is unable to concentrate and is feeling exhausted.", "ko": "Sandra는 집중하지 못하고 기진맥진한 상태입니다.", "audioUrl": "audio/154.mp3" },
+  { "en": "However, she has noticed that Peter seems to be focused and full of energy.", "ko": "하지만 그녀는 Peter가 집중하고 있고 활력이 넘쳐 보인다는 것을 알아챘습니다.", "audioUrl": "audio/155.mp3" },
+  { "en": "In fact, Peter has a secret for maintaining his focus.", "ko": "사실, Peter는 집중력을 유지하는 비결이 있습니다.", "audioUrl": "audio/156.mp3" },
+  { "en": "Whenever he is losing his concentration, he gathers his belongings and moves to another place.", "ko": "집중력이 떨어질 때마다, 그는 짐을 챙겨 다른 장소로 이동합니다.", "audioUrl": "audio/157.mp3" },
+  { "en": "To him, a new environment feels like a new beginning.", "ko": "그에게 새로운 환경은 새로운 시작처럼 느껴집니다.", "audioUrl": "audio/158.mp3" },
+  { "en": "A different desk, chair, and view help him to feel refreshed and ready to continue for another hour or two.", "ko": "다른 책상, 의자, 그리고 풍경은 그가 기분 전환을 하고 한두 시간 더 계속할 준비가 되도록 도와줍니다.", "audioUrl": "audio/159.mp3" },
+  { "en": "When Sandra asks Peter about how she can stop herself from losing concentration, he wants to advise her to switch study spaces.", "ko": "Sandra가 집중력을 잃지 않는 방법에 대해 Peter에게 물었을 때, 그는 그녀에게 공부 장소를 바꾸라고 조언하고 싶어 합니다.", "audioUrl": "audio/160.mp3" },
+  { "en": "In this situation, what would Peter most likely say to Sandra?", "ko": "이 상황에서 Peter가 Sandra에게 가장 할 법한 말은 무엇입니까?", "audioUrl": "audio/161.mp3" },
+  { "en": "Hello, everyone. Welcome to Dr. Thompson's Family Center.", "ko": "안녕하세요, 여러분. Thompson 박사의 Family Center에 오신 것을 환영합니다.", "audioUrl": "audio/162.mp3" },
+  { "en": "Many of you may not know how to smooth things over with your family members after conflict.", "ko": "여러분 중 많은 분들이 갈등을 겪은 이후에 가족 구성원들과의 상황을 진정시키는 방법을 알지 못할 수도 있습니다.", "audioUrl": "audio/163.mp3" },
+  { "en": "Today, I'd like to talk about some ways to make up with them after an argument.", "ko": "오늘 저는 말다툼 이후 화해하는 방법에 대해 이야기하려고 합니다.", "audioUrl": "audio/164.mp3" },
+  { "en": "First, reveal your true feelings.", "ko": "먼저, 여러분의 진심을 드러내세요.", "audioUrl": "audio/165.mp3" },
+  { "en": "Giving them a letter is one option.", "ko": "그들에게 편지를 주는 것이 한 가지 옵션입니다.", "audioUrl": "audio/166.mp3" },
+  { "en": "Sometimes it's hard to say everything you want in person.", "ko": "가끔은 여러분이 원하는 모든 것을 직접 말하기 어려울 때가 있습니다.", "audioUrl": "audio/167.mp3" },
+  { "en": "Writing gives you time to think about what you want to say.", "ko": "글을 쓰는 것은 여러분이 하고 싶은 말에 대해 생각할 시간을 줍니다.", "audioUrl": "audio/168.mp3" },
+  { "en": "If you're not good at writing, you can also give them a picture you drew.", "ko": "글을 잘 쓰지 못한다면, 직접 그린 그림을 줄 수도 있습니다.", "audioUrl": "audio/169.mp3" },
+  { "en": "It can express your feelings, too.", "ko": "그것 역시 여러분의 감정을 표현할 수 있습니다.", "audioUrl": "audio/170.mp3" },
+  { "en": "Even though it may not be great art, it'll be touching and make them smile.", "ko": "대단한 예술 작품이 아닐지라도, 그것은 감동적일 것이고 그들을 미소 짓게 할 것입니다.", "audioUrl": "audio/171.mp3" },
+  { "en": "Showing your interest in what they like is another solution.", "ko": "상대방이 좋아하는 것에 관심을 보이는 것이 또 다른 해결책입니다.", "audioUrl": "audio/172.mp3" },
+  { "en": "For example, if your sister likes earrings, surprise her with a new pair.", "ko": "예를 들어, 여동생이 귀걸이를 좋아한다면 새 귀걸이로 그녀를 깜짝 놀라게 해주세요.", "audioUrl": "audio/173.mp3" },
+  { "en": "They don't have to be expensive.", "ko": "비쌀 필요는 없습니다.", "audioUrl": "audio/174.mp3" },
+  { "en": "It's the thought that counts, not the cost.", "ko": "중요한 건 비용이 아니라 마음입니다.", "audioUrl": "audio/175.mp3" },
+  { "en": "If your mother likes flowers, give her some.", "ko": "어머니께서 꽃을 좋아하신다면 꽃을 좀 드려보세요.", "audioUrl": "audio/176.mp3" },
+  { "en": "When you show your interest, your family will know you care and the situation will improve.", "ko": "여러분이 관심을 보일 때, 가족들은 여러분이 신경 쓰고 있다는 걸 알게 될 것이고 상황은 좋아질 것입니다.", "audioUrl": "audio/177.mp3" },
+  { "en": "Remember, your family is your greatest asset.", "ko": "여러분의 가족이 여러분의 가장 큰 자산임을 기억하세요.", "audioUrl": "audio/178.mp3" },
+  { "en": "So the next time you have an argument with them, try one of these.", "ko": "그러니 다음번에 그들과 다투게 되면, 이것들 중 하나를 시도해 보세요.", "audioUrl": "audio/179.mp3" }
+];
 
             
         
