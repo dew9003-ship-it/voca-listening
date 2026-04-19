@@ -78,8 +78,20 @@ html, body {
 .word-bank { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 .word-btn { padding: 8px 14px; font-size: 14px; border-radius: 10px; background: #4f8cff; color: white; font-weight: 800; border: none; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 
-.type-input { width: 100%; min-height: 60px; padding: 12px; font-size: 18px; font-weight: 500; border: 2px solid #bfdbfe; border-radius: 14px; outline: none; resize: none; background: #fff; }
 
+.type-input { 
+    width: 100%; 
+    min-height: 60px; 
+    padding: 12px; 
+    font-size: 18px; 
+    border: 2px solid #bfdbfe; 
+    border-radius: 14px; 
+    outline: none; 
+    resize: none; 
+    background: #fff; 
+    font-family: Arial, sans-serif; /* 이전 글자체로 복구 */
+}
+    
 /* 모달 */
 #modalOverlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); display: none; justify-content: center; align-items: center; padding: 20px; z-index: 2000; }
 .modal-content { background: #fff; border-radius: 24px; padding: 25px; width: 100%; max-width: 380px; text-align: center; }
