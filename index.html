@@ -871,6 +871,20 @@ async function requireAuth() {
         const homeBtn = document.getElementById('homeBtn');
         const logoutBtn = document.getElementById('logoutBtn');
 
+        // --- 여기서부터 붙여넣으세요 ---
+        // 입력창 복사/붙여넣기 및 부정한 조작 차단
+        if (typeInput) {
+            typeInput.addEventListener('paste', (e) => {
+                e.preventDefault();
+                alert('직접 듣고 타이핑해야 학습 효과가 좋습니다! (붙여넣기 금지)');
+            });
+            typeInput.addEventListener('copy', (e) => e.preventDefault());
+            typeInput.addEventListener('cut', (e) => e.preventDefault());
+            typeInput.addEventListener('contextmenu', (e) => e.preventDefault());
+            typeInput.addEventListener('drop', (e) => e.preventDefault());
+        }
+        // --- 여기까지 ---
+
         const stepInfo = [
             '',
             'Step 1. 듣고 배열하기',
