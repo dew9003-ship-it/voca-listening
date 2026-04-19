@@ -393,6 +393,12 @@
             outline:none;
             background:#fff;
             color:var(--text);
+
+            /* [추가] 텍스트 선택 방지 */
+    user-select: none; 
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
         }
 
         .type-input:focus{
@@ -1231,6 +1237,37 @@ if (profileData?.role) {
 }
 
         init();
+
+
+// 입력창 복사/붙여넣기 및 부정한 조작 차단
+const typeInput = document.getElementById('typeInput');
+
+// 1. 붙여넣기 금지
+typeInput.addEventListener('paste', (e) => {
+    e.preventDefault();
+    alert('직접 듣고 타이핑해야 학습 효과가 좋습니다! (붙여넣기 금지)');
+});
+
+// 2. 복사 금지 (입력한 내용을 다음 문제에 쓰지 못하게)
+typeInput.addEventListener('copy', (e) => {
+    e.preventDefault();
+});
+
+// 3. 잘라내기 금지
+typeInput.addEventListener('cut', (e) => {
+    e.preventDefault();
+});
+
+// 4. 마우스 우클릭 메뉴 금지
+typeInput.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+});
+
+// 5. 텍스트 드래그해서 끌어다 놓기 금지
+typeInput.addEventListener('drop', (e) => {
+    e.preventDefault();
+});
+        
     </script>
 </body>
 </html>
