@@ -227,17 +227,37 @@ function getProg(meta = currentUnitMeta) { return unitProgressMap.get(`${current
 async function saveProgress(idx) {
     const key = `${currentGrade}__${currentBook}__${currentUnitMeta.id}`;
     let p = getProg();
+    
+    // 로컬 데이터 선처리
     if (!p.completed.includes(idx)) p.completed.push(idx);
+    p.completed = [...new Set(p.completed)].map(Number).sort((a,b)=>a-b);
     p.maxUnlockedIndex = Math.max(p.maxUnlockedIndex, (idx + 1 < currentData.items.length ? idx + 1 : idx));
-    await supabase.from('writing_unit_progress').upsert({
-        user_id: authUserId, grade_key: currentGrade, book_key: currentBook, unit_id: currentUnitMeta.id,
-        completed_indexes: p.completed, max_unlocked_index: p.maxUnlockedIndex, updated_at: new Date().toISOString()
-    }, { onConflict: 'user_id,grade_key,book_key,unit_id' });
-    unitProgressMap.set(key, p);
-    await supabase.from('writing_progress').upsert({
-        user_id: authUserId, completed_count: p.completed.length, unit_total_count: currentData.items.length,
-        unit_label: `${catalog[currentGrade].label} ${currentUnitMeta.label}`, last_completed_at: new Date().toISOString()
-    }, { onConflict: 'user_id' });
+
+    // [서버 저장 시작] 상세 기록과 요약 기록을 순차적으로 수행
+    try {
+        // 1. 상세 진도 (어떤 번호 풀었는지)
+        const { error: err1 } = await supabase.from('writing_unit_progress').upsert({
+            user_id: authUserId, grade_key: currentGrade, book_key: currentBook, unit_id: currentUnitMeta.id,
+            completed_indexes: p.completed, max_unlocked_index: p.maxUnlockedIndex, updated_at: new Date().toISOString()
+        }, { onConflict: 'user_id,grade_key,book_key,unit_id' });
+
+        if (err1) throw err1;
+
+        // 2. 진도판용 요약 데이터
+        const { error: err2 } = await supabase.from('writing_progress').upsert({
+            user_id: authUserId, completed_count: p.completed.length, unit_total_count: currentData.items.length,
+            unit_label: `${catalog[currentGrade].label} ${currentUnitMeta.label}`, last_completed_at: new Date().toISOString()
+        }, { onConflict: 'user_id' });
+
+        if (err2) throw err2;
+
+        // 모든 저장이 성공했을 때만 메모리 데이터 갱신
+        unitProgressMap.set(key, p);
+    } catch (e) {
+        console.error('Save failed:', e);
+        alert('데이터 저장에 실패했습니다. 다시 시도해 주세요.\n(원인: ' + (e.message || '인터넷 연결 불안정') + ')');
+        throw e; // 호출한 곳으로 에러를 전달하여 다음 문제로 넘어가는 것을 방지
+    }
 }
 
 function buildHintMessage(uI, ans, count) {
@@ -321,12 +341,42 @@ qs('#checkBtn').onclick = () => {
     }
     modalConfirmAction = async () => {
         if (ok) {
-            if (currentStep === 1) { currentStep = 2; modalOverlay.style.display = 'none'; showQuestion(); }
-            else { isProcessing = true; await saveProgress(currentIndex); modalOverlay.style.display = 'none'; isProcessing = false;
-                if (currentIndex < currentData.items.length - 1) startQuiz(currentIndex + 1);
-                else { stageView.style.display = 'block'; gameView.style.display = 'none'; renderStages(); }
+            if (currentStep === 1) {
+                currentStep = 2; modalOverlay.style.display = 'none'; showQuestion();
+            } else {
+                const confirmBtn = qs('#mYes');
+                const originalText = confirmBtn.textContent;
+                
+                try {
+                    isProcessing = true;
+                    confirmBtn.textContent = "저장 중...";
+                    confirmBtn.disabled = true;
+
+                    await saveProgress(currentIndex); // 여기서 서버 저장 대기 (실패 시 catch로 점프)
+
+                    modalOverlay.style.display = 'none';
+                    isProcessing = false;
+
+                    if (currentIndex < currentData.items.length - 1) {
+                        startQuiz(currentIndex + 1);
+                    } else {
+                        stageView.style.display = 'block';
+                        gameView.style.display = 'none';
+                        renderStages();
+                    }
+                } catch (e) {
+                    // 저장 실패 시 처리: 모달을 닫지 않고 버튼만 원복
+                    isProcessing = false;
+                    confirmBtn.disabled = false;
+                    confirmBtn.textContent = "다시 시도";
+                } finally {
+                    confirmBtn.disabled = false;
+                }
             }
-        } else { modalOverlay.style.display = 'none'; if(currentStep===2) typeInputEl.focus(); }
+        } else {
+            modalOverlay.style.display = 'none';
+            if(currentStep===2) typeInputEl.focus();
+        }
     };
 };
 
