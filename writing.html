@@ -208,6 +208,19 @@ let unitProgressMap = new Map(), isProcessing = false;
 const clean = t => String(t||'').toLowerCase().replace(/[“”]/g,'"').replace(/[‘’]/g,"'").replace(/[.,!?"]/g,'').replace(/\s+/g,' ').trim();
 const shuffle = a => { let c=[...a]; for(let i=c.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [c[i],c[j]]=[c[j],c[i]]; } return c; };
 const tokensOf = t => clean(t).split(' ').filter(Boolean);
+    // [교체/추가] 모든 알림을 커스텀 모달로 통합
+function showAlert(title, msg, isError = false) {
+    modalOverlay.style.display = 'flex';
+    qs('#mNo').style.display = 'none'; // '번호 목록' 버튼 숨김
+    qs('#mTitle').textContent = title;
+    qs('#mTitle').style.color = isError ? '#ef4444' : '#1f2937';
+    qs('#mMsg').textContent = msg;
+    modalConfirmAction = () => {
+        modalOverlay.style.display = 'none';
+        qs('#mNo').style.display = 'block'; // 닫을 때 버튼 원복
+        if(currentStep === 2) typeInputEl.focus();
+    };
+}
 const autoResize = el => { el.style.height='auto'; el.style.height=el.scrollHeight+'px'; };
 
 async function ensureAuth() {
@@ -351,32 +364,22 @@ qs('#checkBtn').onclick = () => {
                 currentStep = 2; modalOverlay.style.display = 'none'; showQuestion();
             } else {
                 const confirmBtn = qs('#mYes');
-                const originalText = confirmBtn.textContent;
-                
                 try {
                     isProcessing = true;
                     confirmBtn.textContent = "저장 중...";
                     confirmBtn.disabled = true;
 
-                    await saveProgress(currentIndex); // 여기서 서버 저장 대기 (실패 시 catch로 점프)
+                    await saveProgress(currentIndex); // 저장 성공 시까지 대기
 
                     modalOverlay.style.display = 'none';
                     isProcessing = false;
-
-                    if (currentIndex < currentData.items.length - 1) {
-                        startQuiz(currentIndex + 1);
-                    } else {
-                        stageView.style.display = 'block';
-                        gameView.style.display = 'none';
-                        renderStages();
-                    }
+                    if (currentIndex < currentData.items.length - 1) startQuiz(currentIndex + 1);
+                    else { stageView.style.display = 'block'; gameView.style.display = 'none'; renderStages(); }
                 } catch (e) {
-                    // 저장 실패 시 처리: 모달을 닫지 않고 버튼만 원복
                     isProcessing = false;
-                    confirmBtn.disabled = false;
-                    confirmBtn.textContent = "다시 시도";
                 } finally {
                     confirmBtn.disabled = false;
+                    confirmBtn.textContent = "확인";
                 }
             }
         } else {
@@ -402,15 +405,15 @@ typeInputEl.oninput = () => autoResize(typeInputEl);
 
 // --- [추가] 여기서부터 붙여넣으세요 ---
 // 영작 입력창 복사, 붙여넣기, 우클릭, 드래그 차단
+// [교체] 붙여넣기 차단 (커스텀 알림 적용)
 typeInputEl.addEventListener('paste', (e) => {
     e.preventDefault();
-    alert('직접 타이핑해야 학습 효과가 좋습니다! (붙여넣기 금지)');
+    showAlert('알림', '직접 타이핑해야 학습 효과가 좋습니다! (붙여넣기 금지)', true);
 });
 typeInputEl.addEventListener('copy', (e) => e.preventDefault());
 typeInputEl.addEventListener('cut', (e) => e.preventDefault());
 typeInputEl.addEventListener('contextmenu', (e) => e.preventDefault());
 typeInputEl.addEventListener('drop', (e) => e.preventDefault());
-// --- 여기까지 ---
 
     
 typeInputEl.onkeydown = (e) => {
