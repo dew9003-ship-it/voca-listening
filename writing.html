@@ -23,6 +23,12 @@ html, body {
     font-family: Arial, sans-serif;
     background: #f8fafc; 
     color: var(--text); 
+
+    /* [추가] 전체 텍스트 선택 및 드래그 방지 */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .wrap { width: 100%; max-width: 1100px; margin: 0 auto; padding: 12px 20px; min-height: 100vh; }
@@ -391,7 +397,22 @@ qs('#homeBtn').onclick = async () => {
     location.href = pD?.role === 'admin' ? 'admin.html' : 'class.html';
 };
 
+// 입력창 자동 크기 조절 (기존 코드)
 typeInputEl.oninput = () => autoResize(typeInputEl);
+
+// --- [추가] 여기서부터 붙여넣으세요 ---
+// 영작 입력창 복사, 붙여넣기, 우클릭, 드래그 차단
+typeInputEl.addEventListener('paste', (e) => {
+    e.preventDefault();
+    alert('직접 타이핑해야 학습 효과가 좋습니다! (붙여넣기 금지)');
+});
+typeInputEl.addEventListener('copy', (e) => e.preventDefault());
+typeInputEl.addEventListener('cut', (e) => e.preventDefault());
+typeInputEl.addEventListener('contextmenu', (e) => e.preventDefault());
+typeInputEl.addEventListener('drop', (e) => e.preventDefault());
+// --- 여기까지 ---
+
+    
 typeInputEl.onkeydown = (e) => {
     if (e.key === 'Enter') {
         e.preventDefault();
