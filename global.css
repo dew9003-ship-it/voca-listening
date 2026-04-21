@@ -1,80 +1,71 @@
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+/* [Global Standard CSS] 디자인 복구 버전 */
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
-export const supabase = createClient(
-    'https://uuzhdxangctewuklvmlv.supabase.co',
-    'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
-);
-
-// 1. 상단 바 자동 생성 (클래스명을 기존 예쁜 디자인과 매칭)
-export async function initHeader(pageTitle) {
-    const wrap = document.querySelector('.wrap');
-    if (!wrap) return;
-
-    const { data } = await supabase.auth.getUser();
-    const user = data?.user;
-    
-    let homePath = 'class.html';
-    if (user) {
-        const { data: profile } = await supabase.from('profiles').select('role').eq('user_id', user.id).maybeSingle();
-        if (profile?.role === 'admin') homePath = 'admin.html';
-    }
-
-    const headerHTML = `
-        <div class="topbar">
-            <h1>${pageTitle}</h1>
-            <div class="btns">
-                <button onclick="location.href='${homePath}'" class="btn-light">학습 홈</button>
-                <button id="globalLogoutBtn" class="btn-slate">로그아웃</button>
-            </div>
-        </div>
-    `;
-    wrap.insertAdjacentHTML('afterbegin', headerHTML);
-
-    document.getElementById('globalLogoutBtn').onclick = async () => {
-        if(confirm('로그아웃 하시겠습니까?')) {
-            await supabase.auth.signOut();
-            location.href = 'login.html';
-        }
-    };
+:root {
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --line: #cbd5e1; /* 선명한 테두리 */
+    --text: #1f2937;
+    --muted: #64748b;
+    --blue: #4f8cff;
+    --green: #4caf50;
+    --orange: #f97316;
+    --slate: #607d8b;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-// 2. 통합 알림창 (영작 학습관 전용 팝업 스타일로 생성)
-export function showAlert(title, msg, isError = false, onConfirm = null) {
-    let modal = document.getElementById('globalModal');
-    if (!modal) {
-        document.body.insertAdjacentHTML('beforeend', `
-            <div id="globalModal">
-                <div class="modal-content">
-                    <h3 id="gTitle" class="modal-title"></h3>
-                    <p id="gMsg" class="modal-msg"></p>
-                    <button id="gYes" class="m-btn" style="background:#4caf50; color:white;">확인</button>
-                </div>
-            </div>
-        `);
-        modal = document.getElementById('globalModal');
-    }
-
-    const tEl = document.getElementById('gTitle');
-    tEl.textContent = title;
-    tEl.style.color = isError ? '#ef4444' : '#4caf50';
-    document.getElementById('gMsg').textContent = msg;
-    
-    document.getElementById('gYes').onclick = () => {
-        modal.style.display = 'none';
-        if (onConfirm) onConfirm();
-    };
-    modal.style.display = 'flex';
+html, body { 
+    margin: 0; padding: 0; height: 100%; 
+    font-family: Arial, sans-serif;
+    background: var(--bg); 
+    color: var(--text); 
+    user-select: none;
+    -webkit-user-select: none;
 }
 
-// 3. 보안 설정 (복사/붙여넣기 방지)
-export function initSecurity(inputEl = null) {
-    document.addEventListener('copy', (e) => e.preventDefault());
-    document.addEventListener('contextmenu', (e) => e.preventDefault());
-    if (inputEl) {
-        inputEl.addEventListener('paste', (e) => {
-            e.preventDefault();
-            showAlert('알림', '직접 타이핑해야 학습 효과가 좋습니다!', true);
-        });
-        inputEl.addEventListener('drop', (e) => e.preventDefault());
-    }
+/* 전체 감싸는 영역 간격 조정 */
+.wrap { width: 100%; max-width: 1100px; margin: 0 auto; padding: 12px 20px; min-height: 100vh; }
+
+/* 상단바 디자인 */
+.topbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 0; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;
 }
+.topbar h1 { margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
+.btns { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* 버튼 디자인 */
+button {
+    border: none; border-radius: 10px; font-size: 14px; font-weight: 700;
+    cursor: pointer; transition: all 0.1s ease; padding: 10px 16px;
+}
+.btn-light { background: #fff; color: #334155; border: 1.5px solid var(--line); }
+.btn-slate { background: var(--slate); color: #fff; }
+button:hover { opacity: 0.9; transform: translateY(-1px); }
+button:active { transform: translateY(0); }
+
+/* ★★★ 단원 카드 디자인 (여기서 복구되었습니다) ★★★ */
+.unit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+.unit-card {
+    border: 2px solid var(--line); /* 선명한 테두리 */
+    background: #fff; border-radius: 18px; padding: 18px;
+    min-height: 140px; display: flex; flex-direction: column; justify-content: space-between;
+    cursor: pointer; box-shadow: var(--shadow); text-align: left;
+}
+.unit-card:hover { border-color: var(--blue); transform: translateY(-3px); }
+.badge { display: inline-flex; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 800; background: #eef4ff; color: #335ea8; margin-bottom: 8px; width: max-content; }
+.unit-title { font-size: 19px; font-weight: 800; margin-bottom: 6px; color: #1e293b; }
+.meta { color: var(--muted); font-size: 13px; font-weight: 500; }
+
+/* 팝업 디자인 */
+#globalModal {
+    position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); 
+    display: none; justify-content: center; align-items: center; 
+    padding: 20px; z-index: 9999;
+}
+.modal-content { 
+    background: #fff; border-radius: 24px; padding: 25px; 
+    width: 100%; max-width: 380px; text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+.m-btn { width: 100%; padding: 14px; border-radius: 12px; font-weight: 800; font-size: 16px; cursor: pointer; border: none; margin-top: 10px; }
