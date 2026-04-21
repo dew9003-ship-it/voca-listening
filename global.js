@@ -1,65 +1,81 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
-// 1. Supabase 설정 한 군데서 관리
 export const supabase = createClient(
     'https://uuzhdxangctewuklvmlv.supabase.co',
     'sb_publishable_vv0I9z-5PnmOabrpVspufQ_ABmB_F-F'
 );
 
-// 2. 모든 페이지 공통 보안 설정 (복사/붙여넣기 차단)
-export function initSecurity(inputEl = null) {
-    document.addEventListener('copy', (e) => e.preventDefault());
-    document.addEventListener('contextmenu', (e) => e.preventDefault());
+// 상단 바 자동 생성 (로그인 체크 포함)
+export async function initHeader(pageTitle) {
+    const wrap = document.querySelector('.wrap');
+    if (!wrap) return;
+
+    // 안전하게 유저 정보 가져오기
+    const { data } = await supabase.auth.getUser();
+    const user = data?.user;
     
-    if (inputEl) {
-        inputEl.addEventListener('paste', (e) => {
-            e.preventDefault();
-            showAlert('주의', '직접 입력해야 학습 효과가 좋습니다! (붙여넣기 금지)', true);
-        });
-        inputEl.addEventListener('drop', (e) => e.preventDefault());
+    let homePath = 'class.html';
+    if (user) {
+        const { data: profile } = await supabase.from('profiles').select('role').eq('user_id', user.id).maybeSingle();
+        if (profile?.role === 'admin') homePath = 'admin.html';
     }
+
+    const headerHTML = `
+        <div class="global-header" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0; margin-bottom: 15px; border-bottom: 1px solid var(--line);">
+            <h1 style="margin: 0; font-size: 24px; font-weight: 800;">${pageTitle}</h1>
+            <div class="header-btns" style="display: flex; gap: 8px;">
+                <button onclick="location.href='${homePath}'" class="btn-std">학습 홈</button>
+                <button id="globalLogoutBtn" class="btn-std btn-fill-slate">로그아웃</button>
+            </div>
+        </div>
+    `;
+    wrap.insertAdjacentHTML('afterbegin', headerHTML);
+
+    document.getElementById('globalLogoutBtn').onclick = async () => {
+        if(confirm('로그아웃 하시겠습니까?')) {
+            await supabase.auth.signOut();
+            location.href = 'login.html';
+        }
+    };
 }
 
-// 3. 통일된 알림창 로직 (HTML이 없어도 자동으로 생성)
-export let modalConfirmAction = null;
-
+// 통합 알림창
 export function showAlert(title, msg, isError = false, onConfirm = null) {
-    let overlay = document.getElementById('globalModalOverlay');
-    
-    // 모달 HTML이 없으면 자동으로 생성해서 삽입
-    if (!overlay) {
+    let modal = document.getElementById('globalModal');
+    if (!modal) {
         document.body.insertAdjacentHTML('beforeend', `
-            <div id="globalModalOverlay">
-                <div class="modal-content">
-                    <h3 id="modalTitle" class="modal-title"></h3>
-                    <p id="modalMsg" class="modal-msg"></p>
-                    <button id="modalYes" class="modal-btn" style="background:#4caf50; color:white;">확인</button>
-                    <button id="modalNo" class="modal-btn" style="background:#f1f5f9; color:#475569; display:none;">목록으로</button>
+            <div id="globalModal">
+                <div class="g-modal-content">
+                    <h3 id="gTitle" class="g-modal-title"></h3>
+                    <p id="gMsg" class="g-modal-msg"></p>
+                    <button id="gYes" class="g-modal-btn" style="background:#4caf50; color:white;">확인</button>
                 </div>
             </div>
         `);
-        overlay = document.getElementById('globalModalOverlay');
-        document.getElementById('modalYes').onclick = () => {
-            overlay.style.display = 'none';
-            if (modalConfirmAction) modalConfirmAction();
-        };
+        modal = document.getElementById('globalModal');
     }
 
-    const titleEl = document.getElementById('modalTitle');
+    const titleEl = document.getElementById('gTitle');
     titleEl.textContent = title;
     titleEl.style.color = isError ? '#ef4444' : '#1f2937';
-    document.getElementById('modalMsg').textContent = msg;
+    document.getElementById('gMsg').textContent = msg;
     
-    modalConfirmAction = onConfirm;
-    overlay.style.display = 'flex';
+    document.getElementById('gYes').onclick = () => {
+        modal.style.display = 'none';
+        if (onConfirm) onConfirm();
+    };
+    modal.style.display = 'flex';
 }
 
-// 4. 공통 권한 체크
-export async function checkAuth() {
-    const { data } = await supabase.auth.getUser();
-    if (!data.user) {
-        location.href = 'login.html';
-        return null;
+// 보안 설정
+export function initSecurity(inputEl = null) {
+    document.addEventListener('copy', (e) => e.preventDefault());
+    document.addEventListener('contextmenu', (e) => e.preventDefault());
+    if (inputEl) {
+        inputEl.addEventListener('paste', (e) => {
+            e.preventDefault();
+            showAlert('알림', '직접 타이핑해야 학습 효과가 좋습니다!', true);
+        });
+        inputEl.addEventListener('drop', (e) => e.preventDefault());
     }
-    return data.user;
 }
