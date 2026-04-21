@@ -3,71 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Listening Academy - 보카엔딩</title>
+    <title>Listening Academy</title>
     
     <link rel="stylesheet" href="global.css">
     <style>
-        /* 학습관 전용 레이아웃 */
-        .stage-btn { aspect-ratio:1; font-size:18px; border-radius:18px; border:none; font-weight:800; cursor:pointer; transition:all .12s ease; }
-        .stage-unlocked { background: linear-gradient(180deg,#5aa6ff 0%, #4f8cff 100%); color:white; border: 2px solid #3b82f6; }
-        .stage-locked { background:#e5e7eb; color:#9ca3af; cursor: not-allowed; }
+        /* [이미지 1번 스타일 완벽 복구] */
+        .progress-pill { display:inline-flex; align-items:center; background:#eef4ff; color:#2f5da8; border-radius:999px; padding:6px 12px; font-size:13px; font-weight:700; margin-bottom:10px; }
+        .btn-stage-toggle { background:#fff; border:1px solid #cbd5e1; border-radius:12px; padding:6px 14px; font-weight:800; color:#475569; cursor:pointer; font-size:13px; }
+
+        .control-row { display:flex; gap:8px; margin-bottom:15px; }
+        #playBtn { flex:1.2; background:#ff9800; color:#fff; border:none; border-radius:14px; padding:12px; font-weight:800; font-size:16px; cursor:pointer; box-shadow: 0 4px 0 #e68a00; }
+        #playBtn:active { transform:translateY(2px); box-shadow: 0 2px 0 #e68a00; }
+        #speedControl { flex:0.8; border:1px solid #cbd5e1; border-radius:14px; padding:0 8px; font-weight:700; text-align:center; }
+        #checkBtn { flex:1.2; background:#4caf50; color:#fff; border:none; border-radius:14px; padding:12px; font-weight:800; font-size:16px; cursor:pointer; box-shadow: 0 4px 0 #3d8b40; }
+        #checkBtn:active { transform:translateY(2px); box-shadow: 0 2px 0 #3d8b40; }
+
+        .question-card { background:#fff; border:1px solid #e5e7eb; border-radius:24px; padding:20px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+        #stepLabel { display:inline-block; padding:5px 12px; border-radius:999px; background:#fff4e8; color:#f97316; font-size:12px; font-weight:800; margin-bottom:12px; }
+        #meaningBox { padding:15px; background:#eef6ff; border:1px solid #cfe1ff; border-radius:16px; text-align:center; font-weight:700; font-size:16px; color:#1565c0; margin-bottom:15px; }
+
+        /* [이미지 1번의 블루 버튼 복구] */
+        .drop-zone { min-height:110px; border:2px dashed #93c5fd; border-radius:18px; display:flex; flex-wrap:wrap; gap:10px; padding:14px; margin-bottom:15px; background:#fff; align-content: flex-start; }
+        .word-bank { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+        .word-btn { padding:10px 14px; font-size:14px; border-radius:12px; background:#4f8cff; color:#fff; border:none; font-weight:800; cursor:pointer; box-shadow: 0 4px 10px rgba(79,140,255,0.3); transition: transform 0.1s; }
+        .word-btn:active { transform: translateY(2px); }
+
+        .type-input { width:100%; min-height:70px; padding:14px; font-size:18px; border:2px solid #bfdbfe; border-radius:18px; outline:none; resize:none; font-family:inherit; }
         
-        .progress-pill { display:inline-flex; align-items:center; gap:8px; background:#eef4ff; color:#2f5da8; border-radius:999px; padding:8px 16px; font-size:14px; font-weight:700; margin-bottom: 10px; }
-        .progress-bar-wrap { width:100%; height:12px; background:#e2e8f0; border-radius:999px; overflow:hidden; margin-bottom:20px; border: 1px solid #cbd5e1; }
-        .progress-bar { height:100%; width:0%; background:linear-gradient(90deg,#4f8cff,#10b981); transition:width .3s ease; }
-
-        .control-row { display:flex; gap:10px; margin-bottom:20px; }
-        #playBtn { flex: 1.5; background: #f97316; color:#fff; padding:14px; font-size: 16px; border-radius: 14px; border:none; cursor:pointer; font-weight:800; }
-        #speedControl { flex: 1; border:2px solid #cbd5e1; border-radius: 14px; padding: 0 10px; font-weight: 700; outline:none; }
-        #checkBtn { flex: 1.5; background: #10b981; color:#fff; padding:14px; font-size: 16px; border-radius: 14px; border:none; cursor:pointer; font-weight:800; }
-
-        .question-card { background:#fff; border:2px solid #e2e8f0; border-radius:24px; padding:25px; box-shadow: var(--shadow); }
-        #stepLabel { display:inline-block; padding:6px 14px; border-radius:999px; background:#fff4e8; color:#f97316; font-size:13px; font-weight:800; margin-bottom:15px; }
-        #meaningBox { padding:16px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; text-align:center; font-weight:700; font-size:17px; color:#1e293b; margin-bottom:15px; border-left: 5px solid #4f8cff; }
-
-        .drop-zone { min-height:100px; border:2px dashed #cbd5e1; border-radius:18px; display:flex; flex-wrap:wrap; gap:8px; padding:15px; margin-bottom: 15px; background: #fdfdfd; }
-        .word-bank { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
-        .word-btn { padding:10px 15px; font-size:15px; border-radius:12px; background:#fff; border:2px solid #e2e8f0; font-weight:700; cursor:pointer; transition: 0.2s; }
-        .word-btn:hover { border-color: #4f8cff; color: #4f8cff; transform:translateY(-2px); }
-
-        .type-input { width:100%; min-height:80px; padding:15px; font-size:18px; border:2px solid #cbd5e1; border-radius:18px; outline:none; transition: 0.2s; resize:none; font-family: inherit; }
-        .type-input:focus { border-color:#4f8cff; box-shadow:0 0 0 4px rgba(79, 140, 255, 0.1); }
-        
-        @media (max-width: 640px) {
-            .grid-container { grid-template-columns: repeat(4, 1fr) !important; gap: 8px !important; }
-        }
+        /* 스테이지 그리드 */
+        .grid-container { display:grid; grid-template-columns: repeat(auto-fill, minmax(65px, 1fr)); gap:10px; }
+        .stage-btn { aspect-ratio:1; border-radius:15px; border:none; font-weight:800; font-size:18px; cursor:pointer; }
+        .stage-unlocked { background: linear-gradient(180deg,#5aa6ff, #4f8cff); color:#fff; }
+        .stage-locked { background:#e5e7eb; color:#9ca3af; }
     </style>
 </head>
 
 <body>
     <div class="wrap">
+        <!-- 상단바 자동 생성 (global.js) -->
+
+        <!-- [목차 화면] -->
         <div id="menuView">
-            <div class="unit-grid" style="margin-bottom: 25px;">
-                <div class="unit-card" style="min-height: 100px; cursor: default;">
-                    <span class="badge">STATS</span>
-                    <div class="unit-title" id="totalCountText">-</div>
-                    <div class="meta">전체 문장 수</div>
+            <div class="unit-grid" style="margin-bottom:20px;">
+                <div class="unit-card" style="min-height:80px; padding:15px;">
+                    <span class="badge">TOTAL</span>
+                    <div class="unit-title" id="totalCountText" style="font-size:24px;">-</div>
                 </div>
-                <div class="unit-card" style="min-height: 100px; cursor: default;">
+                <div class="unit-card" style="min-height:80px; padding:15px;">
                     <span class="badge">PROGRESS</span>
-                    <div class="unit-title" id="unlockedText">1</div>
-                    <div class="meta">현재 해금 단계</div>
+                    <div class="unit-title" id="unlockedText" style="font-size:24px;">1</div>
                 </div>
             </div>
-
-            <div class="panel" style="background:#fff; padding:25px; border-radius:24px; border:2px solid #e2e8f0;">
-                <h2 style="margin-top:0;">듣기 목차</h2>
-                <div id="stageGrid" class="grid-container" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap:12px;"></div>
-                <button id="resetProgressBtn" style="margin-top:20px; width:100%; background:none; border:none; color:#ef4444; text-decoration:underline; cursor:pointer; font-size:13px;">학습 기록 초기화 (관리자 전용)</button>
+            <div class="panel" style="background:#fff; padding:20px; border-radius:24px; border:1px solid #e5e7eb;">
+                <h2 style="margin:0 0 15px 0; font-size:20px;">학습 목차</h2>
+                <div id="stageGrid" class="grid-container"></div>
+                <button id="resetProgressBtn" style="margin-top:20px; width:100%; background:none; border:none; color:#ef4444; text-decoration:underline; font-size:12px; cursor:pointer;">학습 기록 초기화 (관리자)</button>
             </div>
         </div>
 
+        <!-- [학습 화면] -->
         <div id="gameView" style="display:none;">
-            <div class="quiz-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
-                <div class="progress-pill" id="progressText">1/-</div>
-                <button class="btn-global btn-logout" id="backBtn" style="padding:8px 15px;">목차로</button>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
+                <div class="progress-pill" id="progressText">1 / 179</div>
+                <button class="btn-stage-toggle" id="backBtn">목차</button>
             </div>
-            <div class="progress-bar-wrap"><div id="progressBar" class="progress-bar"></div></div>
+
+            <div class="progress-bar-wrap" style="height:8px; margin-bottom:15px;">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+
             <div class="control-row">
                 <button id="playBtn">🔊 듣기</button>
                 <select id="speedControl">
@@ -77,16 +81,18 @@
                 </select>
                 <button id="checkBtn">제출</button>
             </div>
+
             <div class="question-card">
-                <div id="stepLabel">Step 1</div>
-                <div id="meaningBox"></div>
+                <div id="stepLabel">Step 1. 듣고 배열하기</div>
+                <div id="meaningBox" style="display:none;"></div>
+
                 <div id="contentArea">
                     <div id="step1Area">
                         <div id="answerArea" class="drop-zone"></div>
                         <div id="wordBank" class="word-bank"></div>
                     </div>
                     <div id="step2Area" style="display:none;">
-                        <textarea id="typeInput" class="type-input" placeholder="문장을 입력하세요..." spellcheck="false"></textarea>
+                        <textarea id="typeInput" class="type-input" placeholder="듣고 타이핑하세요..." spellcheck="false"></textarea>
                     </div>
                 </div>
             </div>
@@ -94,11 +100,9 @@
     </div>
 
     <script type="module">
-        // [수정] 외부 파일들로부터 필요한 기능 및 데이터를 임포트합니다.
         import { supabase, initHeader, showAlert, initSecurity } from './global.js';
         import { db } from './data-listening.js';
 
-        const ADMIN_PASSWORD = '569020';
         let maxUnlockedIndex = 0;
         let currentIndex = 0;
         let currentStep = 1;
@@ -109,6 +113,8 @@
         const gameView = document.getElementById('gameView');
         const stageGrid = document.getElementById('stageGrid');
         const typeInput = document.getElementById('typeInput');
+        const meaningBox = document.getElementById('meaningBox');
+        const playBtn = document.getElementById('playBtn');
 
         async function init() {
             await initHeader('듣기 학습관');
@@ -129,8 +135,7 @@
             const { error } = await supabase.from('listening_progress').upsert({ 
                 user_id: user.id, max_index: newMax, last_studied_at: new Date().toISOString() 
             });
-            if (error) showAlert('저장 실패', '진도 저장 중 오류가 발생했습니다.', true);
-            else maxUnlockedIndex = newMax;
+            if (!error) maxUnlockedIndex = newMax;
         }
 
         function renderMenu() {
@@ -152,20 +157,32 @@
             currentSentence = db[idx].en;
             menuView.style.display = 'none';
             gameView.style.display = 'block';
+            
             document.getElementById('progressText').innerText = `${idx + 1} / ${db.length}`;
             document.getElementById('progressBar').style.width = `${((idx + 1) / db.length) * 100}%`;
-            document.getElementById('stepLabel').innerText = `Step ${step}`;
-            document.getElementById('meaningBox').innerText = db[idx].ko;
+            meaningBox.innerText = db[idx].ko;
+
+            // [Step별 로직 분기]
+            const labels = ["", "Step 1. 듣고 배열하기", "Step 2. 듣고 타이핑하기", "Step 3. 뜻 보고 배열하기", "Step 4. 뜻 보고 타이핑하기"];
+            document.getElementById('stepLabel').innerText = labels[step];
+
+            // 1,2단계는 듣기 중심(뜻 숨김), 3,4단계는 영작 중심(뜻 보여줌)
+            meaningBox.style.display = (step >= 3) ? 'block' : 'none';
+            playBtn.style.opacity = (step >= 3) ? '0.3' : '1'; 
             
             const isTyping = (step === 2 || step === 4);
             document.getElementById('step1Area').style.display = isTyping ? 'none' : 'block';
             document.getElementById('step2Area').style.display = isTyping ? 'block' : 'none';
             
             if (!isTyping) renderWords();
-            else { typeInput.value = ''; setTimeout(() => typeInput.focus(), 200); }
+            else { 
+                typeInput.value = ''; 
+                typeInput.placeholder = (step === 2) ? "듣고 타이핑하세요..." : "뜻을 보고 영작하세요...";
+                setTimeout(() => typeInput.focus(), 200); 
+            }
 
             audio.src = db[idx].audioUrl;
-            if(step <= 2) playAudio();
+            if(step <= 2) playAudio(); // 1,2단계만 자동 재생
         }
 
         function renderWords() {
@@ -192,11 +209,11 @@
             const clean = (s) => s.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim();
             
             if (clean(userAns) === clean(currentSentence)) {
-                if (currentStep < 2) { // 2단계(받아쓰기)까지만 진행 (기존 로직 유지)
+                if (currentStep < 4) {
                     showAlert('정답입니다!', '다음 단계로 이동합니다.', false, () => startGame(currentIndex, currentStep + 1));
                 } else {
                     await saveProgress(currentIndex + 1);
-                    showAlert('완벽합니다!', '다음 문장으로 넘어갑니다.', false, () => {
+                    showAlert('완벽합니다!', '문장을 마스터했습니다.', false, () => {
                         if (currentIndex + 1 < db.length) startGame(currentIndex + 1, 1);
                         else location.reload();
                     });
@@ -208,17 +225,17 @@
 
         function playAudio() {
             audio.playbackRate = parseFloat(document.getElementById('speedControl').value);
-            audio.play().catch(e => console.log("재생 오류:", e));
+            audio.play().catch(e => console.log("재생 오류"));
         }
 
-        document.getElementById('playBtn').onclick = playAudio;
+        playBtn.onclick = playAudio;
         document.getElementById('checkBtn').onclick = checkAnswer;
         document.getElementById('backBtn').onclick = () => location.reload();
         
         document.getElementById('resetProgressBtn').onclick = () => {
-            const pw = prompt('관리자 비밀번호를 입력하세요.');
-            if (pw === ADMIN_PASSWORD) {
-                showAlert('경고', '학습 기록을 초기화하시겠습니까?', true, async () => {
+            const pw = prompt('관리자 비밀번호 입력');
+            if (pw === '569020') {
+                showAlert('경고', '기록을 초기화할까요?', true, async () => {
                     const { data: { user } } = await supabase.auth.getUser();
                     await supabase.from('listening_progress').upsert({ user_id: user.id, max_index: 0 });
                     location.reload();
