@@ -1,71 +1,99 @@
-/* [Global Standard CSS] 디자인 복구 버전 */
+/* [Global Standard CSS] 모바일 최적화 통합 버전 */
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 :root {
-    --bg: #f8fafc;
+    --bg: #f4f7fb;
     --card: #ffffff;
-    --line: #cbd5e1; /* 선명한 테두리 */
+    --line: #cbd5e1;
     --text: #1f2937;
     --muted: #64748b;
     --blue: #4f8cff;
     --green: #4caf50;
-    --orange: #f97316;
     --slate: #607d8b;
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow: 0 4px 15px rgba(15, 23, 42, 0.08);
 }
 
 html, body { 
     margin: 0; padding: 0; height: 100%; 
     font-family: Arial, sans-serif;
-    background: var(--bg); 
+    background: linear-gradient(180deg, #eff5ff 0%, #f4f7fb 35%, #eef8f1 100%);
     color: var(--text); 
     user-select: none;
     -webkit-user-select: none;
 }
 
-/* 전체 감싸는 영역 간격 조정 */
-.wrap { width: 100%; max-width: 1100px; margin: 0 auto; padding: 12px 20px; min-height: 100vh; }
+/* 전체 감싸는 박스 */
+.wrap { width: 100%; max-width: 1100px; margin: 0 auto; padding: 15px 20px; min-height: 100vh; }
 
-/* 상단바 디자인 */
+/* 상단바 */
 .topbar {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 0; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;
+    padding: 10px 0; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;
 }
-.topbar h1 { margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
-.btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar h1 { margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -0.03em; color: #0f172a; }
+.btns { display: flex; gap: 8px; }
 
-/* 버튼 디자인 */
-button {
-    border: none; border-radius: 10px; font-size: 14px; font-weight: 700;
-    cursor: pointer; transition: all 0.1s ease; padding: 10px 16px;
+/* 공통 버튼 */
+.btn-global {
+    border: none; border-radius: 12px; font-size: 14px; font-weight: 800;
+    cursor: pointer; transition: all 0.2s ease;
+    padding: 10px 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    white-space: nowrap; /* 글자 줄바꿈 방지 */
 }
-.btn-light { background: #fff; color: #334155; border: 1.5px solid var(--line); }
-.btn-slate { background: var(--slate); color: #fff; }
-button:hover { opacity: 0.9; transform: translateY(-1px); }
-button:active { transform: translateY(0); }
+.btn-home { background: var(--blue); color: #fff; }
+.btn-home:hover { background: #3b82f6; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(79, 140, 255, 0.3); }
+.btn-logout { background: var(--slate); color: #fff; }
+.btn-logout:hover { background: #475569; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(100, 116, 139, 0.3); }
+.btn-global:active { transform: translateY(0); }
 
-/* ★★★ 단원 카드 디자인 (여기서 복구되었습니다) ★★★ */
-.unit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+/* 단원 카드 그리드 */
+.unit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
 .unit-card {
-    border: 2px solid var(--line); /* 선명한 테두리 */
-    background: #fff; border-radius: 18px; padding: 18px;
+    border: 2px solid var(--line);
+    background: #fff; border-radius: 20px; padding: 20px;
     min-height: 140px; display: flex; flex-direction: column; justify-content: space-between;
     cursor: pointer; box-shadow: var(--shadow); text-align: left;
+    transition: all 0.25s ease;
 }
-.unit-card:hover { border-color: var(--blue); transform: translateY(-3px); }
-.badge { display: inline-flex; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 800; background: #eef4ff; color: #335ea8; margin-bottom: 8px; width: max-content; }
-.unit-title { font-size: 19px; font-weight: 800; margin-bottom: 6px; color: #1e293b; }
-.meta { color: var(--muted); font-size: 13px; font-weight: 500; }
+.unit-card:hover { border-color: var(--blue); transform: translateY(-5px); box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1); }
+.badge { display: inline-flex; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 800; background: #eef4ff; color: #335ea8; margin-bottom: 8px; width: max-content; }
+.unit-title { font-size: 20px; font-weight: 800; margin-bottom: 6px; color: #1e293b; }
+.meta { color: var(--muted); font-size: 13px; font-weight: 600; }
 
-/* 팝업 디자인 */
-#globalModal {
-    position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); 
-    display: none; justify-content: center; align-items: center; 
-    padding: 20px; z-index: 9999;
+/* 팝업(모달) */
+#globalModal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); display: none; justify-content: center; align-items: center; padding: 20px; z-index: 9999; backdrop-filter: blur(4px); }
+.modal-content { background: #fff; border-radius: 24px; padding: 24px; width: 100%; max-width: 360px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
+.modal-title { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+.modal-msg { margin-bottom: 20px; line-height: 1.6; color: #475569; font-size: 15px; }
+.m-btn { width: 100%; padding: 14px; border-radius: 12px; font-weight: 800; font-size: 16px; cursor: pointer; border: none; margin-top: 8px; }
+
+/* =============================================
+   ★★★ 모바일 화면 최적화 (640px 이하) ★★★
+   ============================================= */
+@media (max-width: 640px) {
+    .wrap { padding: 10px 15px; }
+    
+    .topbar { margin-bottom: 15px; }
+    .topbar h1 { font-size: 22px; } /* 제목 크기 축소 */
+    
+    .btn-global { padding: 8px 14px; font-size: 13px; border-radius: 10px; } /* 버튼 크기 축소 */
+    
+    /* 단원 카드를 모바일에서 2열로 강제 배치 (시원하게 보이도록) */
+    .unit-grid { 
+        grid-template-columns: 1fr 1fr; 
+        gap: 10px; 
+    }
+    
+    .unit-card { 
+        padding: 15px; 
+        min-height: 120px; 
+        border-radius: 16px; 
+    }
+    
+    .unit-title { font-size: 17px; } /* 카드 제목 축소 */
+    .badge { padding: 3px 8px; font-size: 10px; }
+    .meta { font-size: 11px; }
+
+    .modal-content { padding: 20px; border-radius: 20px; }
+    .modal-title { font-size: 19px; }
 }
-.modal-content { 
-    background: #fff; border-radius: 24px; padding: 25px; 
-    width: 100%; max-width: 380px; text-align: center;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-}
-.m-btn { width: 100%; padding: 14px; border-radius: 12px; font-weight: 800; font-size: 16px; cursor: pointer; border: none; margin-top: 10px; }
