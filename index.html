@@ -7,37 +7,45 @@
     
     <link rel="stylesheet" href="global.css">
     <style>
-        /* [UI 레이아웃 및 버튼 정제] */
+        /* [UI 레이아웃 및 진행바 강화] */
         .progress-pill { display:inline-flex; align-items:center; background:#eef4ff; color:#2f5da8; border-radius:999px; padding:6px 14px; font-size:13px; font-weight:700; }
         .link-back { color: #64748b; text-decoration: none; font-size: 14px; font-weight: 800; padding: 6px 14px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; }
 
-        /* 컨트롤 버튼 - 플랫 스타일 (그림자 제거) */
+        /* [진행바] 희미하지 않게 배경과 게이지 색상 확실히 구분 */
+        .progress-bar-wrap { width: 100%; height: 12px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin-bottom: 20px; }
+        .progress-bar { height: 100%; width: 0%; background: #4f8cff; transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        /* [컨트롤 버튼] 호버 및 누르는 효과 추가 (그림자 없이 깔끔하게) */
         .control-row { display:flex; gap:8px; margin-bottom:15px; }
-        #playBtn { flex:1.2; background:#ff9800; color:#fff; border:none; border-radius:14px; padding:13px; font-weight:800; font-size:16px; cursor:pointer; transition: opacity 0.2s; }
-        #playBtn:active { opacity: 0.8; }
+        
+        #playBtn, #checkBtn { 
+            border:none; border-radius:14px; padding:14px; font-weight:800; font-size:16px; cursor:pointer; 
+            transition: all 0.2s ease;
+        }
+
+        #playBtn { flex:1.2; background:#ff9800; color:#fff; }
+        #playBtn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+        #playBtn:active { transform: translateY(1px); filter: brightness(0.95); }
+
+        #checkBtn { flex:1.2; background:#4caf50; color:#fff; }
+        #checkBtn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+        #checkBtn:active { transform: translateY(1px); filter: brightness(0.95); }
+
         #speedControl { flex:0.8; border:1px solid #cbd5e1; border-radius:14px; padding:0 8px; font-weight:700; outline:none; background:#fff; text-align:center; }
-        #checkBtn { flex:1.2; background:#4caf50; color:#fff; border:none; border-radius:14px; padding:13px; font-weight:800; font-size:16px; cursor:pointer; transition: opacity 0.2s; }
-        #checkBtn:active { opacity: 0.8; }
 
         .question-card { background:#fff; border:1px solid #e5e7eb; border-radius:24px; padding:22px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
         #stepLabel { display:inline-block; padding:5px 12px; border-radius:999px; background:#fff4e8; color:#f97316; font-size:12px; font-weight:800; margin-bottom:12px; }
         #meaningBox { padding:18px; background:#eef6ff; border:1px solid #cfe1ff; border-radius:16px; text-align:center; font-weight:800; font-size:17px; color:#1565c0; margin-bottom:15px; }
 
-        /* [단어 버튼 - 입체감 유지 및 호버 효과 추가] */
+        /* [단어 버튼] 호버 시 떠오르는 효과 */
         .drop-zone { min-height:120px; border:2px dashed #93c5fd; border-radius:18px; display:flex; flex-wrap:wrap; gap:10px; padding:14px; margin-bottom:15px; background:#fff; align-content: flex-start; }
         .word-bank { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
-        
         .word-btn { 
             padding:11px 16px; font-size:15px; border-radius:12px; background:#4f8cff; color:#fff; border:none; font-weight:800; cursor:pointer; 
-            box-shadow: 0 4px 10px rgba(79,140,255,0.35); 
-            transition: transform 0.2s, box-shadow 0.2s, background 0.2s; 
+            box-shadow: 0 4px 10px rgba(79,140,255,0.3); 
+            transition: all 0.2s ease;
         }
-        /* 호버 시 위로 떠오르는 반응형 효과 */
-        .word-btn:hover { 
-            transform: translateY(-4px); 
-            box-shadow: 0 8px 18px rgba(79,140,255,0.45); 
-            background: #609aff; 
-        }
+        .word-btn:hover { transform: translateY(-4px); box-shadow: 0 8px 18px rgba(79,140,255,0.4); background: #609aff; }
         .word-btn:active { transform: translateY(-1px); }
 
         .type-input { width:100%; min-height:80px; padding:15px; font-size:18px; border:2px solid #bfdbfe; border-radius:18px; outline:none; resize:none; font-family:inherit; overflow:hidden; }
@@ -52,6 +60,8 @@
 
 <body>
     <div class="wrap">
+        <!-- 상단바 구역 -->
+
         <div id="menuView">
             <div class="unit-grid" style="margin-bottom:20px;">
                 <div class="unit-card" style="min-height:90px; padding:18px;">
@@ -75,8 +85,9 @@
                 <div class="progress-pill" id="progressText">1 / 179</div>
                 <a href="javascript:void(0)" class="link-back" id="backBtn">목차로 돌아가기</a>
             </div>
-            <div class="progress-bar-wrap" style="height:10px; margin-bottom:15px; background:#eef2f7;">
-                <div id="progressBar" class="progress-bar" style="background:linear-gradient(90deg, #4f8cff, #60e394);"></div>
+            <!-- 진행바: 확실하게 차오르도록 함 -->
+            <div class="progress-bar-wrap">
+                <div id="progressBar" class="progress-bar"></div>
             </div>
             <div class="control-row">
                 <button id="playBtn">🔊 듣기</button>
@@ -118,6 +129,7 @@
         const stageGrid = document.getElementById('stageGrid');
         const typeInput = document.getElementById('typeInput');
         const meaningBox = document.getElementById('meaningBox');
+        const progressBar = document.getElementById('progressBar');
 
         async function init() {
             await initHeader('듣기 학습관');
@@ -156,8 +168,13 @@
             currentSentence = db[idx].en;
             menuView.style.display = 'none';
             gameView.style.display = 'block';
+            
             document.getElementById('progressText').innerText = `${idx + 1} / ${db.length}`;
-            document.getElementById('progressBar').style.width = `${((idx + 1) / db.length) * 100}%`;
+            
+            // 진행바 너비 계산 및 적용
+            const progressPercent = ((idx + 1) / db.length) * 100;
+            progressBar.style.width = progressPercent + '%';
+
             meaningBox.innerText = db[idx].ko;
             const labels = ["", "Step 1. 듣고 배열하기", "Step 2. 듣고 타이핑하기", "Step 3. 뜻 보고 배열하기 (영작)", "Step 4. 뜻 보고 타이핑하기 (영작)"];
             document.getElementById('stepLabel').innerText = labels[step];
@@ -204,18 +221,15 @@
         document.getElementById('checkBtn').onclick = checkAnswer;
         document.getElementById('backBtn').onclick = () => location.reload();
         
-        // [중요] 엔터 키 스크롤 방지 로직
+        // 엔터 키 스크롤 방지 로직
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
                 const modal = document.getElementById('globalModal');
                 const isModalVisible = modal && modal.style.display === 'flex';
-
                 if (isModalVisible) {
-                    // 팝업이 떠 있을 때 엔터 치면 확인 버튼 클릭 (스크롤 방지)
                     e.preventDefault(); 
                     document.getElementById('gYes').click();
                 } else if (gameView.style.display === 'block') {
-                    // 게임 중 엔터 치면 정답 체크 (스크롤 방지)
                     e.preventDefault(); 
                     checkAnswer();
                 }
