@@ -19,8 +19,10 @@
         #playBtn, #checkBtn { border:none; border-radius:12px; padding:12px; font-weight:800; font-size:16px; cursor:pointer; transition: all 0.2s ease; outline:none; }
         
         #playBtn { flex:1.2; background:#ff9800; color:#fff; min-width: 100px; }
-        #playBtn:hover { filter: brightness(1.1); transform: translateY(-1px); }
-        
+        #playBtn:hover:not(:disabled) { filter: brightness(1.1); transform: translateY(-1px); }
+        /* 비활성화 상태 스타일 */
+        #playBtn:disabled { background: #e2e8f0; color: #94a3b8; cursor: not-allowed; transform: none; filter: none; }
+
         #checkBtn { flex:1.2; background:#4caf50; color:#fff; }
         #checkBtn:hover { filter: brightness(1.1); transform: translateY(-1px); }
 
@@ -34,7 +36,6 @@
         .drop-zone { min-height:120px; border:2px dashed #93c5fd; border-radius:18px; display:flex; flex-wrap:wrap; gap:10px; padding:14px; margin-bottom:15px; background:#fff; align-content: flex-start; }
         .word-bank { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
         
-        /* 단어 버튼 호버 반응은 유지 */
         .word-btn { 
             padding:11px 16px; font-size:15px; border-radius:10px; background:#448aff; color:#fff; border:none; font-weight:800; cursor:pointer; 
             box-shadow: 0 4px 10px rgba(68,138,255,0.3); transition: all 0.2s ease;
@@ -43,19 +44,16 @@
 
         .type-input { width:100%; min-height:80px; padding:15px; font-size:18px; border:2px solid #bfdbfe; border-radius:18px; outline:none; resize:none; font-family:inherit; overflow:hidden; }
 
-        /* [4. 스테이지 목차 - 그림자 제거하여 깔끔하게] */
+        /* [4. 스테이지 목차] */
         .grid-container { display:grid; grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); gap:12px; }
         .stage-btn { aspect-ratio:1; border-radius:15px; border:none; font-weight:800; font-size:18px; cursor:pointer; transition: all 0.2s ease; }
         
-        /* 완료된 단계: 깔끔한 솔리드 그린 */
         .stage-completed { background: #4caf50; color: #fff; }
         .stage-completed:hover { filter: brightness(1.1); transform: translateY(-2px); }
 
-        /* 현재 단계: 깔끔한 솔리드 블루 */
         .stage-current { background: #448aff; color: #fff; box-shadow: 0 4px 12px rgba(68,138,255,0.3); }
         .stage-current:hover { transform: translateY(-3px) scale(1.05); }
 
-        /* 잠금 단계 */
         .stage-locked { background: #f1f5f9; color: #cbd5e1; cursor: not-allowed; }
 
         @media (max-width: 640px) {
@@ -177,14 +175,21 @@
             meaningBox.innerText = db[idx].ko;
             const labels = ["", "Step 1. 듣고 배열하기", "Step 2. 듣고 타이핑하기", "Step 3. 뜻 보고 배열하기 (영작)", "Step 4. 뜻 보고 타이핑하기 (영작)"];
             document.getElementById('stepLabel').innerText = labels[step];
+            
+            // 3,4단계 영작 모드: 뜻 표시 & 듣기 버튼 비활성화
             meaningBox.style.display = (step >= 3) ? 'block' : 'none';
+            playBtn.disabled = (step >= 3); // 버튼 비활성화
+            
             const isTyping = (step === 2 || step === 4);
             document.getElementById('step1Area').style.display = isTyping ? 'none' : 'block';
             document.getElementById('step2Area').style.display = isTyping ? 'block' : 'none';
             if (!isTyping) renderWords();
             else { typeInput.value = ''; setTimeout(() => typeInput.focus(), 200); }
+            
             audio.src = db[idx].audioUrl;
             playBtn.innerHTML = '🔊 듣기';
+            
+            // 1,2단계일 때만 자동 재생
             if(step <= 2) toggleAudio(true);
         }
 
@@ -217,6 +222,9 @@
         }
 
         function toggleAudio(forcePlay = false) {
+            // 3단계 이상이면 재생 시도 차단
+            if (currentStep >= 3) return;
+            
             audio.playbackRate = parseFloat(document.getElementById('speedControl').value);
             if (forcePlay || audio.paused) {
                 audio.play().catch(e => {});
