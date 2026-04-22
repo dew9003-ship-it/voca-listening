@@ -3,62 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Listening Academy</title>
+    <title>Listening Academy - 보카엔딩</title>
     
     <link rel="stylesheet" href="global.css">
     <style>
-        /* [1. 진행바 스타일] */
-        .progress-bar-wrap { width: 100%; height: 12px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin-bottom: 20px; }
-        .progress-bar { height: 100%; width: 0%; background: #448aff; transition: width 0.4s ease; }
+        /* [1. 전체 레이아웃 정제] */
+        .progress-pill { display:inline-flex; align-items:center; background:#eef4ff; color:#2f5da8; border-radius:999px; padding:8px 16px; font-size:14px; font-weight:700; }
+        .link-back { color: #64748b; text-decoration: none; font-size: 14px; font-weight: 800; padding: 10px 16px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; transition: 0.2s; }
+        .link-back:hover { background: #f8fafc; transform: translateY(-2px); }
 
-        /* [2. 컨트롤 버튼 - 주황색 듣기 버튼 복구] */
-        .control-row { display:flex; gap:8px; margin-bottom:15px; }
-        #playBtn, #checkBtn { border:none; border-radius:14px; padding:14px; font-weight:800; font-size:16px; cursor:pointer; transition: all 0.2s ease; outline:none; }
+        /* [2. 진행바 - 확실히 눈에 띄게] */
+        .progress-bar-wrap { width: 100%; height: 16px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin: 15px 0 25px 0; border: 1px solid #cbd5e1; }
+        .progress-bar { height: 100%; width: 0%; background: #448aff; transition: width 0.4s ease; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); }
+
+        /* [3. 컨트롤 버튼 - 주황/초록 확실히] */
+        .control-row { display:flex; gap:12px; margin-bottom:20px; }
+        #playBtn, #checkBtn { border:none; border-radius:16px; padding:16px; font-weight:800; font-size:18px; cursor:pointer; transition: all 0.2s ease; outline:none; }
         
-        #playBtn { flex:1.2; background:#ff9800; color:#fff; min-width: 100px; } /* ★ 주황색 복구 */
-        #playBtn:hover { filter: brightness(1.1); transform: translateY(-2px); }
+        #playBtn { flex:1.2; background:#ff9800; color:#fff; min-width: 120px; }
+        #playBtn:hover { filter: brightness(1.1); transform: translateY(-3px); }
         #playBtn:active { transform: translateY(1px); }
 
-        #checkBtn { flex:1.2; background:#4caf50; color:#fff; } /* 이미지 학습 그린 */
-        #checkBtn:hover { filter: brightness(1.1); transform: translateY(-2px); }
+        #checkBtn { flex:1.2; background:#4caf50; color:#fff; }
+        #checkBtn:hover { filter: brightness(1.1); transform: translateY(-3px); }
         #checkBtn:active { transform: translateY(1px); }
 
-        #speedControl { flex:0.8; border:1px solid #cbd5e1; border-radius:14px; padding:0 8px; font-weight:700; outline:none; background:#fff; text-align:center; }
+        #speedControl { flex:0.8; border:2px solid #cbd5e1; border-radius:16px; padding:0 10px; font-weight:800; outline:none; background:#fff; text-align:center; font-size:16px; }
 
-        /* [3. 퀴즈 카드 및 단어 블록] */
-        .question-card { background:#fff; border:1px solid #e5e7eb; border-radius:24px; padding:22px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        #stepLabel { display:inline-block; padding:5px 12px; border-radius:8px; background:#fff4e8; color:#f97316; font-size:12px; font-weight:800; margin-bottom:12px; }
-        #meaningBox { padding:18px; background:#eef6ff; border:1px solid #cfe1ff; border-radius:16px; text-align:center; font-weight:800; font-size:17px; color:#1565c0; margin-bottom:15px; }
+        /* [4. 퀴즈 카드 및 단어 블록 - 크기 키움] */
+        .question-card { background:#fff; border:1px solid #e5e7eb; border-radius:28px; padding:25px; box-shadow: 0 15px 35px rgba(0,0,0,0.07); }
+        #stepLabel { display:inline-block; padding:6px 14px; border-radius:10px; background:#fff4e8; color:#f97316; font-size:14px; font-weight:800; margin-bottom:15px; }
+        #meaningBox { padding:20px; background:#eef6ff; border:1px solid #cfe1ff; border-radius:20px; text-align:center; font-weight:800; font-size:19px; color:#1565c0; margin-bottom:20px; }
 
-        .drop-zone { min-height:120px; border:2px dashed #93c5fd; border-radius:18px; display:flex; flex-wrap:wrap; gap:10px; padding:14px; margin-bottom:15px; background:#fff; align-content: flex-start; }
-        .word-bank { display:flex; flex-wrap:wrap; gap:10px; justify(content:center; }
+        .drop-zone { min-height:140px; border:2px dashed #93c5fd; border-radius:22px; display:flex; flex-wrap:wrap; gap:12px; padding:20px; margin-bottom:20px; background:#fcfdfe; align-content: flex-start; }
+        .word-bank { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
         
+        /* 단어 버튼 - 이미지 1번처럼 큼직하고 입체적으로 */
         .word-btn { 
-            padding:11px 16px; font-size:15px; border-radius:10px; background:#448aff; color:#fff; border:none; font-weight:800; cursor:pointer; 
-            box-shadow: 0 4px 10px rgba(68,138,255,0.3); transition: all 0.2s ease;
+            padding:12px 18px; font-size:16px; border-radius:12px; background:#448aff; color:#fff; border:none; font-weight:800; cursor:pointer; 
+            box-shadow: 0 5px 15px rgba(68,138,255,0.4); transition: all 0.2s ease;
         }
-        .word-btn:hover { transform: translateY(-4px); box-shadow: 0 8px 18px rgba(68,138,255,0.4); }
+        .word-btn:hover { transform: translateY(-5px); box-shadow: 0 10px 22px rgba(68,138,255,0.5); background: #559aff; }
+        .word-btn:active { transform: translateY(-1px); }
 
-        .type-input { width:100%; min-height:80px; padding:15px; font-size:18px; border:2px solid #bfdbfe; border-radius:18px; outline:none; resize:none; font-family:inherit; overflow:hidden; }
+        .type-input { width:100%; min-height:100px; padding:20px; font-size:20px; border:2px solid #bfdbfe; border-radius:20px; outline:none; resize:none; font-family:inherit; overflow:hidden; }
 
-        /* [4. 스테이지 목차 - 이미지 색상 솔리드 적용] */
-        .grid-container { display:grid; grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); gap:12px; }
-        .stage-btn { aspect-ratio:1; border-radius:16px; border:none; font-weight:800; font-size:18px; cursor:pointer; transition: all 0.2s ease; }
+        /* [5. 스테이지 목차 - 큼직하게 4열] */
+        .grid-container { display:grid; grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); gap:15px; }
+        .stage-btn { aspect-ratio:1; border-radius:18px; border:none; font-weight:800; font-size:20px; cursor:pointer; transition: all 0.2s ease; }
         
         /* 완료된 단계: 진한 그린 */
-        .stage-completed { background: #4caf50; color: #fff; }
-        .stage-completed:hover { filter: brightness(1.1); transform: translateY(-3px); }
+        .stage-completed { background: #4caf50; color: #fff; box-shadow: 0 4px 0 #388e3c; }
+        .stage-completed:hover { transform: translateY(-4px); box-shadow: 0 8px 0 #388e3c; }
 
         /* 현재 단계: 진한 블루 */
-        .stage-current { background: #448aff; color: #fff; box-shadow: 0 6px 15px rgba(68,138,255,0.4); }
-        .stage-current:hover { transform: translateY(-4px) scale(1.05); filter: brightness(1.1); }
+        .stage-current { background: #448aff; color: #fff; box-shadow: 0 6px 20px rgba(68,138,255,0.4); }
+        .stage-current:hover { transform: translateY(-5px) scale(1.05); filter: brightness(1.1); }
 
-        /* 잠금 단계 */
-        .stage-locked { background: #f1f5f9; color: #cbd5e1; cursor: not-allowed; }
+        /* 잠긴 단계 */
+        .stage-locked { background: #f1f5f9; color: #cbd5e1; cursor: not-allowed; border: 1px solid #e2e8f0; }
 
         @media (max-width: 640px) {
-            .grid-container { grid-template-columns: repeat(4, 1fr) !important; gap: 8px !important; }
-            .stage-btn { font-size: 16px !important; border-radius: 12px !important; }
+            .grid-container { grid-template-columns: repeat(4, 1fr) !important; gap: 10px !important; }
+            .stage-btn { font-size: 18px !important; border-radius: 14px !important; }
+            .word-btn { padding: 10px 14px; font-size: 14px; }
         }
     </style>
 </head>
@@ -66,21 +74,21 @@
 <body>
     <div class="wrap">
         <div id="menuView">
-            <div class="unit-grid" style="margin-bottom:20px;">
-                <div class="unit-card" style="min-height:90px; padding:18px;"><span class="badge">TOTAL</span><div class="unit-title" id="totalCountText">-</div></div>
-                <div class="unit-card" style="min-height:90px; padding:18px;"><span class="badge">UNLOCKED</span><div class="unit-title" id="unlockedText">1</div></div>
+            <div class="unit-grid" style="margin-bottom:25px;">
+                <div class="unit-card" style="min-height:100px; padding:20px;"><span class="badge">TOTAL</span><div class="unit-title" id="totalCountText" style="font-size:30px;">-</div></div>
+                <div class="unit-card" style="min-height:100px; padding:20px;"><span class="badge">UNLOCKED</span><div class="unit-title" id="unlockedText" style="font-size:30px;">1</div></div>
             </div>
-            <div class="panel" style="background:#fff; padding:25px; border-radius:24px; border:1px solid #e5e7eb;">
-                <h2 style="margin:0 0 15px 0; font-size:20px; font-weight:800;">학습 목차</h2>
+            <div class="panel" style="background:#fff; padding:30px; border-radius:28px; border:1px solid #e5e7eb;">
+                <h2 style="margin:0 0 20px 0; font-size:22px; font-weight:800;">학습 목차</h2>
                 <div id="stageGrid" class="grid-container"></div>
-                <button id="resetProgressBtn" style="margin-top:25px; width:100%; background:none; border:none; color:#94a3b8; text-decoration:underline; font-size:12px; cursor:pointer;">학습 기록 초기화</button>
+                <button id="resetProgressBtn" style="margin-top:30px; width:100%; background:none; border:none; color:#94a3b8; text-decoration:underline; font-size:14px; cursor:pointer;">학습 기록 초기화</button>
             </div>
         </div>
 
         <div id="gameView" style="display:none;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
                 <div class="progress-pill" id="progressText">1 / 179</div>
-                <a href="javascript:void(0)" onclick="location.reload()" style="color: #64748b; text-decoration: none; font-size: 14px; font-weight: 800; padding: 6px 12px; border: 1px solid #e2e8f0; border-radius: 10px; background: #fff;">목차로 돌아가기</a>
+                <a href="javascript:void(0)" onclick="location.reload()" class="link-back">목차로 돌아가기</a>
             </div>
             <div class="progress-bar-wrap"><div id="progressBar" class="progress-bar"></div></div>
             <div class="control-row">
@@ -101,7 +109,7 @@
                         <div id="wordBank" class="word-bank"></div>
                     </div>
                     <div id="step2Area" style="display:none;">
-                        <textarea id="typeInput" class="type-input" placeholder="입력하세요..." spellcheck="false"></textarea>
+                        <textarea id="typeInput" class="type-input" placeholder="문장을 입력하세요..." spellcheck="false"></textarea>
                     </div>
                 </div>
             </div>
@@ -210,7 +218,7 @@
             if (clean(userAns) === clean(currentSentence)) {
                 audio.pause();
                 if (currentStep < 4) showAlert('정답입니다!', '다음 단계로 진행합니다.', false, () => startGame(currentIndex, currentStep + 1));
-                else { await saveProgress(currentIndex + 1); showAlert('성공!', '학습 완료!', false, () => { if (currentIndex + 1 < db.length) startGame(currentIndex + 1, 1); else location.reload(); }); }
+                else { await saveProgress(currentIndex + 1); showAlert('성공!', '미션 완료!', false, () => { if (currentIndex + 1 < db.length) startGame(currentIndex + 1, 1); else location.reload(); }); }
             } else showAlert('오답', '다시 확인해 보세요.', true);
         }
 
