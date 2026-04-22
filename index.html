@@ -123,24 +123,55 @@
             renderMenu();
         }
 
-        // [데이터 무결성 강화] 저장 성공 여부를 반환함
-        async function saveProgress(value) {
-            const { data: { user } } = await supabase.auth.getUser();
-            if (!user) return false;
-            
-            const newMax = Math.max(maxUnlockedIndex, value);
-            const { error } = await supabase.from('listening_progress').upsert({ 
-                user_id: user.id, max_index: newMax, last_studied_at: new Date().toISOString() 
-            });
+        // [긴급 수정] 데이터베이스 구조에 맞게 저장 로직 복구
+async function saveProgress(value) {
+    try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) return false;
 
-            if (error) {
-                console.error("저장 오류:", error);
-                return false;
-            }
-            maxUnlockedIndex = newMax;
-            return true;
+        const userId = user.id;
+        const now = new Date().toISOString();
+        const newMaxVal = Math.max(maxUnlockedIndex, value);
+
+        // 1. 기존 데이터 조회 (reached_at 컬럼 유지를 위해 필요)
+        const { data: existingRow, error: fetchError } = await supabase
+            .from('listening_progress')
+            .select('max_index, reached_at')
+            .eq('user_id', userId)
+            .maybeSingle();
+
+        if (fetchError) {
+            console.error("기존 진도 조회 실패:", fetchError);
+            return false;
         }
 
+        const existingMax = existingRow ? Number(existingRow.max_index) : -1;
+
+        // 2. 저장할 데이터 구성 (기존 테이블 컬럼명 정확히 일치)
+        const payload = {
+            user_id: userId,
+            max_index: Math.max(existingMax, newMaxVal),
+            last_studied_at: now,
+            reached_at: (!existingRow || existingMax < newMaxVal) ? now : existingRow.reached_at
+        };
+
+        // 3. 서버 저장 (onConflict 옵션을 명시해야 서버에서 허용함)
+        const { error: upsertError } = await supabase
+            .from('listening_progress')
+            .upsert(payload, { onConflict: 'user_id' });
+
+        if (upsertError) {
+            console.error("Upsert 오류:", upsertError);
+            return false;
+        }
+
+        maxUnlockedIndex = payload.max_index;
+        return true;
+    } catch (err) {
+        console.error("예상치 못한 오류:", err);
+        return false;
+    }
+}
         function renderMenu() {
             stageGrid.innerHTML = '';
             document.getElementById('totalCountText').innerText = db.length;
